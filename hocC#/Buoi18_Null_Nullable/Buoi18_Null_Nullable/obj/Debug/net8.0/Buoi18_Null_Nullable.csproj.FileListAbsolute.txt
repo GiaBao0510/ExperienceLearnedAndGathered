@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\bin\Debug\net8.0\Buoi18_Null_Nullable.exe
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\bin\Debug\net8.0\Buoi18_Null_Nullable.deps.json
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\bin\Debug\net8.0\Buoi18_Null_Nullable.runtimeconfig.json
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\bin\Debug\net8.0\Buoi18_Null_Nullable.dll
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\bin\Debug\net8.0\Buoi18_Null_Nullable.pdb
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\obj\Debug\net8.0\Buoi18_Null_Nullable.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\obj\Debug\net8.0\Buoi18_Null_Nullable.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\obj\Debug\net8.0\Buoi18_Null_Nullable.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\obj\Debug\net8.0\Buoi18_Null_Nullable.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\obj\Debug\net8.0\Buoi18_Null_Nullable.sourcelink.json
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\obj\Debug\net8.0\Buoi18_Null_Nullable.dll
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\obj\Debug\net8.0\refint\Buoi18_Null_Nullable.dll
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\obj\Debug\net8.0\Buoi18_Null_Nullable.pdb
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\obj\Debug\net8.0\Buoi18_Null_Nullable.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi18_Null_Nullable\Buoi18_Null_Nullable\obj\Debug\net8.0\ref\Buoi18_Null_Nullable.dll

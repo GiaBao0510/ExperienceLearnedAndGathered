@@ -1,0 +1,15 @@
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\bin\Debug\net8.0\Buoi32_SuDung_Type_Attribute.exe
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\bin\Debug\net8.0\Buoi32_SuDung_Type_Attribute.deps.json
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\bin\Debug\net8.0\Buoi32_SuDung_Type_Attribute.runtimeconfig.json
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\bin\Debug\net8.0\Buoi32_SuDung_Type_Attribute.dll
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\bin\Debug\net8.0\Buoi32_SuDung_Type_Attribute.pdb
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\obj\Debug\net8.0\Buoi32_SuDung_Type_Attribute.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\obj\Debug\net8.0\Buoi32_SuDung_Type_Attribute.AssemblyInfoInputs.cache
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\obj\Debug\net8.0\Buoi32_SuDung_Type_Attribute.AssemblyInfo.cs
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\obj\Debug\net8.0\Buoi32_SuDung_Type_Attribute.csproj.CoreCompileInputs.cache
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\obj\Debug\net8.0\Buoi32_SuDung_Type_Attribute.sourcelink.json
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\obj\Debug\net8.0\Buoi32_SuDung_Type_Attribute.dll
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\obj\Debug\net8.0\refint\Buoi32_SuDung_Type_Attribute.dll
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\obj\Debug\net8.0\Buoi32_SuDung_Type_Attribute.pdb
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\obj\Debug\net8.0\Buoi32_SuDung_Type_Attribute.genruntimeconfig.cache
+D:\HocTap\Experience\hocC#\Buoi32_SuDung_Type_Attribute\Buoi32_SuDung_Type_Attribute\obj\Debug\net8.0\ref\Buoi32_SuDung_Type_Attribute.dll

@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\HocTap\\hocC#\\Buoi11_Lop_LapTrinhHuongDoiTuong\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{028B325D-A504-4AD7-8B1E-F265CE39E666}|Buoi11_Lop_LapTrinhHuongDoiTuong\\Buoi11_Lop_LapTrinhHuongDoiTuong.csproj|d:\\hoctap\\hocc#\\buoi11_lop_laptrinhhuongdoituong\\buoi11_lop_laptrinhhuongdoituong\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{028B325D-A504-4AD7-8B1E-F265CE39E666}|Buoi11_Lop_LapTrinhHuongDoiTuong\\Buoi11_Lop_LapTrinhHuongDoiTuong.csproj|solutionrelative:buoi11_lop_laptrinhhuongdoituong\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{028B325D-A504-4AD7-8B1E-F265CE39E666}|Buoi11_Lop_LapTrinhHuongDoiTuong\\Buoi11_Lop_LapTrinhHuongDoiTuong.csproj|d:\\hoctap\\hocc#\\buoi11_lop_laptrinhhuongdoituong\\buoi11_lop_laptrinhhuongdoituong\\vukhi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{028B325D-A504-4AD7-8B1E-F265CE39E666}|Buoi11_Lop_LapTrinhHuongDoiTuong\\Buoi11_Lop_LapTrinhHuongDoiTuong.csproj|solutionrelative:buoi11_lop_laptrinhhuongdoituong\\vukhi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VuKhi.cs",
+              "DocumentMoniker": "D:\\HocTap\\hocC#\\Buoi11_Lop_LapTrinhHuongDoiTuong\\Buoi11_Lop_LapTrinhHuongDoiTuong\\VuKhi.cs",
+              "RelativeDocumentMoniker": "Buoi11_Lop_LapTrinhHuongDoiTuong\\VuKhi.cs",
+              "ToolTip": "D:\\HocTap\\hocC#\\Buoi11_Lop_LapTrinhHuongDoiTuong\\Buoi11_Lop_LapTrinhHuongDoiTuong\\VuKhi.cs",
+              "RelativeToolTip": "Buoi11_Lop_LapTrinhHuongDoiTuong\\VuKhi.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAmwEsAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T15:28:56.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\HocTap\\hocC#\\Buoi11_Lop_LapTrinhHuongDoiTuong\\Buoi11_Lop_LapTrinhHuongDoiTuong\\Program.cs",
+              "RelativeDocumentMoniker": "Buoi11_Lop_LapTrinhHuongDoiTuong\\Program.cs",
+              "ToolTip": "D:\\HocTap\\hocC#\\Buoi11_Lop_LapTrinhHuongDoiTuong\\Buoi11_Lop_LapTrinhHuongDoiTuong\\Program.cs",
+              "RelativeToolTip": "Buoi11_Lop_LapTrinhHuongDoiTuong\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T14:27:19.267Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

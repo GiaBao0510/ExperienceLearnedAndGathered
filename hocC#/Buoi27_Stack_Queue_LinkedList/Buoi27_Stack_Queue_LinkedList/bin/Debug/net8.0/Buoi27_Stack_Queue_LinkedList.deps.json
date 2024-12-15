@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Buoi27_Stack_Queue_LinkedList/1.0.0": {
+        "runtime": {
+          "Buoi27_Stack_Queue_LinkedList.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Buoi27_Stack_Queue_LinkedList/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

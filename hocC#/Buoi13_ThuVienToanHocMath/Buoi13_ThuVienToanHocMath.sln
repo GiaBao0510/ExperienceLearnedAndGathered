@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buoi13_ThuVienToanHocMath", "Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath.csproj", "{1ECD380C-2707-4FA6-AB57-AADA8131A6C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1ECD380C-2707-4FA6-AB57-AADA8131A6C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ECD380C-2707-4FA6-AB57-AADA8131A6C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ECD380C-2707-4FA6-AB57-AADA8131A6C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ECD380C-2707-4FA6-AB57-AADA8131A6C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {405CECF5-9CC4-4BE7-900B-C889F891FC58}
+	EndGlobalSection
+EndGlobal

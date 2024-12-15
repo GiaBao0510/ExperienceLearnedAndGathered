@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\bin\Debug\net8.0\Buoi4_ToanTuSoSanhLogic.exe
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\bin\Debug\net8.0\Buoi4_ToanTuSoSanhLogic.deps.json
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\bin\Debug\net8.0\Buoi4_ToanTuSoSanhLogic.runtimeconfig.json
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\bin\Debug\net8.0\Buoi4_ToanTuSoSanhLogic.dll
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\bin\Debug\net8.0\Buoi4_ToanTuSoSanhLogic.pdb
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\obj\Debug\net8.0\Buoi4_ToanTuSoSanhLogic.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\obj\Debug\net8.0\Buoi4_ToanTuSoSanhLogic.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\obj\Debug\net8.0\Buoi4_ToanTuSoSanhLogic.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\obj\Debug\net8.0\Buoi4_ToanTuSoSanhLogic.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\obj\Debug\net8.0\Buoi4_ToanTuSoSanhLogic.sourcelink.json
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\obj\Debug\net8.0\Buoi4_ToanTuSoSanhLogic.dll
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\obj\Debug\net8.0\refint\Buoi4_ToanTuSoSanhLogic.dll
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\obj\Debug\net8.0\Buoi4_ToanTuSoSanhLogic.pdb
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\obj\Debug\net8.0\Buoi4_ToanTuSoSanhLogic.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi4_ToanTuSoSanhLogic\Buoi4_ToanTuSoSanhLogic\obj\Debug\net8.0\ref\Buoi4_ToanTuSoSanhLogic.dll

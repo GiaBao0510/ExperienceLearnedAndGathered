@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\bin\Debug\net8.0\Buoi25_TimHieuVaSuDung.exe
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\bin\Debug\net8.0\Buoi25_TimHieuVaSuDung.deps.json
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\bin\Debug\net8.0\Buoi25_TimHieuVaSuDung.runtimeconfig.json
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\bin\Debug\net8.0\Buoi25_TimHieuVaSuDung.dll
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\bin\Debug\net8.0\Buoi25_TimHieuVaSuDung.pdb
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\obj\Debug\net8.0\Buoi25_TimHieuVaSuDung.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\obj\Debug\net8.0\Buoi25_TimHieuVaSuDung.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\obj\Debug\net8.0\Buoi25_TimHieuVaSuDung.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\obj\Debug\net8.0\Buoi25_TimHieuVaSuDung.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\obj\Debug\net8.0\Buoi25_TimHieuVaSuDung.sourcelink.json
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\obj\Debug\net8.0\Buoi25_TimHieuVaSuDung.dll
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\obj\Debug\net8.0\refint\Buoi25_TimHieuVaSuDung.dll
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\obj\Debug\net8.0\Buoi25_TimHieuVaSuDung.pdb
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\obj\Debug\net8.0\Buoi25_TimHieuVaSuDung.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi25_TimHieuVaSuDung\Buoi25_TimHieuVaSuDung\obj\Debug\net8.0\ref\Buoi25_TimHieuVaSuDung.dll

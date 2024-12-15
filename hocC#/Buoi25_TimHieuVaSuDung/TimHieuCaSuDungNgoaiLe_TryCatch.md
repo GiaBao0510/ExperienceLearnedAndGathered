@@ -1,0 +1,5 @@
+- Các chỉ thị lệnh sẻ được giám xác trong **try** . Khi phát sinh lỗi sẽ được đưa vào **catch**.
+- Nếu thực hiện câu lệnh mà không có lỗi thì không chuyển sang khối **catch.** 
+- Khi phát sinh lỗi thì lỗi sẽ truyền vào đối tượng **Exception** trong **catch** .Đối tượng này chứa thông tin lỗi, nơi xảy ra lỗi.
+- Lớp **Exception** có thể bắt đa dạng lỗi.
+- Để bắt lỗi cụ thể thì cần ghi tên lớp của lỗi cụ thể nào đó trong catch thì nó sẽ hiển thị lỗi đó

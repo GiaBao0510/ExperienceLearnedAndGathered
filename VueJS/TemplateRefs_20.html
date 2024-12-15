@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello vue.js</title>
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+        <div id="app">
+            <base-input ref="usernameInput"></base-input>
+        </div>
+
+        <script>
+            //Bạn có thể gán 1 ID tham khảo đến thành phần con hoặc phần tử DOM bằng thuộc tính ref
+            const app = Vue.createApp({});
+            app.component('base-input',{
+                template:  `<input ref="input"/>`,
+                methods: {
+                    focusInput(){
+                        this.$ref.input.focus()
+                    }
+                },
+                mouted(){
+                    this.focusInput(),
+                    this.$ref.usernameInput.focusInput()
+                }
+            });
+            app.mount('#app');
+        </script>
+        
+    </body>
+</html>

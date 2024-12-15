@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\bin\Debug\net8.0\Buoi9_PhuongThuc_Ham.exe
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\bin\Debug\net8.0\Buoi9_PhuongThuc_Ham.deps.json
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\bin\Debug\net8.0\Buoi9_PhuongThuc_Ham.runtimeconfig.json
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\bin\Debug\net8.0\Buoi9_PhuongThuc_Ham.dll
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\bin\Debug\net8.0\Buoi9_PhuongThuc_Ham.pdb
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\obj\Debug\net8.0\Buoi9_PhuongThuc_Ham.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\obj\Debug\net8.0\Buoi9_PhuongThuc_Ham.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\obj\Debug\net8.0\Buoi9_PhuongThuc_Ham.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\obj\Debug\net8.0\Buoi9_PhuongThuc_Ham.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\obj\Debug\net8.0\Buoi9_PhuongThuc_Ham.sourcelink.json
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\obj\Debug\net8.0\Buoi9_PhuongThuc_Ham.dll
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\obj\Debug\net8.0\refint\Buoi9_PhuongThuc_Ham.dll
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\obj\Debug\net8.0\Buoi9_PhuongThuc_Ham.pdb
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\obj\Debug\net8.0\Buoi9_PhuongThuc_Ham.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi9_PhuongThuc_Ham\Buoi9_PhuongThuc_Ham\obj\Debug\net8.0\ref\Buoi9_PhuongThuc_Ham.dll

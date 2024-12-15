@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello vue.js</title>
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+        <div id="app">
+            <component-a></component-a>
+        </div>
+
+        <script>
+            //Đăng ký cục bộ: Các thành phần đã đăng ký có sẵn chỉ trong thành phần hiện tại
+            const ThanhPhanA = {
+                data(){
+                    return{duong: 35,
+                        matong: 60};
+                },
+                template: `<h1>
+                                Đường: {{duong}}, mật ong: {{matong}}
+                            </h1>`,
+            };
+
+            const app = Vue.createApp({
+                components:{
+                    'component-a': ThanhPhanA,
+                }
+            }).mount('#app')
+        </script>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+- Widget Text: dùng để hiển thị văn bản là chính. Ngoài ra còn có các thuộc tính bên trong như sau:
+
+    + textDirection: Dùng để điều hướng của văn bản hiển thị
+    + tetAlign: Dùng để căn leef văn bản
+    + maxLines: quy định số dòng hiển thị văn bản
+    + overflow: Dùng để quy định văn bản hiển thị khi vượt quá khung chứa
+    + textScaleFactor: Dùng để chỉnh sửa kích cỡ từng ký tự

@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\obj\Debug\net8.0\Buoi20_delegate.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\obj\Debug\net8.0\Buoi20_delegate.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\obj\Debug\net8.0\Buoi20_delegate.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\obj\Debug\net8.0\Buoi20_delegate.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\obj\Debug\net8.0\Buoi20_delegate.sourcelink.json
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\bin\Debug\net8.0\Buoi20_delegate.exe
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\bin\Debug\net8.0\Buoi20_delegate.deps.json
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\bin\Debug\net8.0\Buoi20_delegate.runtimeconfig.json
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\bin\Debug\net8.0\Buoi20_delegate.dll
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\bin\Debug\net8.0\Buoi20_delegate.pdb
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\obj\Debug\net8.0\Buoi20_delegate.dll
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\obj\Debug\net8.0\refint\Buoi20_delegate.dll
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\obj\Debug\net8.0\Buoi20_delegate.pdb
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\obj\Debug\net8.0\Buoi20_delegate.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi20_delegate\Buoi20_delegate\obj\Debug\net8.0\ref\Buoi20_delegate.dll

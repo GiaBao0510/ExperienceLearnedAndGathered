@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\HocTap\\hocC#\\Buoi23_PhuongThucMoRong\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{27099B34-639B-4CDC-837B-5E36D479D563}|Buoi23_PhuongThucMoRong\\Buoi23_PhuongThucMoRong.csproj|d:\\hoctap\\hocc#\\buoi23_phuongthucmorong\\buoi23_phuongthucmorong\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27099B34-639B-4CDC-837B-5E36D479D563}|Buoi23_PhuongThucMoRong\\Buoi23_PhuongThucMoRong.csproj|solutionrelative:buoi23_phuongthucmorong\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27099B34-639B-4CDC-837B-5E36D479D563}|Buoi23_PhuongThucMoRong\\Buoi23_PhuongThucMoRong.csproj|d:\\hoctap\\hocc#\\buoi23_phuongthucmorong\\buoi23_phuongthucmorong\\myextentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27099B34-639B-4CDC-837B-5E36D479D563}|Buoi23_PhuongThucMoRong\\Buoi23_PhuongThucMoRong.csproj|solutionrelative:buoi23_phuongthucmorong\\myextentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MyExtentions.cs",
+              "DocumentMoniker": "D:\\HocTap\\hocC#\\Buoi23_PhuongThucMoRong\\Buoi23_PhuongThucMoRong\\MyExtentions.cs",
+              "RelativeDocumentMoniker": "Buoi23_PhuongThucMoRong\\MyExtentions.cs",
+              "ToolTip": "D:\\HocTap\\hocC#\\Buoi23_PhuongThucMoRong\\Buoi23_PhuongThucMoRong\\MyExtentions.cs",
+              "RelativeToolTip": "Buoi23_PhuongThucMoRong\\MyExtentions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-27T13:15:53.811Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\HocTap\\hocC#\\Buoi23_PhuongThucMoRong\\Buoi23_PhuongThucMoRong\\Program.cs",
+              "RelativeDocumentMoniker": "Buoi23_PhuongThucMoRong\\Program.cs",
+              "ToolTip": "D:\\HocTap\\hocC#\\Buoi23_PhuongThucMoRong\\Buoi23_PhuongThucMoRong\\Program.cs",
+              "RelativeToolTip": "Buoi23_PhuongThucMoRong\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-27T12:33:29.897Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

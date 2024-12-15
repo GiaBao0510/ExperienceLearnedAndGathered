@@ -1,0 +1,15 @@
+?The argument type 'String' can't be assigned to the parameter type 'Uri'?
+    >Solution: The "String" data type must be converted to a Uri object.
+
+Example:
+
+   void TimKiemTrenGoogle(String keyword) async{
+    String urlString = 'https://www.google.com/search?q=$keyword';
+    Uri url = Uri.parse(urlString);
+
+    if( await canLaunchUrl( url )){
+      await launchUrl(url);
+    }else{
+      throw " Could not lauch $url";
+    }
+  }

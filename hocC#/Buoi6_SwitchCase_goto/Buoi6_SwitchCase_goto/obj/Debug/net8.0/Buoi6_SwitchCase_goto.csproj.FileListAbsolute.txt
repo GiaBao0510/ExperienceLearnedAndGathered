@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\bin\Debug\net8.0\Buoi6_SwitchCase_goto.exe
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\bin\Debug\net8.0\Buoi6_SwitchCase_goto.deps.json
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\bin\Debug\net8.0\Buoi6_SwitchCase_goto.runtimeconfig.json
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\bin\Debug\net8.0\Buoi6_SwitchCase_goto.dll
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\bin\Debug\net8.0\Buoi6_SwitchCase_goto.pdb
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\obj\Debug\net8.0\Buoi6_SwitchCase_goto.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\obj\Debug\net8.0\Buoi6_SwitchCase_goto.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\obj\Debug\net8.0\Buoi6_SwitchCase_goto.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\obj\Debug\net8.0\Buoi6_SwitchCase_goto.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\obj\Debug\net8.0\Buoi6_SwitchCase_goto.sourcelink.json
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\obj\Debug\net8.0\Buoi6_SwitchCase_goto.dll
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\obj\Debug\net8.0\refint\Buoi6_SwitchCase_goto.dll
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\obj\Debug\net8.0\Buoi6_SwitchCase_goto.pdb
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\obj\Debug\net8.0\Buoi6_SwitchCase_goto.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi6_SwitchCase_goto\Buoi6_SwitchCase_goto\obj\Debug\net8.0\ref\Buoi6_SwitchCase_goto.dll

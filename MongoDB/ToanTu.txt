@@ -1,0 +1,128 @@
+			--- So sánh ---
+Tên	Sự miêu tả
+
+$eq	Khớp các giá trị bằng với một giá trị được chỉ định.
+$gt	Khớp các giá trị lớn hơn giá trị được chỉ định.
+$gte	Khớp các giá trị lớn hơn hoặc bằng một giá trị được chỉ định.
+$in	Khớp với bất kỳ giá trị nào được chỉ định trong một mảng.
+$lt	Khớp các giá trị nhỏ hơn giá trị được chỉ định.
+$lte	Khớp các giá trị nhỏ hơn hoặc bằng một giá trị được chỉ định.
+$ne	Khớp tất cả các giá trị không bằng một giá trị được chỉ định.
+$nin	Không khớp với giá trị nào được chỉ định trong một mảng.
+
+			---- Hợp lý ----
+Tên	Sự miêu tả
+
+$and	Kết hợp các mệnh đề truy vấn bằng một logic AND trả về tất cả các 	tài liệu khớp với các điều kiện của cả hai mệnh đề.
+$not	Đảo ngược tác dụng của biểu thức truy vấn và trả về các tài liệu 	không khớp với biểu thức truy vấn.
+$nor	Kết hợp các mệnh đề truy vấn bằng một logic NORtrả về tất cả các 	tài liệu không khớp với cả hai mệnh đề.
+$or	Kết hợp các mệnh đề truy vấn bằng một logic ORtrả về tất cả các tài 	liệu khớp với các điều kiện của một trong hai mệnh đề.
+
+			----- Yếu tố -----
+Tên	Sự miêu tả
+$exists	So khớp các tài liệu có trường được chỉ định.
+$type	Chọn tài liệu nếu một trường thuộc loại được chỉ định.
+
+			--- Sự đánh giá ---
+Tên	Sự miêu tả
+
+$expr	Cho phép sử dụng các biểu thức tổng hợp trong ngôn ngữ truy vấn.
+$jsonSchema	Xác thực tài liệu dựa trên Lược đồ JSON đã cho.
+$mod	Thực hiện thao tác modulo trên giá trị của một trường và chọn tài 	liệu có kết quả được chỉ định.
+$regex	Chọn tài liệu có giá trị khớp với biểu thức chính quy được chỉ định.
+$text	Thực hiện tìm kiếm văn bản.
+$where	So khớp các tài liệu thỏa mãn biểu thức JavaScript.
+
+			--- Không gian địa lý ---
+
+Tên	Sự miêu tả
+
+$geoIntersects	Chọn các hình học giao nhau với hình học GeoJSON . Chỉ mục 			2dsphere hỗ trợ $geoIntersects.
+$geoWithin	Chọn hình học trong hình học GeoJSON giới hạn . Hỗ trợ chỉ mục 			2dsphere và 2d .$geoWithin
+$near	Trả về các đối tượng không gian địa lý ở gần một điểm. Yêu cầu một chỉ 		số không gian địa lý. Hỗ trợ chỉ mục 2dsphere và 2d .$near
+$nearSphere	Trả về các đối tượng không gian địa lý ở gần một điểm trên hình 		cầu. Yêu cầu một chỉ số không gian địa lý. Hỗ trợ chỉ mục 			2dsphere và 2d .$nearSphere
+
+				---- Mảng ----
+
+Tên	Sự miêu tả
+
+$all	Khớp các mảng chứa tất cả các phần tử được chỉ định trong truy vấn.
+$elemMatch	Chọn tài liệu nếu phần tử trong trường mảng khớp với tất cả các 		$elemMatch điều kiện đã chỉ định.
+$size	Chọn tài liệu nếu trường mảng có kích thước được chỉ định.
+
+			--- Theo chiều bit ---
+
+Tên	Sự miêu tả
+
+$bitsAllClear	Khớp các giá trị số hoặc nhị phân trong đó một tập hợp các vị 			trí bit đều có giá trị là 0.
+$bitsAllSet	Khớp các giá trị số hoặc nhị phân trong đó một tập hợp các vị 			trí bit đều có giá trị là 1.
+$bitsAnyClear	Khớp các giá trị số hoặc nhị phân trong đó bất kỳ bit nào từ một 		tập hợp các vị trí bit đều có giá trị là 0.
+$bitsAnySet	Khớp các giá trị số hoặc nhị phân trong đó bất kỳ bit nào từ một 		tập hợp các vị trí bit đều có giá trị là 1.
+
+			--- Toán tử chiếu ----
+
+Tên	Sự miêu tả
+$	Chiếu phần tử đầu tiên trong mảng khớp với điều kiện truy vấn.
+$elemMatch	Chiếu phần tử đầu tiên trong một mảng phù hợp với $elemMatchđiều 		kiện đã chỉ định.
+$meta	Chiếu điểm của tài liệu được chỉ định trong quá trình $texthoạt động.
+$slice	Giới hạn số phần tử được chiếu từ một mảng. Hỗ trợ bỏ qua và giới hạn 	lát cắt.
+
+			--- Toán tử khác ----
+Tên	Sự miêu tả
+$comment	Thêm nhận xét vào vị từ truy vấn.
+$rand	Tạo số float ngẫu nhiên trong khoảng từ 0 đến 1.
+
+			--- Lĩnh vực ---
+Tên	Sự miêu tả
+
+$currentDate	Đặt giá trị của một trường thành ngày hiện tại, dưới dạng Ngày 			hoặc Dấu thời gian.
+$inc	Tăng giá trị của trường theo số lượng được chỉ định.
+$min	Chỉ cập nhật trường nếu giá trị được chỉ định nhỏ hơn giá trị trường 	hiện có.
+$max	Chỉ cập nhật trường nếu giá trị được chỉ định lớn hơn giá trị trường 	hiện có.
+$mul	Nhân giá trị của trường với số tiền được chỉ định.
+$rename	Đổi tên một trường.
+$set	Đặt giá trị của một trường trong tài liệu.
+$setOnInsert	Đặt giá trị của một trường nếu bản cập nhật dẫn đến việc chèn 			tài liệu. Không có tác dụng đối với các hoạt động cập nhật sửa 			đổi tài liệu hiện có.
+$unset	Xóa trường được chỉ định khỏi tài liệu.
+
+				--- Mảng ---
+Tên Sự miêu tả
+$	Đóng vai trò giữ chỗ để cập nhật phần tử đầu tiên phù hợp với điều kiện 	truy vấn.
+$[]
+Hoạt động như một trình giữ chỗ để cập nhật tất cả các phần tử trong một mảng cho các tài liệu phù hợp với điều kiện truy vấn.
+$[<identifier>]
+Hoạt động như một trình giữ chỗ để cập nhật tất cả các phần tử phù hợp với arrayFiltersđiều kiện cho các tài liệu phù hợp với điều kiện truy vấn.
+$addToSet
+Chỉ thêm các phần tử vào một mảng nếu chúng chưa tồn tại trong tập hợp.
+$pop	Loại bỏ mục đầu tiên hoặc cuối cùng của một mảng.
+$pull	Loại bỏ tất cả các phần tử mảng khớp với một truy vấn đã chỉ định.
+$push	Thêm một mục vào một mảng.
+$pullAll	Loại bỏ tất cả các giá trị trùng khớp khỏi một mảng.
+
+				---- sửa đổi ----
+Tên	Sự miêu tả
+$each	Sửa đổi các toán tử $pushvà $addToSetđể nối thêm nhiều mục để cập nhật mảng.
+$position
+Sửa đổi $pushtoán tử để xác định vị trí trong mảng nhằm thêm các phần tử.
+$slice
+Sửa đổi $pushtoán tử để giới hạn kích thước của mảng được cập nhật.
+$sort
+Sửa đổi $pushtoán tử để sắp xếp lại các tài liệu được lưu trữ trong một mảng.
+Theo chiều bit
+Tên
+Sự miêu tả
+$bit
+Thực hiện theo bit AND, OR, và XORcập nhật các giá trị số nguyên.
+
+
+
+
+
+
+
+
+
+
+
+
+

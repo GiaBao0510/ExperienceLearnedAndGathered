@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\bin\Debug\net8.0\Buoi10_String_classStringBuilder.exe
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\bin\Debug\net8.0\Buoi10_String_classStringBuilder.deps.json
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\bin\Debug\net8.0\Buoi10_String_classStringBuilder.runtimeconfig.json
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\bin\Debug\net8.0\Buoi10_String_classStringBuilder.dll
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\bin\Debug\net8.0\Buoi10_String_classStringBuilder.pdb
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\obj\Debug\net8.0\Buoi10_String_classStringBuilder.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\obj\Debug\net8.0\Buoi10_String_classStringBuilder.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\obj\Debug\net8.0\Buoi10_String_classStringBuilder.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\obj\Debug\net8.0\Buoi10_String_classStringBuilder.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\obj\Debug\net8.0\Buoi10_String_classStringBuilder.sourcelink.json
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\obj\Debug\net8.0\Buoi10_String_classStringBuilder.dll
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\obj\Debug\net8.0\refint\Buoi10_String_classStringBuilder.dll
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\obj\Debug\net8.0\Buoi10_String_classStringBuilder.pdb
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\obj\Debug\net8.0\Buoi10_String_classStringBuilder.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder\obj\Debug\net8.0\ref\Buoi10_String_classStringBuilder.dll

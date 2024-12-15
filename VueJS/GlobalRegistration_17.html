@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello Vue.js</title>
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+        <div id="app">
+            <my-component></my-component>
+        </div>
+
+        <script>
+            
+            const app = Vue.createApp({});
+            app.component(
+                //Tên đăng ký
+                'my-component',
+                //Việc thực hiện tại đây
+                {
+                    data(){
+                        return {count: 0};
+                    },
+                    template: `
+                    <button @click="count++">
+                        You click me {{count}} time.
+                    </button>
+                    `
+                }
+            );
+            app.mount('#app');
+        </script>
+        
+    </body>
+</html>

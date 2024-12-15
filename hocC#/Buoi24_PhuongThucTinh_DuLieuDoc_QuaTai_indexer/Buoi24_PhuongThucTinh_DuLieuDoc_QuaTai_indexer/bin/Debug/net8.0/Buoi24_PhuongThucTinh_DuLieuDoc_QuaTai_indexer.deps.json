@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer/1.0.0": {
+        "runtime": {
+          "Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

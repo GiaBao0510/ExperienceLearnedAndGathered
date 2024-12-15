@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\bin\Debug\net8.0\Buoi23_PhuongThucMoRong.exe
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\bin\Debug\net8.0\Buoi23_PhuongThucMoRong.deps.json
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\bin\Debug\net8.0\Buoi23_PhuongThucMoRong.runtimeconfig.json
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\bin\Debug\net8.0\Buoi23_PhuongThucMoRong.dll
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\bin\Debug\net8.0\Buoi23_PhuongThucMoRong.pdb
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\obj\Debug\net8.0\Buoi23_PhuongThucMoRong.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\obj\Debug\net8.0\Buoi23_PhuongThucMoRong.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\obj\Debug\net8.0\Buoi23_PhuongThucMoRong.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\obj\Debug\net8.0\Buoi23_PhuongThucMoRong.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\obj\Debug\net8.0\Buoi23_PhuongThucMoRong.sourcelink.json
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\obj\Debug\net8.0\Buoi23_PhuongThucMoRong.dll
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\obj\Debug\net8.0\refint\Buoi23_PhuongThucMoRong.dll
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\obj\Debug\net8.0\Buoi23_PhuongThucMoRong.pdb
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\obj\Debug\net8.0\Buoi23_PhuongThucMoRong.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi23_PhuongThucMoRong\Buoi23_PhuongThucMoRong\obj\Debug\net8.0\ref\Buoi23_PhuongThucMoRong.dll

@@ -1,0 +1,32 @@
+## **Language Integrated query:**
+- Ngôn ngữ truy vấn tích hợp: dùng để truy vấn đến nguồn dữ liệu để lấy dữ liệu ra một cách tích hợp.
+- Gần giống câu truy vấn với **SQL**..
+- Dùng để truy vấn nguồn dữ liệu từ tập hợp như: IEnumerable, IEnumerable< T>, Stack, List, Queue,...
+- Có thể đọc được các File như XML, SQL server, mySQL.
+- Cần thêm thư viện **using System.Linq;** vào tệp tin mới có thể sử dụng được thư viện này. 
+- Từ khóa **from** là một trong những từ khóa dùng để truy vấn, từ khóa này dùng để truy vấn từng phần tử trong cấu trúc lưu dữ liệu nào đó.
+- Từ khóa **in** là một trong những từ khóa dùng để truy vấn, từ khóa này dùng để chỉ nơi cấu trúc dữ liệu mà nó cần thực hiện truy vấn.
+- Từ khóa **where** là một trong những từ khóa dùng để truy vấn, từ khóa này dùng để chỉ điều kiện mà dữ liệu cần thỏa mãn để lấy.
+- Từ khóa **select** là một trong những từ khóa dùng để truy vấn, từ khóa này dùng để chỉ những thuộc tính cần hiển thị khi thực hiện truy xuất.
+- Phương thức **Select()** nhận tham số là **delegate** trong tham số **delegate** nhận tham số là kiểu của phần tử và trả về kiểu dữ liệu bất kỳ. Kết quả nhận được là 1 tập hợp.
+- Phương thức **where()** nhận tham số là **delegate** ,**delegate** này nhận tham số là kiểu của phần tử và kiểu dữ liệu trả về là **bool**
+- Phương thức **SelectMany()** gần giống phương thức **Select()**, khác chỗ là nếu dùng để trả về thông tin của thuộc tính mà thuộc tính cần lấy là mảng thì phương thức **select()** chỉ trả về một mảng chuỗi, còn **SelectMany()** thì trả về một tập hợp các phần tử con trong từng phần tử đang xét là mảng.
+- Phương thức **Min** trả về giá trị nhỏ nhất.
+- Phương thức **Max** trả về giá trị lớn nhất.
+- Phương thức **Sum** trả về giá trị tổng các phần tử
+- Phương thức **Average** trả về giá trị trung bình cộng các phần tử
+- Phương thức **Join()** dùng để nối với đối tượng cấu trức dữ liệu khác dựa trên **_khóa chính_** của đối tượng cấu trúc dữ liệu khác và **_khóa ngoại_** của đối tượng cấu trúc dữ liệu đang xét.
+- Phương thức **GroupJoin** hoạt động gần tương tự như **join**, nhưng các phần tử trả về là các nhóm, nó được nhóm lại theo các nguồn ban đầu.
+- Phương thức **take** dùng để lấy số lượng phần tử đầu tiên của đối tượng kiểu cấu trúc dữ liệu.
+- Phương thức **skip** thì dùng để bỏ qua số lượng phần tử đầu tiên chỉ lấy phần tử không bị bỏ qua.
+- Phương thức **OderBy** dùng để sắp xếp các phần tử theo thứ tự tăng dần trong đối tượng kiểu cấu trúc dữ liệu.
+- Phương thức **OderByDescending** dùng để sắp xếp các phần tử theo thứ tự giảm dần trong đối tượng kiểu cấu trúc dữ liệu.
+- Phương thức **Reverse** dùng để đảo ngược thứ tự các phần tử trong đối tượng kiểu cấu trúc dữ liệu.
+- Phương thức **GroupBy** dùng để trả phần tử theo nhóm.
+- Phương thức **Distinct** dùng để loại bỏ những phần tử có cùng giá trị, chỉ giữa lại 1 phâng tử có cùng giá trị.
+- Phương thức **Single SingleOrDefalt:** dùng để kiểm tra phần tử thỏa mãn điều kiện logic nào đó thì trả về phần tử đó. Nếu mà không có phần tử nào thỏa mãn điều kiện logic hoặc có nhiều hơn một điều kiện thì sẽ báo lỗi. **SingleOrDefalt** khác **Single** ở chỗ là trong trường hợp không tìm thấy sản phẩm sẽ không phát sinh lỗi.
+- Phương thức **any** sẽ trả về _true_ nếu trong số các phần tử có một phần tử nào đó thỏa điều kiện logic.
+- Phương thức **all** sẽ trả về _true_ nếu tất cả các phần tử phải thỏa điều kiện logic nào đó.
+- Phương thức **count** dùng để trả về số lượng phần tử trong đối tượng có kiểu cấu trúc dữ liệu. Ngoài ra nó có thể nhận tham số là kiểu **delegate** dùng để trả số luonjg phần tử thỏa điều kiện nào đó.
+- Từ khóa **let** dùng để trả về đặt làm kiểu dữ liệu cho một biến trong mệnh đề biến này dùng để lưu giá trị nào đó đa được quy định.
+- Từ khóa **join** dùng để kết hợp 2 nguồn dữ liệu từ 2 đói tượng là kiểu cấu trúc dữ liệu

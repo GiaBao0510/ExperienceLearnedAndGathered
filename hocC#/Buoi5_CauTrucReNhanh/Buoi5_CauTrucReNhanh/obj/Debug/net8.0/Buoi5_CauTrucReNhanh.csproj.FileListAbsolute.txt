@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\bin\Debug\net8.0\Buoi5_CauTrucReNhanh.exe
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\bin\Debug\net8.0\Buoi5_CauTrucReNhanh.deps.json
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\bin\Debug\net8.0\Buoi5_CauTrucReNhanh.runtimeconfig.json
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\bin\Debug\net8.0\Buoi5_CauTrucReNhanh.dll
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\bin\Debug\net8.0\Buoi5_CauTrucReNhanh.pdb
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\obj\Debug\net8.0\Buoi5_CauTrucReNhanh.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\obj\Debug\net8.0\Buoi5_CauTrucReNhanh.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\obj\Debug\net8.0\Buoi5_CauTrucReNhanh.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\obj\Debug\net8.0\Buoi5_CauTrucReNhanh.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\obj\Debug\net8.0\Buoi5_CauTrucReNhanh.sourcelink.json
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\obj\Debug\net8.0\Buoi5_CauTrucReNhanh.dll
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\obj\Debug\net8.0\refint\Buoi5_CauTrucReNhanh.dll
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\obj\Debug\net8.0\Buoi5_CauTrucReNhanh.pdb
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\obj\Debug\net8.0\Buoi5_CauTrucReNhanh.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi5_CauTrucReNhanh\Buoi5_CauTrucReNhanh\obj\Debug\net8.0\ref\Buoi5_CauTrucReNhanh.dll

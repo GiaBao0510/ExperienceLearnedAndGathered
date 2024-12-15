@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\HocTap\\hocC#\\Bai15_Namespace_va_partial\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2621E6BB-3E88-4B78-8969-F81EED44DF84}|Bai15_Namespace_va_partial\\Bai15_Namespace_va_partial.csproj|d:\\hoctap\\hocc#\\bai15_namespace_va_partial\\bai15_namespace_va_partial\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2621E6BB-3E88-4B78-8969-F81EED44DF84}|Bai15_Namespace_va_partial\\Bai15_Namespace_va_partial.csproj|solutionrelative:bai15_namespace_va_partial\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2621E6BB-3E88-4B78-8969-F81EED44DF84}|Bai15_Namespace_va_partial\\Bai15_Namespace_va_partial.csproj|d:\\hoctap\\hocc#\\bai15_namespace_va_partial\\bai15_namespace_va_partial\\products2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2621E6BB-3E88-4B78-8969-F81EED44DF84}|Bai15_Namespace_va_partial\\Bai15_Namespace_va_partial.csproj|solutionrelative:bai15_namespace_va_partial\\products2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2621E6BB-3E88-4B78-8969-F81EED44DF84}|Bai15_Namespace_va_partial\\Bai15_Namespace_va_partial.csproj|d:\\hoctap\\hocc#\\bai15_namespace_va_partial\\bai15_namespace_va_partial\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2621E6BB-3E88-4B78-8969-F81EED44DF84}|Bai15_Namespace_va_partial\\Bai15_Namespace_va_partial.csproj|solutionrelative:bai15_namespace_va_partial\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Products2.cs",
+              "DocumentMoniker": "D:\\HocTap\\hocC#\\Bai15_Namespace_va_partial\\Bai15_Namespace_va_partial\\Products2.cs",
+              "RelativeDocumentMoniker": "Bai15_Namespace_va_partial\\Products2.cs",
+              "ToolTip": "D:\\HocTap\\hocC#\\Bai15_Namespace_va_partial\\Bai15_Namespace_va_partial\\Products2.cs",
+              "RelativeToolTip": "Bai15_Namespace_va_partial\\Products2.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T14:40:16.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Products.cs",
+              "DocumentMoniker": "D:\\HocTap\\hocC#\\Bai15_Namespace_va_partial\\Bai15_Namespace_va_partial\\Products.cs",
+              "RelativeDocumentMoniker": "Bai15_Namespace_va_partial\\Products.cs",
+              "ToolTip": "D:\\HocTap\\hocC#\\Bai15_Namespace_va_partial\\Bai15_Namespace_va_partial\\Products.cs",
+              "RelativeToolTip": "Bai15_Namespace_va_partial\\Products.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAwwCYAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T14:16:13.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\HocTap\\hocC#\\Bai15_Namespace_va_partial\\Bai15_Namespace_va_partial\\Program.cs",
+              "RelativeDocumentMoniker": "Bai15_Namespace_va_partial\\Program.cs",
+              "ToolTip": "D:\\HocTap\\hocC#\\Bai15_Namespace_va_partial\\Bai15_Namespace_va_partial\\Program.cs",
+              "RelativeToolTip": "Bai15_Namespace_va_partial\\Program.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwBoAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T15:24:47.135Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\bin\Debug\net8.0\Buoi17_KieuVoDanh_KieuDong.exe
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\bin\Debug\net8.0\Buoi17_KieuVoDanh_KieuDong.deps.json
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\bin\Debug\net8.0\Buoi17_KieuVoDanh_KieuDong.runtimeconfig.json
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\bin\Debug\net8.0\Buoi17_KieuVoDanh_KieuDong.dll
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\bin\Debug\net8.0\Buoi17_KieuVoDanh_KieuDong.pdb
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\obj\Debug\net8.0\Buoi17_KieuVoDanh_KieuDong.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\obj\Debug\net8.0\Buoi17_KieuVoDanh_KieuDong.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\obj\Debug\net8.0\Buoi17_KieuVoDanh_KieuDong.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\obj\Debug\net8.0\Buoi17_KieuVoDanh_KieuDong.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\obj\Debug\net8.0\Buoi17_KieuVoDanh_KieuDong.sourcelink.json
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\obj\Debug\net8.0\Buoi17_KieuVoDanh_KieuDong.dll
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\obj\Debug\net8.0\refint\Buoi17_KieuVoDanh_KieuDong.dll
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\obj\Debug\net8.0\Buoi17_KieuVoDanh_KieuDong.pdb
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\obj\Debug\net8.0\Buoi17_KieuVoDanh_KieuDong.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi17_KieuVoDanh_KieuDong\Buoi17_KieuVoDanh_KieuDong\obj\Debug\net8.0\ref\Buoi17_KieuVoDanh_KieuDong.dll

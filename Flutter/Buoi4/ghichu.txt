@@ -1,0 +1,18 @@
+So sánh giữa StatelessWidget và StatefulWidget
+
+- Giống nhau: 
+    + Cả 2 điều sử dụng hàm build và trả về kiểu Widget.
+
+- Khác nhau:
+    > StatelessWidget:
+        + Chỉ có 1 bước cần thực hiện viết đề hàm build() để viết sử lý giao diện người dùng.
+        + Không có hàm initState() và setState()
+        => Khi người dùng tương tác không thay đổi thì dùng StatelessWidget
+
+    > StatefulWidget:
+        + Cần 2 bước mới đến hàm build(). Đầu tiên cần phải ghi đề hàm createState(), Bước cần tạo ra lớp con của lớp State có kiểu là lớp con thuộc lớp StatefulWidget.
+        + Trong đó hàm createState() của lớp con thuộc lớp StatefulWidget phải trả về lớp con thuộc lớp State
+        + initState() thuộc lớp State. Sẽ thực hiện khởi tạo giá trị và hàm này sẽ chạy trước hàm build()
+        + Có thể load lại hàm build()
+        => Bất kể thành phần Widget nào có thể thay đổi trạng thái khi người dùng tương tác thì sử dụng StatefulWidget.
+        => Có thể dùng Widget tĩnh. Nhưng không tối ưu

@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\bin\Debug\net8.0\Buoi11_Lop_LapTrinhHuongDoiTuong.exe
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\bin\Debug\net8.0\Buoi11_Lop_LapTrinhHuongDoiTuong.deps.json
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\bin\Debug\net8.0\Buoi11_Lop_LapTrinhHuongDoiTuong.runtimeconfig.json
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\bin\Debug\net8.0\Buoi11_Lop_LapTrinhHuongDoiTuong.dll
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\bin\Debug\net8.0\Buoi11_Lop_LapTrinhHuongDoiTuong.pdb
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\obj\Debug\net8.0\Buoi11_Lop_LapTrinhHuongDoiTuong.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\obj\Debug\net8.0\Buoi11_Lop_LapTrinhHuongDoiTuong.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\obj\Debug\net8.0\Buoi11_Lop_LapTrinhHuongDoiTuong.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\obj\Debug\net8.0\Buoi11_Lop_LapTrinhHuongDoiTuong.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\obj\Debug\net8.0\Buoi11_Lop_LapTrinhHuongDoiTuong.sourcelink.json
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\obj\Debug\net8.0\Buoi11_Lop_LapTrinhHuongDoiTuong.dll
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\obj\Debug\net8.0\refint\Buoi11_Lop_LapTrinhHuongDoiTuong.dll
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\obj\Debug\net8.0\Buoi11_Lop_LapTrinhHuongDoiTuong.pdb
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\obj\Debug\net8.0\Buoi11_Lop_LapTrinhHuongDoiTuong.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi11_Lop_LapTrinhHuongDoiTuong\Buoi11_Lop_LapTrinhHuongDoiTuong\obj\Debug\net8.0\ref\Buoi11_Lop_LapTrinhHuongDoiTuong.dll

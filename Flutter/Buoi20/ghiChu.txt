@@ -1,0 +1,16 @@
+    ---- Phân biệt Expanded vs Flexible trong Flutter ----
+
+Giống nhau:
+    Cả 2 đều tự gần giống nhau
+
+Khác nhau: 
+    - Expanded:
+        + Luôn lấp đầy hoảng trống có sẵn.
+        + Tự động chia tỷ lệ n phần bằng nhau, nếu trong lớp Column/Row.
+        + nếu bên trong lớp Expanded có thuộc tính flex, Thì nó sẽ chia tỷ lệ kích cỡ của từng phần tử bên trong nó theo giá trị flex.
+        + Là kiều rút gọn của Flexible.
+    - Flexible:
+        + Đa dạng  hơn Expanded, linh hoạt hơn Expanded.
+        + Nếu bên trong lớp Flexible có thuộc tính với giá trị sau: fit: FlexFit.tight .Thì nó hoàn toàn giống Expanded.
+        + Nếu bên trong lớp FlexFit có thuộc tính với giá trị sau: fit: FlexFit.loose .Thì nó sẽ trở nên linh hoạt hơn .Mặc dùng kích thước bên trong thay đổi ,nhưng nó vẫn chia đúng tỉ lệ
+        + Flexible linh hoạt hơn Expanded. Thích hợp để chứa các contents có tính linh động cao, values sẽ thay đổi theo mục đích use của user

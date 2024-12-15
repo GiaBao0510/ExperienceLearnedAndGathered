@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hi Vue.js</title>
+        <script src="https://unpkg.com/vue@3"></script>
+        <style>
+            .active{
+                background-color: blueviolet;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <h2>Todo List</h2>
+            <p>
+                Enter your thought: 
+                <input type="text" v-model="todoItem">
+                <button @click="addTodoList">Add</button>
+                <ul>
+                    <li :class="{active: idx === selected}"
+                        v-for="(todo, idx) in todoList"
+                        @click="selectTodo(idx)"
+                    >
+                        {{ todo }}
+                    </li>
+                </ul>
+                <p v-if="todoNum > 0"> {{todoNum}} thing(s) to do</p>
+            </p>
+        </div>
+
+        <script>
+            const app = Vue.createApp({
+                data(){
+                    return{
+                        todoItem:"",
+                        todoList: [],
+                        selected: -1,
+                        todoNum: 0
+                    }
+                },
+                methods:{
+                    addTodoList(){
+                        this.todoList.push(this.todoItem);
+                        this.todoNum++;
+                    },
+                    selectTodo(val){
+                        this.selected = val;
+                    }
+                }
+            }).mount('#app');
+        </script>
+    </body>
+</html>

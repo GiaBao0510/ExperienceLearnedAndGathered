@@ -1,0 +1,14 @@
+TextStyle:
+
+,style: TextStyle(  //TextStype dùng để bo tri văn bản
+    color: Colors.white,            //Đổi màu băằng mã màu hoặc tu khóa
+    backgroundColor: Colors.indigo, //Màu nền của văn bản
+    fontSize: 20,                   //Phông chu đơn vị là pixel
+    fontWeight: FontWeight.w400,     //Độ đậm nhạt của chữ
+    fontStyle: FontStyle.italic,     //Phông chữ
+    fontFamily: 'Times New Roman',   //Áp dụng kiểu phông chữ
+    wordSpacing: 1,                  //Khoảng cách giữa các từ đơn vi pixel
+    letterSpacing: 1,              //Khoảng cách giữa các ký tu
+    decoration: TextDecoration.underline, //Kiểu của dòng văn bản. Ví dụ như: gạch chân, gạch giữa, bình thường,...
+
+),

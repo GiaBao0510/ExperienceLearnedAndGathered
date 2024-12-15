@@ -1,0 +1,15 @@
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\bin\Debug\net8.0\Buoi35_HttpMessageHandler_CookieContainer.exe
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\bin\Debug\net8.0\Buoi35_HttpMessageHandler_CookieContainer.deps.json
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\bin\Debug\net8.0\Buoi35_HttpMessageHandler_CookieContainer.runtimeconfig.json
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\bin\Debug\net8.0\Buoi35_HttpMessageHandler_CookieContainer.dll
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\bin\Debug\net8.0\Buoi35_HttpMessageHandler_CookieContainer.pdb
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\obj\Debug\net8.0\Buoi35_HttpMessageHandler_CookieContainer.GeneratedMSBuildEditorConfig.editorconfig
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\obj\Debug\net8.0\Buoi35_HttpMessageHandler_CookieContainer.AssemblyInfoInputs.cache
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\obj\Debug\net8.0\Buoi35_HttpMessageHandler_CookieContainer.AssemblyInfo.cs
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\obj\Debug\net8.0\Buoi35_HttpMessageHandler_CookieContainer.csproj.CoreCompileInputs.cache
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\obj\Debug\net8.0\Buoi35_HttpMessageHandler_CookieContainer.sourcelink.json
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\obj\Debug\net8.0\Buoi35_HttpMessageHandler_CookieContainer.dll
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\obj\Debug\net8.0\refint\Buoi35_HttpMessageHandler_CookieContainer.dll
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\obj\Debug\net8.0\Buoi35_HttpMessageHandler_CookieContainer.pdb
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\obj\Debug\net8.0\Buoi35_HttpMessageHandler_CookieContainer.genruntimeconfig.cache
+D:\hoctap\experience\hocc#\Buoi35_HttpMessageHandler_CookieContainer\obj\Debug\net8.0\ref\Buoi35_HttpMessageHandler_CookieContainer.dll

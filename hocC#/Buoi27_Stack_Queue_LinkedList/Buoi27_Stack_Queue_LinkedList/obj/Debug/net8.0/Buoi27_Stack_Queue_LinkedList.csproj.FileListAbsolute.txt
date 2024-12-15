@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\bin\Debug\net8.0\Buoi27_Stack_Queue_LinkedList.exe
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\bin\Debug\net8.0\Buoi27_Stack_Queue_LinkedList.deps.json
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\bin\Debug\net8.0\Buoi27_Stack_Queue_LinkedList.runtimeconfig.json
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\bin\Debug\net8.0\Buoi27_Stack_Queue_LinkedList.dll
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\bin\Debug\net8.0\Buoi27_Stack_Queue_LinkedList.pdb
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\obj\Debug\net8.0\Buoi27_Stack_Queue_LinkedList.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\obj\Debug\net8.0\Buoi27_Stack_Queue_LinkedList.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\obj\Debug\net8.0\Buoi27_Stack_Queue_LinkedList.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\obj\Debug\net8.0\Buoi27_Stack_Queue_LinkedList.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\obj\Debug\net8.0\Buoi27_Stack_Queue_LinkedList.sourcelink.json
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\obj\Debug\net8.0\Buoi27_Stack_Queue_LinkedList.dll
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\obj\Debug\net8.0\refint\Buoi27_Stack_Queue_LinkedList.dll
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\obj\Debug\net8.0\Buoi27_Stack_Queue_LinkedList.pdb
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\obj\Debug\net8.0\Buoi27_Stack_Queue_LinkedList.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi27_Stack_Queue_LinkedList\Buoi27_Stack_Queue_LinkedList\obj\Debug\net8.0\ref\Buoi27_Stack_Queue_LinkedList.dll

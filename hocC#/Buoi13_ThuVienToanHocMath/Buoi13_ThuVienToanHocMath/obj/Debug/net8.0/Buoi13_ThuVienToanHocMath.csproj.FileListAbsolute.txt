@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\bin\Debug\net8.0\Buoi13_ThuVienToanHocMath.exe
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\bin\Debug\net8.0\Buoi13_ThuVienToanHocMath.deps.json
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\bin\Debug\net8.0\Buoi13_ThuVienToanHocMath.runtimeconfig.json
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\bin\Debug\net8.0\Buoi13_ThuVienToanHocMath.dll
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\bin\Debug\net8.0\Buoi13_ThuVienToanHocMath.pdb
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\obj\Debug\net8.0\Buoi13_ThuVienToanHocMath.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\obj\Debug\net8.0\Buoi13_ThuVienToanHocMath.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\obj\Debug\net8.0\Buoi13_ThuVienToanHocMath.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\obj\Debug\net8.0\Buoi13_ThuVienToanHocMath.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\obj\Debug\net8.0\Buoi13_ThuVienToanHocMath.sourcelink.json
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\obj\Debug\net8.0\Buoi13_ThuVienToanHocMath.dll
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\obj\Debug\net8.0\refint\Buoi13_ThuVienToanHocMath.dll
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\obj\Debug\net8.0\Buoi13_ThuVienToanHocMath.pdb
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\obj\Debug\net8.0\Buoi13_ThuVienToanHocMath.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi13_ThuVienToanHocMath\Buoi13_ThuVienToanHocMath\obj\Debug\net8.0\ref\Buoi13_ThuVienToanHocMath.dll

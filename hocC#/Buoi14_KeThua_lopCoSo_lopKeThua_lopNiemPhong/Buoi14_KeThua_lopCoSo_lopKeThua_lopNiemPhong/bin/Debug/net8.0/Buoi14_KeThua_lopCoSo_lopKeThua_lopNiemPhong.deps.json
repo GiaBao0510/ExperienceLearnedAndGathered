@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Buoi14_KeThua_lopCoSo_lopKeThua_lopNiemPhong/1.0.0": {
+        "runtime": {
+          "Buoi14_KeThua_lopCoSo_lopKeThua_lopNiemPhong.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Buoi14_KeThua_lopCoSo_lopKeThua_lopNiemPhong/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

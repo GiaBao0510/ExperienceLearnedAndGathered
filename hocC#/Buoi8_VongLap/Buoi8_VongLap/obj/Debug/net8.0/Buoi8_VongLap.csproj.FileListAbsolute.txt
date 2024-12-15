@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\obj\Debug\net8.0\Buoi8_VongLap.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\obj\Debug\net8.0\Buoi8_VongLap.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\obj\Debug\net8.0\Buoi8_VongLap.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\obj\Debug\net8.0\Buoi8_VongLap.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\obj\Debug\net8.0\Buoi8_VongLap.sourcelink.json
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\bin\Debug\net8.0\Buoi8_VongLap.exe
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\bin\Debug\net8.0\Buoi8_VongLap.deps.json
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\bin\Debug\net8.0\Buoi8_VongLap.runtimeconfig.json
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\bin\Debug\net8.0\Buoi8_VongLap.dll
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\bin\Debug\net8.0\Buoi8_VongLap.pdb
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\obj\Debug\net8.0\Buoi8_VongLap.dll
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\obj\Debug\net8.0\refint\Buoi8_VongLap.dll
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\obj\Debug\net8.0\Buoi8_VongLap.pdb
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\obj\Debug\net8.0\Buoi8_VongLap.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi8_VongLap\Buoi8_VongLap\obj\Debug\net8.0\ref\Buoi8_VongLap.dll

@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\HocTap\\hocC#\\Buoi10_String_classStringBuilder\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{89267CD3-8CB2-49FC-A7C8-CC83E5F6A53F}|Buoi10_String_classStringBuilder\\Buoi10_String_classStringBuilder.csproj|d:\\hoctap\\hocc#\\buoi10_string_classstringbuilder\\buoi10_string_classstringbuilder\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89267CD3-8CB2-49FC-A7C8-CC83E5F6A53F}|Buoi10_String_classStringBuilder\\Buoi10_String_classStringBuilder.csproj|solutionrelative:buoi10_string_classstringbuilder\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\HocTap\\hocC#\\Buoi10_String_classStringBuilder\\Buoi10_String_classStringBuilder\\Program.cs",
+              "RelativeDocumentMoniker": "Buoi10_String_classStringBuilder\\Program.cs",
+              "ToolTip": "D:\\HocTap\\hocC#\\Buoi10_String_classStringBuilder\\Buoi10_String_classStringBuilder\\Program.cs",
+              "RelativeToolTip": "Buoi10_String_classStringBuilder\\Program.cs",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAswFUAAABeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T14:49:24.406Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

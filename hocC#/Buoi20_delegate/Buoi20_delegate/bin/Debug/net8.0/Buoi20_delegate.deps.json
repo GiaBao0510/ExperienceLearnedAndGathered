@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Buoi20_delegate/1.0.0": {
+        "runtime": {
+          "Buoi20_delegate.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Buoi20_delegate/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

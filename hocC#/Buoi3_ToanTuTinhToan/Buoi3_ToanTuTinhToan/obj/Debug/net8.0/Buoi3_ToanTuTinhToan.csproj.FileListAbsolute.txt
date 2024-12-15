@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\bin\Debug\net8.0\Buoi3_ToanTuTinhToan.exe
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\bin\Debug\net8.0\Buoi3_ToanTuTinhToan.deps.json
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\bin\Debug\net8.0\Buoi3_ToanTuTinhToan.runtimeconfig.json
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\bin\Debug\net8.0\Buoi3_ToanTuTinhToan.dll
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\bin\Debug\net8.0\Buoi3_ToanTuTinhToan.pdb
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\obj\Debug\net8.0\Buoi3_ToanTuTinhToan.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\obj\Debug\net8.0\Buoi3_ToanTuTinhToan.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\obj\Debug\net8.0\Buoi3_ToanTuTinhToan.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\obj\Debug\net8.0\Buoi3_ToanTuTinhToan.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\obj\Debug\net8.0\Buoi3_ToanTuTinhToan.sourcelink.json
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\obj\Debug\net8.0\Buoi3_ToanTuTinhToan.dll
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\obj\Debug\net8.0\refint\Buoi3_ToanTuTinhToan.dll
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\obj\Debug\net8.0\Buoi3_ToanTuTinhToan.pdb
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\obj\Debug\net8.0\Buoi3_ToanTuTinhToan.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi3_ToanTuTinhToan\Buoi3_ToanTuTinhToan\obj\Debug\net8.0\ref\Buoi3_ToanTuTinhToan.dll

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello vue.js</title>
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+        <div id="app">
+            <blog-post post-title="Hello!" @update-post="onUpdatePost"></blog-post>
+        </div>
+        
+        <script>
+            //Không phân biệt hoa thường: Luôn luôn sử dụng trường hợp kebab-case khi sử dụng các thành phần trong các mẫu DOM
+            const BlogPost = {
+                data(){
+                    return{postTitleData: "Welcome" }
+                },
+                methods:{
+                    onUpdatePost(){
+                        this.$emit('update-post');
+                    },
+                },
+                props: ['postTitle'],   //props: các thuộc tính trong html
+                emits: ['update-post'],   //emits: Các sự kiện DOM
+                template: `
+                    <h3>{{ postTitle }}</h3>
+                `
+            };
+            const app = Vue.createApp({
+                methods:{
+                    onUpdatePost(){
+                        //Xử lý sự kiện khi 'update-post' được kích hoạt
+                        alert('Hello Vue.js');
+                    }
+                },
+                components:{
+                    'blog-post': BlogPost
+                }
+            }).mount('#app'); 
+        </script>
+    </body>
+</html>

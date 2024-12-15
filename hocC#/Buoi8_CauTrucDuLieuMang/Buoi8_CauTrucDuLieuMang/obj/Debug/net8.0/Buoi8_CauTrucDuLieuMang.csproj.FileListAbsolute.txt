@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\bin\Debug\net8.0\Buoi8_CauTrucDuLieuMang.exe
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\bin\Debug\net8.0\Buoi8_CauTrucDuLieuMang.deps.json
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\bin\Debug\net8.0\Buoi8_CauTrucDuLieuMang.runtimeconfig.json
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\bin\Debug\net8.0\Buoi8_CauTrucDuLieuMang.dll
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\bin\Debug\net8.0\Buoi8_CauTrucDuLieuMang.pdb
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\obj\Debug\net8.0\Buoi8_CauTrucDuLieuMang.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\obj\Debug\net8.0\Buoi8_CauTrucDuLieuMang.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\obj\Debug\net8.0\Buoi8_CauTrucDuLieuMang.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\obj\Debug\net8.0\Buoi8_CauTrucDuLieuMang.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\obj\Debug\net8.0\Buoi8_CauTrucDuLieuMang.sourcelink.json
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\obj\Debug\net8.0\Buoi8_CauTrucDuLieuMang.dll
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\obj\Debug\net8.0\refint\Buoi8_CauTrucDuLieuMang.dll
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\obj\Debug\net8.0\Buoi8_CauTrucDuLieuMang.pdb
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\obj\Debug\net8.0\Buoi8_CauTrucDuLieuMang.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi8_CauTrucDuLieuMang\Buoi8_CauTrucDuLieuMang\obj\Debug\net8.0\ref\Buoi8_CauTrucDuLieuMang.dll

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello Vue.js</title>
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+        <h2 id="app"> {{ slogan }}</h2> <!--Sử dụng cặp dấu ngoặc nhọn-->
+
+        <script>
+            const app = Vue.createApp({
+                data(){
+                    return{
+                        slogan: "Không ngán học hỏi"
+                    };
+                }
+            }).mount("#app");
+        </script>
+    </body>
+</html>

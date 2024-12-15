@@ -1,0 +1,11 @@
+    --- Stack (Sắp xếp bố cục chồng lên nhau) ---
+- Dùng để sắp xếp Widget bên trong nó
+- Sắp xếp các đối tượng đến sau chồng lên đối tượng đứng trước.
+- Đối với thuộc tính fit khi dùng bên trong Stack. Khi có giá trị:
+    + StackFit.expand và StackFit.passthrough:  Thì đối tượng cuối sẽ phủ lên toàn bộ.
+    + StackFit.loose: Thì trở về mặc định.
+- Thuộc tính alignment trong Stack giúp điều chỉnh hướng hiển thị nội dung bên trong Stack. Ví dụ: top, topright, center, centerleft,...
+- Thuộc tính textDirection với giá trị TextDirection.ltr hoặc TextDirection.rtl  điều chỉnh hướng hiển thị từ phải sang trái hoặc ngược lại.
+- Với Đặt Align bên trong Stack thì nó sẽ giúp bạn tự điều chỉnh hướng hiển thị của nội dung tùy thích.Bắt buộc phải có thuộc tính alignment bên. trong Align
+- Với Đặt Positioned bên trong Stack thì nó sẽ giúp bạn tự điều chỉnh hướng hiển thị của nội dung tùy thích.Phải có một số thuộc tính sau: top, left , right, bottom bên trong Align.
+- Với thuộc tính có giá tri như sau: clipBehavior: Clip.none .Bên trong Stack Nó giúp những container có thể hiển thị 1 cách đầy đủ mà không bị cắt khi vượt quá kích thước của Stack

@@ -1,0 +1,9 @@
+- **-i:** duy trì mở stdin để nhập lệnh.
+- **-t:** có nghĩa là console ,cho phép mở kết nối đến terminal
+- **--rm:** container tự động xóa khi kết thúc
+- **-v**: Chia sẻ dữ liệu giữa máy host và container 
+- **--mout:** dùng để gắn với ổ đĩa
+- **-f:** dùng để xóa container khi đang chạy
+- **-p**: Ánh xạ cổng với nhau
+- **-d:** Container sau khi tạo chạy luôn ở chế độ nền.
+- 

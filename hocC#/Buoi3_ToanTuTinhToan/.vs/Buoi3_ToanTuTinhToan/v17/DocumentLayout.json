@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\HocTap\\hocC#\\Buoi3_ToanTuTinhToan\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2FB2C67B-2963-4363-B292-034322B9B2FE}|Buoi3_ToanTuTinhToan\\Buoi3_ToanTuTinhToan.csproj|d:\\hoctap\\hocc#\\buoi3_toantutinhtoan\\buoi3_toantutinhtoan\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FB2C67B-2963-4363-B292-034322B9B2FE}|Buoi3_ToanTuTinhToan\\Buoi3_ToanTuTinhToan.csproj|solutionrelative:buoi3_toantutinhtoan\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\HocTap\\hocC#\\Buoi3_ToanTuTinhToan\\Buoi3_ToanTuTinhToan\\Program.cs",
+              "RelativeDocumentMoniker": "Buoi3_ToanTuTinhToan\\Program.cs",
+              "ToolTip": "D:\\HocTap\\hocC#\\Buoi3_ToanTuTinhToan\\Buoi3_ToanTuTinhToan\\Program.cs",
+              "RelativeToolTip": "Buoi3_ToanTuTinhToan\\Program.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAiwB0AAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-14T15:07:25.372Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

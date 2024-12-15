@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\bin\Debug\net8.0\Bai15_Namespace_va_partial.exe
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\bin\Debug\net8.0\Bai15_Namespace_va_partial.deps.json
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\bin\Debug\net8.0\Bai15_Namespace_va_partial.runtimeconfig.json
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\bin\Debug\net8.0\Bai15_Namespace_va_partial.dll
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\bin\Debug\net8.0\Bai15_Namespace_va_partial.pdb
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\obj\Debug\net8.0\Bai15_Namespace_va_partial.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\obj\Debug\net8.0\Bai15_Namespace_va_partial.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\obj\Debug\net8.0\Bai15_Namespace_va_partial.AssemblyInfo.cs
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\obj\Debug\net8.0\Bai15_Namespace_va_partial.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\obj\Debug\net8.0\Bai15_Namespace_va_partial.sourcelink.json
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\obj\Debug\net8.0\Bai15_Namespace_va_partial.dll
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\obj\Debug\net8.0\refint\Bai15_Namespace_va_partial.dll
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\obj\Debug\net8.0\Bai15_Namespace_va_partial.pdb
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\obj\Debug\net8.0\Bai15_Namespace_va_partial.genruntimeconfig.cache
+D:\HocTap\hocC#\Bai15_Namespace_va_partial\Bai15_Namespace_va_partial\obj\Debug\net8.0\ref\Bai15_Namespace_va_partial.dll

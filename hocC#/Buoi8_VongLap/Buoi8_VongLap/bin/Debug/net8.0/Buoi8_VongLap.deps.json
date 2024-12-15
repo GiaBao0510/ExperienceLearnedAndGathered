@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Buoi8_VongLap/1.0.0": {
+        "runtime": {
+          "Buoi8_VongLap.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Buoi8_VongLap/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

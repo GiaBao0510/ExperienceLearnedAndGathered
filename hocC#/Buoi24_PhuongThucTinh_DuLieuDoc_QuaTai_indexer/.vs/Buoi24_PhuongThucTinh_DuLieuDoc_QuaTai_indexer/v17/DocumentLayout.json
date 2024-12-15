@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\HocTap\\hocC#\\Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C5DBEA4A-0126-4EAC-8BF6-6AC52E6706EA}|Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer\\Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer.csproj|d:\\hoctap\\hocc#\\buoi24_phuongthuctinh_dulieudoc_quatai_indexer\\buoi24_phuongthuctinh_dulieudoc_quatai_indexer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5DBEA4A-0126-4EAC-8BF6-6AC52E6706EA}|Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer\\Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer.csproj|solutionrelative:buoi24_phuongthuctinh_dulieudoc_quatai_indexer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\HocTap\\hocC#\\Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer\\Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer\\Program.cs",
+              "RelativeDocumentMoniker": "Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer\\Program.cs",
+              "ToolTip": "D:\\HocTap\\hocC#\\Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer\\Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer\\Program.cs",
+              "RelativeToolTip": "Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer\\Program.cs",
+              "ViewState": "AQIAAHQAAAAAAAAAAAAuwH4AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-27T14:39:13.916Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

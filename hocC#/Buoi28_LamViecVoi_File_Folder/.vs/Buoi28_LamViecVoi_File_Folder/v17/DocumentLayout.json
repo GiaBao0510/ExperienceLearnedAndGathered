@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\HocTap\\Experience\\hocC#\\Buoi28_LamViecVoi_File_Folder\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A39538B9-B7D2-40B6-AF50-12A086D43D6E}|Buoi28_LamViecVoi_File_Folder\\Buoi28_LamViecVoi_File_Folder.csproj|d:\\hoctap\\experience\\hocc#\\buoi28_lamviecvoi_file_folder\\buoi28_lamviecvoi_file_folder\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A39538B9-B7D2-40B6-AF50-12A086D43D6E}|Buoi28_LamViecVoi_File_Folder\\Buoi28_LamViecVoi_File_Folder.csproj|solutionrelative:buoi28_lamviecvoi_file_folder\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\HocTap\\Experience\\hocC#\\Buoi28_LamViecVoi_File_Folder\\Buoi28_LamViecVoi_File_Folder\\Program.cs",
+              "RelativeDocumentMoniker": "Buoi28_LamViecVoi_File_Folder\\Program.cs",
+              "ToolTip": "D:\\HocTap\\Experience\\hocC#\\Buoi28_LamViecVoi_File_Folder\\Buoi28_LamViecVoi_File_Folder\\Program.cs",
+              "RelativeToolTip": "Buoi28_LamViecVoi_File_Folder\\Program.cs",
+              "ViewState": "AQIAABgAAAAA9P////8MwB0AAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T13:24:16.496Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

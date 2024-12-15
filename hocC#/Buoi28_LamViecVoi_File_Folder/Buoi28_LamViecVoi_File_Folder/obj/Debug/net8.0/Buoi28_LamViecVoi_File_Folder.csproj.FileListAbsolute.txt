@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\bin\Debug\net8.0\Buoi28_LamViecVoi_File_Folder.exe
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\bin\Debug\net8.0\Buoi28_LamViecVoi_File_Folder.deps.json
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\bin\Debug\net8.0\Buoi28_LamViecVoi_File_Folder.runtimeconfig.json
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\bin\Debug\net8.0\Buoi28_LamViecVoi_File_Folder.dll
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\bin\Debug\net8.0\Buoi28_LamViecVoi_File_Folder.pdb
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\obj\Debug\net8.0\Buoi28_LamViecVoi_File_Folder.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\obj\Debug\net8.0\Buoi28_LamViecVoi_File_Folder.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\obj\Debug\net8.0\Buoi28_LamViecVoi_File_Folder.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\obj\Debug\net8.0\Buoi28_LamViecVoi_File_Folder.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\obj\Debug\net8.0\Buoi28_LamViecVoi_File_Folder.sourcelink.json
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\obj\Debug\net8.0\Buoi28_LamViecVoi_File_Folder.dll
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\obj\Debug\net8.0\refint\Buoi28_LamViecVoi_File_Folder.dll
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\obj\Debug\net8.0\Buoi28_LamViecVoi_File_Folder.pdb
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\obj\Debug\net8.0\Buoi28_LamViecVoi_File_Folder.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi28_LamViecVoi_File_Folder\Buoi28_LamViecVoi_File_Folder\obj\Debug\net8.0\ref\Buoi28_LamViecVoi_File_Folder.dll

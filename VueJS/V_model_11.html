@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+        <!--
+            v-model = v-on + v-bind
+            v-model: là sự liên kết 2 chiều giữa các phần tử HTML và thuộc tính dữ liệu trong mã JS
+        -->
+        <div id="app">
+            <h2> {{ message }}</h2>
+            <input type="text" v-model="message" placeholder="Nhập vào đây nè">
+            <hr>
+
+            <!--Giống như-->
+            <input type="text" :value="message" @input = "sukien => message = sukien.target.value" placeholder="Nhập ở dây cúng được nè">
+        </div>
+
+        <script>
+            const app = Vue.createApp({
+                data(){
+                    return{
+                        message: "",
+                    }
+                }
+            }).mount('#app');
+        </script>
+    </body>
+</html>

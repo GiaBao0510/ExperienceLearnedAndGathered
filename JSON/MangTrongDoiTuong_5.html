@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mảng trong đối tượng</title>
+    </head>
+    <body>
+        <h3>Duyệt mảng bên trong đối tượng</h3>
+        <p id="demo"></p>
+        <script>
+            let OB = {
+                name:"Gia Bảo",
+                age: 22,
+                interest:["manga", "anime", "walking", "playgame"]
+            };
+            let text = "";
+            for(let i in OB.interest){
+                text+= OB.interest[i] + " , ";
+            }
+            document.getElementById('demo').innerHTML = text;
+        </script>
+
+    </body>
+</html>

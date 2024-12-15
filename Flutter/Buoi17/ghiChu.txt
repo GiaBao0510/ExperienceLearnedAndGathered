@@ -1,0 +1,3 @@
+    ---- Expanded (Sắp xếp bố cục theo tỷ lệ) ----
+- Expanded được sử dụng bên trong mảng [children] thường thì nó sẽ chia tỉ lệ nội dung theo n phần.
+- Bên trong Expanded có thể sử dụng flex để canh chia tỉ lệ hiển thị của nội dung

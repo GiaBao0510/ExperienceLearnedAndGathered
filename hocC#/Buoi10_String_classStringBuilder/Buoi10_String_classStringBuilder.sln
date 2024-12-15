@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buoi10_String_classStringBuilder", "Buoi10_String_classStringBuilder\Buoi10_String_classStringBuilder.csproj", "{89267CD3-8CB2-49FC-A7C8-CC83E5F6A53F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89267CD3-8CB2-49FC-A7C8-CC83E5F6A53F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89267CD3-8CB2-49FC-A7C8-CC83E5F6A53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89267CD3-8CB2-49FC-A7C8-CC83E5F6A53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89267CD3-8CB2-49FC-A7C8-CC83E5F6A53F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42945DD4-8D3A-430D-B2D6-76F3C1BFA9B6}
+	EndGlobalSection
+EndGlobal

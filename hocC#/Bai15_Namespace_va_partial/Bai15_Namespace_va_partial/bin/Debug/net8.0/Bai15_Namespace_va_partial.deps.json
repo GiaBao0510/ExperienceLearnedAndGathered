@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Bai15_Namespace_va_partial/1.0.0": {
+        "runtime": {
+          "Bai15_Namespace_va_partial.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Bai15_Namespace_va_partial/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

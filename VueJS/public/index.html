@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index</title>
+        <script async>
+            //1. Khi tải trang, phía khác thấy tại URL để xác định những gì của trang nó có thể hiển thị
+            const urlPathString = window.localStorage.pathname;     //Lấy đương dẫn của URL hiện tại
+            const paths = urlPathString.split('/');             //Phân tách đường dẫn thành các phần tử bằng ký tự '/'.
+
+
+            //Nếu kích cỡ mảng > 1 và phần tử thứ 1 của mảng > 0 thì
+            if(paths.length > 1 && paths[1].length > 0){
+                // thì lấy phần tử thứ 1 của mảng paths làm từ khóa.
+                const word = path[1];
+                this._showWordView(word);   // Gọi hàm _showWordView() với từ khóa làm tham số.
+            }else{
+                this._showWordView();       //thì gọi hàm _showWordView() mà không có tham số.
+            }
+
+            //Lớp WordView
+            class WordView{
+                //Hàm khởi tạo
+                constructor(containerElement, word){
+                    this.containerElement = containerElement
+                    this._onSearch(word);
+                }
+
+                //Hàm tìm kiếm từ
+                async _onSearch(word){
+                    const result = await fetch('/lookup/'+word);
+                    const json = await result.json(); 
+                }
+            }
+        </script>
+    </head>
+    <body>
+
+        <!--
+            ---- Thông số phía máy khách -----
+            Tất cả các chế độ xem sẽ bị ẩn đi lần đầu bởi khách hàng 
+
+        -->
+
+        <!--Khung nhìn cho 1 trang tìm kiếm-->
+        <section id="main-view" class="hidden">
+            <h1>English dictionary</h1>
+            <form id="search">
+                Look up a word: <input type="text" id="word-input"/>
+                <input type="submit" value="Search!">
+            </form>
+            <hr/>
+            <div id="results" class="hidden">
+                The definition of <a href="" id="word"></a> is:
+                <blockquote id="definition"></blockquote>
+            </div>
+        </section>
+
+        <!-- Khung cho 1 từ-->
+        <section id="word-view" class="hidden">
+            <h1></h1>
+            The definition of <a href="" id="ww-word"></a> is:
+                <blockquote id="ww-def"></blockquote>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi Vue.js</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body> 
+    <h2 id="app">
+        <span v-html="slogan"></span>
+        <p v-html="ChieuManh"></p>
+    </h2>
+    
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    slogan: "<h1 style='color: blue;'> Phong thủy</h1>",
+                    ChieuManh:"HAhA"
+                };
+            },
+        }).mount('#app');
+    </script>
+</body>
+</html>

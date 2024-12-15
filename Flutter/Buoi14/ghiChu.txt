@@ -1,0 +1,4 @@
+    ----- SizedBox -----
+    - Nếu đã xác định trước chiều rộng và chiều cao .Hãy sử dụng SizedBox.
+    - SizeBox cũng định nghĩa những content bên trong. Tức là nó chỉ hiển thị theo kích cỡ ban đầu,
+    không thể mở rộng ra nếu kích cỡ bên trong lớn hơn.

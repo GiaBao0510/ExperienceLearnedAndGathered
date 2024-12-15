@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buoi12_DuLieuCauTrucStruct_KieuDuLieuLietKe", "Buoi12_DuLieuCauTrucStruct_KieuDuLieuLietKe\Buoi12_DuLieuCauTrucStruct_KieuDuLieuLietKe.csproj", "{98C8CC59-1753-4B22-94E3-2B62885E4314}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98C8CC59-1753-4B22-94E3-2B62885E4314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98C8CC59-1753-4B22-94E3-2B62885E4314}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98C8CC59-1753-4B22-94E3-2B62885E4314}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98C8CC59-1753-4B22-94E3-2B62885E4314}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87D226D2-ADAB-4587-865D-13296F6BD5E1}
+	EndGlobalSection
+EndGlobal

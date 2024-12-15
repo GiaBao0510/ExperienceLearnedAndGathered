@@ -1,0 +1,2 @@
+    ---- Column (Sắp xếp các Widgets theo chiều dọc) ----
+- Tựa như Row, nhưng mà theo chiều dọc

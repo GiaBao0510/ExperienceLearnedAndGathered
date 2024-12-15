@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chuỗi hóa đối tượng trong JS</title>
+    </head>
+    <body>
+        
+        <h3>1. Create a JSON string from Javascript Object</h3>
+        <p id="demo0"></p>
+        <script>
+            let ob = {name:"Gia Bảo", age:22, height:"178 cm", weight:"67 kg"};
+            let txt = JSON.stringify(ob);
+            document.getElementById('demo0').innerHTML = txt;
+        </script>
+
+        <h3>2. Xâu chuỗi thành một mảng </h3>
+        <p id="demo1"></p>
+        <script>
+            let ob1 = ["Red", "Green", "Blue"];
+            let txt1 = JSON.stringify(ob1);
+            document.getElementById('demo1').innerHTML = txt1;
+        </script>
+
+        <h3>3. Lưu dữ liệu vào bộ nhớ cục bộ</h3>
+        <p id="demo2"></p>
+        <script>
+            //Lưu
+            let ob2 = {name:"Gia Bảo", age:22, height:"178 cm", weight:"67 kg"};
+            let myJSON = JSON.stringify(ob2);       //Chuyển sang dạng chuỗi
+            localStorage.setItem("testJSON",myJSON);//Lưu vào bộ nhớ cục bộ
+
+            //Lấy
+            let txt2 = localStorage.getItem("testJSON");//Lấy từ bộ nhớ cục bộ
+            let doituong = JSON.parse(txt2);        //Chuyển sang dạng đối tượng
+            document.getElementById('demo2').innerHTML = doituong.age;
+        </script>
+
+        <!--Chuỗi ngày
+            Trong JSON, 
+            các đối tượng ngày không được phép. 
+            Hàm JSON.stringify()sẽ chuyển đổi bất kỳ ngày nào thành chuỗi.
+        -->
+        <h3>4. JSON.stringify chuyển các đối tượng ngày sang chuỗi</h3>
+        <p id="demo3"></p>
+        <script>
+            let ob3 = {name:"Gia Bảo", today: new Date(), city:"TP.Cần Thơ"};
+            let txt3 = JSON.stringify(ob3);
+            document.getElementById('demo3').innerHTML = txt3;
+        </script>
+
+        <!--Xâu chuỗi các hàm
+        Trong JSON, các hàm không được phép làm giá trị đối tượng.
+        Hàm JSON.stringify()sẽ xóa mọi hàm khỏi đối tượng JavaScript, cả khóa và giá trị:
+        -->
+        <h3>5. JSON.stringify sẽ xóa đi bất kỳ hàm nào xuất hiện trong object</h3>
+        <p id="demo4"></p>
+        <h3>Có thể chuyển đổi hàm thành chuỗi trong đối tượng trước khi chuyển đối tượng sang chuỗi</h3>
+        <p id="demo5"></p>
+        <script>
+            let ob4 = {name:"Gia Bảo", today: new Date(), city:"TP.Cần Thơ" , money: function(){return "30$";}};
+            let txt4 = JSON.stringify(ob4);
+            document.getElementById('demo4').innerHTML = txt4;
+            
+            //Có thể chuyển đổi hàm thành chuỗi trong đối tượng trước khi chuyển đối tượng sang chuỗi
+            ob4.money = ob4.money.toString();
+            let txt5 = JSON.stringify(ob4);
+            document.getElementById('demo5').innerHTML = txt5;
+        </script>
+
+    </body>
+</html>

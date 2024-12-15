@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Buoi12_DuLieuCauTrucStruct_KieuDuLieuLietKe/1.0.0": {
+        "runtime": {
+          "Buoi12_DuLieuCauTrucStruct_KieuDuLieuLietKe.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Buoi12_DuLieuCauTrucStruct_KieuDuLieuLietKe/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

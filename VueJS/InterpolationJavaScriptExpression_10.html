@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi Vue.js</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.14/vue.min.js"></script>
+</head>
+<body> 
+    
+    <!--Có thể gọi 1 phương thức tiếp xúc thuộc tính bên trong 1 biểu thức liên kết-->
+    <div id="app1">
+        <h1>{{ getFullName() }}</h1>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#app1",
+            data:{
+                firstName: "Gia Bảo",
+                lastName: "Phạm"
+            },
+            methods:{
+                getFullName: function(){
+                    return this.firstName+' ' +this.lastName;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

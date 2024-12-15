@@ -1,0 +1,2 @@
+    ---- Row (Sắp xếp các Widgets theo chiều ngang) ----
+- layout, Sắp xếp thành phần bên trong theo chiều ngang

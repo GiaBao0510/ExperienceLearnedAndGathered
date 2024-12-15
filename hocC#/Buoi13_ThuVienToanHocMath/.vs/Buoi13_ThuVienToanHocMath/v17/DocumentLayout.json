@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\HocTap\\hocC#\\Buoi13_ThuVienToanHocMath\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECD380C-2707-4FA6-AB57-AADA8131A6C9}|Buoi13_ThuVienToanHocMath\\Buoi13_ThuVienToanHocMath.csproj|d:\\hoctap\\hocc#\\buoi13_thuvientoanhocmath\\buoi13_thuvientoanhocmath\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECD380C-2707-4FA6-AB57-AADA8131A6C9}|Buoi13_ThuVienToanHocMath\\Buoi13_ThuVienToanHocMath.csproj|solutionrelative:buoi13_thuvientoanhocmath\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\HocTap\\hocC#\\Buoi13_ThuVienToanHocMath\\Buoi13_ThuVienToanHocMath\\Program.cs",
+              "RelativeDocumentMoniker": "Buoi13_ThuVienToanHocMath\\Program.cs",
+              "ToolTip": "D:\\HocTap\\hocC#\\Buoi13_ThuVienToanHocMath\\Buoi13_ThuVienToanHocMath\\Program.cs",
+              "RelativeToolTip": "Buoi13_ThuVienToanHocMath\\Program.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAqwDUAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T14:32:21.551Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

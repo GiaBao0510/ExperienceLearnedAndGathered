@@ -1,0 +1,18 @@
+- Lớp StatefulWidget: 
+> Lớp con của lớp StatefulWidget phải tạo lớp ghi đè mặc định là hàm createState(), lớp con này không có hàm build. 
+Buộc phải tạo lớp con của lớp State có kiểu là lớp con của lớp StatefulWidget. 
+Ví dụ: 
+class MyWidget extends StatefulWidget{
+    ...
+}
+class ChildMyWidget extends State<MyWidget>{
+    ...
+}
+
+> Lớp StatefulWidget có thể thay đổi state, Còn lớp StatelessWidget thì không làm được.
+> Nếu trong lớp ChildMyWidget có hàm ghi đề là initState(). Thì hàm initState() sẽ 
+chạy sau các hàm thuộc lớp MyWidget và chạy trước hàm build() trong lớp ChildMyWidget.
+
+- Hàm FloatingActionButtom(): 
+- Hàm setState() mục đích là làm thay đổi trạng thái của thuộc tính thuộc lớp nào đó ,mà hàm FloatingActionButtom() gọi hàm chứa hàm này. 
+Mặc định là hàm này sẽ reset lại hàm build() trong lớp ChildMyWidget.

@@ -1,0 +1,6 @@
+1.--------------
+Chạy file nodejs trên cmd thì với cú pháp: node fileName.js
+2. Cần phải cài đặt cho dự án
+npm install express
+npm install axios
+npm i -D nodemon

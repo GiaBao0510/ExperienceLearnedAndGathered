@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Comatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="https://unpkg.com/vue@3"></script>     <!--Kết nối trực tiếp cách 1 -->
+    </head>
+    <body>
+        
+        <div id="app">{{tinnhan}}</div>
+
+        <script>
+            //createApp: Tạo ra 1 phiên bản ứng dụng chứa các thành ứng dụng
+            const app = Vue.createApp({
+                data(){
+                    return{
+                        tinnhan: "hello vuejs", //Thuộc tính chứa giá trị
+                    };
+                }
+            });
+
+            app.mount('#app');  //Gắn kết với lớp hoặc ID để nhận nội dung
+        </script>
+    </body>
+</html>

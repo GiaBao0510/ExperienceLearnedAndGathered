@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Buoi32_SuDung_Type_Attribute/1.0.0": {
+        "runtime": {
+          "Buoi32_SuDung_Type_Attribute.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Buoi32_SuDung_Type_Attribute/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

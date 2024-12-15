@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\HocTap\\hocC#\\Buoi18_Null_Nullable\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{13DE22F7-7EA6-4942-B20D-0664EA45CA1D}|Buoi18_Null_Nullable\\Buoi18_Null_Nullable.csproj|d:\\hoctap\\hocc#\\buoi18_null_nullable\\buoi18_null_nullable\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13DE22F7-7EA6-4942-B20D-0664EA45CA1D}|Buoi18_Null_Nullable\\Buoi18_Null_Nullable.csproj|solutionrelative:buoi18_null_nullable\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\HocTap\\hocC#\\Buoi18_Null_Nullable\\Buoi18_Null_Nullable\\Program.cs",
+              "RelativeDocumentMoniker": "Buoi18_Null_Nullable\\Program.cs",
+              "ToolTip": "D:\\HocTap\\hocC#\\Buoi18_Null_Nullable\\Buoi18_Null_Nullable\\Program.cs",
+              "RelativeToolTip": "Buoi18_Null_Nullable\\Program.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAiwAcAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T15:45:56.646Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

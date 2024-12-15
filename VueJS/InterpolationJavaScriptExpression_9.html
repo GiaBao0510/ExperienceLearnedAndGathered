@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi Vue.js</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <style>
+        .mauChu{
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body> 
+    <!--Vue.js cũng hỗ trợ toàn bộ sức mạnh của các biểu thức JS bên tron tất cả các liên kết dữ liệu-->
+    <h2 id="app">
+        <div>{{message.split('').reverse().join('') }}</div>
+        <div>I am a {{ myAge > 50 ? 'kinda old':'young' }}!</div>
+    </h2>
+
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    message: 'Hello world!',
+                    myAge: 22
+                };
+            },
+        }).mount('#app');
+
+    </script>
+</body>
+</html>

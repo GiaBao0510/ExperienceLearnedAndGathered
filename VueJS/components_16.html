@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello Vue.js</title>
+        <script src="https://unpkg.com/vue@3"></script>
+        <style>
+            #button-counter-template,.greeting{
+                color: white;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="app">
+            <button-counter></button-counter>
+
+            <!--
+                    Xác định thành phần: Khi sử dụng bước xây dựng, chúng ta điển hình xác định
+                mỗi thành phần VUe là 1 tệp chuyên dụng bằng cách sử dụng thành phần mở rộng .vue
+                được gọi là thành phần tệp đơn
+            -->
+        </div>
+
+        <script setup>
+            // import {ref} from 'https://unpkg.com/vue@3';
+            // const greeting = ref('Hello World!');
+
+            //Định nghĩa các thành phần
+            const ButtonCounter = {
+                data() { return{count: 0} },
+                template:`
+                <button @click="count++">
+                    You clicked me {{count}} time.
+                </button>
+                `
+            };
+            
+            //Đăng ký thành phâng
+            Vue.createApp({
+                components:{
+                    'button-counter': ButtonCounter
+                }
+            }).mount('#app');
+        </script>
+        
+        <script>
+            //tùy chọn template có thể nhận 1 bộ chọn id (CSS) như là giá trị của nó
+            const ButtonCounter2 = {
+                data(){return {count2: 0}},
+                template:"#button-counter-template"
+            }
+        </script>
+        <script  type="text/x-template"  id="button-counter-template">
+            <button @click='count2++'>
+                > You clicked me {{count2}} time.
+            </button>
+        </script>
+        <!-- <template>
+            <p class="greeting">{{greeting}}</p>
+        </template> -->
+
+    </body>
+</html>

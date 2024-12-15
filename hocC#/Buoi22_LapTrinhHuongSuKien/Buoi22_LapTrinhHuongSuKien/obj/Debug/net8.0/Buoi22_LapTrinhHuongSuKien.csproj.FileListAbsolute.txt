@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\bin\Debug\net8.0\Buoi22_LapTrinhHuongSuKien.exe
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\bin\Debug\net8.0\Buoi22_LapTrinhHuongSuKien.deps.json
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\bin\Debug\net8.0\Buoi22_LapTrinhHuongSuKien.runtimeconfig.json
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\bin\Debug\net8.0\Buoi22_LapTrinhHuongSuKien.dll
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\bin\Debug\net8.0\Buoi22_LapTrinhHuongSuKien.pdb
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\obj\Debug\net8.0\Buoi22_LapTrinhHuongSuKien.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\obj\Debug\net8.0\Buoi22_LapTrinhHuongSuKien.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\obj\Debug\net8.0\Buoi22_LapTrinhHuongSuKien.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\obj\Debug\net8.0\Buoi22_LapTrinhHuongSuKien.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\obj\Debug\net8.0\Buoi22_LapTrinhHuongSuKien.sourcelink.json
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\obj\Debug\net8.0\Buoi22_LapTrinhHuongSuKien.dll
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\obj\Debug\net8.0\refint\Buoi22_LapTrinhHuongSuKien.dll
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\obj\Debug\net8.0\Buoi22_LapTrinhHuongSuKien.pdb
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\obj\Debug\net8.0\Buoi22_LapTrinhHuongSuKien.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi22_LapTrinhHuongSuKien\Buoi22_LapTrinhHuongSuKien\obj\Debug\net8.0\ref\Buoi22_LapTrinhHuongSuKien.dll

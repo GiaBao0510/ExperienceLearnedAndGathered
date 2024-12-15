@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello Vue.js</title>
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+        <!--
+            - Lắng nghe các sự kiện DOM:
+                v-on:event="handler" or @event="handler"
+            - Giá trị xử lý có thể là 1 trong những giá trị sau:
+                + trình xử lý nội tuyến: JS nội tuyến được mở rộng khi các sự kiện được kích hoạt
+                ( tương tự như kích hoạt sự kiện onclick).
+                + trình xử lý phương thức: 1 tên thuộc tính hoặc 1 đường dẫn để trỏ đến phương thức
+                đã được xác định trong thành phần.
+        -->
+        <div id="app">
+            <!-- 
+                1.Trình xử lý phương thức 
+            -->
+            <button @click="greet($event)">Greet</button>
+
+            <!--
+                2.Truy cập vào sự kiện tranh luận bên trong trình xử lý nội tuyến
+            -->
+            <hr>
+                <!--Sử dụng 1 biến sự kiện đặt biệt-->
+            <button @click="warn('Form cannot be submitted yet.', $event)"> Submint</button>
+            
+            <br>
+                <!--Sử dụng chức năng mũi tên nội tuyến-->
+            <button @click="(event) => warn('Form cannot be submitted yet.', event)">Submint</button>
+            
+            <hr>
+            <!-- 
+                3.Công cụ sửa đổi sự kiện: để tránh xử lý với các chi tiết sự kiện DOM bên trong các bộ xử lý sự kiện
+
+               
+                
+                @click.stop.prevent="...": Công cụ sử đổi có thể sâu chuỗi
+                
+                @click.self="...": Chỉ kích hoạt sự kiện nếu event.target là phần tử chính (Tức không phải là phần tử con).
+            -->
+            <br>
+                <!-- @click.stop="...": Việc truyền bá sự kiện sáo rỗng sẽ bị dừng-->
+            <a @click.stop="doThis">Làm đi</a>
+
+                <!--@submit.prevent="...": Sự kiện gửi sẽ không tải lại trang-->
+            <form @submit.prevent="onSubmit"> <button type="submit"> nộp</button> </form>
+            
+                <!--@submit.prevent: Chỉ là công cụ sử đổi-->
+            <form @submit.prevent> <button type="submit">Chỉ sửa đổi</button> </form>
+            <!--
+                4. Sửa đổi các khóa:
+
+                @keyup.enter="submit": Chỉ gọi vm.submit() Khi nhấn phím Enter
+                @keyup.page-down="...": Sử dụn kabas-case cho tên nhiều từ khóa
+                @keyup.atl.enter="clear": Alt + Enter 
+                @click.crtl="...": Ctrl + click / Cái này sẽ kích hoạt ngay cả khi nhấn Shift hoặc Alt
+                @click.exact="...": Điều này sẽ kích hoạt ngay cả khi không có công cụ sử đổi hệ thống nào được nhấn
+            -->
+            
+        </div>
+
+        <script>
+            const app = Vue.createApp({
+                data(){
+                    return{
+                        name: "Vue.js",
+                        text1: "Làm điều này"
+                    };
+                },
+                methods:{
+                    greet(event){
+                        //Phương thức bên trong trỏ đến phiên bản hoạt động hiện tại
+                        alert(`Hello ${this.name}!`);
+
+                        //Sự kiện là sự kiện DOM gốc
+                        if(event){
+                            alert(event.target.tagName);
+                        }
+                    },
+                    warn(message, event){
+                        //Bây giờ chúng ta có thể truy cập vào sự kiện
+                        if(event){
+                            event.preventDefault();
+                        }
+                        alert(message);
+                    },
+                    doThis(){
+                        alert(this.text1);
+                    },
+                    onSubmit(){
+                        alert("Gửi sẽ không tải lại trang")
+                    }
+                }
+            }).mount('#app');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Comatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         
+    </head>
+    <body>
+        
+        <div id="app">{{ message }}</div>
+        
+        <!--Sử dụng Vue từ CDN thông qua các module ES gốc-->
+        <script type="module">
+            import {createApp} from "https://unpkg.com/vue@3.4.15/dist/vue.esm-browser.js";   //Kết nối trực tiếp cách 2
+
+            //createApp: Tạo ra 1 phiên bản ứng dụng chứa các thành ứng dụng
+            createApp({
+                data(){
+                    return{
+                        message: "Hello world!"
+                    }
+                }
+            }).mount('#app');
+            //Phương thức này .mount()phải luôn được gọi sau khi hoàn tất tất cả cấu hình ứng dụng và đăng ký nội dung
+        </script>
+    </body>
+</html>

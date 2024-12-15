@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\bin\Debug\net8.0\Buoi2_KieuDuLieu.exe
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\bin\Debug\net8.0\Buoi2_KieuDuLieu.deps.json
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\bin\Debug\net8.0\Buoi2_KieuDuLieu.runtimeconfig.json
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\bin\Debug\net8.0\Buoi2_KieuDuLieu.dll
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\bin\Debug\net8.0\Buoi2_KieuDuLieu.pdb
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\obj\Debug\net8.0\Buoi2_KieuDuLieu.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\obj\Debug\net8.0\Buoi2_KieuDuLieu.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\obj\Debug\net8.0\Buoi2_KieuDuLieu.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\obj\Debug\net8.0\Buoi2_KieuDuLieu.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\obj\Debug\net8.0\Buoi2_KieuDuLieu.sourcelink.json
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\obj\Debug\net8.0\Buoi2_KieuDuLieu.dll
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\obj\Debug\net8.0\refint\Buoi2_KieuDuLieu.dll
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\obj\Debug\net8.0\Buoi2_KieuDuLieu.pdb
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\obj\Debug\net8.0\Buoi2_KieuDuLieu.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi2_KieuDuLieu\Buoi2_KieuDuLieu\obj\Debug\net8.0\ref\Buoi2_KieuDuLieu.dll

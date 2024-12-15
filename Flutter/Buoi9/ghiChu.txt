@@ -1,0 +1,16 @@
+    ---------  Padding and Margin trong Flutter  -----------------
+- Padding: 
+    + Dùng để tạo khoảng cách với chính nội dung của nó
+    + thuộc tính padding của Padding với nội dung như sau: padding: EdgeInsets.all(8.0) //Dùng để tạo khoảng cách
+    + Ví dụ: 
+        > padding: EdgeInsets.all() :tương đương với trên dưới trái phải với 1 tham số đại diện cho tất cả
+        > padding: EdgeInsets.fromLTRB(left, top, right, bottom): có 4 tham số đại diện lần lượt cho kích cỡ của trái, trên, phải, dưới
+        > padding: EdgeInsets.only(left:  50.0): Chỉ với 1 hoặc nhiều tham số nhất định đại diện cho 1 hoặc nhiều bên
+        > padding: EdgeInsets.symmetric(vertical: 100.0): Với đại diện theo chiều dọc và nội dung ở giữa
+        > padding: EdgeInsets.symmetric(horizontal: 100.0): Với đại diện theo chiều ngang và nội dung ở giữa
+        > padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 50.0),: Với đại diện theo chiều ngang và dọc và nội dung ở giữa
+
+- Margin:
+    + Dùng để tạo khoảng cách với những đối tượng xung quanh
+    + thuộc tính margin cùa Card với nội dung như sau: margin: EdgeInsets.all(20.0), // Dùng để tạo khoảng cách
+    + Ví dụ tưạ tựa như padding. 

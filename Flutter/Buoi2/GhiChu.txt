@@ -1,0 +1,15 @@
+- StatelessWidget: là một lớp widget trong Flutter dùng để hiển thị nội dung không thay đổi. Các widget này không có trạng thái, 
+nghĩa là chúng không cần lưu trữ bất kỳ thông tin nào sau khi chúng được tạo.
+
+- StatelessWidget thường được sử dụng để hiển thị các nội dung tĩnh, chẳng hạn như văn bản, hình ảnh, hoặc các widget đơn giản khác.
+
+- Một số ví dụ về StatelessWidget bao gồm:
+Text
+Image
+Icon
+SizedBox
+Container
+
+- State: Là khái niệm trạng thái được truyền vào
+
+- Hàm CircularProgressIndicator(): hiển thị vồng tròn đang chạy

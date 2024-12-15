@@ -1,0 +1,202 @@
+{
+  "main": {
+    "id": "3ade0c60a03e8efb",
+    "type": "split",
+    "children": [
+      {
+        "id": "3dc3c84bdcd27f26",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c13e0eda55f7ddee",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "cdd3b11df6dfad0e",
+    "type": "split",
+    "children": [
+      {
+        "id": "e42c4d009a02f1f9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3d166f6efb9eeebd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "37dae426bbe4914b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "8504adf2e32c4957",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 221.5
+  },
+  "right": {
+    "id": "e3fa8fc5acb8354c",
+    "type": "split",
+    "children": [
+      {
+        "id": "f2a657e6e54656d9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7e25c4f8c660fd66",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "d4694c3e80d98424",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "2e589c3614c2c8a4",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b753f888083ae08d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {},
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "c13e0eda55f7ddee",
+  "lastOpenFiles": [
+    "Buoi41_TaoModel_EntityFramwork/Buoi41_TaoModel_EntityFramework.md",
+    "Buoi41_TaoModel_EntityFramwork/Model/ShopContext.cs",
+    "Buoi41_TaoModel_EntityFramwork/Model/Category.cs",
+    "Buoi41_TaoModel_EntityFramwork/Model/Product.cs",
+    "Buoi41_TaoModel_EntityFramwork/Model",
+    "Buoi41_TaoModel_EntityFramwork/obj/69767614-7b2b-4e0c-8c50-a8c26e546a04.tmp",
+    "Buoi41_TaoModel_EntityFramwork/obj/dd632d97-4e8f-428d-a2b7-eb2eacaf89fd.tmp",
+    "Buoi34_SuDungHttpClient/Buoi34_SuDungHttpClient.md",
+    "Buoi41_TaoModel_EntityFramwork/obj/project.nuget.cache",
+    "Buoi41_TaoModel_EntityFramwork/obj/project.assets.json",
+    "Buoi41_TaoModel_EntityFramwork/obj/Bai41_TaoModel_EntityFramwork.csproj.nuget.g.targets",
+    "Buoi41_TaoModel_EntityFramwork/obj/Bai41_TaoModel_EntityFramwork.csproj.nuget.g.props",
+    "Buoi40_EntityFramwork_CachSuDungThanhPhanCoBan/EntityFramwork_CachSuDungThanhPhanCoBan.md",
+    "Buoi33_DependencyInjection/DependencyInjection.md",
+    "Buoi32_SuDung_Type_Attribute/SuDung_Type_Attribute.md",
+    "Buoi29_LapTrinhBatDongBo_Asynchronous/LapTrinhBatDongBo.md",
+    "Bai15_Namespace_va_partial/Namespace_va_partial.md",
+    "Untitled.md",
+    "Buoi37_ADONET_KetNoiMySQL/ADO.NET_KetNoiMySQL.md",
+    "Buoi38_SuDungSqlCommand/SqlCommand.md",
+    "Buoi36V2_GiaoThucTCP_TCPListener_TcpClient_IPAddress/GiaoThucTCP_TCPListener_TcpClient_IPAddress.md",
+    "Buoi36_HttpListener_TaoMayChuHttpDonGian/Buoi36_HttpListener_TaoMayChuHttpDonGian.md",
+    "Buoi35_HttpMessageHandler_CookieContainer/HttpMessageHandler_CookieContainer.md",
+    "Pasted image 20240810224447.png",
+    "README.md",
+    "Pasted image 20240810213508.png",
+    "Buoi34_SuDungHttpClient/bin/Debug/net8.0/window.png",
+    "Buoi34_SuDungHttpClient/bin/Debug/net8.0/viralhit1.png",
+    "Buoi34_SuDungHttpClient/window.png",
+    "Buoi34_SuDungHttpClient/viralhit1.png",
+    "web2/wwwroot/lib/jquery-validation/LICENSE.md",
+    "web/wwwroot/lib/jquery-validation/LICENSE.md",
+    "wwwroot/lib/jquery-validation/LICENSE.md",
+    "Buoi31_TaoThuVien/TaoThuVien.md",
+    "Buoi31_TaoThuVienLop/TaoThuVienLop.md",
+    "Buoi_30_LanguageIntegratedQuery/NgonNguTruyVanTichHop.md",
+    "Buoi28_LamViecVoi_File_Folder/File_Folder.md",
+    "Buoi27_Stack_Queue_LinkedList/Stack_Queue_LinkedList.md",
+    "Buoi26_KieuDuLieu_List_SortedList/List_SortedList.md",
+    "Buoi25_TimHieuVaSuDung/TimHieuCaSuDungNgoaiLe_TryCatch.md",
+    "Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer/Buoi24_PhuongThucTinh_DuLieuDoc_QuaTai_indexer.md"
+  ]
+}

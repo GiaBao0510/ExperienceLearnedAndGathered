@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+        <!--
+            v-model: là sự liên kết 2 chiều giữa các phần tử HTML và thuộc tính dữ liệu trong mã JS
+        -->
+        <div id="app">
+            <h2> Todo List</h2>
+            <p>
+                Enter your thought: 
+                <input type="text" v-model="todoItem"> &nbsp;
+                <button @click="addTodoItem">Add</button>  &nbsp;
+                <button @click="ClearToDoItem">Clear Item</button>  &nbsp;
+                <button @click="popTodoItem">Delete Item</button>  &nbsp;
+            </p>
+            <ul>
+                <!--Sử dụng cặp thẻ <template> voiwsv-for để hiển thị khối các phần tử-->
+                <template v-for="item in items">
+                    <li> {{ item }} </li>
+                </template>
+            </ul>
+        </div>
+
+        <script>
+            const app = Vue.createApp({
+                data(){
+                    return{
+                        todoItem: "",
+                        items:[]     //Nhận giá trị mảng
+                    }
+                },
+                methods:{   //Phương thức
+                    addTodoItem(){
+                        this.items.push(this.todoItem);
+                    },
+                    ClearToDoItem(){
+                        this.items = [];
+                    },
+                    popTodoItem(){
+                        this.items.pop();
+                    }
+                }
+            }).mount('#app');
+        </script>
+    </body>
+</html>

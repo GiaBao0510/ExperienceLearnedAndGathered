@@ -1,0 +1,25 @@
+---------- Custom fonts Text từ bên ngoài vào flutter ------------
+
+Bước 1: Xác định kiểu fonts muốn tải về
+Bước 2: Tải file fonts về có đuôi ttf
+Bước 3: tạo thư mục có tên 'assets' trong dự án ,rồi trong thư mục này tạo thêm 1 thư mục tên là 'fonts' .Sau đó lấy
+file font.ttf vừa tải bỏ vào thư mục fonts này
+Bước 4: Vào tệp tin pubspec.yaml trong dự án rồi cấu hình font mới trong đó
+
+Ví dụ:
+fonts:
+ - family: [Nơi đặt tên font chữ vừa thêm vào]
+   fonts:
+     - asset: fonts/Schyler-Regular.ttf [Chỉ đúng đường dẫn nơi font vừa cài đặt]
+
+Ví dụ thêm nhiều font:
+  fonts:
+   - family: RETROTECH
+     fonts:
+       - asset: assets/fonts/RETROTECH.ttf
+   - family: Handmade Notes Regular
+     fonts:
+       - asset: assets/fonts/Handmade Notes Regular.ttf
+   - family: comicbd
+     fonts:
+       - asset: assets/fonts/comicbd.ttf

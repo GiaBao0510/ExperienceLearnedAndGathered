@@ -1,0 +1,15 @@
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\bin\Debug\net8.0\Buoi21_lambda_delegate.exe
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\bin\Debug\net8.0\Buoi21_lambda_delegate.deps.json
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\bin\Debug\net8.0\Buoi21_lambda_delegate.runtimeconfig.json
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\bin\Debug\net8.0\Buoi21_lambda_delegate.dll
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\bin\Debug\net8.0\Buoi21_lambda_delegate.pdb
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\obj\Debug\net8.0\Buoi21_lambda_delegate.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\obj\Debug\net8.0\Buoi21_lambda_delegate.AssemblyInfoInputs.cache
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\obj\Debug\net8.0\Buoi21_lambda_delegate.AssemblyInfo.cs
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\obj\Debug\net8.0\Buoi21_lambda_delegate.csproj.CoreCompileInputs.cache
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\obj\Debug\net8.0\Buoi21_lambda_delegate.sourcelink.json
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\obj\Debug\net8.0\Buoi21_lambda_delegate.dll
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\obj\Debug\net8.0\refint\Buoi21_lambda_delegate.dll
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\obj\Debug\net8.0\Buoi21_lambda_delegate.pdb
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\obj\Debug\net8.0\Buoi21_lambda_delegate.genruntimeconfig.cache
+D:\HocTap\hocC#\Buoi21_lambda_delegate\Buoi21_lambda_delegate\obj\Debug\net8.0\ref\Buoi21_lambda_delegate.dll

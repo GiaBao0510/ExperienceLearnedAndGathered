@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Buoi18_Null_Nullable/1.0.0": {
+        "runtime": {
+          "Buoi18_Null_Nullable.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Buoi18_Null_Nullable/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

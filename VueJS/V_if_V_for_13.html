@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello Vue.js</title>
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+        <div id="app">
+            <h1>1.Hiển thị danh sách. với v-if và v-for</h1>
+            <button @click="show = !show" >Toggle List</button>
+            <button @click="list.push(list.length+1)"> Push Number </button>
+            <button @click="list.pop()"> Pop Number </button>
+            <button @click="list.reverse()"> Reverse List </button>
+
+            <ul v-if="show == true && list.length > 0">
+                <li v-for="item in list"> {{item}} </li>
+            </ul>
+            <p v-else-if=" show == false && list.lenght > 0"> List is not empty, but hidden</p>
+            <p v-else> List is empty</p>
+
+            <hr>
+            <h1> 2.muốn đổi chiều nhiều phần tử thì chúng ta có thể sử dụng v-if trong cặp thẻ template </template> </h1>
+            <!--Nếu chúng ta muốn đổi chiều nhiều phần tử thì chúng ta có thể sử dụng v-if trong cặp thẻ <template> -->
+            <button @click="ok = !ok"> Chuyển </button>
+            <template v-if="ok">
+                <h1>Title</h1>
+                <p>Văn bản 1</p>
+                <p>Văn bản 2</p>
+            </template>
+
+            <hr>
+            <h1>
+                3. Không nên dùng v-if và v-for trên cùng 1 phần tử vì có độ ưu tiên giữa các bên. 
+                Đương nhiên độ ưu tiên bên v-if sẽ cao hơn, vì vậy tình trạng v-if sẽ không truy cập đến các biến từ v-for
+            </h1>
+            <!--Có thể làm điều này-->
+            <template v-for="todo in todos">
+                <li v-if="todo > 10"> {{ todo }}</li>
+            </template>
+        </div>
+
+        <script>
+             const app = Vue.createApp({
+                data(){
+                    return{
+                        show: true,
+                        list: [1,2,3],
+                        ok: true,
+                        todos: [11,2,15,48,3,6]
+                    };
+                },
+             }).mount('#app');
+        </script>
+    </body>
+</html>
