@@ -29,7 +29,7 @@ docker run -it --name <tên container> -p<Cổng Host>:<Cổng Container> -h <> 
 >Chỉ thị này chỉ ra image cở sở để xây dựng nên image mới .Để xây dựng từ imagr nào đó thì cần đọc document tuef image đó để biết rong đó đang chứa gì, có thể chạy lệnh gì trong đó
 
 - *_COPY  & ADD_*: sao chép dữ liệu
->Được dùng để them thư mục file vào image
+>Được dùng để thêm thư mục file vào image
 ```
 ADD thư_mục_nguồn thư_mục_đích
 ```
@@ -72,3 +72,32 @@ ENTRYPOINT command_script
 ENTRYPOINT ['command', 'tham số',...]
 ```
 CMD ý nghĩa tương tự như ENTRYPOINT, khác là lệnh chạy bằng shell của container
+
+---
+## **Ví dụ về tạo một image bằng cách đọc dockerfile từ dự án xây dựng hệ thống bầu cử trực tuyến phía BackEnd**
+```
+# Bước 1: Sử dụng SDK .NET để build ứng dụng
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /app
+
+# Sao chép tệp dự án và khôi phục gói nuget
+COPY ["BackEnd.csproj", "./"]
+RUN dotnet restore "BackEnd.csproj"
+
+# Sao chép toàn bộ mã nguồn và build ứng dụng
+COPY . ./
+RUN dotnet publish "BackEnd.csproj" -c Release -o /app/out
+
+# Bước 2: Sử dụng Runtime .NET để chạy ứng dụng
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+
+# Sao chép kết quả từ giai đoạn build
+COPY --from=build /app/out ./
+
+# Mở cổng 80 nếu cần
+EXPOSE 80
+
+# Khởi chạy ứng dụng
+ENTRYPOINT ["dotnet", "BackEnd.dll"]
+```
