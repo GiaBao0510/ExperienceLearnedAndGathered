@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Database/MySql/Index.md",
+                "file": "InterviewQuestions/BackEnd/Middleware.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Index"
+              "title": "Middleware"
             }
           }
         ]
@@ -165,22 +165,28 @@
   },
   "active": "cba355d610a26010",
   "lastOpenFiles": [
-    "Database/InterviewQuestions/Basic.md",
+    "InterviewQuestions/HandlingTheSituation/JWT token WhiteList.md",
+    "InterviewQuestions/BackEnd/Middleware.md",
+    "InterviewQuestions/HandlingTheSituation/logout handling.md",
     "Database/MySql/Index.md",
+    "Database/MariaDB",
+    "InterviewQuestions/ADO.NET/Basic.md",
+    "InterviewQuestions/ADO.NET/Middle.md",
+    "InterviewQuestions/ADO.NET/Senior.md",
+    "InterviewQuestions/ASP.NET/Basic.md",
+    "InterviewQuestions/DotNetCore/Basic.md",
+    "().md",
+    "InterviewQuestions/DotNetCore/Junior.md",
+    "Database/InterviewQuestions/Basic.md",
     "Database/Redis/README.md",
     "Database/Redis/BasicCommand.md",
-    "InterviewQuestions/HandlingTheSituation/logout handling.md",
-    "InterviewQuestions/HandlingTheSituation/JWT token WhiteList.md",
     "Docker/data/DockerFile_6.md",
     "InterviewQuestions/HandlingTheSituation",
-    "InterviewQuestions/ASP.NET/Basic.md",
-    "InterviewQuestions/ADO.NET/Basic.md",
     "Database/InterviewQuestions",
     "Database/MySql",
     "Database",
     "Untitled.md",
     "Pasted image 20241215203911.jpg",
-    "InterviewQuestions/DotNetCore/Junior.md",
     "dataset.gif",
     "Pasted image 20241214211708.jpg",
     "Pasted image 20241214205939.jpg",
@@ -189,10 +195,7 @@
     "Pasted image 20241213101113.jpg",
     "Pasted image 20241213101038.png",
     "Pasted image 20241211215843.png",
-    "InterviewQuestions/DotNetCore/Basic.md",
     "InterviewQuestions/BackEnd",
-    "InterviewQuestions/ADO.NET/Senior.md",
-    "InterviewQuestions/ADO.NET/Middle.md",
     "InterviewQuestions/AspNetCore",
     "InterviewQuestions/ASP.NET",
     "InterviewQuestions/Untitled.md",
@@ -206,8 +209,6 @@
     "Docker/DataSharing_3.md",
     "Docker/Parameters.md",
     "OOP/Lập trình hướng đối tượng là gì_1.md",
-    "InterviewQuestions/DotNetCore",
-    "dotNet/DotNet_1.md",
-    "Docker/DockerFile_6.md"
+    "dotNet/DotNet_1.md"
   ]
 }
