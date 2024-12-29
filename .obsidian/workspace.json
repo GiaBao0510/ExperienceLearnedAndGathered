@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "InterviewQuestions/BackEnd/Middleware.md",
+                "file": "InterviewQuestions/DotNetCore/Entity Framework Core.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Middleware"
+              "title": "Entity Framework Core"
             }
           }
         ]
@@ -165,16 +165,18 @@
   },
   "active": "cba355d610a26010",
   "lastOpenFiles": [
-    "InterviewQuestions/HandlingTheSituation/JWT token WhiteList.md",
+    "InterviewQuestions/DotNet/EntityFramework.md",
+    "InterviewQuestions/DotNetCore/Entity Framework Core.md",
+    "InterviewQuestions/DotNetCore/Basic.md",
     "InterviewQuestions/BackEnd/Middleware.md",
+    "InterviewQuestions/ADO.NET/Basic.md",
+    "InterviewQuestions/ASP.NET/Basic.md",
+    "InterviewQuestions/HandlingTheSituation/JWT token WhiteList.md",
     "InterviewQuestions/HandlingTheSituation/logout handling.md",
     "Database/MySql/Index.md",
     "Database/MariaDB",
-    "InterviewQuestions/ADO.NET/Basic.md",
     "InterviewQuestions/ADO.NET/Middle.md",
     "InterviewQuestions/ADO.NET/Senior.md",
-    "InterviewQuestions/ASP.NET/Basic.md",
-    "InterviewQuestions/DotNetCore/Basic.md",
     "().md",
     "InterviewQuestions/DotNetCore/Junior.md",
     "Database/InterviewQuestions/Basic.md",
@@ -207,8 +209,6 @@
     "Docker/DockerMonitoring_5.md",
     "Docker/NetworkBridge_4.md",
     "Docker/DataSharing_3.md",
-    "Docker/Parameters.md",
-    "OOP/Lập trình hướng đối tượng là gì_1.md",
-    "dotNet/DotNet_1.md"
+    "Docker/Parameters.md"
   ]
 }
