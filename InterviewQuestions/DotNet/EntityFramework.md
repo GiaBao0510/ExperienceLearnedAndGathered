@@ -24,16 +24,19 @@
 	- Thành phần làm việc với các hệ quản trị csdl khác nhau (SQL Server, MySQL, PostgreSQL, mariaDB, SQLite,...).
 ### **3. Đặc điểm của Entity Framework?**
 1. **Hỗ trợ ORM (Object-Relational Mapping)**
-	- EF ánh xạ tự động giữa bảng, lớp và các thuộc tính.
-2. **Truy vấn dữ liệu bằng LINQ:**
+	- ORM (Object Relation Mapping) là kỹ thuật ánh xạ CSLD sang các đối tượng trong các ngôn ngữ lập trình: java, c#, PHP,...
+_Ví dụ:_
+![ViDuORM](https://images.viblo.asia/37b9229f-f30f-4a1e-a1f9-929103bb0874.png)
+
+1. **Truy vấn dữ liệu bằng LINQ:**
 	- LINQ thay thế các câu lệnh SQL, giúp truy vấn dữ liệu dễ đọc và dễ bảo trì hơn
-3. **Hỗ trợ Code-First, Database-First, Model-First:**
+2. **Hỗ trợ Code-First, Database-First, Model-First:**
 	- Code-First: Tạo cơ sở dữ liệu từ các lớp trong mã nguồn 
 	- Database-First: Tạo lớp từ csdl có sẳn
 	- Model-First: Tạo mô hình trong ứng dụng, từ đó tạo cơ sở dữ liệu.
-4. **Quản lý trạng thái của thực thể:**
+3. **Quản lý trạng thái của thực thể:**
 	- EF tự động theo dõi trạng thái của thực thể để thực hiện cập nhật CSDL chính xác
-5. **Tương thích đa nền tảng (EF Core):**
+4. **Tương thích đa nền tảng (EF Core):**
 	- Có thể chạy trên Window, Linux, macOS với **EntityFramwork Core.** 
 ### **4. Lợi ích khi sử dụng Entity Framework là gì?**
 **Tăng năng suất:**

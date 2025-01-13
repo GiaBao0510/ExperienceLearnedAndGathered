@@ -7,16 +7,21 @@ EF Core được thiết kế để hỗ trợ:
 - **Đa hệ quản trị CSDL:** mySQL, SQL server, SQLite, v.v.
 - Các ứng dụng .NET hiện tại như ASP.NET Core.
 
+_Minh họa:_
 ![EFCore](https://miro.medium.com/v2/resize:fit:1400/0*N9Zrc7IA5Zf1Jt8s.jpg)
+
+![EFCore](https://images.viblo.asia/d724d0e6-2a1d-4d8c-908a-5151a135bcaf.png)
 ## **2. Đặc điểm của Entity Framework Core là gì?**
 
 Sau đây sẽ nêu các đặc điểm về  EF Core đã có mà EF chưa có.
 
 **Nhẹ và hiệu năng tốt hơn:**
-- ít tài nguyên hơn so với EF truyền thống
+- ít tài nguyên hơn so với EF truyền thống.
+- Tốc độ nhanh hơn(performance).
 Đa nền tảng:
 - Có thể chạy trên **.NET Core** (hỗ trợ Windows, Linux, macOS) và **.NET Framework**.
 **Hỗ trợ cả Code-First, Database-First, Model-First**.
+**Open source.**
 **Khả năng mở rộng:**
 - Có thể tùy chỉnh và mở rộng dễ dàng thông qua các tính năng như ==Interceptors, Custom Conventions==.
 **Hỗ trợ cơ chế Loading:**
@@ -42,7 +47,7 @@ public class MyAppContext : Dbcontext{
 
 ## **4. DBSET là gì?**
 
-**==DbSet==** đại diện cho tất cả các thực thể trong CSDL.
+**==DbSet==** đại diện cho một thực thể trong CSDL.
 - Mỗi ==DbSet< T >== ánh xạ đến một bảng (table) trong cơ sở dữ liệu, và ==T== là lớp thực thể trong (entity).
 _Ví dụ:_
 ```
@@ -67,7 +72,8 @@ public DbSet<User> Users {get; set;}
 |   **Dùng khi**    | Dùng khi chưa có CSDL.         | Dùng khi đã có CSDL sẳn                |
 |    **Ưu điểm**    | Kiểm soát mã nguồn dễ dàng.    | Nhanh chóng tích hợp CSDL cũ.          |
 |  **Nhược điểm**   | Khó làm việc với CSDL phức tạp | Mã nguồn sinh ra có thể khó điều chỉnh |
-
+_Hình minh họa:_
+![DB-First vs Code-First](https://images.viblo.asia/5890f299-da38-485b-afc4-fea83e2f7caf.png)
 ## **7. Phân biệt eager loading, lazy loading và explicit loading?**
 
 | Cách tải dữ liệu  | Eager Loading                              | Lazy Loading                                    | Explicit Loading                                     |
@@ -94,3 +100,11 @@ public class Order{
 var order = context.Order.Find(orderID);
 context.Entry(order).Reference(o => o.Customer).Load();
 ```
+
+## **8. Ánh xạ kiểu dữ liệu từ c# sang Sql server và ngược lại?**
+
+![](https://images.viblo.asia/24f6b1db-3831-4aaa-adb9-2eb4057fc4e9.png)
+
+## **7. Phân biệt eager loading, lazy loading và explicit loading?**
+
+## **7. Phân biệt eager loading, lazy loading và explicit loading?**
