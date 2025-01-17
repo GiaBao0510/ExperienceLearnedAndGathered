@@ -2,8 +2,9 @@
 - **ADO(Active Data Object)** và ADO.NET là một bộ thư viện .NET cho ADO.NET là một bộ các thư viện quản lý được sử dụng bởi các ứng dụng .NET để giao tiếp với nguồn dữ liệu bằng cách sử dụng một trình điều khiển(drive) hoặc provider:
 	-    Các ứng dụng doanh nghiệp thường xử lý với nguồn dữ liệu lớn. Dữ liệu này chủ yếu được lưu trữ dạng cơ sở dữ liệu quan hệ( MySQL, SQL Server, Oracle, Access, ...). Các cơ sở dữ liệu này thường dùng ngôn ngữ truy vấn SQL để truy xuất dữ liệu.
 	-    Để truy cập vào dữ liệu từ một ứng dụng .NET, cần phải có một giao diện. Giao diện này hoạt động như một cầu nối giữa hệ thống và quản lý cơ sở dữ liệu(RDBMS - Relational Database Managemanet System) và ứng dụng .NET .ADO.NET chính là một giao diện, được tạo ra để kết nối ứng dụng .NET với hệ thống RDBMS.
-	- Bất kỳ ứng dụng nào từ .NET dù trên máy tính hay website điều có thể tương tác với cơ sở dữ liệu bằng cách sử dụng các lớp của thư viện ADO.NET .Dữ liệu có thể được truy xuất bất kỳ cơ sở dữ liệu nào với kiến trúc kết nối (connected) hoặc ngắt kết nối (disconnected).
+	-    Bất kỳ ứng dụng nào từ .NET dù trên máy tính hay website điều có thể tương tác với cơ sở dữ liệu bằng cách sử dụng các lớp của thư viện ADO.NET .Dữ liệu có thể được truy xuất bất kỳ cơ sở dữ liệu nào với kiến trúc kết nối (connected) hoặc ngắt kết nối (disconnected).
 
+---
 ### **2.  Ý nghĩa chính xác của phương pháp disconnected và connected trong ADO.NET là gì?
 
 Tóm lại:
@@ -12,21 +13,24 @@ Tóm lại:
 
 > Kiến trúc ADO.NET, trong đó kết nối phải được mở cho đến cuối cùng để truy xuất và truy cập dữ liệu từ cơ sở dữ liệu, được gọi là kiến trúc kết nối (connected architecture). Kiến trúc kết nối được xây dựng trên các loại: Kết nối(==connection==), lệnh(==command==), đọc dữ liệu (==datareader==).
 
->Kiến trúc ADO.NET ,trong đó kết nối chỉ được giữ mở cho đến khi dữ liệu được truy xuất từ cơ sở dữ liệu và sau đó có thể truy cập ngay cả khi kết nối đến cơ sở dữ liệu đã được đóng, được gọi là kiến trúc ngắt kết nối (disconnected architecture). Kiến trúc ngắt kết nối đươc xây dựng trên các lệnh sau: kêt nối (==connection==), trình điều kiển (DataAdapter), xây dựng lệnh (==commandbuilder==), tập dữ liệu và xem dữ liệu (==dataview==). 
+>Kiến trúc ADO.NET ,trong đó kết nối chỉ được giữ mở cho đến khi dữ liệu được truy xuất từ cơ sở dữ liệu và sau đó có thể truy cập ngay cả khi kết nối đến cơ sở dữ liệu đã được đóng, được gọi là kiến trúc ngắt kết nối (disconnected architecture). Kiến trúc ngắt kết nối đươc xây dựng trên các lệnh sau: kêt nối (==connection==), trình điều kiển (==DataAdapter==), xây dựng lệnh (==commandbuilder==), tập dữ liệu và xem dữ liệu (==dataview==). 
 
+---
 ### **3.  Các component của ADO.NET là gì?
 - Các Component của ADO.NE được phân loại vào 3 chế độ:
 	- Ngắt kết nối (Disconnected).
 	- Chung hoặc được chia sẻ (Common or Shared), và
 	- Các nhà cung cấp dữ liệu .NET.
-- Các component ngắt kết nối xây dựng cơ sở kiến trúc cơ bản của ADO.NET .Có thể sử dụng các Component này (hoặc lớp) có hoặc là không có các nhà cung cấp dữ liệu (data providers). _Ví dụ: Có thể sử dụng đối tượng DataTable có hoặc không có dữ liệu từ nhà cung cấp_. Các component chung hoặc chia sẻ này được sử dụng chung bới tất cả các nhà cung cấp dữ liệu. Các thành phần nhà cung cấp dữ liệu được thiết kế đặt biết để làm việc với các nguồn dữ liệu khác nhau. _Ví dụ: nhà cung cấp dữ liệu ODBC hoạt động với các nguồn dữ liệu ODBC và các nhà hoạt động với nguồn dữ liệu ODBC và các nhà cung cấp dữ liệu ODBC và nhà cung cấp dữ liệu OleDB hoạt động với nguồn dữ liệu OLE-DB.
+- Các **component ngắt kết nối** xây dựng cơ sở kiến trúc cơ bản của ADO.NET .Có thể sử dụng các Component này (hoặc lớp) có hoặc là không có các nhà cung cấp dữ liệu (data providers). _Ví dụ: Có thể sử dụng đối tượng DataTable có hoặc không có dữ liệu từ nhà cung cấp_. Các component chung hoặc chia sẻ này được sử dụng chung bới tất cả các nhà cung cấp dữ liệu. Các thành phần nhà cung cấp dữ liệu được thiết kế đặt biết để làm việc với các nguồn dữ liệu khác nhau. _Ví dụ: nhà cung cấp dữ liệu ODBC hoạt động với các nguồn dữ liệu ODBC và các nhà hoạt động với nguồn dữ liệu ODBC và các nhà cung cấp dữ liệu ODBC và nhà cung cấp dữ liệu OleDB hoạt động với nguồn dữ liệu OLE-DB.
 
+---
 ### **4.  Trình bày cấu trúc của DataSet?**
 
 ![[dataset.gif]] 
 - Một đối tượng **DataSet** thuộc vào dòng thành phần ngắt kết nối (disconnected components). ==DataSet== bao gồm một tập hợp các bảng (Tables), Hàng(rows), cột (columns) và mối quan hệ (relationship).
 - ==DataSet== chứa tập hợp các ==DataTable== và ==DataTable== chứa một tập hợp các ==DataRow==, ==DataRelation== và ==DataColumn==. Một ==DataTable== tương ứng với một bảng trong cơ sở dữ liệu.
 
+---
 ### **5. Connection Pooling trong ADO.NET là gì?**
 
 - ADO.NET sử dụng kỹ thuật kết nối gọi là **Connection Pooling**, giúp giảm thiểu chi phí của việc mở rộng và đóng kết nối lặp đi lặp lại nhiều lần
@@ -34,6 +38,7 @@ Tóm lại:
 - Kỹ thuật này bao gồm việc sử dụng quản lý kết nối(connection manager) có nhiệm vụ duy trì một danh sách hoặc pool, các kết nối sẳn cho một chuỗi cụ thể. Nhiều Pool kết nối tồn tại nếu các chuỗi kết nối khác nhau yêu cầu sử dụng connection pooling.
 ![[Pasted image 20241213102959.png]]
 
+---
 ### **6. SqlCommand object là gì?**
 - **SqlCommand** chứa câu lệnh SQL cần được thực thi trên cở sở dữ liệu. đối tượng SqlComand chứa 2 tham số là: **CommandText, Connection**
 	- **CommandText:** tham số này thường sẽ chứa đoạn văn bản truy vấn đế cơ sở dữ liệu SQL.
@@ -59,6 +64,8 @@ command.Parameters.AddWithValue("@Sodienthoai", 123456);
 
 var ShipperID = command.ExecuteScalar();
 ```
+
+---
 ### **7. Bạn hiểu lớp DataRelation như thế nào?**
 - **DataRelation** là một lớp kiến trúc của Disconnected(ngắt kết nối) của .NET Framework. Lớp này thuộc **namespace** tên **System.Data**. **DataRelation** đại diện cho một mối quan hệ giữa các bảng cơ sở dữ liệu và liên kết các bảng dựa trên cột phù hợp
 ```
@@ -73,9 +80,10 @@ dataset.Relations.Add(relation);
 
 ![DataRelation](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSghLSuozJRX32wJ7zB9FPty5w_JT8Ikn6JXg&s)
 
+---
 ### **8. DataAdapter trong ADO.NET là gì?**
 
-- DataAdapter được sử dụng để lấy dữ liệu từ nguồn dữ liệu và điền vào các bảng trong DataSet. DataAdapter tạo sự kết nối giữa nguồn dữ liệu và và datatset. DataAdapter cũng giải quyết các thay đổi được thực hiện trên DataSet trở lại nguồn dữ liệu. DataAdapter sử dụng đối tượng Connection của nhà cung cấp dữ liệu .NET Framework để kết nối từ nguồn dữ liệu, và nó sử dụng đối tượng Command để lấy dữ liệu từ nguồn dữ liệu và giải quyết các thay đổi
+- DataAdapter được sử dụng để lấy dữ liệu từ nguồn dữ liệu và điền vào các bảng trong DataSet. DataAdapter tạo sự kết nối giữa nguồn dữ liệu  và datatset. DataAdapter cũng giải quyết các thay đổi được thực hiện trên DataSet trở lại nguồn dữ liệu. DataAdapter sử dụng đối tượng Connection của nhà cung cấp dữ liệu .NET Framework để kết nối từ nguồn dữ liệu, và nó sử dụng đối tượng Command để lấy dữ liệu từ nguồn dữ liệu và giải quyết các thay đổi
 - DataAdapter chủ yếu hỗ trợ 2 phương thức sau:
 	- **Fill():** phương thức Fill điền dữ liệu vào một đối tượng dataset hoặc datatable từ cơ sở dữ liệu. Nó lấy các hàng từ nguồn dữ liệu bằng các sử dụng lệnh **SELECT** được chỉ định bởi thuộc tính select command liên kết .Phương thức Fill để lại kết nối trong cùng trạng thái mà nó gặp trước khi điền dữ liệu
 	- **Update():** phương thức Update xác nhận thay đổi trở lại csdl. Nó cũng phân tích trạng thái của mỗi bản ghi trong DataSet và gọi các câu lệnh INSERT, UPDATE và DELETE
@@ -123,9 +131,48 @@ DataSet dataSet = new DataSet();
 
 // Thực hiện lấy dữ liệu từ nguồn về DataSet
 adapter.Fill(dataSet);
+
 // Lấy DataTable kết quả và hiện thị
 DataTable dataTable = dataSet.Tables["Nhanvien"];
 ShowDataTable(dataTable);
 ```
 
-### **9. DataAdapter trong ADO.NET là gì?**
+---
+### **9. Hãy mô tả khi nào bạn sẽ sử dụng DataView trong ADO.NET?
+
+- **DataView** cho phép tạo các các view khác nhau của dữ liệu khi được lưu trữ trong một ==DataTable==, điều này thường được sử dụng trong các ứng dụng data binding (ràng buộc dữ liệu).
+- Bằng cách sử dụng ==DataView==, có thể cho phép hiển thị dữ liệu trong một bảng với các thứ tự sắp xếp khác nhau và có thể lọc dữ liệu theo trạng thái hoặc dựa trên biểu thức bộ lọc. ==DataView== cung cấp một view động của dữ liệu, trong đó nội dung, thứ tự và các thành viên phản ánh các thay đổi trong ==DataTable== cơ bảng khi xây ra.
+- Điều này thì khác với phương thức Select của ==DataTable==, nơi trả về một mảng ==DataRow== từ một bảng theo bộ lọc và/hoặc theo thứ tự sắp xếp cụ thể và nội dung của nó cũng phản ánh những sự thay đổi cơ bản, những thành viên và thứ tự vẫn được giữ nguyên. Các khả năng động của ==DataView== khiến nó lý tưởng cho việc ràng buộc dữ liệu
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWUrNEsCB525ui9K3F8CBl92tbu5Gbdb177Q&s)
+
+_Ví dụ:_
+- Tạo một DataTable chứa thông tin liên quan:
+```
+DataTable table = new DataTable("table");
+table.Columns.Add(new DataColumn("Name", typeof(string)));
+table.Columns.Add(new DataColumn("Age", typeof(int)));
+
+for(int i = 1; i < 10; i++){
+	DataRow newRow = table.NewRow();
+	newRow["Name"] = "Phạm Văn"+ i;
+	newRow["Age"] = i;
+	table.Rows.Add(newRow);
+}
+```
+
+- Điều kiện là chỉ lấy thông tin những người trên 5 tuổi:
+```
+//New 1 DataView
+DataView dataview = new DataView(table);
+
+
+//Chỉ lấy những hàng có Age > 5
+dataview.RowFilter = "Age > 5";
+```
+
+- Hiển thị kết quả:
+```
+for (int i = 0; i < dataview.Count ;i++){
+	Console.WriteLine($"{dataview[i]["Name"]} - {dataview[i]["Age"]}");
+}
+```
