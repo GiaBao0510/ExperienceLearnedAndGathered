@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "InterviewQuestions/ADO.NET/Middle.md",
+                "file": "c-sharp/InterviewQuestions/BackEnd/Dependency Injection.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Middle"
+              "title": "Dependency Injection"
             }
           }
         ]
@@ -77,7 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 268.5,
+    "width": 335.5,
     "collapsed": true
   },
   "right": {
@@ -165,31 +165,33 @@
   },
   "active": "4b88f928eab9234d",
   "lastOpenFiles": [
-    "InterviewQuestions/ADO.NET/Basic.md",
-    "InterviewQuestions/ADO.NET/Middle.md",
-    "InterviewQuestions/DotNet/EntityFramework.md",
+    "c-sharp/InterviewQuestions/BackEnd/Middleware.md",
+    "c-sharp/InterviewQuestions/BackEnd/Dependency Injection.md",
+    "General_interview/SetupEnviroment.md",
+    "c-sharp/Foundational C# with Microsoft/Write Your First Code Using C#",
+    "c-sharp/Foundational C# with Microsoft",
+    "Go",
+    "General_interview",
+    "c_sharp",
+    "c-sharp",
+    "Database/InterviewQuestions/Basic.md",
+    "c-sharp/InterviewQuestions/ADO.NET/Middle.md",
+    "c-sharp/InterviewQuestions/ADO.NET/Basic.md",
+    "c-sharp/InterviewQuestions/DotNet/EntityFramework.md",
     "Document/LapTrinh_Net/Winforms.pdf",
     "Document/LapTrinh_Net/REST and RESTful API.pdf",
     "Document/LapTrinh_Net/OOP with C#.pdf",
     "Document/LapTrinh_Net/Introduction to Blazor application.pdf",
-    "Document/LapTrinh_Net/EF Core.pdf",
-    "Document/LapTrinh_Net/ADO.NET.pdf",
-    "Document/LapTrinh_Net",
-    "Document/New folder",
-    "Document/DienToanDamMay/1-Cloud-Introduction.pdf",
-    "Document/DienToanDamMay/2-Cloud-Model.pdf",
-    "InterviewQuestions/BackEnd/Middleware.md",
-    "InterviewQuestions/ASP.NET/Basic.md",
-    "InterviewQuestions/ADO.NET/Senior.md",
-    "BackEnd_Develop/DesignPattern_DotNet/Structural/Adapter Pattern.md",
-    "Database/InterviewQuestions/Basic.md",
-    "BackEnd_Develop/DesignPattern_DotNet/Creational/Signleton.md",
-    "BackEnd_Develop/DesignPattern_DotNet/README.md",
-    "InterviewQuestions/DotNetCore/Basic.md",
-    "InterviewQuestions/DotNetCore/Junior.md",
-    "InterviewQuestions/DotNetCore/Entity Framework Core.md",
-    "InterviewQuestions/HandlingTheSituation/JWT token WhiteList.md",
-    "InterviewQuestions/HandlingTheSituation/logout handling.md",
+    "c-sharp/InterviewQuestions/ASP.NET/Basic.md",
+    "c-sharp/InterviewQuestions/ADO.NET/Senior.md",
+    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Structural/Adapter Pattern.md",
+    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Creational/Signleton.md",
+    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/README.md",
+    "c-sharp/InterviewQuestions/DotNetCore/Basic.md",
+    "c-sharp/InterviewQuestions/DotNetCore/Junior.md",
+    "c-sharp/InterviewQuestions/DotNetCore/Entity Framework Core.md",
+    "c-sharp/InterviewQuestions/HandlingTheSituation/JWT token WhiteList.md",
+    "c-sharp/InterviewQuestions/HandlingTheSituation/logout handling.md",
     "Database/MySql/Index.md",
     "().md",
     "Database/Redis/README.md",
@@ -207,7 +209,6 @@
     "Pasted image 20241211215843.png",
     "InterviewQuestions/Untitled.md",
     "InterviewQuestions/DotNetCore/DotNet_1.md",
-    "InterviewQuestions/ADO.NET.md",
-    "Docker/Get familliar with basic commands 1-2.md"
+    "InterviewQuestions/ADO.NET.md"
   ]
 }
