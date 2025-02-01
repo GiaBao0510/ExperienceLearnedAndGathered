@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Quick_Sort.md",
+                "file": "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Fibonacci_Search.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Quick_Sort"
+              "title": "Fibonacci_Search"
             }
           }
         ]
@@ -164,10 +164,11 @@
   },
   "active": "f4ee07b990470e74",
   "lastOpenFiles": [
+    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Binary_Search.md",
+    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Fibonacci_Search.md",
+    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Quick_Sort.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Selection_sort.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Meger_Sort.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Quick_Sort.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Binary_Search.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Shell_Sort.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Radix_Sort.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Insertion_Sort.md",
@@ -199,7 +200,6 @@
     "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Structural/Adapter Pattern.md",
     "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Creational/Signleton.md",
     "c-sharp/BackEnd_Develop/DesignPattern_DotNet/README.md",
-    "c-sharp/InterviewQuestions/DotNetCore/Basic.md",
     "Pasted image 20241215203911.jpg",
     "dataset.gif",
     "Pasted image 20241214211708.jpg",
