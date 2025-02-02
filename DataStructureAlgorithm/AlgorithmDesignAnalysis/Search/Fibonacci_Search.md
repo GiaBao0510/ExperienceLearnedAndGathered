@@ -50,7 +50,7 @@ public static int FibonacciSearch(int[] arr, int x){
 	int offset = -1;
 
 	// search
-	while(Fm1 > 1){
+	while(Fm > 1){
 
 		int i = Math.Min(offset + Fm2, n-1);    // i = min(offset + Fm2, n-1)
 

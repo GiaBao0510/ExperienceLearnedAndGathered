@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Fibonacci_Search.md",
+                "file": "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Ternary_Search.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Fibonacci_Search"
+              "title": "Ternary_Search"
             }
           }
         ]
@@ -164,7 +164,16 @@
   },
   "active": "f4ee07b990470e74",
   "lastOpenFiles": [
+    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Linear_Search.md",
+    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Ternary_Search.md",
+    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Exponential_Search.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Binary_Search.md",
+    "DataStructureAlgorithm/DataStructure/Arrays.md",
+    "DataStructureAlgorithm/DataStructure/Queue.md",
+    "DataStructureAlgorithm/DataStructure/Stack.md",
+    "DataStructureAlgorithm/DataStructure/LinkedList.md",
+    "DataStructureAlgorithm/DataStructure/List.md",
+    "DataStructureAlgorithm/Graph",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Fibonacci_Search.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Quick_Sort.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Selection_sort.md",
@@ -175,7 +184,6 @@
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Heap_Sort.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Bucket_Sort.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Bubble_Sort.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Linear_Search.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Bin_Sort.md",
     "c-sharp/InterviewQuestions/BackEnd/Dependency Injection.md",
@@ -190,16 +198,8 @@
     "c-sharp/Foundational C# with Microsoft/Write Your First Code Using C#",
     "c-sharp/Foundational C# with Microsoft",
     "Go",
-    "General_interview",
     "Database/InterviewQuestions/Basic.md",
     "c-sharp/InterviewQuestions/ADO.NET/Middle.md",
-    "c-sharp/InterviewQuestions/ADO.NET/Basic.md",
-    "c-sharp/InterviewQuestions/DotNet/EntityFramework.md",
-    "c-sharp/InterviewQuestions/ASP.NET/Basic.md",
-    "c-sharp/InterviewQuestions/ADO.NET/Senior.md",
-    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Structural/Adapter Pattern.md",
-    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Creational/Signleton.md",
-    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/README.md",
     "Pasted image 20241215203911.jpg",
     "dataset.gif",
     "Pasted image 20241214211708.jpg",
