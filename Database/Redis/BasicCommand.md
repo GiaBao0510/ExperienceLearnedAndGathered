@@ -11,6 +11,9 @@
 | PERSIST key         | Xóa thời gian hết hạn cho key                         |
 | RENAMENX key newkey | đổi tên khóa sang newkey dựa trên tên khóa đã tồn tại |
 | TYPE key            | Lấy kiểu dữ liệu được lưu trữ bởi key                 |
+|                     |                                                       |
+
+---
 ## **2. Redis string**:
 - Thao tác với các values kiểu string trong redis:
 
@@ -22,7 +25,6 @@ OK
 "giabao"
 ```
 
-
 | Command                 | Ý nghĩa                                                                                      |
 | ----------------------- | -------------------------------------------------------------------------------------------- |
 | SET key value           | đặt giá trị cho khóa nào đó                                                                  |
@@ -31,7 +33,7 @@ OK
 | GETSET key value        | Lấy giá trị cũ và đặt lại giá trị mới                                                        |
 | MGET key1 key2 ...      | Lấy giá trị trên nhiều khóa nào đó                                                           |
 | SETEX key seconds value | Đặt giá trị và thời gian hết hạn cho key                                                     |
-| SETNX key value         | Đặt giá trị chó khóa nếu khóa chưa tồn tại                                                   |
+| SETNX key value         | Đặt giá trị cho khóa nếu khóa chưa tồn tại                                                   |
 | RENAMENX key newkey     | Lấy tên khóa hiện tại và đặt lại tên cho khóa đó. (Lưu ý tên khóa cần đặt phải chưa tồn tại) |
 | STRLEN Key              | Lấy độ dài giá trị tại khóa                                                                  |
 | INCR key                | Tăng giá trị lữu của khóa (số nguyên) 1 đơn vị                                               |
@@ -39,24 +41,33 @@ OK
 | DECR key                | Giảm giá trị lưu trữ của khóa (số nguyên) 1 đơn vị                                           |
 | DECR key n              | Giảm giá trị lưu trữ của khóa (số nguyên) n đơn vị                                           |
 
+---
 ## **3. Redis hash**:
 - được sử dụng để quản lý các key/value .Trong đó value có giá trị là hash.  Thường thì dùng hash để lưu trữ các object.
 
 | Command                                                  | Ý nghĩa                                             |
 | -------------------------------------------------------- | --------------------------------------------------- |
 | HSET key field val                                       | Đặt giá trị cho một trường cụ thể tại khóa nào đó   |
-| HGET key fi                                              | Lấy giá trị tại một trường của khóa nào đó          |
+| HGET key field                                           | Lấy giá trị tại một trường của khóa nào đó          |
 | HMGET key field1 field2                                  | Lấy giá trị tại các field của khóa nào đó           |
 | HGETAL                                                   | Lấy tất cả giá trị theo từng trường của khóa cụ thể |
 | HDEL key field1 fiel                                     | Xóa các trường tại khóa cụ thể                      |
-| HEXISTS ke                                               | Kiểm tra trường của khóa có tồn tại không           |
+| HEXISTS key                                              | Kiểm tra trường của khóa có tồn tại không           |
 | HINCRBY key                                              | Tăng giá trị của field (Số nguyên) n đơn vị         |
 | HDECRBY ke                                               | Giảm giá trị của field (Số nguyên) n đơn vị         |
 | HDECRBYFLOAT k                                           | Giảm giá trị của field (Số thực)                    |
 | HVALS key                                                | lấy tất cả các value của hash tại khóa              |
 | HLEN key                                                 | Lấy số lượng trường tại khóa                        |
 | HMSET key field1 value1 field1 value1  ield2 value2 .... | Đặt giá trị theo từng fiel trong khóa               |
+*Ví dụ:*
+```
+127.0.0.1:6379> HSET user:1 name "john" age 30
+OK
+127.0.0.1:6379> HGET user:1 name
+john
+```
 
+---
 ## **4.Redis list:**
 - Thường được sử dụng để lưu các key/value trong đó thì value có kiểu là list. List được sử dụng phổ biến và list có 2 kiểu thường dùng là stack và queue.
 
@@ -76,7 +87,7 @@ OK
 
 | Command                         | Ý nghĩa                                                                         |
 | ------------------------------- | ------------------------------------------------------------------------------- |
-| LINDEX key index                | lấy giá trị từ danh sacsg tại vị trí nào đó                                     |
+| LINDEX key index                | lấy giá trị từ danh sách tại vị trí nào đó                                      |
 | LLEN key                        | Lấy độ dài của danh sách                                                        |
 | LPOP key                        | lấy phần tử ở đầu danh sách                                                     |
 | LPUSH key value1 value2 ...     | Lấy các giá trị vào đầu danh sách                                               |
@@ -86,6 +97,7 @@ OK
 | RPUSH key value1 value2 ...     | Thêm các giá trị lần lượt vào cuối danh sách                                    |
 | LINSERT key AFTER value1 value2 | Thêm phần tử value 2 vào trong sau phần tử value1                               |
 
+---
 ## **5. Redis set:**
 - Đây là một lập hợp dùng để lưu các value có giá trị duy nhất và không trùng lặp với nhau
 
@@ -110,6 +122,7 @@ _Ví dụ:_
 | SMEMBERS key               | Lấy các phần tử trong tập hợp                                             |
 | SPOP key                   | Xóa bỏ ngẫu nhiên một phần tử trong tập hợp ,rồi trả về giá trị đã bị xóa |
 
+---
 ## **6. Redis sorted set**
 - Dùng để quản lý key/value, trong đó value có giá trị mà một sorted set (tập hợp sắp xếp thep điểm/ ưu tiên từ thấp đến cao). Các giá trị trong sorted set là duy nhất.
 
@@ -143,6 +156,8 @@ _Ví dụ:_
 | ZSCORE key member                         | Lấy giá trị score của member                                                                                   |
 | ZRANK key member                          | Lấy vị trí của member trong sorted set                                                                         |
 | ZCOUNT key score1 score2                  | Đếm số member có score tương ứng trong đoạn score1 đến score2                                                  |
+
+---
 ## **7. Redis Transaction :**
 - Redis Transaction cho phép thực hiện nhóm các câu lệnh theo thứ tự cho đến hoàn thành câu lệnh cuối thì nó mới thực việc cập nhật dựa trên các câu lệnh trước đó.  Redis Transaction này bắt đầu bằng MULTI và kết thúc bằng EXEC
 
