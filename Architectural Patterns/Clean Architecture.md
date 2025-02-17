@@ -1,0 +1,1 @@
+Clean Architecture là mô hình kiến rúc phàn mềm được đề xuất bởi Robert C.Martin (Uncle Bob), giúp để tạo ra một hệ thống phần mềm dễ bảo trì và mở rộng.

@@ -17,6 +17,17 @@ docker network inspect [tên network]
 docker inspect [Tên container / container ID]
 ```
 
+- **Xóa tất cả các network không được sử dụng**:
+```
+docker network prune
+```
+
+- **Xem thông tin chi tiết về network**:
+```
+docker network inspect [Tên network]
+```
+
+---
 ### **Ánh xạ cổng mạng trong Docker:**
 
 - Ánh xạ cổng từ container đến cổng của máy host
@@ -56,3 +67,24 @@ docker run -it --name [Đặt tên container] --network [Tên mạng có sẳn] 
 docker network connect [Tên mạng cần kết nối] [Tên container/ container ID]
 ```
 
+
+---
+### **Ví dụ:**
+
+- **Ví dụ về `docker run` với network**:
+```
+docker run -it --name my_container --network my_network image_ID
+```
+*Lệnh này sẽ tạo một container mới và kết nối nó vào network `my_network`.*
+
+- **Ví dụ về `docker network create`**:
+```
+docker network create --driver bridge my_network
+```
+*Lệnh này sẽ tạo một network mới có tên `my_network` với driver `bridge`.*
+
+- **Ví dụ về `docker network connect`**:
+```
+docker network connect my_network my_container
+```
+*Lệnh này sẽ kết nối container `my_container` vào network `my_network`.*

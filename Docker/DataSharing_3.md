@@ -32,6 +32,21 @@ docker volume inspect [NameDisk]
 docker volume rm [NameDisk]
 ```
 
+**Xem danh sách các volume**:
+```
+docker volume ls
+```
+
+**Xóa tất cả các volume không được sử dụng**:
+```
+docker volume prune
+```
+
+**Xem thông tin chi tiết về volume**:
+```
+docker volume inspect [NameDisk]
+```
+
  **Gắn ổ đĩa volume vào container:**
 ```
 docker run -it --mount source=DISK,target=pathContainer ImageID
@@ -43,3 +58,30 @@ docker run -it --mount source=DISK,target=pathContainer ImageID
 ```
 docker volume create --opt device=pathHOST --opt type=none --otp o=bind DISKNAME
 ```
+
+**Kiểm tra trạng thái volume**:
+```
+docker volume inspect [NameDisk]
+```
+
+---
+
+### **Ví dụ minh họa:**
+
+- **Ví dụ về `docker run` với volume**:
+```
+docker run -it -v /host/path:/container/path image_ID
+```
+*Lệnh này sẽ mount thư mục `/host/path` từ host vào thư mục `/container/path` trong container.*
+
+- **Ví dụ về `docker run` với `--volumes-from`**:
+```
+docker run -it --name new_container --volumes-from existing_container -image_ID
+```
+*Lệnh này sẽ tạo một container mới và chia sẻ volume từ container `existing_container`.*
+
+- **Ví dụ về `docker volume create`**:
+```
+docker volume create my_volume
+```
+*Lệnh này sẽ tạo một volume mới có tên `my_volume`.*

@@ -60,6 +60,53 @@ Xóa container đang chạy dựa trên tên container
 ```
 docker rm [tên container]
 ```
+
+**Xóa tất cả các container đang chạy**:
+```
+docker rm -f ${docker ps -aq}
+```
+
+**Xóa tất cả các images**:
+```
+docker rmi -f ${docker images -aq}
+```
+
+**Xóa các container đã dừng**:
+```
+docker container prune
+```
+
+**Xóa các images không được sử dụng**:
+```
+docker image prune
+```
+
+**Xem logs của container**:
+```
+docker logs [container ID]
+```
+
+**Xem thông tin chi tiết về container**:
+```
+docker inspect [Container ID]
+```
+
+**Tạo một network mới**:
+```
+docker network create [network name]
+```
+
+**Kết nối container vào một network**:
+```
+docker network connect [network name] [container ID]
+```
+
+**Xem danh sách các network**:
+```
+docker network ls
+```
+
+---
 ## **Cập nhật Image, lưu image ra file và nạp image từ file vào docker**
 
 _Lưu container thành một image:_
