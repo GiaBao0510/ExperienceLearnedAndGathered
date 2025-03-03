@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Database/MongoDB/2_Operators.md",
+                "file": "Database/MongoDB/4_Aggregation Framework.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2_Operators"
+              "title": "4_Aggregation Framework"
             }
           }
         ]
@@ -166,8 +166,10 @@
   "active": "b267b4c9caafead9",
   "lastOpenFiles": [
     "Database/MongoDB/README.md",
+    "Database/MongoDB/4_Aggregation Framework.md",
+    "Database/MongoDB/3_Advanced query.md",
+    "Database/MongoDB/1_Commands in Mongo Shell.md",
     "Database/MongoDB/2_Operators.md",
-    "Database/MongoDB/1_CommandsInMongo_Shell.md",
     "c-sharp/InterviewQuestions/BackEnd/Middleware.md",
     "c-sharp/InterviewQuestions/BackEnd/Dependency Injection.md",
     "c-sharp/InterviewQuestions/DotNetCore/Junior.md",
@@ -197,8 +199,6 @@
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Shell_Sort.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Selection_sort.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Meger_Sort.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Insertion_Sort.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Heap_Sort.md",
     "Architectural Patterns",
     "DataStructureAlgorithm/Graph",
     "Pasted image 20241215203911.jpg",
