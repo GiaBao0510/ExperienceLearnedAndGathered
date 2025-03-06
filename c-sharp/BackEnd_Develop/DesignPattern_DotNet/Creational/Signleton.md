@@ -20,19 +20,22 @@
 
 - **Duy nhất (unique):** chỉ tồn tại một thể hiện duy nhất của lớp.
 - **Toàn cục (Global Access):**  có thể truy cập đến thể hiện này ở bất kỳ đâu trong ứng dụng.
-- **Kiểm soát việc khởi tạo:** thể hiện chỉ được tạo ra khi cần thiết(Lazy Initialization).
+- **Kiểm soát việc khởi tạo:** thể hiện chỉ được tạo ra khi cần thiết (Lazy Initialization).
+
 ---
 
 ### **Nên sử dụng Singleton khi nào?**
 
 - Khi cần một đối tượng duy nhất trong toàn bộ ứng dụng.
-- Quản lý cấu hình: Cấu hình ứng dụng cần 1 thể hiện.
-- Quản lý kết nối cơ sở dữ liệu: Đảm bảo việc tái sử dụng kết nối và tối ưu tài nguyên.
-- Hệ thống ghi log: một logger dùng chung trong toàn bộ chương trình.
+- **Quản lý cấu hình:** Cấu hình ứng dụng cần 1 thể hiện.
+- **Quản lý kết nối cơ sở dữ liệu:** Đảm bảo việc tái sử dụng kết nối và tối ưu tài nguyên.
+- **Hệ thống ghi log:** một logger dùng chung trong toàn bộ chương trình.
+
 ---
 ### **Ví dụ minh họa với c#:**
 
 **A. Triển khai Singleton với Lazy initialization**
+
 ```
 public class Singleton1{
 
@@ -60,6 +63,7 @@ public class Singleton1{
 - Cách này chỉ sử dụng tốt trong trường hợp đơn luồng, trường hợp nếu có 2 luồng cùng chạy và cùng gọi đến ==hàm GetInstance()== vào trong cùng 1 thời điểm thì đương nhiên sẽ có ít nhất 2 thể hiện của instance.
 
 **B.Triển khai Singleton với Thread-Safety:**
+
 ```
 public class Singleton1{
 

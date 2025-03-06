@@ -2,7 +2,10 @@
 
 - **Design patten (Mẫu thiết kế)** là các giải pháp đã được kiểm chứng và tổng hợp để giải quyết vấn đề phổ biến trong phần mềm. Các mẫu này là hướng dẫn không mẫu mà lập trình viên có thể áp dụng để tạo ra phần mềm có cấu trúc, dễ bảo trì và mở rộng. 
 - Theo định nghĩa từ cuốn sách nổi tiếng **"Design Patterns: Elements of Reusabla Object-Oriented Software"** của nhóm tác giải: Authors: [Erich Gamma](https://www.google.com/search?newwindow=1&sca_esv=dd4f2f9b345362f6&sxsrf=ADLYWILV64U98jC-MsBz2_3TAbWVBCXWDg:1735629634396&q=Erich+Gamma&si=ACC90nzx_D3_zUKRnpAjmO0UBLNxnt7EyN4YYdru6U3bxLI-L4VgYBnoQdryCjwPsANNnINji53J8Wv1qTo0E9Rnu44NirTYoNRLI5mHRhkXoWnWYb8YF91gVVZkGhuZvGL9jsB-HAMSXJJzjvIVJTRPZlKbOE2SZzB1IjxfjhJsJ9RnBRBshMpryc5UQOIeMSeAe1HqcJxDArYZd4lS-WjmTXXMwz__e-PMhBe3ktzdzma6i4KKkQA%3D&sa=X&ved=2ahUKEwiwg8eevNGKAxUMyzgGHURTCkQQmxMoAHoECC0QAg), [Richard Helm](https://www.google.com/search?newwindow=1&sca_esv=dd4f2f9b345362f6&sxsrf=ADLYWILV64U98jC-MsBz2_3TAbWVBCXWDg:1735629634396&q=Richard+Helm&si=ACC90nzx_D3_zUKRnpAjmO0UBLNxnt7EyN4YYdru6U3bxLI-L3AcS9xIPG9LOIG5_1uxb3V_2BlkgnBpUBPvKrPyrfgsRElMU_iwf2RGAPIkzlzzaemgNp-SEsalqcE2OtJtDOBeQyRuWICaW16cXV0PZM6m8MhU3xfU9IC6FpGTQUA4fjqyPinJ7CIujWlTHEM5tZhJwCf2YLBV-XjjHx-qh_vGd3M5_uhZOVZ9xrgk8CrSU_4wYc9EHJDNacO97G_r16utfjJa&sa=X&ved=2ahUKEwiwg8eevNGKAxUMyzgGHURTCkQQmxMoAXoECC0QAw), [John Vlissides](https://www.google.com/search?newwindow=1&sca_esv=dd4f2f9b345362f6&sxsrf=ADLYWILV64U98jC-MsBz2_3TAbWVBCXWDg:1735629634396&q=John+Vlissides&si=ACC90nzx_D3_zUKRnpAjmO0UBLNxnt7EyN4YYdru6U3bxLI-Ly4ELhEOZm0PyAg94J_kw82NZdUH56wehgAk3QrVNVQSKZCXe33clfWzDAFHEkepqrw31WhzJdwp2vQ_cCC5KVqcG2De2-yFGbFhGVKFcaFp-8BdY3zNP4I_LRaxW82IPV9GjvR2wtdwM5wZ5heNOqdt1HAyvwaJ69nj-ZnN2LYq9fvnpFHqiYVOLMu9OkRAww93iiKv8CxptT2jW6IrbkNDId9R&sa=X&ved=2ahUKEwiwg8eevNGKAxUMyzgGHURTCkQQmxMoAnoECC0QBA), [Ralph Johnson](https://www.google.com/search?newwindow=1&sca_esv=dd4f2f9b345362f6&sxsrf=ADLYWILV64U98jC-MsBz2_3TAbWVBCXWDg:1735629634396&q=Ralph+Johnson+(computer+scientist)&si=ACC90nzx_D3_zUKRnpAjmO0UBLNxnt7EyN4YYdru6U3bxLI-L20K9hpEvb_53EeAcwjEi7kdkBZkEYu_ftgsVNWEO0rdBv9U5Wwg1YKqI5vTl0Zc-dl_h6aIbisSbjX3kediKctX8mwdhodw53_d8HxkOMtTBrHJbPxgTTc8eEGMArcsGbyqHFRipgRDkBRqFhvNcPgu-mb9ZpNx0O5kuJUG64LlCan62gbzv3pwvl7n60RrkFY2ZqteX1yIfqFmqZIBhKT_Rd7ctm388JZDOCNgXtV6s_tm0Q%3D%3D&sa=X&ved=2ahUKEwiwg8eevNGKAxUMyzgGHURTCkQQmxMoA3oECC0QBQ)
+
 >**Design Patterns là các mô tả chuẩn hóa các giải pháp chung cho những vấn đề thường gặp trong thiết kế phần mềm.**
+
+
 - Design patterns là một trong những kỹ thuật lập trình hướng đối tượng (OOP), không phụ thuộc vào ngôn ngữ lập trình cụ thể nào. Nó cung cấp các mẫu thiết kế, giải pháp đển giải quyết vấn đề chung, thường gặp trong lập trình. Các vấn đề mà mình gặp phải và tự nghĩ ra cách để giải quyết thường thì chưa tối ưu.
 - Design pattern giúp giải quyết vấn đề một cách tối ưu, cung cấp các giải pháp trong lập trình OOP.
 
@@ -48,7 +51,7 @@
 - **Composite:** _Tạo cấu trúc phân cấp để nhóm các đối tượng theo cách cây._
 - **Decorator:** _Thêm hành vi hoặc trách nhiệm cho đối tượng mà không thay đổi mã nguồn ban đầu._
 - **Facade:** _Cung cấp một giao diện đơn giản để truy cập một hệ thống phức tạp._
-- **Flyweight:** _Giảm chi phí bộ nhớ bằng cách chi sẻ dữ liệu cho các đối tượng tương tự_
+- **Flyweight:** _Giảm chi phí bộ nhớ bằng cách chia sẻ dữ liệu cho các đối tượng tương tự_
 - **Proxy:** _Cung cấp một đối tượng cụ thể để kiểm soát truy cập đối tượng thực sự._
 >Những patterns loại này liên quan tới class và các thành phần của đối tượng. Nó dùng để thiết lập, định nghĩa quan hệ giữa các đối tượng. Hệ thống càng lớn thì mẫu này càng đóng vai trò quan trong. Có thể dựa vào class diagram để theo dõi các Patterns này.
 

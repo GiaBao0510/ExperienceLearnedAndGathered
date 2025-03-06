@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Database/MongoDB/4_Aggregation Framework.md",
+                "file": "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Structural/Adapter Pattern.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4_Aggregation Framework"
+              "title": "Adapter Pattern"
             }
           }
         ]
@@ -165,8 +165,12 @@
   },
   "active": "b267b4c9caafead9",
   "lastOpenFiles": [
-    "Database/MongoDB/README.md",
+    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/README.md",
+    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Creational/Signleton.md",
+    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Structural/Adapter Pattern.md",
+    "General_interview/SetupEnviroment.md",
     "Database/MongoDB/4_Aggregation Framework.md",
+    "Database/MongoDB/README.md",
     "Database/MongoDB/3_Advanced query.md",
     "Database/MongoDB/1_Commands in Mongo Shell.md",
     "Database/MongoDB/2_Operators.md",
@@ -189,16 +193,12 @@
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching/NaiveSearch.md",
     "Architectural Patterns/Clean Architecture.md",
     "().md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Quick_Sort.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Substring",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/PatternMatchng",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Compression",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Manipulation",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Shell_Sort.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Selection_sort.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Sort/Meger_Sort.md",
     "Architectural Patterns",
     "DataStructureAlgorithm/Graph",
     "Pasted image 20241215203911.jpg",
