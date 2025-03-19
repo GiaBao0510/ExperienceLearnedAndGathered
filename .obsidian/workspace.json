@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Experience/DataBaseFirst_vs_CodeFirst.md",
+                "file": "c-sharp/BackEnd_Develop/DesignPattern_DotNet/DataAccessPatterns/Repository Pattern + Unit of Work.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DataBaseFirst_vs_CodeFirst"
+              "title": "Repository Pattern + Unit of Work"
             }
           }
         ]
@@ -165,9 +165,17 @@
   },
   "active": "442ec72fc82ab7f8",
   "lastOpenFiles": [
+    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Structural/Repository Pattern.md",
+    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/DataAccessPatterns/Repository Pattern + Unit of Work.md",
+    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/README.md",
+    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/AdvancedPatterns",
+    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/DataAccessPatterns",
+    "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Boyer-Moore Majority Voting Algorithm.md",
+    "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching/Boyer-Moore Majority Voting Algorithm",
+    "Experience/SOLID_principle.md",
+    "Experience/DataBaseFirst_vs_CodeFirst.md",
     "Pasted image 20250317155939.png",
     "Experience/Asynchronou/Async_await.md",
-    "Experience/DataBaseFirst_vs_CodeFirst.md",
     "Experience/Asynchronou/Synchronize_Asynchronous.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Compression/Run-Length Encoding.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching/KMP Algorithm.md",
@@ -193,14 +201,7 @@
     "Database/LINQ/LINQ_1.md",
     "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Structural/Adapter Pattern.md",
     "Database/LINQ",
-    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/README.md",
     "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Creational/Signleton.md",
-    "Database/MongoDB/4_Aggregation Framework.md",
-    "Database/MongoDB/README.md",
-    "Database/MongoDB/3_Advanced query.md",
-    "Authentication/OAuth2",
-    "Authentication",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Substring",
     "Pasted image 20241215203911.jpg",
     "dataset.gif",
     "Pasted image 20241214211708.jpg",
