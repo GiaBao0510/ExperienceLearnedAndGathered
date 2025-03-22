@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "c-sharp/BackEnd_Develop/DesignPattern_DotNet/DataAccessPatterns/Repository Pattern + Unit of Work.md",
+                "file": "c-sharp/InterviewQuestions/BackEnd/Middleware.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Repository Pattern + Unit of Work"
+              "title": "Middleware"
             }
           }
         ]
@@ -165,8 +165,14 @@
   },
   "active": "442ec72fc82ab7f8",
   "lastOpenFiles": [
-    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Structural/Repository Pattern.md",
+    "c-sharp/InterviewQuestions/HandlingTheSituation/logout handling.md",
+    "c-sharp/InterviewQuestions/HandlingTheSituation/JWT token WhiteList.md",
+    "Docker/Get familliar with basic commands 1-2.md",
+    "Experience/Decentralization_Issue/Problem_and_Solution1.md",
     "c-sharp/BackEnd_Develop/DesignPattern_DotNet/DataAccessPatterns/Repository Pattern + Unit of Work.md",
+    "Experience/Untitled/Untitled",
+    "Experience/Decentralization_Issue",
+    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Structural/Repository Pattern.md",
     "c-sharp/BackEnd_Develop/DesignPattern_DotNet/README.md",
     "c-sharp/BackEnd_Develop/DesignPattern_DotNet/AdvancedPatterns",
     "c-sharp/BackEnd_Develop/DesignPattern_DotNet/DataAccessPatterns",
@@ -187,9 +193,7 @@
     "Experience/Async_Await và Task_Thread.md",
     "Experience/Asynchronou",
     "Architectural Patterns/Clean Architecture.md",
-    "Docker/Get familliar with basic commands 1-2.md",
     "Experience/SystemDesignAnalysis/UseCasesNeededInTheSya.md",
-    "Experience/Untitled/Untitled",
     "Experience/SystemDesignAnalysis",
     "Experience",
     "Architectural Patterns/MVC.md",
@@ -198,10 +202,6 @@
     "General_interview/SetupEnviroment.md",
     "General_interview/RESTAPI",
     "Database/LINQ/RoadMap.md",
-    "Database/LINQ/LINQ_1.md",
-    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Structural/Adapter Pattern.md",
-    "Database/LINQ",
-    "c-sharp/BackEnd_Develop/DesignPattern_DotNet/Creational/Signleton.md",
     "Pasted image 20241215203911.jpg",
     "dataset.gif",
     "Pasted image 20241214211708.jpg",
