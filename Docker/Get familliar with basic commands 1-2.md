@@ -36,7 +36,7 @@ docker run [options] image [command] [Arg...]
 - ``[command]: cho biết các lệnh, sau khi chạy container
 - ``[Arg...]: các tham số khi chạy container
 
-_Chạy 1 container đã dùng dựa trên ID_
+_Chạy 1 container đã dừng dựa trên ID_
 ```
 docker container start -i [container ID]
 ```

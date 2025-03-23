@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3d200177b1e33ef6",
+        "id": "e3836fd3216b2011",
         "type": "tabs",
         "children": [
           {
-            "id": "442ec72fc82ab7f8",
+            "id": "314390e90e1b9e0a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "c-sharp/InterviewQuestions/BackEnd/Middleware.md",
+                "file": "Docker/NetworkBridge_4.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Middleware"
+              "title": "NetworkBridge_4"
             }
           }
         ]
@@ -77,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 335.5,
-    "collapsed": true
+    "width": 335.5
   },
   "right": {
     "id": "5515e25134f7b7c2",
@@ -163,11 +162,39 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "442ec72fc82ab7f8",
+  "active": "314390e90e1b9e0a",
   "lastOpenFiles": [
+    "Docker/DataSharing_3.md",
+    "Docker/Parameters.md",
+    "Docker/Get familliar with basic commands 1-2.md",
+    "Docker/NetworkBridge_4.md",
+    "Docker/Road map.md",
+    "Docker/DockerFile_6.md",
+    "Docker/DockerMonitoring_5.md",
+    "DevOps/CICD_Guide/1_Overview.md",
+    "().md",
+    "Database/LINQ/LINQ_1.md",
+    "Database/LINQ/RoadMap.md",
+    "DevOps/CICD_Guide/Road_map.md",
+    "DevOps/GitLab/Road_Map.md",
+    "Architectural Patterns/CQRS.md",
+    "DevOps/GitLab",
+    "DevOps/CICD_Guide",
+    "DevOps",
+    "Architectural Patterns/Client-Server Architecture.md",
+    "Architectural Patterns/Clean Architecture.md",
+    "README.md",
+    "Pasted image 20241215203911.jpg",
+    "Pasted image 20241214211708.jpg",
+    "Pasted image 20241214205939.jpg",
+    "Pasted image 20241213102959.png",
+    "Pasted image 20241213101113.jpg",
+    "Pasted image 20241211215843.png",
+    "dataset.gif",
+    "Pasted image 20241213101038.png",
+    "c-sharp/InterviewQuestions/BackEnd/Middleware.md",
     "c-sharp/InterviewQuestions/HandlingTheSituation/logout handling.md",
     "c-sharp/InterviewQuestions/HandlingTheSituation/JWT token WhiteList.md",
-    "Docker/Get familliar with basic commands 1-2.md",
     "Experience/Decentralization_Issue/Problem_and_Solution1.md",
     "c-sharp/BackEnd_Develop/DesignPattern_DotNet/DataAccessPatterns/Repository Pattern + Unit of Work.md",
     "Experience/Untitled/Untitled",
@@ -179,37 +206,9 @@
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/Search/Boyer-Moore Majority Voting Algorithm.md",
     "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching/Boyer-Moore Majority Voting Algorithm",
     "Experience/SOLID_principle.md",
-    "Experience/DataBaseFirst_vs_CodeFirst.md",
     "Pasted image 20250317155939.png",
-    "Experience/Asynchronou/Async_await.md",
-    "Experience/Asynchronou/Synchronize_Asynchronous.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Compression/Run-Length Encoding.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching/KMP Algorithm.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching/Rabin-Karp Algorithm.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching/NaiveSearch.md",
-    "rust/Roadmap.md",
-    "rust/README.md",
     "rust",
-    "Experience/Async_Await và Task_Thread.md",
     "Experience/Asynchronou",
-    "Architectural Patterns/Clean Architecture.md",
-    "Experience/SystemDesignAnalysis/UseCasesNeededInTheSya.md",
-    "Experience/SystemDesignAnalysis",
-    "Experience",
-    "Architectural Patterns/MVC.md",
-    "General_interview/RESTAPI/RESTful_API_2.md",
-    "General_interview/RESTAPI/RESTful_API_1.md",
-    "General_interview/SetupEnviroment.md",
-    "General_interview/RESTAPI",
-    "Database/LINQ/RoadMap.md",
-    "Pasted image 20241215203911.jpg",
-    "dataset.gif",
-    "Pasted image 20241214211708.jpg",
-    "Pasted image 20241214205939.jpg",
-    "Pasted image 20241214204729.png",
-    "Pasted image 20241213102959.png",
-    "Pasted image 20241213101113.jpg",
-    "Pasted image 20241213101038.png",
-    "Pasted image 20241211215843.png"
+    "Pasted image 20241214204729.png"
   ]
 }
