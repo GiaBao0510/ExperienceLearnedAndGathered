@@ -1,6 +1,7 @@
 Selection Sort là một thuật toán sắp xếp đơn giản dựa trên việc **chọn ra phần tử nhỏ nhất (hoặc lớn nhất)** từ phần tử chưa được sắp xếp và đưa nó về vị trí đúng đang xét.
 
 #### **Nguyên lý hoạt động:**
+
 - **Bước 1:** tìm phần tử nhỏ nhất (hoặc lớn nhất) trong mảng chưa được sắp xếp.
 - **Bước 2:** Hoán đổi phẩn tử nhỏ nhất (hoặc lớn nhất) với phần tử đầu tiên trong mảng chưa được sắp xếp.
 - **Bước 3:** Lặp lại quá trình này cho đến cuối mảng (bỏ quan phần tử đã được sắp xếp).
@@ -12,9 +13,11 @@ Selection Sort là một thuật toán sắp xếp đơn giản dựa trên vi�
 
 ---
 #### **Ưu, nhược điểm:**
+
 **Ưu điểm:**
 - Đơn giản, dễ hiểu và dễ cài đặt
 - Không cần phải thêm bộ nhớ phụ (in-place sorting).
+
 **Nhược điểm:**
 - Độ phức tạp thời gian ***O(n^2)*** kém hiệu quả với dữ liệu lớn.
 - Không ổn định (unstable), có thể thay đổi thứ tự các phần tử bằng nhau.

@@ -11,12 +11,11 @@
 ### 🔥 Nội dung:
 
 1. **Giới thiệu về LINQ**
-    
     - LINQ là gì?
     - Lợi ích của LINQ so với các cách truy vấn dữ liệu truyền thống.
     - Các kiểu dữ liệu có thể dùng LINQ: Collection, Database, XML, Entity Framework, v.v.
-2. **Cấu trúc của một truy vấn LINQ**
     
+2. **Cấu trúc của một truy vấn LINQ**
     - Cú pháp Query Syntax vs Method Syntax.
     - Pipeline trong LINQ (cách chuỗi các phương thức hoạt động).
 
@@ -32,13 +31,12 @@
 
 ### 🔥 Nội dung:
 
-3. **Query Syntax vs Method Syntax**
-    
+1. **Query Syntax vs Method Syntax**
     - Cách viết LINQ theo Query Syntax.
     - Cách viết LINQ theo Method Syntax.
     - So sánh ưu và nhược điểm của từng cú pháp.
-4. **Các toán tử LINQ cơ bản**
-    
+
+2. **Các toán tử LINQ cơ bản**
     - **Filtering (Lọc dữ liệu)**
         - `Where()`
     - **Sorting (Sắp xếp dữ liệu)**
@@ -57,31 +55,28 @@
 ## **Phần 3: Các toán tử nâng cao trong LINQ**
 
 ### ✅ Mục tiêu:
-
 - Nắm vững các toán tử LINQ nâng cao.
 - Xử lý các truy vấn phức tạp hơn.
 
 ### 🔥 Nội dung:
 
-5. **Joining (Kết hợp dữ liệu)**
-    
+1. **Joining (Kết hợp dữ liệu)**
     - `Join()`
     - `GroupJoin()`
-6. **Aggregation (Tính toán tổng hợp)**
-    
+
+2. **Aggregation (Tính toán tổng hợp)**    
     - `Count()`, `Sum()`, `Min()`, `Max()`, `Average()`
-7. **Quantifiers (Toán tử kiểm tra)**
-    
+
+3. **Quantifiers (Toán tử kiểm tra)**    
     - `Any()`, `All()`, `Contains()`
-8. **Element Operators (Truy xuất phần tử)**
-    
+
+4. **Element Operators (Truy xuất phần tử)**    
     - `First()`, `FirstOrDefault()`
     - `Single()`, `SingleOrDefault()`
     - `Last()`, `LastOrDefault()`
     - `ElementAt()`, `ElementAtOrDefault()`
 
 ---
-
 ## **Phần 4: LINQ với Database (Entity Framework Core)**
 
 ### ✅ Mục tiêu:
@@ -91,15 +86,15 @@
 
 ### 🔥 Nội dung:
 
-9. **LINQ to Entities với Entity Framework Core**
+1. **LINQ to Entities với Entity Framework Core**
     - Cách sử dụng LINQ với EF Core.
     - Hiệu suất truy vấn LINQ khi làm việc với database.
 
-10. **Deferred Execution vs Immediate Execution**
+2. **Deferred Execution vs Immediate Execution**
     - `IQueryable<T>` vs `IEnumerable<T>`.
     - Cách kiểm soát việc thực thi truy vấn.
 
-11. **Tracking vs No Tracking trong EF Core**
+3. **Tracking vs No Tracking trong EF Core**
     - Ảnh hưởng đến hiệu suất của LINQ trong EF Core.
 
 ---
@@ -107,27 +102,25 @@
 ## **Phần 5: Tối ưu hóa LINQ và các kỹ thuật nâng cao**
 
 ### ✅ Mục tiêu:
-
 - Hiểu về performance tuning trong LINQ.
 - Tránh các lỗi phổ biến khi sử dụng LINQ.
 
 ### 🔥 Nội dung:
 
-12. **Hiệu suất của LINQ**
-    
+1. **Hiệu suất của LINQ**
     - Khi nào nên dùng LINQ, khi nào không nên dùng.
     - Tránh lạm dụng LINQ (ví dụ: tránh `.ToList()` không cần thiết).
     - Tối ưu hóa truy vấn LINQ để cải thiện hiệu suất.
-13. **LINQ với Async Programming**
-    
+
+2. **LINQ với Async Programming**
     - Sử dụng `Asynchronous LINQ` (`ToListAsync()`, `FirstOrDefaultAsync()`).
     - So sánh hiệu suất của truy vấn đồng bộ và bất đồng bộ.
-14. **LINQ với Expression Tree**
-    
+
+3. **LINQ với Expression Tree**    
     - Biểu thức `Expression<Func<T, bool>>`.
     - Ứng dụng Expression Tree trong LINQ động.
-15. **Dynamic LINQ**
-    
+
+4. **Dynamic LINQ**    
     - Cách tạo truy vấn LINQ động với `System.Linq.Dynamic`.
 
 ---
@@ -141,14 +134,13 @@
 
 ### 🔥 Nội dung:
 
-16. **Xây dựng ứng dụng Console sử dụng LINQ để xử lý dữ liệu**
-    
+1. **Xây dựng ứng dụng Console sử dụng LINQ để xử lý dữ liệu**
     - Viết ứng dụng phân tích dữ liệu đơn giản.
-17. **Sử dụng LINQ trong Web API với ASP.NET Core**
     
+2. **Sử dụng LINQ trong Web API với ASP.NET Core**
     - Tạo API và sử dụng LINQ để lấy dữ liệu.
-18. **Ứng dụng LINQ trong xử lý dữ liệu lớn**
-    
+
+3. **Ứng dụng LINQ trong xử lý dữ liệu lớn**
     - Xử lý danh sách lớn bằng `Parallel LINQ (PLINQ)` để tăng hiệu suất.
 
 ---
@@ -156,21 +148,17 @@
 # **📌 Phương pháp học hiệu quả**
 
 ✅ **Học lý thuyết kết hợp thực hành**
-
 - Mỗi khi học xong một chủ đề, hãy viết code demo để hiểu rõ cách hoạt động.
 - Dùng **LINQPad** hoặc **C# Interactive** để thử nghiệm nhanh các truy vấn LINQ.
 
 ✅ **Làm các bài tập thực tế**
-
 - Viết các chương trình nhỏ sử dụng LINQ để thao tác dữ liệu.
 - Tạo API sử dụng Entity Framework Core và LINQ.
 
 ✅ **Đọc mã nguồn của các dự án thực tế**
-
 - Xem cách các dự án mã nguồn mở sử dụng LINQ để học hỏi cách tối ưu hóa.
 
 ✅ **Thực hiện refactor code bằng LINQ**
-
 - Tìm những đoạn code sử dụng vòng lặp `for` hoặc `foreach` và thử tối ưu bằng LINQ.
 
 ---

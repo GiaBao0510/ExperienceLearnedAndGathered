@@ -14,11 +14,13 @@
 
 ---
 #### **Ưu,nhược điểm**
+
 **Ưu điểm:**
 - Đơn giản, dễ hiểu, dễ cài đặt
 - Hiệu quả với dữ liệu nhỏ hoặc gần như đã được sắp xếp.
 - Không cần thêm bộ nhớ phụ (in-place sorting).
 - Ổn định (stable), không thay đổi thứ tự các phần tử bằng nhau.
+
 **Nhược điểm:**
 - Độ phức tạp thời gina ***O(n^2)*** kém hiệu quả với dữ liệu lớn.
 

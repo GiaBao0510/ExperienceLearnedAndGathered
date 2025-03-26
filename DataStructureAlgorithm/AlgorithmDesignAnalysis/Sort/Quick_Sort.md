@@ -35,14 +35,15 @@ public static void QuickSort(int[] arr, int low, int high){
 
 public static int partition(int[] arr, int low, int high){
 
-	int pivot = arr[high];              //here default take the pivot at the end of the array
-	int i = low - 1;                    //index of smaller element
-	int temp;                           //temporary variable
+	int pivot = arr[high];  //here default take the pivot at the end of the array
+	int i = low - 1;        //index of smaller element
+	int temp;               //temporary variable
 
 	for(int j = low; j < high; j++){
 		
 		// if the value under consideration is less than the value
-		//at the pivot, then swap the value at the index i with the value at the index j
+		//at the pivot, then swap the value at the index i 
+		//with the value at the index j
 
 		if(arr[j] < pivot){            
 			i++;
