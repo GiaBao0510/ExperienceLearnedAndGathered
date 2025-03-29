@@ -37,6 +37,8 @@
 
 ```
 
+![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*421gfNkdZk0AT5zs-9u5BQ.png)
+
 ### 🔹 **1.Domain Layer (Lớp miền – Core Business Logic)**
 
 ✅ Chứa các **Entities (Thực thể)** đại diện cho dữ liệu và quy tắc nghiệp vụ.  
@@ -165,7 +167,7 @@ public class EventController : ControllerBase
 }
 ```
 
-
+![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*nidcJNn8Z7Sd2fvhqv8gMg.png)
 #### **🖼️Cấu trúc thư mục gợi ý:**
 ```
 📂 MyProject

@@ -29,7 +29,7 @@ Khi một yêu cầu(request) đến ứng dụng:
 - Xử lý ngoại lệ xảy ra trong pipeline và trả về thông tin lỗi có kiểm soát.
 - Dùng để bắt lỗi từ người dùng hoặc hệ thống.
 - Thường nằm ở đầu pipeline.
-```
+```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 	if(env.IsDevelopment()){
 		app.UseDeveloperExceptionPage();  //Hiển thị chi tiết lỗi khi phát triển
@@ -46,7 +46,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 - Cải thiện bảo mật.
 - Dùng trong môi trưởng sản xuất.
 - Được khuyến nghị sử dụng
-```
+```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 	if(!env.IsDevelopment()){
 		app.UseHsts();   //Kích hoạt HSTS
@@ -58,7 +58,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 ### **7. Giải thích về HttpsRedirection?**
 - Tự động chuyển hướng các yêu cầu HTTP sang HTTPS.
 - Bảo vệ ứng dụng khỏi các cuộc tấn công thông qua kết nối HTTP không an toàn
-```
+```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 	app.UseHttpsRedirection();
 }
@@ -68,7 +68,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 ### **8. Giải thích về CookiePolicy? (Tham khảo)**
 - Cung cấp các chính sách về cookie để kiểm soát cookie được gửi và nhận từ client.
 - Hỗ trợ chính sách bảo mật như ==Secure, HttpOnly, SameSite.==
-```
+```csharp
 public void ConfigureServices(IServiceCollection services){
 	services.Configure<CookiePolicyOptions>(options => {
 		options.AddPolicy( "AllowSpecifiOrigin" ,policy =>{
@@ -88,7 +88,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 - Phục vụ các tệp tĩnh như HTML, CSS, JavaScript, hình ảnh
 - Thường đặt trong thư mục ==wwwroot==.
 - Có thể cấu hình đường dẫn hoặc tệp tùy chỉnh
-```
+```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 	app.UseStaticFiles();
 }
@@ -99,7 +99,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 ### **10. Giải thích về Routing?**
 - Ánh xạ các yêu cầu HTTP đến các endpoint được định nghĩa
 - kết hợp với ==UseEndpoints== để định nghĩa các route.
-```
+```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 	app.UseRouting();
 	app.UseEndpoints(endpoints =>{
@@ -115,7 +115,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 ### **11. Giải thích về RateLimiter?**
 - Giới hạn số lượng yêu cầu (request) từ một client trong một khoảng thời gian nhất định.
 - Bảo vệ hệ thống khỏi các cuộc tấn công DDoS hoặc lạm dụng tài nguyên.
-```
+```csharp
 public void ConfigureServices(IServiceCollection services){
 	services.AddRateLimiter(options => {
 		options.AddFixedWindowLimiter( "FixedPolicy" ,c =>{
@@ -134,7 +134,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 ### **12. Giải thích về CORS?**
 - Kiểm soát cho phép chia sẻ tài nguyên giữa các domain
 - Tiện khi giữa FrontEnd và BackEnd ở các domain khác nhau.
-```
+```csharp
 public void ConfigureServices(IServiceCollection services){
 	services.AddCors(options => {
 		options.AddPolicy( "AllowSpecifiOrigin" ,policy =>{
@@ -155,7 +155,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 ---
 ### **13. Giải thích về Authentication?**
 - Xác thực người dùng dựa trên các scheme như JWT, Cookie, OAuth
-```
+```csharp
 public void ConfigureServices(IServiceCollection services){
 	services.AddAuthentication("Bearer")
 		.AddJwtBearer(options =>{
@@ -172,7 +172,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 ---
 ### **14. Giải thích về Authorization?**
 - Kiểm tra quyền truy cập dựa trên thông tin xác thực
-```
+```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 	app.UseAuthorization();
 }
@@ -182,7 +182,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 ### **15. Giải thích về Custom Middleware?**
 - Phần này người dùng sẽ tự định nghĩa dựa trên yêu câu thực tế để xử lý các yêu cầu và phản hồi.
 - Thêm logic để xử lý cụ thể.
-```
+```csharp
 public class LoggingMiddleware{
 	private readonly RequestDeledate _next;
 
@@ -207,7 +207,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 - Kết thúc pipeline và trả về phản hồi cho client
 - Có kết hợp với ==UseRouting== để định nghĩa các hành động cuối.
 - Sẽ routing đến Action Controller API.
-```
+```csharp
 public void Configure(IApplicationBuilder app) { 
 	app.UseRouting();
 	app.UseEndpoints(endpoints => { 
