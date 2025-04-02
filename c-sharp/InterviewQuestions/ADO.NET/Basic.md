@@ -1,4 +1,7 @@
 ### **1. ADO.NET là gì?
+
+![](https://miro.medium.com/v2/resize:fit:640/format:webp/0*vI0UtAPoEAQKwsR1.gif)
+
 - **ADO(Active Data Object)** và ADO.NET là một bộ thư viện .NET cho ADO.NET là một bộ các thư viện quản lý được sử dụng bởi các ứng dụng .NET để giao tiếp với nguồn dữ liệu bằng cách sử dụng một trình điều khiển(drive) hoặc provider:
 	-    Các ứng dụng doanh nghiệp thường xử lý với nguồn dữ liệu lớn. Dữ liệu này chủ yếu được lưu trữ dạng cơ sở dữ liệu quan hệ( MySQL, SQL Server, Oracle, Access, ...). Các cơ sở dữ liệu này thường dùng ngôn ngữ truy vấn SQL để truy xuất dữ liệu.
 	-    Để truy cập vào dữ liệu từ một ứng dụng .NET, cần phải có một giao diện. Giao diện này hoạt động như một cầu nối giữa hệ thống và quản lý cơ sở dữ liệu(RDBMS - Relational Database Managemanet System) và ứng dụng .NET .ADO.NET chính là một giao diện, được tạo ra để kết nối ứng dụng .NET với hệ thống RDBMS.
@@ -21,12 +24,16 @@ Tóm lại:
 	- Ngắt kết nối (Disconnected).
 	- Chung hoặc được chia sẻ (Common or Shared), và
 	- Các nhà cung cấp dữ liệu .NET.
+
+![](https://miro.medium.com/v2/resize:fit:640/format:webp/0*eIEf7BPpdjat8vlD.jpg)
+
 - Các **component ngắt kết nối** xây dựng cơ sở kiến trúc cơ bản của ADO.NET .Có thể sử dụng các Component này (hoặc lớp) có hoặc là không có các nhà cung cấp dữ liệu (data providers). _Ví dụ: Có thể sử dụng đối tượng DataTable có hoặc không có dữ liệu từ nhà cung cấp_. Các component chung hoặc chia sẻ này được sử dụng chung bới tất cả các nhà cung cấp dữ liệu. Các thành phần nhà cung cấp dữ liệu được thiết kế đặt biết để làm việc với các nguồn dữ liệu khác nhau. _Ví dụ: nhà cung cấp dữ liệu ODBC hoạt động với các nguồn dữ liệu ODBC và các nhà hoạt động với nguồn dữ liệu ODBC và các nhà cung cấp dữ liệu ODBC và nhà cung cấp dữ liệu OleDB hoạt động với nguồn dữ liệu OLE-DB.
 
 ---
 ### **4.  Trình bày cấu trúc của DataSet?**
 
-![[dataset.gif]] 
+![](https://www.ezzylearning.net/wp-content/uploads/2020/07/dataset.gif) 
+
 - Một đối tượng **DataSet** thuộc vào dòng thành phần ngắt kết nối (disconnected components). ==DataSet== bao gồm một tập hợp các bảng (Tables), Hàng(rows), cột (columns) và mối quan hệ (relationship).
 - ==DataSet== chứa tập hợp các ==DataTable== và ==DataTable== chứa một tập hợp các ==DataRow==, ==DataRelation== và ==DataColumn==. Một ==DataTable== tương ứng với một bảng trong cơ sở dữ liệu.
 
@@ -36,7 +43,8 @@ Tóm lại:
 - ADO.NET sử dụng kỹ thuật kết nối gọi là **Connection Pooling**, giúp giảm thiểu chi phí của việc mở rộng và đóng kết nối lặp đi lặp lại nhiều lần
 - _" Conection Pooling tái sử dụng các kết nối hiện đang hoạt động có cùng chuỗi kết nối thay vì tạo các kết nối mới khi có yêu cầu tới cơ sở dữ liệu."_
 - Kỹ thuật này bao gồm việc sử dụng quản lý kết nối(connection manager) có nhiệm vụ duy trì một danh sách hoặc pool, các kết nối sẳn cho một chuỗi cụ thể. Nhiều Pool kết nối tồn tại nếu các chuỗi kết nối khác nhau yêu cầu sử dụng connection pooling.
-![[Pasted image 20241213102959.png]]
+
+![](https://dotnettutorials.net/wp-content/uploads/2021/03/word-image-48.png?ezimgfmt=ng:webp/ngcb8)
 
 ---
 ### **6. SqlCommand object là gì?**
@@ -78,7 +86,7 @@ DataRelation relation = DataRelation("Group_user", groupTable.Columns["GroupID"]
 dataset.Relations.Add(relation);
 ```
 
-![DataRelation](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSghLSuozJRX32wJ7zB9FPty5w_JT8Ikn6JXg&s)
+![DataRelation](https://www.akadia.com/img/dotnet_dataview_manager.gif)
 
 ---
 ### **8. DataAdapter trong ADO.NET là gì?**
