@@ -5,7 +5,6 @@
 
 >**Design Patterns là các mô tả chuẩn hóa các giải pháp chung cho những vấn đề thường gặp trong thiết kế phần mềm.**
 
-
 - Design patterns là một trong những kỹ thuật lập trình hướng đối tượng (OOP), không phụ thuộc vào ngôn ngữ lập trình cụ thể nào. Nó cung cấp các mẫu thiết kế, giải pháp đển giải quyết vấn đề chung, thường gặp trong lập trình. Các vấn đề mà mình gặp phải và tự nghĩ ra cách để giải quyết thường thì chưa tối ưu.
 - Design pattern giúp giải quyết vấn đề một cách tối ưu, cung cấp các giải pháp trong lập trình OOP.
 
@@ -37,6 +36,8 @@
 
 - Theo cuốn **"Design Patterns: Elements of Reusabla Object-Oriented Software"** thì các Design Patterns được chia làm 3 nhóm chính, mỗi loại giải quyết các khía cạnh khác nhau trong phần mềm:
 
+![](./DesignPatterns.jpg)
+
 **Creational Pattern (Nhóm khởi tạo)** gồm 5 mẫu:
 - **Abstract Factory:** _Cung cấp một giao diện để tạo các nhóm đối tượng liên quan hoặc phụ thuộc mà không cần chỉ định lớp cụ thể_
 - **Builder:** _Tách biệt việc xây dựng một đối tượng phức tạp khỏi cấu trúc_
@@ -53,7 +54,7 @@
 - **Facade:** _Cung cấp một giao diện đơn giản để truy cập một hệ thống phức tạp._
 - **Flyweight:** _Giảm chi phí bộ nhớ bằng cách chia sẻ dữ liệu cho các đối tượng tương tự_
 - **Proxy:** _Cung cấp một đối tượng cụ thể để kiểm soát truy cập đối tượng thực sự._
->Những patterns loại này liên quan tới class và các thành phần của đối tượng. Nó dùng để thiết lập, định nghĩa quan hệ giữa các đối tượng. Hệ thống càng lớn thì mẫu này càng đóng vai trò quan trong. Có thể dựa vào class diagram để theo dõi các Patterns này.
+>Những patterns loại này liên quan tới class và các thành phần của đối tượng. Nó dùng để thiết lập, định nghĩa quan hệ giữa các đối tượng. Hệ thống càng lớn thì mẫu này càng đóng vai trò quan trọng. Có thể dựa vào class diagram để theo dõi các Patterns này.
 
 **Behavioral Pattern (Nhóm hành vi)** gồm 11 mẫu:
 - **Chain of Reponsibility:** _truyền yêu cầu dọc theo một chuỗi các đối tượng để xử lý/_
@@ -62,7 +63,7 @@
 - **Iterator:** Cung cấp cách tuần tự truy cập vào các phần tử trong tập hợp mà không để lộ cấu trúc bên trong
 - **Mediator:** _Định nghĩa một đối tượng trung gian để kiểm soát giao tiếp giữa các đối tượng._
 - **Mementor:** _Lưu trữ trạng thái bên trong của một đối tượng để có thể khôi phục sau._
-- **Observer:** _Định nghĩa mốt quan hệ một-nhiều giữa các đối tượng_
+- **Observer:** _Định nghĩa mối quan hệ một-nhiều giữa các đối tượng_
 - **State:** _Thay đổi hành vi của một đối tượng khi trạng thái nó bị thay đổi._
 - **Strategy:** _Định nghĩa một họ các thuật toán, đóng gói chúng và làm chúng có thể dễ dàng thay đổi_
 - **Template Method:** _Định nghĩa khung của một thuật toán, cho phép các bước cụ thể được tùy chỉnh bởi lớp con._

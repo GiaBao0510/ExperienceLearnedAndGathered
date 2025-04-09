@@ -1,11 +1,10 @@
 ### **Singleton là gì?**
 
-- **Singleton** là một mẫu thiếu kế thuộc nhóm **Creational Patterns**, đảm bảo **một lớp chỉ có một thể hiệm duy nhất (instance)** trong suốt vòng đời của ứng dụng và cung cấp một điểm truy cập toàn cụ đến thể hiện đó. 
+- **Singleton** là một mẫu thiếu kế thuộc nhóm **Creational Patterns**, đảm bảo **một lớp chỉ có một thể hiện duy nhất (instance)** trong suốt vòng đời của ứng dụng và cung cấp  một phương thức truy cập đến **Instance** đó từ mọi nơi (global access). 
 
 ![](https://images.viblo.asia/8cc36217-fa29-496b-a2ab-03a5286d8b6b.png)
 
 ---
-
 ### **Kiến trúc**
 
 - Đầu tiên đặt ==**Constructor** là private== để không cho client có thể khởi tạo object của lớp.
@@ -36,11 +35,11 @@
 
 **A. Triển khai Singleton với Lazy initialization**
 
-```
+```csharp
 public class Singleton1{
 
 	//Biến static giữ thể hiện duy nhất
-	public static Singleton1 _instance;
+	private static Singleton1 _instance;
 
 	//Constructor private để ngăn việc khởi tạo từ bên ngoài
 	private Singleton1(){}
@@ -64,11 +63,11 @@ public class Singleton1{
 
 **B.Triển khai Singleton với Thread-Safety:**
 
-```
+```csharp
 public class Singleton1{
 
 	//Biến static giữ thể hiện duy nhất
-	public static Singleton1 _instance;
+	private static Singleton1 _instance;
 	private static readonly object _lock = new object();
 
 	//Constructor private để ngăn việc khởi tạo từ bên ngoài
@@ -102,7 +101,7 @@ public class Singleton1{
 **Ưu điểm:**
 - **Đảm bảo tính duy nhất:** Chỉ có một thể hiện trong toàn bộ ứng dụng.
 - **Tiết kiệm tài nguyên:** Đặc biệt quan trọng khi khởi tạo đối tượng tốn kém như kết nối cơ sở dữ liệu.
-- Đối tượng singleton chỉ được khởi tạo duy nhất trong một lần khi nó được yêu cầu lần đầu.
+- Đối tượng **singleton** chỉ được khởi tạo duy nhất trong một lần khi nó được yêu cầu lần đầu.
 - Kiểm soát việc truy cập đến instance duy nhất.
 - Giảm namespace.
 - **Truy cập toàn cục:** Đơn giản hóa việc truy cập đối tượng dùng chung.
