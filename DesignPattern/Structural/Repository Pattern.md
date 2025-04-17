@@ -12,7 +12,7 @@
 ## **1️⃣Cấu trúc mẫu dữ án:**
 
 Cấu trúc mẫu dữ án như sau:
-```
+```csharp
 /ProjectName
 │── /Controllers
 │    ├── ProductController.cs
@@ -40,7 +40,7 @@ Cấu trúc mẫu dữ án như sau:
 ### **📌 Bước 1: Tạo Model (Entity)**
 📂 **`/Models/Product.cs`**
 
-```
+```csharp
 namespace ProjectName.Models
 {
     public class Product
@@ -55,7 +55,7 @@ namespace ProjectName.Models
 ### **📌 Bước 2: Tạo Database Context (Entity Framework Core)**
 📂 **`/Data/AppDbContext.cs`**
 
-```
+```csharp
 using Microsoft.EntityFrameworkCore;
 using ProjectName.Models;
 
@@ -63,7 +63,8 @@ namespace ProjectName.Data
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) 
+	        : base(options) { }
 
         public DbSet<Product> Products { get; set; }
     }
@@ -73,7 +74,7 @@ namespace ProjectName.Data
 ### **📌 Bước 3: Tạo Interface Repository chung (Generic Repository)**
 📂 **`/Repositories/IRepository.cs`**
 
-```
+```csharp
 namespace ProjectName.Repositories
 {
     public interface IRepository<T> where T : class
@@ -90,7 +91,7 @@ namespace ProjectName.Repositories
 ### **📌 Bước 4: Tạo Interface Repository riêng cho Product**
 📂 **`/Repositories/IProductRepository.cs`**
 
-```
+```csharp
 using ProjectName.Models;
 
 namespace ProjectName.Repositories
@@ -105,7 +106,7 @@ namespace ProjectName.Repositories
 ### **📌 Bước 5: Cài đặt Repository**
 📂 **`/Repositories/ProductRepository.cs`**
 
-```
+```csharp
 using Microsoft.EntityFrameworkCore;
 using ProjectName.Data;
 using ProjectName.Models;
@@ -153,9 +154,11 @@ namespace ProjectName.Repositories
             }
         }
 
-        public async Task<IEnumerable<Product>> GetProductsByPriceAsync(decimal minPrice)
+        public async Task<IEnumerable<Product>> 
+	        GetProductsByPriceAsync(decimal minPrice)
         {
-            return await _context.Products.Where(p => p.Price >= minPrice).ToListAsync();
+            return await _context.Products
+	            .Where(p => p.Price >= minPrice).ToListAsync();
         }
     }
 }
@@ -164,7 +167,7 @@ namespace ProjectName.Repositories
 ### **📌 Bước 6: Tạo Service Layer (Xử lý logic nghiệp vụ)**
 📂 **`/Services/ProductService.cs`**
 
-```
+```csharp
 using ProjectName.Models;
 using ProjectName.Repositories;
 
@@ -195,7 +198,7 @@ namespace ProjectName.Services
 ### **📌 Bước 7: Tạo API Controller**
 📂 **`/Controllers/ProductController.cs`**
 
-```
+```csharp
 using Microsoft.AspNetCore.Mvc;
 using ProjectName.Models;
 using ProjectName.Services;
@@ -233,7 +236,7 @@ namespace ProjectName.Controllers
 ### **📌 Bước 8: Cấu hình Dependency Injection**
 📂 **`Program.cs`**
 
-```
+```csharp
 using Microsoft.EntityFrameworkCore;
 using ProjectName.Data;
 using ProjectName.Repositories;
@@ -242,8 +245,11 @@ using ProjectName.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Đăng ký DbContext
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<AppDbContext>
+(options =>
+	options.UseSqlServer
+	(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
 // Đăng ký Repository và Service
 builder.Services.AddScoped<IProductRepository, ProductRepository>();

@@ -102,7 +102,7 @@ public void Configure(IApplicationBuilder app){
 ---
 ### 12. **Trình bày về routing trong Asp.Net Core?**
 
-**Routing** là chức năng ánh xạ các **request** đến bộ xử lý định tuyến. **Route** có thể có nhiều giá trị (được trích xuất ra từ URL) thường được dùng để xử lý **request**. Tất cả các Route được đăng ký khi ứng dụng bắt đầu. **ASP.NET Core** hộ trợ 2 loại Routing:
+**Routing** là chức năng ánh xạ các **request** đến bộ xử lý định tuyến. **Route** có thể có nhiều giá trị (được trích xuất ra từ URL) thường được dùng để xử lý **request**. Tất cả các Route được đăng ký khi ứng dụng bắt đầu. **ASP.NET Core** hỗ trợ 2 loại Routing:
 - Định tuyến thông thường.
 - Định tuyến thuộc tính (Attribute routing).
 

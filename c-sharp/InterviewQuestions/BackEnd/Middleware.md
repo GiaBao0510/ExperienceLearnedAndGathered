@@ -1,3 +1,5 @@
+
+![](https://res.cloudinary.com/endjin/image/upload/f_auto/q_80/c_scale/w_1024/assets/images/blog/2022/02/middleware-header.png)
 ### **1. Middleware là gì?**
 - Là các thành phần phần mềm được kết hợp vào một pipeline để xử lý các yêu cầu HTTP và phản hồi HTTP. Đây là một khái niệm trung gian trong kiến trúc ASP.NET Core cho phép việc thêm. sắp xếp hoặc các bước xử lý và phản hồi
 
@@ -13,7 +15,7 @@ Khi một yêu cầu(request) đến ứng dụng:
 ---
 ### **3. Các đặc điểm của Middleware?**
 1. **Thành phần xử lý yêu cầu:**
-	- Middleware có thể chỉnh sửa, xác thực hoặc theo dõi yêu cầu tước khi nó đến logic chính trong ứng dụng
+	- Middleware có thể chỉnh sửa, xác thực hoặc theo dõi yêu cầu trước khi nó đến logic chính trong ứng dụng
 1. **Thành phần xử lý phản hồi:**
 	- Middleware cũng có thể sử đổi phản hồi trước khi gửi nó trở lại máy khách.
 2. **Pipeline:**
@@ -72,8 +74,10 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 public void ConfigureServices(IServiceCollection services){
 	services.Configure<CookiePolicyOptions>(options => {
 		options.AddPolicy( "AllowSpecifiOrigin" ,policy =>{
-			options.CheckConsentNeeded = context => true; // Yêu cầu sự đồng ý trước khi lưu cookie. 
-			options.MinimumSameSitePolicy = SameSiteMode.Strict; // Cookie chỉ được gửi từ cùng một site.
+			options.CheckConsentNeeded = 
+				context => true; // Yêu cầu sự đồng ý trước khi lưu cookie. 
+			options.MinimumSameSitePolicy = 
+				SameSiteMode.Strict; // Cookie chỉ được gửi từ cùng một site.
 		});
 	});
 }
@@ -191,7 +195,8 @@ public class LoggingMiddleware{
 	}
 
 	public async Task Invoke(HttpContext context){
-		Console.WriteLine($"Request: {context.Request.Method} {context.Request.Path}"); 
+		Console.WriteLine
+			($"Request: {context.Request.Method} {context.Request.Path}"); 
 		await _next(context); // Tiếp tục đến middleware tiếp theo
 	}
 }

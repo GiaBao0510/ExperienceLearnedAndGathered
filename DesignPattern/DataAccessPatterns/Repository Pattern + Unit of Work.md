@@ -13,7 +13,7 @@
 
 📂 `Cấu trúc thư mục`
 
-```
+```csharp
 /ProjectName
 │── /Controllers
 │    ├── ProductController.cs
@@ -50,7 +50,7 @@
 ### **📌 Bước 1: Tạo Model (Entity)**
 📂 **`/Models/Product.cs`**
 
-```
+```csharp
 namespace ProjectName.Models
 {
     public class Product
@@ -64,7 +64,7 @@ namespace ProjectName.Models
 
 📂 **`/Models/Order.cs
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 
@@ -95,7 +95,7 @@ namespace ProjectName.Models
 ### **📌 Bước 2: Tạo Database Context (Entity Framework Core)**
 📂 **`/Data/AppDbContext.cs`**
 
-```
+```csharp
 using Microsoft.EntityFrameworkCore;
 using ProjectName.Models;
 
@@ -103,7 +103,8 @@ namespace ProjectName.Data
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) 
+	        : base(options) { }
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Order { get; set; }
@@ -121,7 +122,7 @@ namespace ProjectName.Data
 ### **📌 Bước 3: Tạo Interface Repository chung (Generic Repository)**
 📂 **`/Repositories/IRepository.cs`**
 
-```
+```csharp
 namespace ProjectName.Repositories
 {
     public interface IRepository<T> where T : class
@@ -138,7 +139,7 @@ namespace ProjectName.Repositories
 ### **📌 Bước 4: Tạo Interface Repository riêng cho Product**
 📂 **`/Repositories/IProductRepository.cs`**
 
-```
+```csharp
 using ProjectName.Models;
 
 namespace ProjectName.Repositories
@@ -152,7 +153,7 @@ namespace ProjectName.Repositories
 
 📂 **`/Repositories/IOrderRepository.cs
 
-```
+```csharp
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ProjectName.Models;
@@ -168,7 +169,7 @@ namespace ProjectName.Repositories
 ### **📌 Bước 5: Cài đặt Repository**
 📂 **`/Repositories/ProductRepository.cs`**
 
-```
+```csharp
 using Microsoft.EntityFrameworkCore;
 using ProjectName.Data;
 using ProjectName.Models;
@@ -213,9 +214,11 @@ namespace ProjectName.Repositories
             }
         }
 
-        public async Task<IEnumerable<Product>> GetProductsByPriceAsync(decimal minPrice)
+        public async Task<IEnumerable<Product>> 
+	        GetProductsByPriceAsync(decimal minPrice)
         {
-            return await _context.Products.Where(p => p.Price >= minPrice).ToListAsync();
+            return await _context.Products
+	            .Where(p => p.Price >= minPrice).ToListAsync();
         }
     }
 }
@@ -223,7 +226,7 @@ namespace ProjectName.Repositories
 
 📂 **`/Repositories/OrderRepository.cs
 
-```
+```csharp
 using Microsoft.EntityFrameworkCore;
 using ProjectName.Data;
 using ProjectName.Models;
@@ -268,9 +271,11 @@ namespace ProjectName.Repositories
             }
         }
 
-        public async Task<IEnumerable<Order>> GetByCustomerNameAsync(string customerName)
+        public async Task<IEnumerable<Order>> 
+	        GetByCustomerNameAsync(string customerName)
         {
-            return await _context.Order.Where(o => o.CustomerName == customerName).ToListAsync();
+            return await _context.Order
+	            .Where(o => o.CustomerName == customerName).ToListAsync();
         }
     }
 }
@@ -279,7 +284,7 @@ namespace ProjectName.Repositories
 ### **📌 Bước 6: Tạo Interface cho Unit of Work**
 📂 **`/UnitOfWork/IUnitOfWork.cs`**
 
-```
+```csharp
 using ProjectName.Repositories;
 
 namespace ProjectName.UnitOfWork
@@ -296,7 +301,7 @@ namespace ProjectName.UnitOfWork
 ### **📌 Bước 7: Cài đặt Unit of Work**
 📂 **`/UnitOfWork/UnitOfWork.cs`**
 
-```
+```csharp
 using ProjectName.Data;
 using ProjectName.Repositories;
 
@@ -346,7 +351,7 @@ namespace ProjectName.UnitOfWork
 ### **📌 Bước 8: Tạo Service Layer**
 📂 **`/Services/ProductService.cs`**
 
-```
+```csharp
 using ProjectName.Models;
 using ProjectName.UnitOfWork;
 
@@ -377,7 +382,7 @@ namespace ProjectName.Services
 
 📂 **`/Services/OrderService.cs
 
-```
+```csharp
 using ProjectName.Models;
 using ProjectName.UnitOfWork;
 
@@ -418,7 +423,8 @@ namespace ProjectName.Services
 
 				//Hoàn lại số lượng sản phẩm
 				foreach(var item in order.Items){
-					var product = await _unitOfWork.Products.GetByIdAssync(item.ProductId);
+					var product = await _unitOfWork.Products
+						.GetByIdAssync(item.ProductId);
 
 					if(product != null){
 						product.StockQuantity += item.Quantity;
@@ -442,7 +448,7 @@ namespace ProjectName.Services
 ### **📌 Bước 9: Tạo API Controller**
 📂 **`/Controllers/ProductController.cs`**
 
-```
+```csharp
 using Microsoft.AspNetCore.Mvc;
 using ProjectName.Models;
 using ProjectName.Services;
@@ -479,7 +485,7 @@ namespace ProjectName.Controllers
 
 📂 **`/Controllers/OrderController.cs
 
-```
+```csharp
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using YourProject.Application.Services;
@@ -522,7 +528,9 @@ namespace ProjectName.Controllers
             var result = await _orderService.PlaceOrderAsync(order);
             if (result)
             {
-                return CreatedAtAction(nameof(GetById), new { id = order.Id }, order);
+                return CreatedAtAction(
+	                nameof(GetById), new { id = order.Id }, order
+                );
             }
             return BadRequest("Không thể tạo đơn hàng");
         }
@@ -560,7 +568,7 @@ namespace ProjectName.Controllers
 ### **📌 Bước 10: Cấu hình Dependency Injection**
 📂 **`Program.cs`**
 
-```
+```csharp
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<ProductService>();
