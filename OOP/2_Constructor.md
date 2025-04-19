@@ -13,7 +13,7 @@ Một khi đã định nghĩa ra hàm khởi tạo riêng trong **class**, thì 
 - Từ khóa `this` dùng để chỉ rõ đâu là thành viên của class
 - Hàm khởi tạo có thể được nạp chồng (**overload**).
 - Nếu không có **constructor** nào được định nghĩa thì **CLR** (Commom Language Runtime) sẽ tự khởi tạo một constructor mặc định.
-- Constructure không được khai báo với từ khóa **virtual**.
+- Constructor không được khai báo với từ khóa **virtual**.
 - Chúng ta không sử dụng ***tham chiếu hoặc con trỏ*** trong **constructor** vì chúng không cấp địa chỉ
 
 **Ví dụ:**

@@ -97,6 +97,8 @@ class scooter: Car{
 ---
 ### **Giao diện (interface):**
 
+![](https://www.learnsimpli.com/wp-content/uploads/2019/08/6in.png)
+
 **Interface** được sử dụng với 2 mục đích. ==Một là hỗ trợ đa kế thừa. Hai là tạo ra một hợp đồng trong viết code== giữa các thành viên trong một nhóm lập trình hoặc giữa các nhóm khác nhau. Nghĩa là tất cả thành viên phải tuân thủ những quy định khai báo trong **interface**.
 
 Để khai báo interface thì sử dụng từ khóa `interface`. Sau đó là khai báo tên interface và phương thức bên trong nó. Và để triển khai interface trong `.net` thì dùng dấu `:` để triển khai lên lớp đã kế thừa và sau đó định nghĩa các phương thức trừu tượng từ interface.
