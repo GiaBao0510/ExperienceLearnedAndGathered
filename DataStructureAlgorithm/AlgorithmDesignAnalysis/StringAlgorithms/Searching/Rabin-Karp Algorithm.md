@@ -43,9 +43,8 @@ Rabin-Karp Alogorithm là một thuật toán tìm kiếm chuỗi con hiệu qu�
 
 ---
 ## **Code:**
-```
+```csharp
 // Hàm băm cho một chuỗi
-
 static long ComputeHash(string str, int length, int prime, int baseValue){
 
 	long hash = 0;
@@ -78,13 +77,9 @@ static int RabinKarpSearch(string text, string pattern)
 	for(int i = 0; i < m-1; i++)
 		power = (power * baseValue) % prime;
 
-
-
 	//Lấy giá trị băm tại pattern và đoạn đầu của văn bản
 	long patternHash = ComputeHash(pattern, m, prime, baseValue);
 	long textHash = ComputeHash(text, m, prime, baseValue);
-
-
 
 	//Duyệt qua text
 	for(int i = 0; i<= n-m; i++){

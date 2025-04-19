@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OOP/1_Lập trình hướng đối tượng là gì.md",
+                "file": "OOP/1_Getting Started with OOP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1_Lập trình hướng đối tượng là gì"
+              "title": "1_Getting Started with OOP"
             }
           }
         ]
@@ -165,11 +165,22 @@
   },
   "active": "0fb408ef1cc117ff",
   "lastOpenFiles": [
+    "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching/Rabin-Karp Algorithm.md",
+    "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching/NaiveSearch.md",
+    "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching/KMP Algorithm.md",
+    "c-sharp/InterviewQuestions/HandlingTheSituation/JWT.md",
+    "c-sharp/InterviewQuestions/BackEnd/BackingField.md",
+    "c-sharp/InterviewQuestions/HandlingTheSituation/JWT token WhiteList_BlackList.md",
+    "OOP/4_Abstraction.md",
+    "OOP/5_Interface.md",
+    "OOP/3_Encapsulation.md",
+    "Pasted image 20250418161303.png",
+    "OOP/1_Getting Started with OOP.md",
+    "OOP/2_Constructor.md",
     "OOP/Questions",
     "c-sharp/BackEnd_Develop/ConnectionDataBase/ConnectDB_MySQL.md",
     "General_interview/SetupEnviroment.md",
     "c-sharp/InterviewQuestions/BackEnd/Life_time_Dependency_Injection.md",
-    "c-sharp/InterviewQuestions/HandlingTheSituation/JWT token WhiteList_BlackList.md",
     "c-sharp/BackEnd_Develop/ConnectionDataBase",
     "Experience/Asynchronou/Async_await.md",
     "Experience/Asynchronou/Synchronize_Asynchronous.md",
@@ -184,23 +195,13 @@
     "c-sharp/InterviewQuestions/BackEnd/Middleware.md",
     "c-sharp/InterviewQuestions/DotNetCore/Junior.md",
     "c-sharp/InterviewQuestions/DotNetCore/Entity Framework Core.md",
-    "c-sharp/InterviewQuestions/DotNetCore/Basic.md",
-    "c-sharp/InterviewQuestions/DotNet/EntityFramework.md",
-    "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/README.md",
-    "c-sharp/InterviewQuestions/ADO.NET/Basic.md",
-    "Go/Go Tutorial/1_GettingStarted/README.md",
     "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/main.go.exe",
     "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/go.mod",
     "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/Loading.go",
     "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/Listening.go",
     "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/listening.go",
     "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/main.go",
-    "Go/Go Tutorial/2_Packages_and_scopes/Untitled.md",
     "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/loading.go",
-    "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/End.go",
-    "Go/Go Interview/Basic.md",
-    "Docker/Get familliar with basic commands 1-2.md",
-    "Experience/SOLID_principle.md",
     "DesignPattern/DesignPatterns.jpg",
     "Pasted image 20241215203911.jpg",
     "Pasted image 20241214211708.jpg",
@@ -209,7 +210,6 @@
     "Pasted image 20241213101113.jpg",
     "Pasted image 20241211215843.png",
     "dataset.gif",
-    "Pasted image 20241213101038.png",
-    "Pasted image 20250317155939.png"
+    "Pasted image 20241213101038.png"
   ]
 }
