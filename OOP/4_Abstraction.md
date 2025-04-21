@@ -56,7 +56,7 @@ public class Program
 
 Nhưng bạn đã thấy ví dụ trên, các ==phương thức và thuộc tính cần thiết== được đưa ra với từ khóa `public` và ==những phương thức và thuộc tính không cần thiết== sẽ được giấu đi bằng các sử dụng từ khóa `private`. Cách này có thể triển khai trừu tượng hóa hoặc chúng ta có thể hoàn thành việc trừu tượng hóa trong ứng dụng.
 
-**❗Chú ý:** ==Tính trừu tượng và tính đóng gói== là hai tính chất liên quan đến nhau trong lập trình hướng đối tượng. Tính trừu tượng cho phép các thông tin liên quan hiển thị và tính đóng gói cho phép lập trình viên triển khai các mức độ mong muốn của trừu tượng hóa. ĐIều đó có nghĩa là ==các phần của claas được ẩn đi như là Đóng gói== và ==hiển thi ra như là trừu tượng.== (*Ngắn ngọn*: **Abstraction - Ẩn đi chi tiết, thể hiện tổng quan)**
+**❗Chú ý:** ==Tính trừu tượng và tính đóng gói== là hai tính chất liên quan đến nhau trong lập trình hướng đối tượng. Tính trừu tượng cho phép các thông tin liên quan hiển thị và tính đóng gói cho phép lập trình viên triển khai các mức độ mong muốn của trừu tượng hóa. Điều đó có nghĩa là ==các phần của class được ẩn đi như là Đóng gói== và ==hiển thi ra như là trừu tượng.== (*Ngắn ngọn*: **Abstraction - Ẩn đi chi tiết, thể hiện tổng quan)**
 -  **Encapsulation** ẩn dữ liệu và cung cấp giao diện để truy cập an toàn (ví dụ: private fields với getter/setter).
 - **Abstraction** ẩn chi tiết triển khai và chỉ cung cấp giao diện hoặc hành vi cần thiết (ví dụ: abstract methods hoặc interface).
 
