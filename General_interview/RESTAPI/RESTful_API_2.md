@@ -1,4 +1,4 @@
-## **HTTP Request:**
+## **[HTTP Request](obsidian://open?vault=CuuAmChanKinh&file=General_interview%2FRESTAPI%2FHTTP_Methobs):**
 
 **HTTP request** có tất cả 9 loại method, 2 loại được sử dụng phổ biến là **GET** và **POST**.
 - **GET:** được sử dụng để lấy thông tin từ server theo URI đã cung cấp.
@@ -17,7 +17,7 @@
 Hiện tại có 3 cơ chế Authorizie chính:
 - HTTP Basic.
 - JSON Web Token (JWT).
-- OAith2
+- OAuth2
 Tùy thuộc vào server mà chọn loại Authorization với mức độ phù hợp.
 
 ---

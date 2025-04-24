@@ -3,9 +3,9 @@
 
 **Tính trừu tượng (Abstraction)** là cơ chế tập trung vào việc cung cấp giao diện chung (interface) hoặc hành vi cốt lõi của đối tượng, đồng thời ẩn đi các chi tiết triển khai phức tạp. **Abstraction** giúp người dùng tương tác với hệ thống thông qua các phương thức hoặc thuộc tính cần thiết mà không cần biết cách chúng được thực hiện bên trong. Nó được dựa trên sự chia tách của **interface** và các triển khai của **interface**.
 
-Tính chất này được thể hiện thông qua việc sử dụng Interface hoặc **Abtraction class**.
+Tính chất này được thể hiện thông qua việc sử dụng **Interface** hoặc **Abtraction class**.
 
-> Ví dụ như bạn là một người khách hàng muốn sử dụng một chiếc xe, thì chúng ta không truy cập trực tiếp vào pít-tông, chúng ta sử dụng nút bấm START để khởi động pit-tông, Hãy tưởng tượng nếu mộ nhà máy sản xuất xe cho phép truy xuất trực tiếp vào pit-tông, thì nó sẽ rất khó để điều khiển các hành động trên pít-tông đó. Đó là lý do tại sao mà nhà máy sản xuất xe máy chia tách những chi tiết máy móc nội bộ ra khỏi giao diện người dùng.
+> Ví dụ như bạn là một người khách hàng muốn sử dụng một chiếc xe, thì chúng ta không truy cập trực tiếp vào pít-tông, chúng ta sử dụng nút bấm START để khởi động pit-tông, Hãy tưởng tượng nếu một nhà máy sản xuất xe cho phép truy xuất trực tiếp vào pit-tông, thì nó sẽ rất khó để điều khiển các hành động trên pít-tông đó. Đó là lý do tại sao mà nhà máy sản xuất xe máy chia tách những chi tiết máy móc nội bộ ra khỏi giao diện người dùng.
 
 ***Ví dụ:***
 ```csharp

@@ -6,7 +6,7 @@
 
 Một khi đã định nghĩa ra hàm khởi tạo riêng trong **class**, thì **C# Compiler** sẽ không sinh ra hàm tạo mặc định nữa.
 
-**Các điểm quan trong về Constructor**:
+**Các điểm quan trọng về Constructor**:
 - Hàm khởi tạo phái có tên trùng với tên lớp.
 - Hàm khởi tạo không có kiểu trả về
 - Hàm khởi tạo có hoặc không có danh sách tham số đầu vào. (**Mặc định** thì sẽ không có danh sách tham số đầu vào).
@@ -106,7 +106,7 @@ Sẽ gặp lỗi nếu như:
 ---
 ### **Phương thức khởi tạo tĩnh:**
 
-Bạn có thể xây dựng một phương thức khởi tạo không có tham số, chỉ có phạm vi truy cập là `static`, phương thức khởi tạo này dùng để khởi tạo các thành viên dữ liệu tĩnh, nó tự dộng gọi khi truy cập một thành viên dữ liệu tĩnh lần đầu. 
+Bạn có thể xây dựng một phương thức khởi tạo không có tham số, chỉ có phạm vi truy cập là `static`, phương thức khởi tạo này dùng để khởi tạo các thành viên dữ liệu tĩnh, nó tự động gọi khi truy cập một thành viên dữ liệu tĩnh lần đầu. 
 
 **Constructor** tĩnh được gọi một lần duy nhất khi lớp được truy cập lần đầu tiên, thường dùng để khởi tạo dữ liệu tĩnh hoặc thiết lập trạng thái ban đầu.
 

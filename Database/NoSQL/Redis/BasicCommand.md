@@ -1,3 +1,17 @@
+
+Để kết nối với **container redis (đã có container có sẳn và redis này cần xác thực mật khẩu)** thông quan `docker` thì dùng lệnh như sau. Ví dụ ta có thông tin container redis như sau:
+
+```shell
+CONTAINER ID   IMAGE          COMMAND                  CREATED       STATUS         PORTS                               NAMES
+fc6b05b35fdb   redis:latest   "docker-entrypoint.s…"   10 days ago   Up 4 minutes   0.0.0.0:6379->6379/tcp              myredis
+```
+
+Và đây là câu lệnh kết nối đến container redis:
+```shell
+docker exec -it myredis redis-cli -a "Your_PWD"
+```
+
+---
 ## **1. Redis key**:
 - Sử dụng các lệnh để thao tác ,quản lý các key trong redis:
 

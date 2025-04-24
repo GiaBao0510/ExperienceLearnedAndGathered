@@ -72,7 +72,7 @@ public class Program{
 }
 ```
 
-**⚠️Chú ý:** Khi nạp chống phương thức, ==một quy tắc tuân theo là nạp chồng phương thức phải so sánh số lượng đối số hoặc kiểu dữ liệu của ít nhất một đối số.== Chúng ta có thể xem Method Overriding như là một ví dụ của việc đa hình ở thời điểm biên dịch được gọi trực tiếp bởi đối tượng được khởi tạo.
+**⚠️Chú ý:** Khi nạp chồng phương thức, ==một quy tắc tuân theo là nạp chồng phương thức phải so sánh số lượng đối số hoặc kiểu dữ liệu của ít nhất một đối số.== Chúng ta có thể xem Method Overriding như là một ví dụ của việc đa hình ở thời điểm biên dịch được gọi trực tiếp bởi đối tượng được khởi tạo.
 
 ---
 #### **Đa hình ở thời điểm thực thi/ Đa hình động (Runtime polymorphism):**
@@ -140,7 +140,7 @@ public class Program{
 }
 ```
 
-**⚠️Chú ý:** Cả ghi đè phương thức và nạp chồng phương thức là ác khái niệm khác biệt và rất quan trong của OOP. Nên chú ý kỹ vì tên nó tương tự nhau
+**⚠️Chú ý:** Cả ghi đè phương thức và nạp chồng phương thức là các khái niệm khác biệt và rất quan trong của OOP. Nên chú ý kỹ vì tên nó tương tự nhau
 
 ---
 ## ✅ **Bảng so sánh Method Overloading vs Method Overriding**

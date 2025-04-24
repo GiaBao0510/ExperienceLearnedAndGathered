@@ -1,6 +1,6 @@
 ## **RESTful API là gì?**
 
-RESTful API là một tiêu chuẩn dùng trong việc thiết kế API cho các ứng dụng web (thiết kế web services) để tienj cho việc quản lý resource. Nó thường chú trọng vào tài nguyên hệ thống (tệp văn bản, ảnh, âm thanh, video,...) ,bao gồm các trạng thái tài nguyên được định dạng và được truyền tải quan HTTP.
+RESTful API là một tiêu chuẩn dùng trong việc thiết kế API cho các ứng dụng web (thiết kế web services) để tiện cho việc quản lý resource. Nó thường chú trọng vào tài nguyên hệ thống (tệp văn bản, ảnh, âm thanh, video,...) ,bao gồm các trạng thái tài nguyên được định dạng và được truyền tải quan HTTP.
 
 ![](https://ant.ncc.asia/wp-content/uploads/2024/05/image-386.png)
 
@@ -9,13 +9,15 @@ RESTful API là một tiêu chuẩn dùng trong việc thiết kế API cho các
 
 ![](https://images.viblo.asia/6ee4b71e-e2db-46b1-b7f1-da37ce13b861.png)
 
-**API** (Application Programming Interface) là một tập các quy tắc và cơ chế mà theo đó, một ứng dụng hay một thành phần sẽ tương tác với một ứng dụng hay thành phần khác. API có thể trả về dữ liệu mà bạn cần cho ứng dụng của mình, những kiểu dữ liệu phổ biến như JSON và XML.
+**API (Application Programming Interface)** là một tập các quy tắc và cơ chế mà theo đó, một ứng dụng hay một thành phần sẽ tương tác với một ứng dụng hay thành phần khác. API có thể trả về dữ liệu mà bạn cần cho ứng dụng của mình, những kiểu dữ liệu phổ biến như JSON và XML.
 
-**REST** (Representational State Transfer) là một dạng chuyển đổi cấu trúc dữ liệu, một kiểu kiến trúc để viết API. Nó sử dụng phương thức HTTP đơn giản để tạo giao tiếp giữa các máy. Vì vậy ,thay vì sử dụng một URL cho việc sử lý một số thông tin người dùng, REST gửi một yêu cầu HTTP như GET, POST, DELETE,.. đến một URL để xử lý dữ liệu.
+**REST (Representational State Transfer)** là một dạng chuyển đổi cấu trúc dữ liệu, một kiểu kiến trúc để viết API. Nó sử dụng phương thức HTTP đơn giản để tạo giao tiếp giữa các máy. Vì vậy ,thay vì sử dụng một URL cho việc sử lý một số thông tin người dùng, REST gửi một yêu cầu HTTP như GET, POST, DELETE,.. đến một URL để xử lý dữ liệu.
 
 **RESTful API** là một tiêu chuẩn trong việc thiết kế các API cho ứng dụng web để quản lý resource. RESTful là một trong những kiểu thiết kế API sử dụng phổ biến cho đến ngày nay để cho các ứng dụng (web, moblie,...) khác nhau có thể giao tiếp với nhau
 
 Chức năng quan trọng nhất cúa **REST** là quy định cách sử dụng **HTTP method** (như GET, POST, PUT, DELETE,...) và cách định dạng các **URL** cho ứng dụng web để quản lý các resource. **RESTful** không quy định logic code ứng dụng và không giới hạn bởi bất kỳ ngôn ngữ lập trình hoặc framework nào.
+
+Có thể hiểu đơn giản thì các ứng dụng **RESTful** sử dụng các yêu cầu **HTTP** để thực hiện bốn hoạt động được gọi là **CRUD** (C: create, R: read, U: update, D: delete).
 
 ---
 ## **Cách thức hoạt động:**
@@ -33,7 +35,7 @@ Những phương thức này được gọi là **CRUD** tương ứng với ==C
 ---
 ## **Authentication và cấu trúc dữ liệu trả về:**
 
-**RESTful API** không sử dụng **session** và **cookie**, thay vào đó sử dụng a**ccess token** cho mỗi request. (có thể tìm hiểu chi tiết về [JWT](https://viblo.asia/p/tim-hieu-ve-json-web-token-jwt-7rVRqp73v4bP))
+**RESTful API** không sử dụng **session** và **cookie**, thay vào đó sử dụng **access token** cho mỗi request. (có thể tìm hiểu chi tiết về [JWT](https://viblo.asia/p/tim-hieu-ve-json-web-token-jwt-7rVRqp73v4bP))
 
 ---
 ## **Status Code:**

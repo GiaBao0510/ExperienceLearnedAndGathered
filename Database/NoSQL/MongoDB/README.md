@@ -10,7 +10,7 @@
 - MongoDB lưu trữ dữ liệu dưới dạng các tài liệu JSON (JavaScript Object Notation), được gọi là BSON (Binary JSON). Mỗi tài liệu là một cấu trúc dữ liệu linh hoạt, có thể chứa các trường và giá trị khác nhau.
     
 - Ví dụ một tài liệu trong MongoDB:
-```
+```json
 {
   "_id": "12345",
   "name": "John Doe",

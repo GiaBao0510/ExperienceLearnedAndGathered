@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "234afd9b7ff7c37e",
+        "id": "141c0014435f835a",
         "type": "tabs",
         "children": [
           {
-            "id": "0fb408ef1cc117ff",
+            "id": "204c4f9342e50d9f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OOP/1_Getting Started with OOP.md",
+                "file": "Database/NoSQL/DesignRules.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1_Getting Started with OOP"
+              "title": "DesignRules"
             }
           }
         ]
@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 335.5
+    "width": 335.5,
+    "collapsed": true
   },
   "right": {
     "id": "5515e25134f7b7c2",
@@ -162,45 +163,45 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0fb408ef1cc117ff",
+  "active": "204c4f9342e50d9f",
   "lastOpenFiles": [
-    "ddđ.md",
-    "OOP/1_Getting Started with OOP.md",
-    "Authentication/JWT/SettingUpJWT_DotNet.md",
-    "Authentication/JWT/README.md",
-    "Authentication/OAuth2/README.md",
+    "Database/NoSQL/README.md",
+    "Database/NoSQL/MongoDB/README.md",
+    "Database/NoSQL/DesignRules.md",
+    "Authentication/JWT/Token/2.Revoke Token.md",
+    "Authentication/JWT/Token/0.AccessToken_RefreshToken.md",
+    "Nodejs/CLI.md",
+    "Database/NoSQL",
+    "Database/SQL",
+    "Nodejs/popular_library/nodemon.md",
+    "Nodejs/popular_library/mysql.md",
+    "Nodejs/popular_library/Dotenv.md",
+    "Nodejs/popular_library/Express.md",
+    "Nodejs/popular_library",
+    "Experience/DataBaseFirst_vs_CodeFirst.md",
+    "Experience/Connection Pool.md",
+    "Experience/SOLID_principle.md",
     "OOP/6_Inheritance.md",
+    "c-sharp/InterviewQuestions/BackEnd/Middleware.md",
+    "Database/NoSQL/MongoDB/1_Commands in Mongo Shell.md",
+    "Database/NoSQL/MongoDB/2_Operators.md",
+    "General_interview/RESTAPI/HTTP_Methobs.md",
+    "General_interview/RESTAPI/RESTful_API_2.md",
+    "General_interview/RESTAPI/RESTful_API_1.md",
+    "Nodejs/node_modules/cookie/README.md",
+    "Nodejs/node_modules/axios/README.md",
+    "Nodejs/node_modules/axios/MIGRATION_GUIDE.md",
+    "Nodejs/node_modules/accepts/HISTORY.md",
+    "Nodejs/node_modules/accepts/README.md",
+    "Nodejs/node_modules/array-flatten/README.md",
+    "Authentication/JWT/Token",
     "Authentication/JWT",
-    "OOP/7_Relationship.md",
-    "OOP/5_Polymorphism.md",
-    "OOP/Questions/Untitled.md",
-    "OOP/4_Abstraction.md",
-    "OOP/Questions/5_.md",
-    "OOP/2_Constructor.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching/Rabin-Karp Algorithm.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching/NaiveSearch.md",
-    "DataStructureAlgorithm/AlgorithmDesignAnalysis/StringAlgorithms/Searching/KMP Algorithm.md",
-    "c-sharp/InterviewQuestions/HandlingTheSituation/JWT.md",
-    "c-sharp/InterviewQuestions/BackEnd/BackingField.md",
-    "c-sharp/InterviewQuestions/HandlingTheSituation/JWT token WhiteList_BlackList.md",
-    "OOP/5_Interface.md",
-    "OOP/3_Encapsulation.md",
     "Pasted image 20250418161303.png",
     "OOP/Questions",
-    "c-sharp/BackEnd_Develop/ConnectionDataBase/ConnectDB_MySQL.md",
-    "General_interview/SetupEnviroment.md",
-    "c-sharp/InterviewQuestions/BackEnd/Life_time_Dependency_Injection.md",
     "c-sharp/BackEnd_Develop/ConnectionDataBase",
-    "Experience/Asynchronou/Async_await.md",
-    "Experience/Asynchronou/Synchronize_Asynchronous.md",
-    "Experience/Decentralization_Issue/Problem_and_Solution1.md",
     "General_interview/Fundamental",
     "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/main.go.exe",
     "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/go.mod",
-    "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/Loading.go",
-    "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/Listening.go",
-    "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/listening.go",
-    "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/main.go",
     "DesignPattern/DesignPatterns.jpg",
     "Pasted image 20241215203911.jpg",
     "Pasted image 20241214211708.jpg",
