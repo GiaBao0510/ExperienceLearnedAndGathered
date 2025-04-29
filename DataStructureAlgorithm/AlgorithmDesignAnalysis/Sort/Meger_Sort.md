@@ -37,7 +37,7 @@
 
 ---
 #### **6. Code:**
-```
+```csharp
 //Hàm trộn 2 mảng con
 public static void Merge(int[] arr, int left, int mid, int right){
 
