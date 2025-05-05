@@ -189,7 +189,8 @@ public class ShopFacade{
 		Console.WriteLine("Done\n");
 	}
 
-	public void buyProductByPaypalWithStandardShipping(string email, string mobilePhone){
+	public void buyProductByPaypalWithStandardShipping
+		(string email, string mobilePhone){
 		accountservice.GetAccout(email);
 		paymentservice.PaymentByPaypal();
 		shippingservice.StandardShipping();

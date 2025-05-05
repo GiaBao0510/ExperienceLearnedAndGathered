@@ -1,12 +1,20 @@
 ## **1️⃣ Unit of Work là gì?**
 
-**Unit of Work(UoW)** là một mẫu thiết **(Design Pattern)** giúp quản lý giao dịch trong ứng dụng. Nó đảm bảo rằng tất cả các thay đổi trong một phiên làm việc **(unit of work)** sẽ được thực thi như một khối duy nhất. Nếu có lỗi xảy ra, tất cả các thay đổi sẽ được **rollback** để tránh dữ liệu bị lỗi hoặc không nhất quán
+![](https://images.viblo.asia/c6b7a3ee-93c8-41ad-b3fd-8737058cc3c6.PNG)
+
+**Unit of Work(UoW)** là một mẫu thiết **(Design Pattern)** giúp quản lý giao dịch trong ứng dụng. Nó đảm bảo rằng tất cả các thay đổi trong một phiên làm việc **(unit of work)** sẽ được thực thi như một khối duy nhất. Nếu có lỗi xảy ra, tất cả các thay đổi sẽ được **rollback** để tránh dữ liệu bị lỗi hoặc không nhất quán.
+
+**Unit of work** được sử dụng để đảm bảo nhiều hành động như **insert, update, delete,...** được thực thi cùng một **transaction** thống nhất. Nói đơn giản hơn, nghĩa là khi hàng động của người dùng tác động vào hệ thống như **insert, update, delete,...** phải được thực hiện xong mới gọi là một transaction thành công. Gói tất cả các hành động đơn lẻ một transaction để đảm bảo tính toàn vẹn của dữ liệu.
+
+**Unit of work** có thể xem là tầng trung gian giữa controller và repository. Lớp này giúp tập ==trung hóa vào việc lưu trữ cho tất cả các Repository== để nhận đối tượng thể hiện của Dbcontext. Điều này đảm bảo rằng ==một transaction sẽ dùng chung 1 thể hiện DbContext cho tất cả các Repository liên quan==. Hoặc là thành công tất cả hoặc là thất bại tất cả. Vì thế có thể giúp đảm bảo tính toàn vẹn của dữ liệu.
 
 📌 **Lợi ích của Unit of Work:**
 ✅ **Đảm bảo tính nhất quán của dữ liệu (tất cả hoặc không có gì).**
 ✅ **Giảm số lần truy cập cơ sở dữ liệu** giúp tăng hiệu suất
 ✅ **Kiểm soát giao dịch tốt hơn khi làm với nhiều** respository.
 ✅ **Dễ dàng mở rộng và kiểm thử (Unit Test).**
+
+![](https://tedu.com.vn/UploadData/images/Repository%20Pattern1.jpg)
 
 ---
 ## **2️⃣ Kiến trúc Repository Pattern + Unit of Work trong .NET**

@@ -1,4 +1,38 @@
-**Repository Pattern** là một mẫu thiết kế phổ biến trong phát triển phần mềm, đặt biệt trong kiến trúc **Clean Architecture.** ==Mẫu này hoạt động như một phần trung gian giữa logic nghiệp vụ của ứng dụng và tầng dữ liệu==, giúp tách biệt logic truy cập dữ liệu khỏi logic nghiệp vụ.
+### **Repository Pattern là gì?**
+
+![](https://blog.haposoft.com/content/images/2022/08/repository-1.png)
+
+- **Repository Pattern** là một mẫu thiết kế phổ biến trong phát triển phần mềm, đặt biệt trong kiến trúc **Clean Architecture.** ==Mẫu này hoạt động như một phần trung gian giữa logic nghiệp vụ của ứng dụng và tầng dữ liệu==, giúp tách biệt logic truy cập dữ liệu khỏi logic nghiệp vụ. (Lớp trung gian giữa tầng `Bussiness Logic` và `Data Access`, giúp cho việc truy cập dữ liệu chặt chẽ và bảo mật hơn).
+- ***Respository*** đóng vai trò như như là một cầu nối giữa tầng `Business` và `Model` của ứng dụng .
+- Với **Repository design pattern**, thì việc thay đổi code sẽ không ảnh hưởng quá nhiều công sức khi chúng ta chỉnh sửa.
+
+---
+### **Tại sao nên áp dụng Repository Pattern:**
+
+- Đây là một nơi duy nhất để thay đổi quyển truy cập dữ liệu cũng như xử lý dữ liệu.
+- Một nơi duy nhất chịu trách nhiệm cho việc mapping các bảng vào object.
+- Tăng tính bảo mật cho code.
+- Rất dễ dàng thay thế một repository với một implementation giả cho việc testing, vì vậy bạn không cần chuẩn bị một csdl có sẳn.
+- Gom chung nhiều tác vụ cơ bản về một chỗ.
+- Tách việc xử lý *logic* và truy cập *database*: 
+	- Dễ trace bug.
+	- Dễ Unit test
+	- Dễ thay đổi logic hoặc database
+
+![](https://farm2.staticflickr.com/1724/42213219384_ec3b0b1b3e_o.png)
+
+---
+### **Generic Repository Pattern:**
+
+Trong các trường hợp khác, dự án lại đòi hỏi một cách tốt nhất để tạo ra tất cả các repository logic ở cùng một nơi. Chúng ta chỉ cần tạo 1 và chỉ một repository cho việc thao tác với toàn bộ các class entity. Vậy để giải quyết vấn đề này chúng ta cũng phải áp dụng Generic Repository Pattern
+
+---
+### **Lợi ích của Generic Repository Pattern:**
+
+- Giảm thiểu sự trùng lặp code.
+- ít lỗi hơn
+- Đảm  bảo các coder dùng chung pattern
+- Dễ dàng bảo trì sau này.
 
 ---
 ## **Mục đính của Repository Pattern:** 
