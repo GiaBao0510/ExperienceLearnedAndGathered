@@ -1,6 +1,6 @@
 ## **RESTful API là gì?**
 
-RESTful API là một tiêu chuẩn dùng trong việc thiết kế API cho các ứng dụng web (thiết kế web services) để tiện cho việc quản lý resource. Nó thường chú trọng vào tài nguyên hệ thống (tệp văn bản, ảnh, âm thanh, video,...) ,bao gồm các trạng thái tài nguyên được định dạng và được truyền tải quan HTTP.
+RESTful API là một tiêu chuẩn dùng trong việc thiết kế API cho các ứng dụng web (thiết kế web services) để tiện cho việc quản lý resource. Nó thường chú trọng vào tài nguyên hệ thống (tệp văn bản, ảnh, âm thanh, video,...) ,bao gồm các trạng thái tài nguyên được định dạng và được truyền tải qua HTTP.
 
 ![](https://ant.ncc.asia/wp-content/uploads/2024/05/image-386.png)
 
@@ -24,7 +24,7 @@ Có thể hiểu đơn giản thì các ứng dụng **RESTful** sử dụng cá
 
 ![](https://images.viblo.asia/c502a773-8ac5-4f33-bbf8-fa56916b70dc.png)
 
-REST hoạt động chủ yếu dựa vào giao thức HTTP. Các hoạt động cơ bản trên sẽ sửu dụng những phương thức HTTP riêng.
+REST hoạt động chủ yếu dựa vào giao thức HTTP. Các hoạt động cơ bản trên sẽ sử dụng những phương thức HTTP riêng.
 - **GET (SELECT):** Trả về một tài nguyên hoặc danh sách các tài nguyên.
 - **POST (CREATE):** tạo mới một tài nguyên.
 - **PUT (UPDATE):** Cập nhật thông tin cho một tài nguyên.

@@ -158,10 +158,10 @@ public class Program{
 
 ## ✅ **So sánh giữa từ khóa `abstract` và `virtual` trong C#**
 
-|Tiêu chí|`abstract`|`virtual`|
-|---|---|---|
-|Mục đích|Bắt buộc lớp con **phải ghi đè**|Cho phép lớp con **tùy chọn ghi đè**|
-|Có triển khai mặc định?|❌ Không có – không có thân hàm|✔ Có – có thể có sẵn phần thân hàm|
-|Được dùng ở đâu?|Chỉ dùng trong **class abstract**|Dùng trong **class thường hoặc class abstract**|
-|Lớp con bắt buộc `override`?|✔ Bắt buộc|❌ Không bắt buộc|
-|Ví dụ đơn giản|`public abstract void Speak();`|`public virtual void Speak() => Console.WriteLine("Hello");`|
+| Tiêu chí                     | `abstract`                        | `virtual`                                                    |
+| ---------------------------- | --------------------------------- | ------------------------------------------------------------ |
+| Mục đích                     | Bắt buộc lớp con **phải ghi đè**  | Cho phép lớp con **tùy chọn ghi đè**                         |
+| Có triển khai mặc định?      | ❌ Không có – không có thân hàm    | ✔ Có – có thể có sẵn phần thân hàm                           |
+| Được dùng ở đâu?             | Chỉ dùng trong **class abstract** | Dùng trong **class thường hoặc class abstract**              |
+| Lớp con bắt buộc `override`? | ✔ Bắt buộc                        | ❌ Không bắt buộc                                             |
+| Ví dụ đơn giản               | `public abstract void Speak();`   | `public virtual void Speak() => Console.WriteLine("Hello");` |

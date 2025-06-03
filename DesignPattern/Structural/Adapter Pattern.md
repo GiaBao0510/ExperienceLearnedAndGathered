@@ -32,8 +32,8 @@
 ---
 ## **Kiến trúc:**
 
-Có hai cách để thực hiện Adapter Pattern dựa theo cách cài đặt **(Implement)** của chúng:
-###### **Oject Adapter - Composition:**
+Có hai cách để thực hiện **Adapter Pattern** dựa theo cách cài đặt **(Implement)** của chúng:
+###### **Object Adapter - Composition:**
 
 Trong mô hình này, một lớp mới (Adapter) sẽ tham chiếu đến một (hoặc nhiều)
 đối tượng của lớp có sãn với interface không tương thích (**Adaptee/Service**), đồng thời cài đặt interface mà người dùng mong muốn (**Target**). Trong lớp mới này, khi cài đặt các phương thúc của interface người dùng mong muốn, sẽ gọi phương thức cần thiết thông qua đối tượng thuộc lớp interface không tương thích.
@@ -111,7 +111,7 @@ Các thành phần:
 ## **Ví dụ minh họa:**
 
 Hệ thống thanh toán:
-```
+```csharp
 using System;
 
 // Giao diện Target mà client mong muốn
@@ -143,6 +143,7 @@ class PaymentAdapter : IPaymentProcessor {
 // Client code
 class Program {
     static void Main(string[] args) {
+        
         // Sử dụng hệ thống cũ thông qua Adapter
         LegacyCashPayment legacySystem = new LegacyCashPayment();
         IPaymentProcessor processor = new PaymentAdapter(legacySystem);
@@ -152,7 +153,7 @@ class Program {
 ```
 
 **Vẽ hình chữ nhật:**
-```
+```csharp
 internal class LegacyRectangle
 {
 	internal void Draw(int x, int y, int w, int h)

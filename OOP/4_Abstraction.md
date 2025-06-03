@@ -217,8 +217,8 @@ classDiagram
 
 ![](https://rikkei.edu.vn/wp-content/uploads/2023/05/interface-va-abstract-class-java-rikkei-academy_2.jpg)
 
-| Tiêu chí                        | **Abstract Class**                                            | **Interface**                                            |
-| ------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------- |
+| Tiêu chí                            | **Abstract Class**                                            | **Interface**                                            |
+| ----------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------- |
 | **Có thể chứa code thực thi?**      | ✔ Có                                                          | ❌ (chỉ từ C# 8 trở đi mới hỗ trợ default implementation) |
 | **Kế thừa được nhiều cái?**         | ❌ Chỉ kế thừa **1 abstract class**                            | ✔ Kế thừa **nhiều interface**                            |
 | **Có constructor, field không?**    | ✔ Có                                                          | ❌ Không có                                               |

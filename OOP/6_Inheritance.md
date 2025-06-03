@@ -4,7 +4,7 @@ Kế thừa là một trong 4 tính chất của lập trình hướng đối t�
 
 ![](http://www.btechsmartclass.com/java/java_images/OOP-Concept-Inheritance.png)
 
-**Tính kế thừa** trong OOP cho phép chúng ta tạo mới các class sử dụng một class có sẳn và có thể mở rộng chúng ra. Các `class con` có hể kết thừa lại các thuộc tính (**properties**) và phương thức (**methods**) của class cha, có thể không cần định nghĩa lại các phương thức hoặc tái định nghĩa (**override**) hoặc thêm các phương thức sử dụng riêng ở lớp con.
+**Tính kế thừa** trong OOP cho phép chúng ta tạo mới các class sử dụng một class có sẳn và có thể mở rộng chúng ra. Các `class con` có hể kế thừa lại các thuộc tính (**properties**) và phương thức (**methods**) của class cha, có thể không cần định nghĩa lại các phương thức hoặc tái định nghĩa (**override**) hoặc thêm các phương thức sử dụng riêng ở lớp con.
 
 **Ưu điểm của kế thừa**
 - Cho phép xây dựng 1 lớp mới từ lớp đã có.

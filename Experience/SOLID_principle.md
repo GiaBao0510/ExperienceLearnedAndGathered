@@ -1,14 +1,14 @@
 
 ## **SOLID là gì?**
 
-**SOLID** trong  [lập trình hướng đối tượng](https://200lab.io/blog/oop-la-gi/) là tập hợp các nguyên lý thiết kế phâng mềm nhằm giúp lập trình viên có thể tạo ra các ==hệ thống có thể dễ dàng bảo trì, mở rộng và có tính ổn định==. Các nguyên lý này bao gồm: Single Repository, Open/Closed, Liskov, Substitution, Interface Segregation và Dependency Inversion.
+**SOLID** trong  [lập trình hướng đối tượng](https://200lab.io/blog/oop-la-gi/) là tập hợp các nguyên lý thiết kế phần mềm nhằm giúp lập trình viên có thể tạo ra các ==hệ thống có thể dễ dàng bảo trì, mở rộng và có tính ổn định==. Các nguyên lý này bao gồm: Single Repository, Open/Closed, Liskov Substitution, Interface Segregation và Dependency Inversion.
 
 ---
 ## **Tổng quan về SOLID:**
 
 ![](https://images.viblo.asia/fa9b80a1-9398-44ae-b50a-71e665b63ab5.png)
 
-**SOLID** là 5 nguyên tắc cơ bản, giúp xây dựng kiến trúc phần mềm tốt. Bạn có có thể thất tất cả các Design Pattern điều dựa trên các nguyên tắc này. SOLID được  ghép lại từ 5 chữ viết tắt đầu tiên của 5 nguyên tắt này:
+**SOLID** là 5 nguyên tắc cơ bản, giúp xây dựng kiến trúc phần mềm tốt. Bạn có có thể thấy tất cả các Design Pattern điều dựa trên các nguyên tắc này. SOLID được  ghép lại từ 5 chữ viết tắt đầu tiên của 5 nguyên tắt này:
 ###### 1.**S**ingle resposibility principle (SRP)
 ###### 2.**O**pen/Closed principle (OCP)
 ###### 3.**L**iskov substitution principle (LSP)
@@ -32,7 +32,7 @@
 ***Ví dụ bằng code:***
 
 - **Không tuân theo SRP:**
-```
+```csharp
 namespace SRP{
 	
 	public class Employee
@@ -55,10 +55,10 @@ namespace SRP{
 }
 ```
 
-Thấy rằng lớp Class `Employee` này chịu 2 trách nhiệm. Một là thao tác thêm thông tin `Employee` mới và bảng và một là tạo bào cáo. Lớp `Employee` không nên đảm nhận nhiệm vụ tạo báo cáo vì giả sử một ngày khách hàng sẽ yêu cầu phải tạo ra báo cáo với các định dạng như: `PDF`, `Excel`,..., thì class này sẽ thay đổi cho phù hợp
+Thấy rằng lớp Class `Employee` này chịu 2 trách nhiệm. Một là thao tác thêm thông tin `Employee` mới và bảng và một là tạo báo cáo. Lớp `Employee` không nên đảm nhận nhiệm vụ tạo báo cáo vì giả sử một ngày khách hàng sẽ yêu cầu phải tạo ra báo cáo với các định dạng như: `PDF`, `Excel`,..., thì class này sẽ thay đổi cho phù hợp
 
 - **Tuân theo SRP:**
-```
+```csharp
 	public class ReportGeneration{
 		// Method to generate report
 		public void GenerateReport(Employee e){
@@ -81,8 +81,8 @@ Nguyên tắc này đề cập đến cách thiết kế phần mềm sao cho n�
 
 ***Ví dụ bằng code:***
 
-- **Không tuân theoOCPSRP:**
-```
+- **Không tuân theo OCPSRP:**
+```csharp
 public class ReportGeneration{
 
 	// Report type
@@ -105,7 +105,7 @@ public class ReportGeneration{
 Thấy rằng phương phức `GenerateReport` tại lớp `ReportGeneration` có quá nhiều mệnh đề `if`. Nếu như khách hàng muốn tạo bảng báo cáo dạng `.doc` thì sẽ viết thêm 1 lần if nữa.
 
 - **Tuân theo OCP:**
-```
+```csharp
 public interface IReportGeneration{
 	// Method to generate report
 	public void GenerateReport(Employee e){}
@@ -134,6 +134,7 @@ public class ExcelReportGeneration: IReportGeneration{
 > Ban đầu, chiếc xe chỉ sử dụng động cơ xăng. Sau một thời gian, bạn muốn bổ sung tùy chọn động cơ điện. Nếu thiết kế ban đầu không linh hoạt, bạn có thể phải tháo rời và thay đổi gần như toàn bộ chiếc xe để lắp đặt động cơ điện. Điều này sẽ rất phức tạp, tốn nhiều thời gian và chi phí.
 > 
 >Ngược lại, nếu ngay từ đầu bạn thiết kế xe theo cách cho phép động cơ dễ dàng thay thế và mở rộng, thì việc chuyển từ động cơ xăng sang động cơ điện sẽ đơn giản hơn rất nhiều mà không cần thay đổi toàn bộ kết cấu xe. Đây chính là nguyên tắc **Open/Closed Principle (OCP)** – thiết kế mở rộng dễ dàng mà không cần chỉnh sửa phần cốt lõi.
+
 #### 3.**L**iskov substitution principle (LSP)
 
 Nguyên lý này được lấy theo tên của **nhà khoa học máy tính Barcara Liskov** và nó nói rằng: Các đối tượng của một lớp con phải có thể thay thế cho các đối tượng của lớp cha mà không làm thay đổi đi tính đúng đắng của chương trình.
@@ -147,7 +148,7 @@ Nguyên lý này được lấy theo tên của **nhà khoa học máy tính Bar
  
 Giả sử có `Class Employee` là lớp cha của `Class ContractualEmployee` và `Class CasualEmployee`, như sau
 
-```
+```csharp
 class abstract class Employee{
 	
 	public virtual string GetProjectDetails(int employee_id){
@@ -184,7 +185,7 @@ class ContractualEmployee: Employee{
 ```
 
 Hãy thử đoạn code dưới đây và nó đã vi phạm nguyên tắc
-```
+```csharp
 List<Employee> EmployeeList = new List<Employee>();
 
 EmployeeList.Add(new ContractualEmployee());
@@ -200,7 +201,7 @@ Sau khi chạy sẽ thấy với `Contractual Employee`, nó sẽ ném ra một 
 
 Giải pháp là tác chúng thành 2 interface khác nhau. Một là Iproject, hai là Iemployee và triển khai theo từng type khác nhau.
 
-```
+```csharp
 public interface IEmployee{
 	string GetEmployeeDetails(int employee_id);
 }
@@ -227,9 +228,9 @@ Với nguyên tắc này giúp ==đảm bảo rằng các lớp không bị ép 
 ***Ví dụ bằng code:***
 
 - **Không tuân theo ISP:**
-Có những nhân viên chỉ cần chức năng export excel, có nhận viên cần cả 2 chức năng. Lúc này nếu gom chung lại thì ta phải implement lại tất cả phương thức
+Có những nhân viên chỉ cần chức năng export excel, có nhân viên cần cả 2 chức năng. Lúc này nếu gom chung lại thì ta phải implement lại tất cả phương thức
 
-```
+```csharp
 public interface IExportReport{
 	void ExportExcelReport();
 	void ExportPDFReport();
@@ -238,7 +239,7 @@ public interface IExportReport{
 
 - **Tuân theo ISP:**
 Tách nhỏ mỗi loại export ra thành các interface nhỏ.
-```
+```csharp
 public interface IExportPdfFile{
 	void ExportPDFReport();
 }
@@ -251,12 +252,12 @@ public interface IExportExcelFile{
 ***Ví dụ thực tế:***
 
 >Hãy tưởng tượng bạn làm việc trong một công ty với nhiệm vụ chính là xử lý đơn hàng. Tuy nhiên, công ty lại yêu cầu bạn phải kiêm luôn các công việc như quản lý tài chính, điều hành nhân sự và phát triển sản phẩm—những nhiệm vụ không liên quan đến công việc chính của bạn. Điều này sẽ khiến bạn quá tải, mất tập trung và không thể hoàn thành tốt nhiệm vụ của mình.
->
+
 >Tương tự, trong lập trình, nếu một lớp bị ép buộc triển khai quá nhiều phương thức không liên quan đến nhiệm vụ chính của nó, mã nguồn sẽ trở nên phức tạp, khó bảo trì và khó mở rộng. Để tránh điều này, **nguyên lý Interface Segregation (ISP)** khuyến khích chia nhỏ giao diện để mỗi lớp chỉ cần thực hiện đúng trách nhiệm của mình.
 
 #### 5.**D**ependency injection principle (DIP)
 
-Đây là nguyên tắc cuối cùng trong **SOLID**, nó nhấn mạnh việc ==giảm sự phụ thuộc giữa các module cấp cao và module cấp thấp== trong hệ thống bằng cách sử dụng các `abstraction`(lớp trừu tượng hoặc interface) thay vì các concretion (cụ thể, chi tiết triển khai).
+Đây là nguyên tắc cuối cùng trong **SOLID**, nó nhấn mạnh việc ==giảm sự phụ thuộc giữa các module cấp cao và module cấp thấp== trong hệ thống bằng cách sử dụng các `abstraction`(lớp trừu tượng hoặc `interface`) thay vì các concretion (cụ thể, chi tiết triển khai).
 - Nguyên tắc này nói rằng **không nên viết code gắn chặt với nhau**. Vì việc này sẽ **gây ra sự cực kỳ khó khăn trong việc bảo trì** khi ứng dụng lớn dần.
 - Cố gắng viết các class ít phụ thuộc nhất có thể.
 
@@ -268,7 +269,7 @@ public interface IExportExcelFile{
 
 Giả sử chúng ta có một hệ thống thông báo sau khi lưu vài thông tin vào trong DB:
 
-```
+```csharp
 public class Email{
 	public void SendEmail{
 		//Code to send email
@@ -290,7 +291,7 @@ public class Notification{
 
 Giờ `class Notification `hoàn toàn phụ thuộc vào `class Email`, vì nó chỉ gửi một loại thông báo. Nếu mà khách hàng yêu cầu gửi thông báo như `SMS` chẳng hạn? thì chúng ta cũng phải thay đổi thông báo? Để có thể giúp nó giảm phụ thuộc vào nhau thông qua code sau:
 
-```
+```csharp
 public interface IMessenger{
 	void SendMessage();
 }
@@ -322,7 +323,7 @@ public class Notification{
 Tuy nhiện `class Notification` vẫn phụ thuộc vào `Email class`. Nhưng đây là sử dụng **dependency injection** để làm cho chúng **giảm sự phụ thuộc**. Có 3 loại DI, `Contructor Injection,` `Property Injection` và` Method Injection`. 
 - **Tuân theo DIP:**
 ##### Constructor Injection
-```
+```csharp
 public class Notification{
 	private IMessenger _iMessenger;
 	
@@ -335,7 +336,7 @@ public class Notification{
 }
 ```
 ##### Property Injection
-```
+```csharp
 public class Notification{
 	private IMessenger _iMessenger;
 
@@ -350,7 +351,7 @@ public class Notification{
 }
 ```
 ##### Method Injection
-```
+```csharp
 public class Notification{
 
 	public void DoNotify(IMessenger pMessenger){

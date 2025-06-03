@@ -44,7 +44,7 @@
 - **Factory Method:** _Cung cấp một phương thức để tạo đối tượng mà không cần chỉ định lớp cụ thể_
 - **Prototype:** _Sao chép các đối tượng hiện có thay vì khởi tạo từ đầu_
 - **Singleton:** _Đảm bảo chỉ định có một thể hiện duy nhất của một lớp trong suốt vòng đời của ứng dụng._
-> Các loại Patterns này cung cấp giải pháp để tạo ra các đối tượng và che giấu được logic của việc tạo ra nó thay vì tạo ra đối tượng theo các trực tiếp (bằng từ khóa new). Điều này giúp chương trình trở nên linh hoạt hơn và tạo ra những đối tượng nào cần thiết
+> Các loại Patterns này cung cấp giải pháp để tạo ra các đối tượng và che giấu được logic của việc tạo ra nó thay vì tạo ra đối tượng theo các trực tiếp (bằng từ khóa `new`). Điều này giúp chương trình trở nên linh hoạt hơn và tạo ra những đối tượng nào cần thiết
 
 **Structural Pattern (Nhóm cấu trúc)** gồm 7 mẫu:
 - **Adapter:** _Chuyển đổi giao diện của một lớp thành giao diện khác theo yêu cầu từ khách hàng._
@@ -60,7 +60,7 @@
 - **Chain of Reponsibility:** _truyền yêu cầu dọc theo một chuỗi các đối tượng để xử lý/_
 - **Command:** _Biến một yêu cầu thành một đối tượng, qua đó cho phép xử lý linh hoạt các yêu cầu._
 - **Interpreter:** _Xây dựng ngôn ngữ chuyên biệt và giải thích cho ngôn ngữ đó_
-- **Iterator:** Cung cấp cách tuần tự truy cập vào các phần tử trong tập hợp mà không để lộ cấu trúc bên trong
+- **Iterator:** *Cung cấp cách tuần tự truy cập vào các phần tử trong tập hợp mà không để lộ cấu trúc bên trong*
 - **Mediator:** _Định nghĩa một đối tượng trung gian để kiểm soát giao tiếp giữa các đối tượng._
 - **Mementor:** _Lưu trữ trạng thái bên trong của một đối tượng để có thể khôi phục sau._
 - **Observer:** _Định nghĩa mối quan hệ một-nhiều giữa các đối tượng_

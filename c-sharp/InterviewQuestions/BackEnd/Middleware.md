@@ -17,7 +17,7 @@ Khi một yêu cầu(request) đến ứng dụng:
 1. **Thành phần xử lý yêu cầu:**
 	- Middleware có thể chỉnh sửa, xác thực hoặc theo dõi yêu cầu trước khi nó đến logic chính trong ứng dụng
 1. **Thành phần xử lý phản hồi:**
-	- Middleware cũng có thể sử đổi phản hồi trước khi gửi nó trở lại máy khách.
+	- Middleware cũng có thể sửa đổi phản hồi trước khi gửi nó trở lại máy khách.
 2. **Pipeline:**
 	- Middleware được sắp xếp theo một thứ tự, tạo thành một pipeline xử lý tuần tự
 
@@ -123,7 +123,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 public void ConfigureServices(IServiceCollection services){
 	services.AddRateLimiter(options => {
 		options.AddFixedWindowLimiter( "FixedPolicy" ,c =>{
-				c.PermitLimit = 1000;  //Tối đa 1000 res
+				c.PermitLimit = 10;  //Tối đa 10 res
 				c.Window = TimeSpan.FromSeconds(1);//trong 1 s
 		});
 	});
@@ -142,10 +142,14 @@ public void Configure(IApplicationBuilder app, IWebHostEnviroment env){
 public void ConfigureServices(IServiceCollection services){
 	services.AddCors(options => {
 		options.AddPolicy( "AllowSpecifiOrigin" ,policy =>{
-			policy.WithOrigins("*")
-				.AllowCredentials()
-				.AllowAnyMethod()
-				.AllowAnyHeader();
+			policy.WithOrigins(
+				"http://localhost:3000",
+				"http://localhost:4200",
+				"http://localhost:8080"
+			)
+			.AllowCredentials()
+			.AllowAnyMethod()
+			.AllowAnyHeader();
 		});
 	});
 }
