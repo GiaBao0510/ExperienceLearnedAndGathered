@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "c-sharp/InterviewQuestions/ASP.NET/1_Introduce.md",
+                "file": "Authentication/API_Key/1.API_Key.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1_Introduce"
+              "title": "1.API_Key"
+            }
+          },
+          {
+            "id": "28756c64c48e88dc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "c-sharp/InterviewQuestions/Signalr/5.Connection_ConnectionID_GroupConnection.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "5.Connection_ConnectionID_GroupConnection"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -77,8 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 244.5,
-    "collapsed": true
+    "width": 244.5
   },
   "right": {
     "id": "5515e25134f7b7c2",
@@ -163,15 +177,35 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "68e4e260ec4454d2",
+  "active": "28756c64c48e88dc",
   "lastOpenFiles": [
+    "Authentication/API_Key/1.API_Key.md",
+    "Authentication/API_Key",
+    "General_interview/RESTAPI/RESTful_API_3.md",
+    "c-sharp/InterviewQuestions/Signalr/5.Connection_ConnectionID_GroupConnection.md",
     "c-sharp/InterviewQuestions/Signalr/4.WebSocket.md",
+    "Database/NoSQL/Redis/BasicCommand.md",
+    "General_interview/RESTAPI/RESTful_API_2.md",
+    "General_interview/RESTAPI/RESTful_API_1.md",
+    "DesignPattern/Creational/Factory Methob Pattern.md",
+    "DesignPattern/Structural/Facade Pattern.md",
+    "DesignPattern/Creational/Abstract Factory Pattern.md",
+    "DesignPattern/Creational/Signleton.md",
     "c-sharp/InterviewQuestions/Signalr/3.Socket.md",
+    "c-sharp/InterviewQuestions/ASP.NET/3_Commpnly_used_attributes.md",
+    "Software Architecture/MVC.md",
+    "DesignPattern/DesignPatterns.jpg",
+    "Software Architecture/Client-Server Architecture.md",
+    "Software Architecture/Microservice",
+    "Pasted image 20250604160646.png",
+    "DesignPattern/Creational/Simple Factory Pattern.md",
+    "DesignPattern/README.md",
+    "c-sharp/InterviewQuestions/ASP.NET/2_Controller_ActionMethod.md",
+    "Software Architecture/Repository Pattern + Unit of Work.md",
+    "c-sharp/InterviewQuestions/ASP.NET/1_Introduce.md",
     "c-sharp/InterviewQuestions/Signalr/2.TransmissionControlProtocol_TCP.md",
     "c-sharp/InterviewQuestions/Signalr/1.RealTime.md",
     "c-sharp/InterviewQuestions/Signalr/0. Introduce.md",
-    "c-sharp/InterviewQuestions/ASP.NET/2_Controller_ActionMethod.md",
-    "Architectural Patterns/MVC.md",
     "OOP/Audio/Tìm Hiểu Về Tính Kế Thừa Trong OOP.wav",
     "OOP/Audio/Tính trừu tượng, Abstract Class và Interface.wav",
     "OOP/Audio/Khái niệm Đa hình trong Lập trình.wav",
@@ -179,29 +213,9 @@
     "OOP/Audio/Constructor.wav",
     "OOP/Audio/Giới Thiệu Lập Trình Hướng Đối Tượng.wav",
     "OOP/1_Getting Started with OOP.md",
-    "c-sharp/InterviewQuestions/ASP.NET/1_Introduce.md",
-    "DesignPattern/DesignPatterns.jpg",
-    "DesignPattern/README.md",
     "c-sharp/InterviewQuestions/ASP.NET/Question",
     "c-sharp/InterviewQuestions/ASP.NET/Question/Basic.md",
-    "General_interview/SetupEnviroment.md",
-    "General_interview/RESTAPI/HTTP_Methobs.md",
-    "Experience/DataBaseFirst_vs_CodeFirst.md",
-    "General_interview/RESTAPI/RESTful_API_2.md",
-    "General_interview/RESTAPI/RESTful_API_1.md",
-    "Experience/SystemDesignAnalysis/UseCasesNeededInTheSya.md",
-    "Experience/Decentralization_Issue/Problem_and_Solution1.md",
     "Experience/Audio/Nguyên tắc SOLID trong lập trình hướng đối tượng.wav",
-    "Experience/SOLID_principle.md",
-    "Go/Go Tutorial/5_Variable/README.md",
-    "Go/Go Tutorial/4_HowToCompileCode/README.md",
-    "Go/Go Tutorial/5_Variable",
-    "Go/Go Tutorial/Test/hello.exe",
-    "Go/Go Tutorial/3_Module_Package/README.md",
-    "DesignPattern/Structural/Facade Pattern.md",
-    "DesignPattern/Creational/Factory Pattern.md",
-    "DesignPattern/Behavioral/StrategyDesignPattern.md",
-    "OOP/6_Inheritance.md",
     "Pasted image 20250514101706.png",
     "Pasted image 20250514101655.png",
     "Pasted image 20250418161303.png",
@@ -209,7 +223,6 @@
     "Pasted image 20241214211708.jpg",
     "Pasted image 20241214205939.jpg",
     "Pasted image 20241213102959.png",
-    "Pasted image 20241213101113.jpg",
-    "Pasted image 20241211215843.png"
+    "Pasted image 20241213101113.jpg"
   ]
 }

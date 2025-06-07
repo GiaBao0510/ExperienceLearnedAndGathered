@@ -14,7 +14,6 @@
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxsdEhte4FyIrNEWYp-yIWPANF3mwxSV5cXw&s)
 
 ---
-
 ### **Đặc điểm của Singleton?**
 
 - **Duy nhất (unique):** chỉ tồn tại một thể hiện duy nhất của lớp. Ví dụ: quản lý cấu hình, kết nối cơ sở dữ liệu, logging, hoặc thread pool.
@@ -22,7 +21,6 @@
 - **Kiểm soát việc khởi tạo:** thể hiện chỉ được tạo ra khi cần thiết (Lazy Initialization).
 
 ---
-
 ### **Nên sử dụng Singleton khi nào?**
 
 - Khi cần một đối tượng duy nhất trong toàn bộ ứng dụng.

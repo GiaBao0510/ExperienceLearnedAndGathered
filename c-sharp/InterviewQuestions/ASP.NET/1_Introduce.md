@@ -132,23 +132,19 @@ app.Run();
 ## **Đặc điểm quan trọng của ASP.NET**
 
 ### **1. Cross-platform**
-
 - Chạy trên Windows, macOS, và Linux
 - Có thể deploy lên nhiều môi trường khác nhau
 
 ### **2. High Performance**
-
 - Tối ưu hóa cao cho hiệu suất
 - Hỗ trợ async/await programming
 
 ### **3. Dependency Injection**
-
 - Built-in DI container
 - Quản lý lifecycle của objects tự động
 - Dễ dàng testing và maintain code
 
 ### **4. Modular Architecture**
-
 - Middleware pipeline linh hoạt
 - Chỉ load những components cần thiết
 - Dễ dàng mở rộng và tùy chỉnh

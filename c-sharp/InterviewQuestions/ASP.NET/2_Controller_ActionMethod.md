@@ -1,9 +1,7 @@
 ## **Controller là gì?**
-
 Controller là thành phần trung tâm trong mô hình MVC (Model-View-Controller), đóng vai trò như cầu nối giữa người dùng và ứng dụng.
 
 **Định nghĩa:**
-
 - Controller là các lớp (class) chứa logic xử lý các HTTP request từ client
 - Mỗi Controller thường quản lý một nhóm chức năng liên quan
 - Các lớp Controller thường thừa kế từ lớp `Controller` hoặc `ControllerBase` của ASP.NET
@@ -70,7 +68,6 @@ public class ProductController : Controller
 ```
 
 ---
-
 ## **Routing - Ánh xạ URL đến Action Method**
 
 Routing là cơ chế ánh xạ URL từ trình duyệt đến Action Method tương ứng trong Controller.
