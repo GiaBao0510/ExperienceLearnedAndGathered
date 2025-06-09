@@ -101,9 +101,9 @@ class scooter: Car{
 
 **Interface** được sử dụng với 2 mục đích. ==Một là hỗ trợ đa kế thừa. Hai là tạo ra một hợp đồng trong viết code== giữa các thành viên trong một nhóm lập trình hoặc giữa các nhóm khác nhau. Nghĩa là tất cả thành viên phải tuân thủ những quy định khai báo trong **interface**.
 
-Để khai báo interface thì sử dụng từ khóa `interface`. Sau đó là khai báo tên interface và phương thức bên trong nó. Và để triển khai interface trong `.net` thì dùng dấu `:` để triển khai lên lớp đã kế thừa và sau đó định nghĩa các phương thức trừu tượng từ interface.
+Để khai báo **interface** thì sử dụng từ khóa `interface`. Sau đó là khai báo tên interface và phương thức bên trong nó. Và để triển khai interface trong `.net` thì dùng dấu `:` để triển khai lên lớp đã kế thừa và sau đó định nghĩa các phương thức trừu tượng từ interface.
 
-***Ví dụ:*** Khi thực thực hiện hành động thanh toán sẽ có nhiều bước nghiệp vụ bên trong hành động này. Bằng cách chia tách nhỏ nghiệp vụ thành từng phương thức và sử dụng **interface** ta có thể dễ dàng hiểu được tổng quan những bước, những hành động khi thanh toán. Mà không cần đi vào chi tiết mỗi hành động làm gì
+***Ví dụ:*** Khi thực thực hiện hành động thanh toán sẽ có nhiều bước nghiệp vụ bên trong hành động này. Bằng cách chia tách nhỏ nghiệp vụ thành từng phương thức và sử dụng **interface** ta có thể dễ dàng hiểu được tổng quan những bước, những hành động khi thanh toán. Mà không cần đi vào chi tiết mỗi hành động làm gì.
 ```csharp
 public interface ICheckout{
 	bool ValidateAccount(object BankAccount);

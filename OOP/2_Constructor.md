@@ -92,9 +92,7 @@ Khi xây dựng một số lớp đặc biệt, ==nhất là những lớp tiệ
 
 ```csharp
 class MyLib{
-
 	public static double PI = 3.14;
-	
 	private MyLib(){}
 }
 ```

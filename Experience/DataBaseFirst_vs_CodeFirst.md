@@ -30,7 +30,7 @@ dotnet ef dbcontext scaffold "Server=.;Database=MyDb;Trusted_Connection=True;" M
 
 ***Ví dụ database từ model (EF Core - CodeFirst):***
 
-```
+```csharp
 public class Product{
 	public int Id {set; get;}
 	public string Name {set; get;}
@@ -38,7 +38,7 @@ public class Product{
 }
 ```
 
-```
+```csharp
 public class MyDbContext: DbContext{
 
 	public DbSet<Product> Product{get; set;}
@@ -70,7 +70,7 @@ dotnet ef database update
 | **Tích hợp với hệ thống cũ** | Rất phù hợp nếu có database cũ                      | Khó tích hợp nếu đã có database cũ.                     |
 | **Phù hợp với team nào?**    | DBA (Database Administration) quản lý tốt hơn       | Dev (Developer) dễ làm việc hơn                         |
 | **Khó khắn khi phát triển**  | Mất công update code nếu schemal thay đổi.          | Mất công update databse nếu model thay đổi.             |
-| **Hỗ trợ Migration**         | Không hỗ trợ tốt, cần chỉnh sửa thủ công            | Hỗi trợ tốt với `Migration`                             |
+| **Hỗ trợ Migration**         | Không hỗ trợ tốt, cần chỉnh sửa thủ công            | Hỗ trợ tốt với `Migration`                              |
 | **Hiệu suất**                | Tối ưu hơn nếu DB được thiết kế chuẩn               | Có thể tạo nhiều bảng không cần thiết nếu không tối ưu, |
 
 
@@ -98,8 +98,6 @@ dotnet ef database update
 🔹 ***Ví dụ:***
 - Một startup mới phát triển một ứng dụng quản lý kho hàng, chưa có database.
 - Một dự án internal tool nhỏ, chỉ cần CRUD đơn giản, không yêu cầu tối ưu database quá mức.
-
----
 
 ---
 ## **5️⃣ Ưu điểm và Nhược điểm?**

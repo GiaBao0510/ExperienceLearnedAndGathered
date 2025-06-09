@@ -1,5 +1,5 @@
 Kế thừa là một trong 4 tính chất của lập trình hướng đối tượng, nó là khả năng cho phép chúng ta định nghĩa ra một lớp mới dựa trên một lớp khác có sẵn, kế thừa giúp cho việc mở rộng code -bảo trì dễ dàng hơn.
-- **Lớp cơ sở** là lớp mà được lớp  khác kế thừa
+- **Lớp cơ sở** là lớp mà được lớp khác kế thừa
 - **Lớp kế thừa** là lớp kế thừa lại các thuộc tính, phương thức từ lớp cơ sở.
 
 ![](http://www.btechsmartclass.com/java/java_images/OOP-Concept-Inheritance.png)
