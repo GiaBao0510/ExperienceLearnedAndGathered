@@ -64,26 +64,26 @@ docker run -d -v /var/logs/myapp:/app/logs my-app-image
  
  - Phương pháp `--volumes-from` cho phép một container mới kế thừa các **volume** từ một **container** đã có. Điều này hữu ích khi bạn muốn nhiều container cùng truy cập dữ liệu mà không cần tạo volume riêng.
  - Chia sẻ dữ liệu giữa các container dựa trên container có sẵn và image ID của container đó
-```
+```shell
 docker run -it --name [Tên container mới] --volumes-from [Tên container có sẵn] [image ID]
 ```
 
 ***Ví dụ:***
 **Bước 1**: Tạo container nguồn với volume.
-```
+```shell
 docker run -d --name data_container -v /shared-data busybox
 ```
 - **Giải thích**: Container *data_container* tạo một *volume* tại */shared-data*
 
 **Bước 2**: Tạo container mới chia sẻ volume từ container nguồn.
-```
+```shell
 docker run -it --name new_container --volumes-from data_container busybox
 ```
 
 - **Kiểm tra**: Trong *new_container*, chạy *ls /shared-data* để thấy dữ liệu từ container nguồn.
 - **Ứng dụng thực tế**: Chạy một container ghi dữ liệu và một container đọc dữ liệu.
 
-```
+```shell
 docker run -d --name writer --volumes-from data_container busybox sh -c "echo 'Hello' > /shared-data/test.txt"
 
 docker run -it --name reader --volumes-from data_container busybox cat /shared-data/test.txt
@@ -98,7 +98,7 @@ docker run -it --name reader --volumes-from data_container busybox cat /shared-d
 Volume là cách lưu trữ dữ liệu bền vững và độc lập với **host**, được Docker quản lý trong thư mục mặc định (thường là /var/lib/docker/volumes). **Volume** ==không mất khi container bị xóa và có thể gắn vào nhiều container==.
 
  - Kiểm tra xem hiện tại có những ổ đĩa nào
- ```
+ ```shell
  docker volume ls
 ```
 
@@ -108,32 +108,32 @@ docker volume create [NameDisk]
 ```
 
 - Kiểm tra thông tin ổ đĩa:
-```
+```shell
 docker volume inspect [NameDisk]
 ```
 
 - Xóa ổ đĩa:
-```
+```shell
 docker volume rm [NameDisk]
 ```
 
 **Xem danh sách các volume**:
-```
+```shell
 docker volume ls
 ```
 
 **Xóa tất cả các volume không được sử dụng**:
-```
+```shell
 docker volume prune
 ```
 
 **Xem thông tin chi tiết về volume**:
-```
+```shell
 docker volume inspect [NameDisk]
 ```
 
 - **Kết quả mẫu:** 
-```
+```json
 [
     {
         "Name": "my_volume",
@@ -144,7 +144,7 @@ docker volume inspect [NameDisk]
 ```
 
  **Gắn ổ đĩa volume vào container:**
-```
+```shell
 docker run -it --mount source=DISK,target=pathContainer ImageID
 ```
 
@@ -152,29 +152,28 @@ docker run -it --mount source=DISK,target=pathContainer ImageID
 
  
  **Tạo ổ đĩa ánh xạ đến thư mục host**
-```
+```shell
 docker volume create --opt device=pathHOST --opt type=none --otp o=bind DISKNAME
 ```
 
 
 ---
-
 ### **Ví dụ minh họa:**
 
 - **Ví dụ về `docker run` với volume**:
-```
+```shell
 docker run -it -v /host/path:/container/path image_ID
 ```
 *Lệnh này sẽ mount thư mục `/host/path` từ host vào thư mục `/container/path` trong container.*
 
 - **Ví dụ về `docker run` với `--volumes-from`**:
-```
+```shell
 docker run -it --name new_container --volumes-from existing_container -image_ID
 ```
 *Lệnh này sẽ tạo một container mới và chia sẻ volume từ container `existing_container`.*
 
 - **Ví dụ về `docker volume create`**:
-```
+```shell
 docker volume create my_volume
 ```
 *Lệnh này sẽ tạo một volume mới có tên `my_volume`.*

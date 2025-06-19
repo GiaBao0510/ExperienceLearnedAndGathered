@@ -30,6 +30,7 @@ GET https://example.com/api/users?id=123 HTTP/1.1
 Host: example.com
 ```
 
+---
 ##### **POST:**
 
 **Mục đích:** Gửi dữ liệu đến server để tạo/cập nhật tài nguyên.
@@ -52,6 +53,7 @@ Content-Type: application/json
 }
 ```
 
+---
 ##### **PUT:**
 
 **Mục đích:** Cập nhật toàn bộ tài nguyên hoặc tạo mới nếu chưa tồn tại
@@ -74,6 +76,7 @@ Content-Type: application/json
 ```
 - Khi bạn muốn cập nhật toàn bộ thông tin cá nhân.
 
+---
 ##### **PATCH:**
 
 **Mục đích:** Cập nhật một phần tài nguyên
@@ -92,6 +95,7 @@ Content-Type: application/json
 ```
 - Khi bạn muốn cập nhật một phần thông tin mà không thay đổi các thông tin khác.
 
+---
 ##### **DELETE:**
 
 **Mục đích:** Xóa tài nguyên server
@@ -104,6 +108,7 @@ DELETE https://example.com/api/users/123 HTTP/1.1
 Host: example.com
 ```
 
+---
 ##### **HEAD:**
 
 **Mục đích:** Giống như GET nhưng chỉ nhận header, không có body
@@ -118,6 +123,7 @@ Host: example.com
 ```
 - Khi bạn muốn kiểm tra xem một file có tồn tại không, kiểm tra kích thước hoặc thời gian sửa đổi mà không cần trả về.
 
+---
 ##### **CONNECT:**
 
 **Mục đích:** Thiết lập một kết nối tunnel đến server.
@@ -132,6 +138,7 @@ Host: secure.example.com
 ```
 - Khi bạn muốn truy cập website thông qua HTTPS, trình duyệt sẽ sử dụng CONNECT để thiết lập tunnel qua proxy.
 
+***
 ##### **OPTIONS:**
 
 **Mục đích:** Lấy thông tin về các phương thức HTTP được hỗ trợ
@@ -152,6 +159,8 @@ Allow: GET, POST, PUT, PATCH, DELETE
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE
 ```
+
+---
 ##### **TRACE:**
 
 **Mục đích:** Kiểm tra đường đi của request đến server.

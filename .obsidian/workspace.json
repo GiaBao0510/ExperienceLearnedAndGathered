@@ -8,31 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "68e4e260ec4454d2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Experience/SOLID_principle.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "SOLID_principle"
-            }
-          },
-          {
             "id": "28756c64c48e88dc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OOP/6_Inheritance.md",
+                "file": "Software Architecture/Clean Architecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "6_Inheritance"
+              "title": "Clean Architecture"
             }
           },
           {
@@ -41,16 +27,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Authentication/JWT/Token/0.AccessToken_RefreshToken.md",
+                "file": "Experience/Asynchronou/Synchronize_Asynchronous.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "0.AccessToken_RefreshToken"
+              "title": "Synchronize_Asynchronous"
+            }
+          },
+          {
+            "id": "f95545b0fd78ea93",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "c-sharp/InterviewQuestions/BackEnd/Signalr/1.RealTime.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "1.RealTime"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -191,46 +191,46 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "28756c64c48e88dc",
+  "active": "f95545b0fd78ea93",
   "lastOpenFiles": [
-    "OOP/5_Polymorphism.md",
-    "OOP/4_Abstraction.md",
-    "OOP/3_Encapsulation.md",
-    "OOP/2_Constructor.md",
-    "OOP/1_Getting Started with OOP.md",
-    "c-sharp/InterviewQuestions/ADO.NET/Basic.md",
-    "c-sharp/InterviewQuestions/Signalr/7.SignalR_SimpleConfiguration.md",
-    "c-sharp/InterviewQuestions/Signalr/6.SignalR_Overview.md",
-    "Authentication/JWT/Token/0.AccessToken_RefreshToken.md",
-    "Experience/SOLID_principle.md",
-    "Experience/DataBaseFirst_vs_CodeFirst.md",
-    "Authentication/API_Key/1.API_Key.md",
-    "c-sharp/InterviewQuestions/Signalr/5.Connection_ConnectionID_GroupConnection.md",
-    "DesignPattern/DesignPatterns.jpg",
-    "Authentication/API_Key",
-    "General_interview/RESTAPI/RESTful_API_3.md",
-    "c-sharp/InterviewQuestions/Signalr/4.WebSocket.md",
-    "Database/NoSQL/Redis/BasicCommand.md",
-    "General_interview/RESTAPI/RESTful_API_2.md",
-    "General_interview/RESTAPI/RESTful_API_1.md",
-    "DesignPattern/Creational/Factory Methob Pattern.md",
-    "DesignPattern/Structural/Facade Pattern.md",
-    "DesignPattern/Creational/Abstract Factory Pattern.md",
-    "DesignPattern/Creational/Signleton.md",
-    "c-sharp/InterviewQuestions/Signalr/3.Socket.md",
-    "c-sharp/InterviewQuestions/ASP.NET/3_Commpnly_used_attributes.md",
+    "c-sharp/InterviewQuestions/BackEnd/Signalr/0. Introduce.md",
+    "c-sharp/InterviewQuestions/BackEnd/Signalr/1.RealTime.md",
+    "Docker/0.Introduce.md",
+    "Experience/Asynchronou/Synchronize_Asynchronous.md",
+    "Software Architecture/Clean Architecture.md",
+    "Experience/Asynchronou/Async_await.md",
+    "c-sharp/InterviewQuestions/AspNetCore/Basic.md",
+    "Cloud/AWS",
+    "Authentication/JWT/README.md",
+    "Authentication/OAuth2/README.md",
+    "c-sharp/InterviewQuestions/BackEnd/Thread/Thread.md",
+    "c-sharp/InterviewQuestions/BackEnd/Audio/Tổng quan về Middleware.wav",
+    "c-sharp/InterviewQuestions/BackEnd/Audio/Tìm Hiểu Dependency Injection.wav",
+    "c-sharp/InterviewQuestions/BackEnd/Dependency Injection.md",
+    "c-sharp/InterviewQuestions/BackEnd/BackingField.md",
+    "c-sharp/InterviewQuestions/BackEnd/Life_time_Dependency_Injection.md",
+    "c-sharp/InterviewQuestions/BackEnd/Middleware.md",
+    "c-sharp/InterviewQuestions/HandlingTheSituation/JWT.md",
+    "c-sharp/InterviewQuestions/HandlingTheSituation/WhenToUseSaveChangesAsync_WhenToUseTransaction.Commit.md",
+    "c-sharp/InterviewQuestions/HandlingTheSituation/Process_1_MillionRecords.md",
+    "c-sharp/InterviewQuestions/HandlingTheSituation/logout handling.md",
+    "c-sharp/InterviewQuestions/HandlingTheSituation/JWT token WhiteList_BlackList.md",
+    "c-sharp/InterviewQuestions/DotNetCore/Junior.md",
+    "c-sharp/InterviewQuestions/DotNetCore/Entity Framework Core.md",
+    "c-sharp/InterviewQuestions/DotNet/EntityFramework.md",
+    "c-sharp/InterviewQuestions/BackEnd/LoadingMechanism/LazyLoading.md",
+    "c-sharp/InterviewQuestions/BackEnd/LoadingMechanism",
+    "c-sharp/InterviewQuestions/DotNetCore/Basic.md",
+    "General_interview/Fundamental/RESTAPI/RESTful_API_3.md",
     "Software Architecture/MVC.md",
-    "Software Architecture/Client-Server Architecture.md",
+    "General_interview/Fundamental/Session_Cookie",
+    "Database/NoSQL/Redis/2. Pub_Sub",
+    "Experience/Audio/Nguyên tắc SOLID trong lập trình hướng đối tượng.wav",
+    "DesignPattern/DesignPatterns.jpg",
+    "c-sharp/InterviewQuestions/BackEnd/Thread",
+    "Authentication/API_Key",
     "Software Architecture/Microservice",
     "Pasted image 20250604160646.png",
-    "OOP/Audio/Tìm Hiểu Về Tính Kế Thừa Trong OOP.wav",
-    "OOP/Audio/Tính trừu tượng, Abstract Class và Interface.wav",
-    "OOP/Audio/Khái niệm Đa hình trong Lập trình.wav",
-    "OOP/Audio/OOP Encapsulation in C#.wav",
-    "OOP/Audio/Constructor.wav",
-    "OOP/Audio/Giới Thiệu Lập Trình Hướng Đối Tượng.wav",
-    "c-sharp/InterviewQuestions/ASP.NET/Question",
-    "Experience/Audio/Nguyên tắc SOLID trong lập trình hướng đối tượng.wav",
     "Pasted image 20250514101706.png",
     "Pasted image 20250514101655.png",
     "Pasted image 20250418161303.png",

@@ -33,11 +33,11 @@ Ba loại **Lifetime** trong **DI** của **ASP.NET Core:**
 - **Service xử lý logic đơn giản mà không cần lưu trữ dữ liệu lâu dài.**
 
 🚀 **Ví dụ triển khai Transient trong ASP.NET Core**
-```
+```csharp
 services.AddTransient<IEmailService, EmailService>();
 ```
 
-```
+```csharp
 public class EmailService : IEmailService
 {
     public void SendEmail(string to, string subject, string body)
@@ -57,11 +57,11 @@ public class EmailService : IEmailService
 - **Repository Pattern.**
 
 🚀 **Ví dụ triển khai Scoped trong ASP.NET Core**
-```
+```csharp
 services.AddScoped<IOrderRepository, OrderRepository>();
 ```
 
-```
+```csharp
 public class OrderRepository : IOrderRepository
 {
     private readonly ApplicationDbContext _context;
@@ -90,11 +90,11 @@ Ví dụ:
 - **Configuration Service**
 
 🚀 **Ví dụ triển khai Singleton trong ASP.NET Core**
-```
+```csharp
 services.AddSingleton<ICacheService, CacheService>();
 ```
 
-```
+```csharp
 public class CacheService : ICacheService
 {
     private readonly Dictionary<string, object> _cache = new Dictionary<string, object>();
@@ -115,7 +115,7 @@ public class CacheService : ICacheService
 ---
 ## **Cách áp dụng DI trong hệ thống lớn**
 
-Khi xây dựn hệ thống lớn, **chọn dúng Lifetime giúp tối ưu hiệu suất và tài nguyên**. Dưới đây là hướng dẫn:
+Khi xây dựng hệ thống lớn, **chọn dúng Lifetime giúp tối ưu hiệu suất và tài nguyên**. Dưới đây là hướng dẫn:
 
 |**Loại Service**|**Nên dùng Lifetime nào?**|
 |---|---|
@@ -144,22 +144,22 @@ Khi xây dựn hệ thống lớn, **chọn dúng Lifetime giúp tối ưu hiệ
 ***Ví dụ:***
 
 ###### 1. **Database Access:**
-```
+```csharp
 services.AddScoped<DbContext, AppDbContext>();
 services.AddScoped<IUnitOfWork, UnitOfWork>();
 ```
 ###### 2. **Business Logic Service:**
-```
+```csharp
 services.AddScoped<IOrderService, OrderService>();
 services.AddScoped<IPaymentService, PaymentService>();
 ```
 ###### 3. **Shared Resources:**
-```
+```csharp
 services.AddSingleton<ICacheManager, DistributedCacheManager>();
 services.AddSingleton<ILogger, CentralizedLogger>();
 ```
 ###### 4. **Utilities:**
-```
+```csharp
 services.AddTransient<IEmailFormatter, EmailFormatter>();
 services.AddTransient<IFileParser, CsvFileParser>();
 ```

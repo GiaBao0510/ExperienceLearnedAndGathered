@@ -21,7 +21,7 @@ Quick Sort là một thuật toán sắp xếp hiệu quả dựa trên phương
 ---
 ### **Code:**
 
-```
+```csharp
 public static void QuickSort(int[] arr, int low, int high){
 
 	if(low < high){

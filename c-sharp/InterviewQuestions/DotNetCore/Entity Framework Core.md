@@ -18,7 +18,7 @@ Sau đây sẽ nêu các đặc điểm về  EF Core đã có mà EF chưa có.
 **Nhẹ và hiệu năng tốt hơn:**
 - ít tài nguyên hơn so với EF truyền thống.
 - Tốc độ nhanh hơn(performance).
-Đa nền tảng:
+**Đa nền tảng:**
 - Có thể chạy trên **.NET Core** (hỗ trợ Windows, Linux, macOS) và **.NET Framework**.
 **Hỗ trợ cả Code-First, Database-First, Model-First**.
 **Open source.**
@@ -35,7 +35,7 @@ DbContext là một lớp trung tâm trong Entity Framework Core, được sử 
 - **Tương tác với CSDL bằng LINQ.**
 
 _Ví dụ:_
-```
+```csharp
 public class MyAppContext : Dbcontext{
 	public DbSet<User> Users {get; set;}
 	public DbSet<Product> Products {get; set;}
@@ -66,8 +66,8 @@ public DbSet<User> Users {get; set;}
 
 ## **6. Phân biệt code first và database first trong EF core?**
 
-|   Tiêu chí    | Code-First                     | Database-First                         |
-| :-----------: | ------------------------------ | -------------------------------------- |
+|     Tiêu chí      | Code-First                     | Database-First                         |
+| :---------------: | ------------------------------ | -------------------------------------- |
 | **Cách làm việc** | Tạo CSDL từ mã nguồn           | Tạo mã nguồn từ CSDL sẳn có            |
 |   **Dùng khi**    | Dùng khi chưa có CSDL.         | Dùng khi đã có CSDL sẳn                |
 |    **Ưu điểm**    | Kiểm soát mã nguồn dễ dàng.    | Nhanh chóng tích hợp CSDL cũ.          |

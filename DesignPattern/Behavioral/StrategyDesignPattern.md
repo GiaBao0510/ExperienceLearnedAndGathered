@@ -19,7 +19,7 @@ Ban đầu, app này chỉ hỗ trợ cho người đi bộ, nếu bạn đã vi
 Nếu tiếp tục chèn thêm thuật toán mới vào nơi đã có sẳn cho thuật toán cũ, bạn sẽ phải sửa đổi nhiều đoạn mã. Việc này khiến cho chương trình khó  bảo trì và mở rộng. Đặc biệt là những phần đang hoạt động vốn đã ổn định.
 
 Để giải quyết vấn đề này, đó là áp dụng **Strategy Pattern**:
-$\to$ Thay vì viết "cứng" thuật toán trong mã, ta nên tách mỗi thuật toán ra thành một lớp riêng gọi là **strategy.**
+$\to$ Thay vì viết "cứng" thuật toán trong mã, ta nên tách mỗi thuật toán ra thành một lớp riêng gọi là **strategy**.
 $\to$ Những đoạn mã cần sử dụng thuật toán sẽ chỉ tương tác với các strategy này thông quan 1 **interface chung**, mà không cần quan tâm đến việc cụ thể là strategy nào đang được dùng.
 
 Kết quả là:

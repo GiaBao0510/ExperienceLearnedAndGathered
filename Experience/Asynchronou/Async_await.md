@@ -2,6 +2,17 @@
 Async/await là một tính năng quan trong trọng C# giúp lập trình viên viết code bất đồng bộ một cách dễ dàng hơn.
 
 ![](https://images.viblo.asia/290d5f3d-8f8b-4fcf-ae47-a81a54bb4da2.jpg)
+
+---
+### **Async/Await là gì?**
+
+`async` và `await` là hai từ khóa ==được sử dụng để viết mã bất đồng bộ==, giúp cải thiện khả năng phản hồi của ứng dụng và tránh các tác vụ dài hạn làm block (chặn) luồng chính.
+
+- `async`: Khi ==một phương thức được đánh dấu bằng từ khóa== `async`, nó cho phép sử dụng `await` bên trong phương thức đó. Phương thức `async` thường trả về một `Task` hoặc `Task<T>`, đại diện cho một tác vụ bất đồng bộ.
+
+- `await`: từ khóa này chỉ có thể được sử dụng bên trong một phương thức đã được đánh dấu bằng từ khóa `asyn`. Khi gặp `await`, luồng thực thi hiện tại sẽ bị tạm dừng, và chương trình sẽ chuyển sang thực thi phần khác của ứng dụng, hoặc đợi tác vụ bất đồng bộ (do `await` theo sau) hoàn thành. Khi tác vụ hoàn thành, luồng thực thi sẽ tiếp tục từ dòng lệnh ngay sau `await`.
+
+---
 ## **Khái niệm cơ bản:**
 
 **Bất đồng bộ (Asynchronous)** là khả năng thực hiện các tác vụ mà không cần phải chờ tác vụ trước hoàn thành. Trong lập trình, điều này rất hữu ích khi:
@@ -14,11 +25,11 @@ Async/await là một tính năng quan trong trọng C# giúp lập trình viên
 ---
 ## **Tại sao cần async/await?**
 
-- Trong lập trình **đồng bộ**, các tác vụ (như tả dữ liệu từ web) sẽ **chặn luồng chính**, làm cho ứng dụng bị **"đơ"**.
+- Trong lập trình **đồng bộ**, các tác vụ (như tải dữ liệu từ web) sẽ **chặn luồng chính**, làm cho ứng dụng bị **"đơ"**.
 - **Async/await** cho phép thực hiện các tác vụ này trong nền (background) mà vẫn giữ giao diện người dùng (UI) hoặc luồng chính hoạt động mượt mà.
 
 ---
-## **Cách thực họat động async/await**
+## **Cách họat động async/await**
 
 1. **async**: đánh dấu một phương thức có thể chứa các lệnh await. Cho phép nó có thể trả về một `Task` hoặc `Task<T>` và sử dụng `await` bên trong.
 2. **await**: Chờ đợi một task hoàn thành mà không chặn luồng chính.
@@ -31,7 +42,7 @@ Khi một phương thức gặp từ khóa `await`, nó sẽ:
 ## **Ví dụ trong thực tế:**
 
 ***Ví dụ 1 tải dữ liệu từ web***
-- Khi ứng dùn của bạn cần tải dữ liệu từ internet, quá trình này có thể mất nhiều thời gian. Nếu không sử dụng **async/await**, ứng dụng sẽ ==đóng băng== trong lúc chờ dữ liệu tải về.
+- Khi ứng dụng của bạn cần tải dữ liệu từ internet, quá trình này có thể mất nhiều thời gian. Nếu không sử dụng **async/await**, ứng dụng sẽ ==đóng băng== trong lúc chờ dữ liệu tải về.
 
 ***Ví dụ 2 xử lý nhiều file:***
 - Khi cần đọc và xử lý nhiều file lớn, sử dụng **async/await** giúp ứng dụng có thể đọc nhiều file đồng thời thay vì đọc từng file.
@@ -51,7 +62,7 @@ Khi một phương thức gặp từ khóa `await`, nó sẽ:
 
 ***Ví dụ 1 Tải dữ liệu từ web:***
 
-```
+```csharp
 public async Task<string> DownloadDataAsync(string url){
 	using(HttpClient client = new HttpClient){
 
@@ -64,7 +75,7 @@ public async Task<string> DownloadDataAsync(string url){
 
 ***Ví dụ 2 xử lý file:***
 
-```
+```csharp
 public async Task<string> ReadFileAsync(String filePath){
 	
 	using(StreamReader reader = new StreamReader(filePath)){
@@ -78,7 +89,7 @@ public async Task<string> ReadFileAsync(String filePath){
 
 ***Ví dụ 3 gọi nhiều API đồng thời***
 
-```
+```csharp
 public async Task<(string weather, string news)> GetDailyInforAsync(){
 
 	//Tạo các task mà không chờ chúng hoàn thành ngay lập tức
@@ -95,7 +106,7 @@ public async Task<(string weather, string news)> GetDailyInforAsync(){
 
 ***Ví dụ 4 sử dụng async/await trong UI:***
 
-```
+```csharp
 private async void btnDownload_click(object sender, EventArgs e){
 
 	btnDownload.Enabled = false;
@@ -119,7 +130,7 @@ private async void btnDownload_click(object sender, EventArgs e){
 ```
 
 ***Ví dụ 5: Đồng bộ (Synchronous) - Chặn luồng***
-```
+```csharp
 using System;
 
 class Program
@@ -149,7 +160,7 @@ Hoàn tất!
 - Luồng chính bị chặn 3 giây tại ==DownloadData(),== không làm được gì trong lúc chờ.
 
 ***Ví dụ 6: Bất đồng bộ với Async/Await***
-```
+```csharp
 using System;
 using System.Threading.Tasks;
 

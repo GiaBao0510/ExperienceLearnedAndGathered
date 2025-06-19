@@ -37,40 +37,40 @@
 - Mạng bridge mặc định được tạo sẵn trong Docker. Khi không chỉ định mạng, container sẽ tự động kết nối vào đây
 
 - Liệt kê các network đang có:  
-```
+```shell
 docker network ls
 ```
 
 - Kiểm tra xem network có bao nhiêu container kết nối vào:
-```
+```shell
 docker network inspect [tên network]
 ```
 
 - Lệnh kiểm tra container kết nối đến mạng nào
-```
+```shell
 docker inspect [Tên container / container ID]
 ```
 
 - **Xóa tất cả các network không được sử dụng**:
-```
+```shell
 docker network prune
 ```
 
 - **Xem thông tin chi tiết về network**:
-```
+```shell
 docker network inspect [Tên network]
 ```
 
 ##### ***Ví dụ:*** Chạy một container Nginx và kiểm tra mạng.
 
-```
+```shell
 docker run -d --name web_server nginx
 docker network inspect bridge
 ```
 - **Kết quả**: Trong output của ==docker network inspect bridge==, bạn sẽ thấy *web_server* được liệt kê trong phần "**Containers**", với một địa chỉ IP như 172.17.0.2.
 
 **Kiểm tra container dùng mạng nào**:
-```
+```shell
 docker inspect web_server | findstr NetworkMode
 ```
 - **Kết quả**: ==NetworkMode: default== (tức là dùng mạng bridge mặc định).
@@ -79,33 +79,33 @@ docker inspect web_server | findstr NetworkMode
 ### **Ánh xạ cổng mạng trong Docker:**
 
 - Ánh xạ cổng từ container đến cổng của máy host
-```
+```shell
 docker run -it --name [Tên container tự đặt] -p [Số cổng muốn ánh xạ]:[Cổng container đang tạo] [Tên Image]
 ```
 
 **_Ví dụ:_**  Ánh xạ cổng 80 của container có tên là B2 vào máy host(127.0.0.1) có cổng là  8888
-```
+```shell
 docker run -it --name B2 -p 8888:80 busybox
 ```
 - **Giải thích**: Cổng 80 của container được ánh xạ ra cổng 8080 của host. Truy cập ==localhost:8080== trên trình duyệt để thấy trang mặc định của busybox.
 
 - Tạo mạng cầu:
-```
+```shell
 docker network create --driver bridge [Tên mạng]
 ```
 
 - Xóa mạng đã tạo trên docker:
-```
+```shell
 docker network rm [Tên mạng cần xóa]
 ```
 
 - Chỉ định container kết nối mạng nào đó khi khởi tạo:
-```
+```shell
 docker run -it --name [Đặt tên container] --network [Tên mạng có sẵn] [image]
 ```
 
 - Tạo container chạy trên mạng cụ thể có ánh xạ đến cổng của máy chủ
-```
+```shell
 docker run -it --name [Đặt tên container] --network [Tên mạng có sẳn] -p [Cổng host]:[Cổng container] [Image]
 ```
 
@@ -114,30 +114,30 @@ docker run -it --name [Đặt tên container] --network [Tên mạng có sẳn] 
 **Lý thuyết**: Bạn có thể tạo mạng bridge riêng để cách ly các nhóm container, tăng tính bảo mật và quản lý tốt hơn.
 
 - **Bước 1**: Tạo mạng bridge mới.
-```
+```shell
 docker network create --driver bridge my_network
 ```
 
 - **Bước 2**: Chạy hai container trong mạng vừa tạo.
-```
+```shell
 docker run -d --name web --network my_network nginx
 docker run -it --name client --network my_network busybox
 ```
 
  **Kiểm tra giao tiếp:**
 - Trong container client, chạy:
-```
+```shell
 ping web
 ```
 - **Kết quả**: Container client có thể ping được web bằng tên nhờ DNS nội bộ của Docker.
 
 **Kiểm tra thông tin mạng**:
-```
+```shell
 docker network inspect my_network
 ```
 
 **Kết quả mẫu**:
-```
+```shell
 {
   "Name": "my_network",
   "Driver": "bridge",

@@ -19,7 +19,7 @@ DIP là một trong 5 [nguyên tắc SOLID](https://toidicodedao.com/2015/03/24/
 **Ví dụ:**
 
 - Không tuân theo DIP:
-```
+```csharp
 public class Engine{
 	public void Start(){
 		Console.WriteLine("Engine started");
@@ -35,7 +35,7 @@ public class Car{
 ```
 
 - Tuân theo DIP:
-```
+```csharp
 public interface IEngine{
 	void Start(){}
 }
@@ -78,7 +78,7 @@ public class car{
 3. **Event-based IoC.**
 
 **Ví dụ IoC trong DI:**
-```
+```csharp
 public class Program{
 	static void Main(string[] args){
 		IEngine engine = new ElectricEngine(); //IoC container sẽ dảm nhận công việc này
@@ -88,8 +88,8 @@ public class Program{
 }
 ```
 
-Sử dụng IoC container: Một IoC container như ``Microsft.Extensions.DependencyInjection`` có thể tự ddoognj khởi tạo và cung cấp ``IEngine``:
-```
+Sử dụng IoC container: Một IoC container như ``Microsft.Extensions.DependencyInjection`` có thể tự động khởi tạo và cung cấp ``IEngine``:
+```csharp
 public void ConfigureServices(IServiceCollection services){
 	services.AddSingleton<IEngine, Engine>();
 	services.AddTransient<Car>();
@@ -118,7 +118,7 @@ Mục tiêu chính:
 ## **2. Các loại Dependency Injection:
 
 - **Construction injection:** Các dependency (biến phụ thuộc) được cung cấp thông qua constructor(hàm tạo lớp).
-	```
+	```csharp
 	public class Car{
 		private readonly IEngine _engine;
 		public Car(IEngine engine){
@@ -129,7 +129,7 @@ Mục tiêu chính:
 	- **Ưu điểm:** Phổ biến nhất, đảm bảo đối tượng luôn được cung cấp phụ thuộc.
 
 - **Property Injection**: Inject qua thuộc tính (properties).
-	```
+	```csharp
 	public class Car{
 		public IEngine Engine {set; get;}
 	}
@@ -137,7 +137,7 @@ Mục tiêu chính:
 	- **Hạn chế** không đảm bảo phụ thuộc luôn được cung cấp.
 	
 - Method injection: Inject qua tham số của phương thức
-	```
+	```csharp
 	public void StartEngine(IEngine engine){
 		engine.Start();
 	}
@@ -145,7 +145,7 @@ Mục tiêu chính:
 	- Hạn chế là chỉ áp dụng trong phạm vi phương thức
 	
 - **Setter injection:** Các dependency sẽ được truyền vào 1 class thông qua setter method (hàm setter).
-	```
+	```csharp
 	public class ServiceA{
 		private DaoB daoB;
 		
@@ -199,7 +199,7 @@ Sử dụng Dependency Injection thông qua các bước sau:
 	}
 	```
 
-- Đăng ký phần phụ thuộc trong service container. [ASP.NET Core](http://asp.net/) cho phép chúng ta có thể đăng ký các dịch vụ ứng dụng của mình với IoC container, trương phương thức ConfigureServices của lớp Startup. Phương thức   ConfigureServices bao gồm một tham số kiểu IServiceCollection. Được sử dụng để đăng ký các dịch vụ ứng dụng.
+- Đăng ký phần phụ thuộc trong service container. [ASP.NET Core](http://asp.net/) cho phép chúng ta có thể đăng ký các dịch vụ ứng dụng của mình với IoC container, trương phương thức ConfigureServices của lớp Startup. Phương thức  ConfigureServices bao gồm một tham số kiểu IServiceCollection. Được sử dụng để đăng ký các dịch vụ ứng dụng.
 	*Ví dụ:*
 	**Phương thức AddScope đăng ký service với scoped lifetime, lifetime của một singleton request**
 	```

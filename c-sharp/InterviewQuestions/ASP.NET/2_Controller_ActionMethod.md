@@ -116,13 +116,11 @@ public class ProductController : Controller
 ### **Quan trọng: Controller Lifecycle**
 
 **Đặc điểm quan trọng:**
-
 - Mỗi HTTP request sẽ tạo ra một **instance mới** của Controller
 - Controller object có vòng đời ngắn (per-request)
 - Sau khi xử lý xong request, Controller object sẽ bị hủy
 
 **Quá trình xử lý request:**
-
 1. **Request đến** → ASP.NET nhận HTTP request
 2. **Route Resolution** → Xác định Controller và Action Method
 3. **Controller Instantiation** → Tạo instance mới của Controller

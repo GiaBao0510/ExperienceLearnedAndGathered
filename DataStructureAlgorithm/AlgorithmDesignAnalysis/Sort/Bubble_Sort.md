@@ -20,7 +20,7 @@ Bubble sort (sắp xếp nổi bọt) đây là một thuật toán sắp xếp 
 
 ---
 #### **Code:**
-```
+```csharp
 public static void BubbleSort(int[] arr){
 
 	int n = arr.Length;

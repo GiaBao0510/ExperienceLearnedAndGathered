@@ -4,6 +4,7 @@
 	- **Bảng trong cơ sở dữ liệu ↔ Lớp trong ứng dụng**
 	- **Cột trong bảng ↔ Thuộc tính của lớp**
 ![EntityFramwork](https://www.tutorialspoint.com/entity_framework/images/conceptual_model.jpg)
+
 ### **2. Các thành phần trong Entity Framework?**
 1. **Model:**
 	- Biễu diễn các đối tượng ánh xạ đến cơ sở dữ liệu
@@ -36,7 +37,7 @@ _Ví dụ:_
 	- Database-First: Tạo lớp từ csdl có sẳn
 	- Model-First: Tạo mô hình trong ứng dụng, từ đó tạo cơ sở dữ liệu.
 3. **Quản lý trạng thái của thực thể:**
-	- EF tự động theo dõi trạng thái của thực thể để thực hiện cập nhật CSDL chính xác
+	- EF tự động theo dõi trạng thái của thực thể để thực hiện cập nhật CSDL chính xác.
 4. **Tương thích đa nền tảng (EF Core):**
 	- Có thể chạy trên Window, Linux, macOS với **EntityFramwork Core.** 
 ### **4. Lợi ích khi sử dụng Entity Framework là gì?**
