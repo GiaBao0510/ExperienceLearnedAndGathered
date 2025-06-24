@@ -1,7 +1,6 @@
 ### **Các nguyên tắc của RESTful API**
 
 Khi thiết kế RESTfulAPI, cần phải tuân thủ một số nguyên tắc cơ bản cần tuân thủ đển đảm bảo API dễ hiểu:
-
 ##### 1. **Sử dụng các phương thức HTTP phù hợp:**
 - **GET:** Lấy dữ liệu
 - **POST:** Tạo mới tài nguyên
@@ -22,16 +21,16 @@ Khi thiết kế RESTfulAPI, cần phải tuân thủ một số nguyên tắc c
 - Sử dụng token (như JWT) để quản lý phiên thay vì lưu trạng thái trên server.
 
 ##### 5. **Sử lý mã trạng thái HTTP đúng cách**
-|Mã|Ý nghĩa|
-|---|---|
-|200|OK – Thành công|
-|201|Created – Tạo mới thành công|
-|204|No Content – Xoá thành công|
-|400|Bad Request – Request sai|
-|401|Unauthorized – Chưa xác thực|
-|403|Forbidden – Không được phép|
-|404|Not Found – Không tìm thấy|
-|500|Internal Server Error – Lỗi server|
+| Mã  | Ý nghĩa                            |
+| --- | ---------------------------------- |
+| **200** | OK – Thành công                    |
+| **201** | Created – Tạo mới thành công       |
+| **204** | No Content – Xoá thành công        |
+| **400** | Bad Request – Request sai          |
+| **401** | Unauthorized – Chưa xác thực       |
+| **403** | Forbidden – Không được phép        |
+| **404** | Not Found – Không tìm thấy         |
+| **500** | Internal Server Error – Lỗi server |
 
 ##### 6. **HATEOAS (Hypermedia as the Engine of Application State):**
 - API nên cung cấp các liên kết (links) trong phản hồi để giúp client điều hướng hoặc thực hiện các hành động tiếp theo, *ví dụ*:

@@ -11,7 +11,7 @@ RESTful API là một tiêu chuẩn dùng trong việc thiết kế API cho các
 
 **API (Application Programming Interface)** là một tập các quy tắc và cơ chế mà theo đó, một ứng dụng hay một thành phần sẽ tương tác với một ứng dụng hay thành phần khác. API có thể trả về dữ liệu mà bạn cần cho ứng dụng của mình, những kiểu dữ liệu phổ biến như JSON và XML.
 
-**REST (Representational State Transfer)** là một dạng chuyển đổi cấu trúc dữ liệu, một kiểu kiến trúc để viết API. Nó sử dụng phương thức HTTP đơn giản để tạo giao tiếp giữa các máy. Vì vậy ,thay vì sử dụng một URL cho việc sử lý một số thông tin người dùng, REST gửi một yêu cầu HTTP như GET, POST, DELETE,.. đến một URL để xử lý dữ liệu.
+**REST (Representational State Transfer)** là một dạng chuyển đổi cấu trúc dữ liệu, một kiểu kiến trúc để viết API. Nó sử dụng phương thức HTTP đơn giản để tạo giao tiếp giữa các máy. Vì vậy ,thay vì sử dụng một URL cho việc xử lý một số thông tin người dùng, REST gửi một yêu cầu HTTP như GET, POST, DELETE,.. đến một URL để xử lý dữ liệu.
 
 **RESTful API** là một tiêu chuẩn trong việc thiết kế các API cho ứng dụng web để quản lý resource. RESTful là một trong những kiểu thiết kế API sử dụng phổ biến cho đến ngày nay để cho các ứng dụng (web, moblie,...) khác nhau có thể giao tiếp với nhau
 

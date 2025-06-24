@@ -132,7 +132,6 @@ EXPOSE 80
 ENTRYPOINT ["dotnet", "BackEnd.dll"]
 ```
 
-
 ---
 ## **🧠Thực tiễn tốt nhất:**
 

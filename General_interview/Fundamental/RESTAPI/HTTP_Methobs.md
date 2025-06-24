@@ -56,7 +56,7 @@ Content-Type: application/json
 ---
 ##### **PUT:**
 
-**Mục đích:** Cập nhật toàn bộ tài nguyên hoặc tạo mới nếu chưa tồn tại
+**Mục đích:** Cập nhật toàn bộ tài nguyên hoặc tạo mới nếu chưa tồn tại.
 **Đặc điểm:**
 - Idempotent (thực hiện nhiều lần sẽ cho nhiều kết quả khác nhau).
 - Thay thế hoàn toàn tài nguyên hiện có. 
