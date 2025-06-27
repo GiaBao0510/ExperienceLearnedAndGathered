@@ -89,8 +89,9 @@ Dưới đây chúng ta sẽ liệt kê ra một số trường hợp mà khi g�
 ---
 ### **Ví dụ minh họa - C#:**
 
-**Tạo Subsystem:**
+*Ví dụ về trong hệ thống lớn với nhiều dịch vụ:*
 ```csharp
+//Tạo Subsystem:
 public class AccountService
 {
 	public void GetAccout(string email)
@@ -152,11 +153,8 @@ public class SmsService
 		Console.WriteLine("Sending an message to " + mobilePhone);
 	}
 }
-```
 
-
-**Tạo Facade:**
-```csharp
+//Tạo Facade
 public class ShopFacade{
 	
 	private static ShopFacade _instance;
@@ -199,10 +197,8 @@ public class ShopFacade{
 		Console.WriteLine("Done\n");
 	}
 }
-```
 
-**Client gọi Facade:**
-```csharp
+//Client gọi Facade
 class Client{
 	static void Main(string[] args){
 		ShopFacade.getInstance()
@@ -214,6 +210,101 @@ class Client{
 			);
 	}
 }
+```
+
+- *Kết quả sau khi chạy:*
+```powershell
+Getting the account of baob2016947@student.ctu.edu.vn
+Payment by cash
+Free Shipping
+Sending an email to baob2016947@student.ctu.edu.vn
+Done
+
+Getting the account of baob2016947@student.ctu.edu.vn
+Payment by Paypal
+Standard Shipping
+Sending an email to baob2016947@student.ctu.edu.vn
+Sending an message to 0123456789
+Done
+```
+
+*Ví dụ về trong hệ thống đặt hàng với nhiều dịch vụ:*
+```csharp
+// Tạo SubSystem cho các chức năng khác nhau
+public class Product
+{
+    public void GetProductDetails()
+        => Console.WriteLine("Chi tiet san pham");
+}
+
+public class Payment
+{
+    public void MakePayment()
+        => Console.WriteLine("Thuc hien thanh toan thanh cong");
+}
+
+public class Invoice
+{
+    public void SendInoice()
+        => Console.WriteLine("Gui hoa don thanh toan thanh cong");
+}
+
+// Tạo Facade để đơn giản hóa việc sử dụng các SubSystem
+public class Order
+{
+	private Product _product;
+    private Payment _payment;
+    private Invoice _invoice;
+
+    private static Order _instance;
+
+    private Order()
+    {
+        _product = new Product();
+        _payment = new Payment();
+        _invoice = new Invoice();
+    }
+
+    public static Order GetInstance()
+    {
+        if (_instance == null)
+        {
+            _instance = new Order();
+        }
+        return _instance;
+    }
+
+    public void PlaceOrder()
+    {
+        Console.WriteLine("Bat dau dat hang");
+
+        _product.GetProductDetails();
+        _payment.MakePayment();
+        _invoice.SendInoice();
+        
+        Console.WriteLine("Dat hang thanh cong");
+    }
+}
+
+//Phần client tác động với Facade
+public class Solution
+{
+    public static void Main(string[] args)
+    {
+        Order.GetInstance().PlaceOrder();
+        Console.WriteLine("Ket thuc chuong trinh");
+    }
+}
+```
+
+- Kết quả:
+```shell
+Bat dau dat hang
+Chi tiet san pham
+Thuc hien thanh toan thanh cong
+Gui hoa don thanh toan thanh cong
+Dat hang thanh cong
+Ket thuc chuong trinh
 ```
 
 ---

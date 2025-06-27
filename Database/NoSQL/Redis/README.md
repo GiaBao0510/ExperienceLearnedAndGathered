@@ -1,7 +1,5 @@
 
-
-**Redis** (Remote Dictionary Server) là một hệ thống lưu trữ dữ liệu dạng in-memory, được sử dụng phổ biến như một **database, cache, mesage broker và streaming engine**. Redis được biết đến với hiệu suất cao và độ trễ thấp. Dưới
- đây là thông tin chi tiết về redis
+**Redis** (Remote Dictionary Server) là một hệ thống lưu trữ dữ liệu dạng in-memory, được sử dụng phổ biến như một **database, cache, mesage broker và streaming engine**. Redis được biết đến với hiệu suất cao và độ trễ thấp. Dưới đây là thông tin chi tiết về redis
 
 ![](https://vutruso.com/wp-content/uploads/2023/06/redis.svg)
  
@@ -21,7 +19,7 @@
 - **Đa dạng kiểu dữ liệu:** Hỗ trợ nhiều kiểu dữ liệu như: string, hash, list, set, sorted set, bitmap, v.v
 - **Persistence:** Cho phép lưu trữ dữ liệu xuống đĩa (snapshot hoặc append-only file) để đảm bảo không bị mất dữ liệu khi server khởi động lại.
 - **Replication và High Availability:** Hỗ trợ replication (sao chép dữ liệu) và Redis Sentinel để đảm bảo tính sẵn sàng cao.
-- **Cluster** Redis Cluster cho phép phân án dữ liệu trên nhiều node, hỗ trợ horizontal scaling.
+- **Cluster** Redis Cluster cho phép phân tán dữ liệu trên nhiều node, hỗ trợ horizontal scaling.
 - **Pub/Sub:** Hỗ trợ mô hình publish/subscribe để xử lý message.
 
 ---

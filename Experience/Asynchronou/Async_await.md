@@ -210,16 +210,17 @@ Hoàn tất!
 - `void` chỉ dùng event handler.
 
 2.**ConfigureAwait:** khi không cần quay lại context gốc (thường là UI thread), hãy sử dụng:
-```
+```csharp
 await someTask.ConfigureAwait(false);
 ```
 
 3.**Xử lý ngoại lệ:** Exception trong code bất đồng bộ được bảo toàn:
-```
-try{
+```csharp
+try
+{
 	await PotentiallyFailingMethodAsync();
-	
-}cath(Exception ex){
+}
+cath(Exception ex){
 	// Xử lý ngoại lệ
 }
 ```

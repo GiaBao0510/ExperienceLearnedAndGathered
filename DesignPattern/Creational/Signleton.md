@@ -40,8 +40,8 @@
 **A. Triển khai Singleton với Lazy initialization**
 
 ```csharp
-public class Singleton1{
-
+public class Singleton1
+{
 	//Biến static giữ thể hiện duy nhất
 	private static Singleton1 _instance;
 
@@ -178,7 +178,7 @@ class Program
  - Có thể gây ra lỗi trong môi trường đa luồng nếu không được triển khai đúng cách
 
 ---
-### **So sánh giữa Singleton Pattern với Service Singletin trong .NET**
+### **So sánh giữa Singleton Pattern với Service Singleton trong .NET**
 
 Trong .NET (Đặc biệt là ASP.NET Core), thì có thể đăng ký dịch vụ vòng đời **Singleton**. Sau đây là sự so sánh giữa **Singleton Pattern** và Service Singleton **trong** .NET:
 

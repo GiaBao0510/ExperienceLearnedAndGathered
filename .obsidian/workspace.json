@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "c-sharp/InterviewQuestions/HandlingTheSituation/Dynamic-Var-Object.md",
+                "file": "DesignPattern/Structural/Facade Pattern.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Dynamic-Var-Object"
+              "title": "Facade Pattern"
             }
           },
           {
@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Database/LINQ/1_Introducing_LINQ.md",
+                "file": "Database/NoSQL/Redis/1.BasicCommand.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1_Introducing_LINQ"
+              "title": "1.BasicCommand"
             }
           }
         ]
@@ -105,7 +105,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 274.5
+    "width": 274.5,
+    "collapsed": true
   },
   "right": {
     "id": "5515e25134f7b7c2",
@@ -192,43 +193,43 @@
   },
   "active": "28756c64c48e88dc",
   "lastOpenFiles": [
-    "c-sharp/InterviewQuestions/BackEnd/Signalr/8.Hubs.md",
-    "c-sharp/InterviewQuestions/HandlingTheSituation/Dynamic-Var-Object.md",
+    "DesignPattern/DesignPatterns.jpg",
+    "DevOps/Course_1/1.Business-drivers-for-transforming-to-devops.md",
+    "Pasted image 20250627151124.png",
+    "Database/NoSQL/Redis/3. Stream/3.1.Stream_data.md",
+    "DevOps/Course_1",
+    "Database/NoSQL/Redis/2.1.Pub_Sub.md",
+    "Database/NoSQL/Redis/1.BasicCommand.md",
+    "Database/NoSQL/Redis/README.md",
+    "Database/NoSQL/Redis/3. Stream",
+    "Experience/Asynchronou/Async_await.md",
+    "Database/InterviewQuestions/AIDC.md",
+    "DesignPattern/Creational/Factory Methob Pattern.md",
+    "DesignPattern/Creational/Builder Design Pattern.md",
+    "DesignPattern/Creational/Signleton.md",
+    "Database/NoSQL/Redis/ROADMAP.md",
+    "Database/LINQ/1_Introducing_LINQ.md",
     "c-sharp/InterviewQuestions/BackEnd/Signalr/6.SignalR_Overview.md",
+    "c-sharp/InterviewQuestions/HandlingTheSituation/Dynamic-Var-Object.md",
+    "Database/NoSQL/Redis/3. Stream_data",
+    "c-sharp/InterviewQuestions/BackEnd/Signalr/8.Hubs.md",
     "c-sharp/InterviewQuestions/BackEnd/Signalr/7.SignalR_SimpleConfiguration.md",
     "c-sharp/InterviewQuestions/BackEnd/Signalr/5.Connection_ConnectionID_GroupConnection.md",
     "c-sharp/InterviewQuestions/BackEnd/Signalr/4.WebSocket.md",
     "Software Architecture/Clean Architecture.md",
-    "Database/LINQ/1_Introducing_LINQ.md",
     "Database/SQL/PostgreSQL",
-    "Experience/Asynchronou/Async_await.md",
     "Experience/Asynchronou/Synchronize_Asynchronous.md",
     "Database/InterviewQuestions/Dạng chuẩn (NF).md",
     "Database/InterviewQuestions/Basic.md",
     "General_interview/Fundamental/0_Maintain_Extend_Test.md",
     "General_interview/Fundamental/RESTAPI/RESTful_API_3.md",
     "General_interview/Fundamental/RESTAPI/RESTful_API_2.md",
-    "General_interview/Fundamental/RESTAPI/RESTful_API_1.md",
-    "General_interview/Fundamental/RESTAPI/HTTP_Methobs.md",
-    "Experience/SOLID_principle.md",
-    "Docker/5_DockerFile.md",
-    "c-sharp/InterviewQuestions/BackEnd/Signalr/2.TransmissionControlProtocol_TCP.md",
-    "c-sharp/InterviewQuestions/BackEnd/Signalr/1.RealTime.md",
-    "c-sharp/InterviewQuestions/BackEnd/Signalr/0. Introduce.md",
-    "Docker/0.Introduce.md",
-    "c-sharp/InterviewQuestions/AspNetCore/Basic.md",
     "Cloud/AWS",
-    "Authentication/JWT/README.md",
-    "Authentication/OAuth2/README.md",
     "c-sharp/InterviewQuestions/BackEnd/Audio/Tổng quan về Middleware.wav",
     "c-sharp/InterviewQuestions/BackEnd/Audio/Tìm Hiểu Dependency Injection.wav",
     "c-sharp/InterviewQuestions/BackEnd/LoadingMechanism",
     "General_interview/Fundamental/Session_Cookie",
     "Database/NoSQL/Redis/2. Pub_Sub",
-    "Experience/Audio/Nguyên tắc SOLID trong lập trình hướng đối tượng.wav",
-    "DesignPattern/DesignPatterns.jpg",
-    "c-sharp/InterviewQuestions/BackEnd/Thread",
-    "Authentication/API_Key",
     "Pasted image 20250604160646.png",
     "Pasted image 20250514101706.png",
     "Pasted image 20250514101655.png",
@@ -236,7 +237,6 @@
     "Pasted image 20241215203911.jpg",
     "Pasted image 20241214211708.jpg",
     "Pasted image 20241214205939.jpg",
-    "Pasted image 20241213102959.png",
-    "Pasted image 20241213101113.jpg"
+    "Pasted image 20241213102959.png"
   ]
 }
