@@ -21,8 +21,8 @@ Khi thiết kế RESTfulAPI, cần phải tuân thủ một số nguyên tắc c
 - Sử dụng token (như JWT) để quản lý phiên thay vì lưu trạng thái trên server.
 
 ##### 5. **Sử lý mã trạng thái HTTP đúng cách**
-| Mã  | Ý nghĩa                            |
-| --- | ---------------------------------- |
+| Mã      | Ý nghĩa                            |
+| ------- | ---------------------------------- |
 | **200** | OK – Thành công                    |
 | **201** | Created – Tạo mới thành công       |
 | **204** | No Content – Xoá thành công        |

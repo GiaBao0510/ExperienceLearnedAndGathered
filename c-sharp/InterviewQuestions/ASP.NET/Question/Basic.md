@@ -8,7 +8,7 @@
 ### **2. Giải thích cách sử dụng của HttpResponseMessage?**
 
 - ==HttpResponseMessage== cho phép làm việc với giao thức HTTP( ví dụ với thuộc tính headers) và thống nhất kiểu trả về. Để dễ hiểu, thì ==HttpResponseMessage== là một cách để trả về một message/data dựa trên hành động từ người dùng.
-```
+```csharp
 public HttpResponseMessage GetEmployee(int id){
 	
 	Employee emp = EmployeeContext.Employee.Where(e=>e.id == id).FirstOrDefault();

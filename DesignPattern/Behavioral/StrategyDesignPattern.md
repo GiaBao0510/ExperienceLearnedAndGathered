@@ -38,11 +38,11 @@ Kết quả là:
 
 ![](https://images.viblo.asia/9e6ad788-fd88-4935-a53c-c15d161e7331.png)
 
-Các thành phần trong mô hình:
+**Các thành phần trong mô hình:**
 - *Context:* Class này sử dụng các strategy object và chỉ giao tiếp với các strategy object thông qua interface.
 - *Strategy:* Cung cấp một interface chung cho các *Context* giao tiếp với các strategy object.
 - *Concrete Strategy:* Implement các thuật toán khác nhau cho từng Context.
-- *Client:* Có trách nhiệm tạo ra các strategy object và truyền cho các Context sử dụng. 
+- *Client:* Có trách nhiệm tạo ra các strategy object và truyền cho các Context sử dụng.
 
 ---
 ### **Khi nào sử dụng:**

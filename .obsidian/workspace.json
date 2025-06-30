@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DesignPattern/Structural/Facade Pattern.md",
+                "file": "Database/NoSQL/Redis/3. Stream/3.2 Consumer-group.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Facade Pattern"
+              "title": "3.2 Consumer-group"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "c-sharp/InterviewQuestions/BackEnd/Signalr/6.SignalR_Overview.md",
+                "file": "General_interview/Fundamental/RESTAPI/RESTful_API_1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "6.SignalR_Overview"
+              "title": "RESTful_API_1"
             }
           },
           {
@@ -41,15 +41,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Database/NoSQL/Redis/1.BasicCommand.md",
+                "file": "General_interview/Intern_Fresher/Q_A_1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1.BasicCommand"
+              "title": "Q_A_1"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -191,45 +192,46 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "28756c64c48e88dc",
+  "active": "f95545b0fd78ea93",
   "lastOpenFiles": [
-    "DesignPattern/DesignPatterns.jpg",
-    "DevOps/Course_1/1.Business-drivers-for-transforming-to-devops.md",
-    "Pasted image 20250627151124.png",
-    "Database/NoSQL/Redis/3. Stream/3.1.Stream_data.md",
-    "DevOps/Course_1",
-    "Database/NoSQL/Redis/2.1.Pub_Sub.md",
-    "Database/NoSQL/Redis/1.BasicCommand.md",
-    "Database/NoSQL/Redis/README.md",
-    "Database/NoSQL/Redis/3. Stream",
+    "Database/NoSQL/Redis/3. Stream/3.2 Consumer-group.md",
     "Experience/Asynchronou/Async_await.md",
-    "Database/InterviewQuestions/AIDC.md",
-    "DesignPattern/Creational/Factory Methob Pattern.md",
-    "DesignPattern/Creational/Builder Design Pattern.md",
-    "DesignPattern/Creational/Signleton.md",
-    "Database/NoSQL/Redis/ROADMAP.md",
-    "Database/LINQ/1_Introducing_LINQ.md",
-    "c-sharp/InterviewQuestions/BackEnd/Signalr/6.SignalR_Overview.md",
-    "c-sharp/InterviewQuestions/HandlingTheSituation/Dynamic-Var-Object.md",
-    "Database/NoSQL/Redis/3. Stream_data",
-    "c-sharp/InterviewQuestions/BackEnd/Signalr/8.Hubs.md",
-    "c-sharp/InterviewQuestions/BackEnd/Signalr/7.SignalR_SimpleConfiguration.md",
-    "c-sharp/InterviewQuestions/BackEnd/Signalr/5.Connection_ConnectionID_GroupConnection.md",
-    "c-sharp/InterviewQuestions/BackEnd/Signalr/4.WebSocket.md",
-    "Software Architecture/Clean Architecture.md",
-    "Database/SQL/PostgreSQL",
-    "Experience/Asynchronou/Synchronize_Asynchronous.md",
-    "Database/InterviewQuestions/Dạng chuẩn (NF).md",
-    "Database/InterviewQuestions/Basic.md",
-    "General_interview/Fundamental/0_Maintain_Extend_Test.md",
+    "General_interview/Fundamental/RESTAPI/RESTful_API_1.md",
+    "General_interview/Intern_Fresher/Q_A_1.md",
+    "General_interview/TEST.md",
+    "General_interview/Intern_Fresher",
+    "c-sharp/InterviewQuestions/DotNetCore/Compare_.NetFramework_vs_.NetCore_Mono.md",
+    "DevOps/Course_1/3. DevOps History.md",
+    "DesignPattern/Behavioral/StatePattern.md",
+    "c-sharp/InterviewQuestions/ASP.NET/Question/Basic.md",
+    "c-sharp/InterviewQuestions/ASP.NET/4.Routing.md",
+    "c-sharp/InterviewQuestions/ASP.NET/3_Commpnly_used_attributes.md",
+    "c-sharp/InterviewQuestions/ASP.NET/2_Controller_ActionMethod.md",
+    "c-sharp/InterviewQuestions/ASP.NET/1_Introduce.md",
+    "Database/NoSQL/Redis/3. Stream/3.1.Stream_data.md",
+    "DevOps/Course_1/2. DevOps Accelerating Digital Transformation.md",
+    "DevOps/Course_1/1.Business-drivers-for-transforming-to-devops.md",
+    "DesignPattern/Behavioral/StrategyDesignPattern.md",
     "General_interview/Fundamental/RESTAPI/RESTful_API_3.md",
     "General_interview/Fundamental/RESTAPI/RESTful_API_2.md",
+    "General_interview/Fundamental/RESTAPI/HTTP_Methobs.md",
+    "Experience/Asynchronou/Synchronize_Asynchronous.md",
+    "c-sharp/InterviewQuestions/BackEnd/Middleware.md",
+    "c-sharp/InterviewQuestions/BackEnd/Life_time_Dependency_Injection.md",
+    "c-sharp/InterviewQuestions/BackEnd/Dependency Injection.md",
+    "c-sharp/InterviewQuestions/BackEnd/BackingField.md",
+    "c-sharp/BackEnd_Develop/redis/2.BasicOperationsForRedisOn_ASP.NET Core.md",
+    "DesignPattern/DesignPatterns.jpg",
+    "Pasted image 20250627151124.png",
+    "DevOps/Course_1",
+    "Database/NoSQL/Redis/3. Stream",
+    "Database/NoSQL/Redis/3. Stream_data",
+    "Database/SQL/PostgreSQL",
     "Cloud/AWS",
     "c-sharp/InterviewQuestions/BackEnd/Audio/Tổng quan về Middleware.wav",
     "c-sharp/InterviewQuestions/BackEnd/Audio/Tìm Hiểu Dependency Injection.wav",
     "c-sharp/InterviewQuestions/BackEnd/LoadingMechanism",
     "General_interview/Fundamental/Session_Cookie",
-    "Database/NoSQL/Redis/2. Pub_Sub",
     "Pasted image 20250604160646.png",
     "Pasted image 20250514101706.png",
     "Pasted image 20250514101655.png",
