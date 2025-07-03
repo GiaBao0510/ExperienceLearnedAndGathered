@@ -8,31 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "28756c64c48e88dc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Database/NoSQL/Redis/3. Stream/3.2 Consumer-group.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "3.2 Consumer-group"
-            }
-          },
-          {
             "id": "fa584096c2552d34",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General_interview/Fundamental/RESTAPI/RESTful_API_1.md",
+                "file": "Tools/Power_BI/1.Introduction_to_PowerBI/1.2 How is it used in Business.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "RESTful_API_1"
+              "title": "1.2 How is it used in Business"
             }
           },
           {
@@ -41,16 +27,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General_interview/Intern_Fresher/Q_A_1.md",
+                "file": "c-sharp/InterviewQuestions/BackEnd/Signalr/1.RealTime.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Q_A_1"
+              "title": "1.RealTime"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -106,8 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 274.5,
-    "collapsed": true
+    "width": 274.5
   },
   "right": {
     "id": "5515e25134f7b7c2",
@@ -194,44 +179,44 @@
   },
   "active": "f95545b0fd78ea93",
   "lastOpenFiles": [
-    "Database/NoSQL/Redis/3. Stream/3.2 Consumer-group.md",
-    "Experience/Asynchronou/Async_await.md",
+    "c-sharp/InterviewQuestions/BackEnd/Signalr/0. Introduce.md",
+    "Software Architecture/MVP.md",
+    "Software Architecture/Client-Server Architecture.md",
+    "Software Architecture/Repository Pattern.md",
+    "Software Architecture/MVC.md",
+    "Software Architecture/Layered Architecture.md",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/1.2 How is it used in Business.md",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/1.1 what is PowerBI.md",
+    "Tools/Power_BI/5.Visualization/Untitled",
+    "Tools/Power_BI/5.Visualization",
+    "Tools/Power_BI/4.DAX_basic",
+    "Tools/Power_BI/3.Understading_the_data_model_and_relationships",
+    "Tools/Power_BI/2.Data_cleaning_and_Prep_Using_Query_Editor",
+    "Tools/Power_BI/1.Introduction_to_PowerBI",
+    "Go/Go Tutorial/7_Const/README.md",
+    "Tools/Power_BI",
+    "Tools",
     "General_interview/Fundamental/RESTAPI/RESTful_API_1.md",
-    "General_interview/Intern_Fresher/Q_A_1.md",
-    "General_interview/TEST.md",
-    "General_interview/Intern_Fresher",
-    "c-sharp/InterviewQuestions/DotNetCore/Compare_.NetFramework_vs_.NetCore_Mono.md",
-    "DevOps/Course_1/3. DevOps History.md",
-    "DesignPattern/Behavioral/StatePattern.md",
-    "c-sharp/InterviewQuestions/ASP.NET/Question/Basic.md",
-    "c-sharp/InterviewQuestions/ASP.NET/4.Routing.md",
-    "c-sharp/InterviewQuestions/ASP.NET/3_Commpnly_used_attributes.md",
-    "c-sharp/InterviewQuestions/ASP.NET/2_Controller_ActionMethod.md",
-    "c-sharp/InterviewQuestions/ASP.NET/1_Introduce.md",
-    "Database/NoSQL/Redis/3. Stream/3.1.Stream_data.md",
-    "DevOps/Course_1/2. DevOps Accelerating Digital Transformation.md",
-    "DevOps/Course_1/1.Business-drivers-for-transforming-to-devops.md",
-    "DesignPattern/Behavioral/StrategyDesignPattern.md",
-    "General_interview/Fundamental/RESTAPI/RESTful_API_3.md",
-    "General_interview/Fundamental/RESTAPI/RESTful_API_2.md",
-    "General_interview/Fundamental/RESTAPI/HTTP_Methobs.md",
-    "Experience/Asynchronou/Synchronize_Asynchronous.md",
-    "c-sharp/InterviewQuestions/BackEnd/Middleware.md",
-    "c-sharp/InterviewQuestions/BackEnd/Life_time_Dependency_Injection.md",
-    "c-sharp/InterviewQuestions/BackEnd/Dependency Injection.md",
-    "c-sharp/InterviewQuestions/BackEnd/BackingField.md",
-    "c-sharp/BackEnd_Develop/redis/2.BasicOperationsForRedisOn_ASP.NET Core.md",
+    "Go/Go Tutorial/7_Const",
+    "Go/Go Tutorial/6_Enter_input_data_from_keyboard/REAME.md",
+    "Go/Go Tutorial/5_Variable/README.md",
+    "Go/Go Tutorial/6_Enter_input_data_from_keyboard",
+    "Go/Go Tutorial/Untitled.md",
+    "Go/Go Tutorial/5_Variable/DataType.md",
+    "Go/Go Tutorial/5_Variable/Aggregate-type.md",
+    "().md",
+    "Go/Go Tutorial/5_Variable/Interface-type.md",
+    "Go/Go Tutorial/5_Variable/Reference-type.md",
+    "Go/Go Tutorial/5_Variable/Basic-type.md",
+    "Database/NoSQL/Redis/3. Stream/3.2 Consumer-group.md",
+    "Software Architecture/Clean Architecture.md",
+    "Go/Go Tutorial/4_HowToCompileCode/README.md",
+    "Go/Go Tutorial/3_Module_Package/README.md",
+    "Go/Go Tutorial/2_Packages_and_scopes/01_Packages/README.md",
+    "Go/Go Tutorial/1_GettingStarted/README.md",
+    "DevOps/Course_1/4..md",
     "DesignPattern/DesignPatterns.jpg",
     "Pasted image 20250627151124.png",
-    "DevOps/Course_1",
-    "Database/NoSQL/Redis/3. Stream",
-    "Database/NoSQL/Redis/3. Stream_data",
-    "Database/SQL/PostgreSQL",
-    "Cloud/AWS",
-    "c-sharp/InterviewQuestions/BackEnd/Audio/Tổng quan về Middleware.wav",
-    "c-sharp/InterviewQuestions/BackEnd/Audio/Tìm Hiểu Dependency Injection.wav",
-    "c-sharp/InterviewQuestions/BackEnd/LoadingMechanism",
-    "General_interview/Fundamental/Session_Cookie",
     "Pasted image 20250604160646.png",
     "Pasted image 20250514101706.png",
     "Pasted image 20250514101655.png",

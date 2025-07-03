@@ -22,13 +22,13 @@ cd 1_GettingStarted
 
 Sau khi tạo xong thì hãy chạy câu lệnh sau tại thư mục `1_GettingStarted`:
 
-```
+```powershell
 go mod init helloworld
 ```
 
 *Giải thích:*
 - Lệnh này tạo một **file go.mod,** là nơi quản lý thông tin dự án và các thư viện phụ thuộc.
-- Đây là lệnh để khởi tạo một **Go module**. Tương tự như tạo `package.json` trong Node.js hoặc `csproj` trong .NET .Lệnh này sẽ tạo một file `go.mod` ở thư mục hiện tại.
+- Đây là lệnh để khởi tạo một **Go module**. Tương tự như tạo `package.json` trong Node.js hoặc `.csproj` trong .NET .Lệnh này sẽ tạo một file `go.mod` ở thư mục hiện tại.
 - **📌 Khi nào cần dùng?**
 	- Khi **bắt đầu một project mới**
 	- Khi muốn quản lý thư viện ngoài (thrid-party) bằng `go get`
@@ -36,11 +36,11 @@ go mod init helloworld
 
 - 📦 **Sau khi khởi tạo bạn có thể:**
 	- Import packages nội bộ hoặc bên ngoài
-	- Dùng `go get` để cải thư viện
+	- Dùng `go get` để tải thư viện
 	- Dùng `go build`, `go run`, `go test` bình thường
 
 *kết quả sau khi chạy:*
-```
+```powershell
 1_GettingStarted> go mod init helloworld  
 go: creating new go.mod: module helloworld
 ```
@@ -84,19 +84,19 @@ go build main.go
 ```
 - Lệnh này tạo file thực thi (ví dụ: helloworld trên Linux/Mac, helloworld.exe trên Windows).
 - Chạy File thực thi:
-```
+```powershell
 ./helloworld   # Linux/Mac
 helloworld.exe # Windows
 ```
 
 **Run một chương trình Go:**
-```
+```powershell
 go run main.go
 ```
 - **go run**: Biên dịch và chạy file ngay lập tức.
 
 - Ví dụ chạy chương trình `helloworld.go` ở bài trên:
-```
+```powershell
 1_GettingStarted> go run helloworld.go
 Gia Bao Xin Chao
 ```

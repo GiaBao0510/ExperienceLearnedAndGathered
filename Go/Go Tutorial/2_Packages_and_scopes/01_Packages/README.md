@@ -11,8 +11,8 @@ Trước tiên, đảm bảo bạn đã cài đặt Go:
 ```bash
    go version
 ```
- 
-    Nếu thấy phiên bản (ví dụ: `go1.21.0`), bạn đã sẵn sàng!
+
+- Nếu thấy phiên bản (ví dụ: `go1.21.0`), bạn đã sẵn sàng!
 
 
 ## Bước 1: Tạo thư mục dự án

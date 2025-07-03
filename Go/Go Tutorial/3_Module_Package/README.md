@@ -151,8 +151,8 @@ Message from util package
     - Giải pháp: Dùng `go run .` để biên dịch toàn bộ package.
 - **Quản lý dependency**: Chạy `go mod tidy` để dọn dẹp file `go.mod`.
 
+---
 ## Kết luận
-
 - **Module** giúp quản lý dự án và các package.
 - **Package** tổ chức code thành các nhóm chức năng.
 - Tiếp theo, bạn có thể thử:
