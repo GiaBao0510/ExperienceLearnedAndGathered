@@ -39,7 +39,6 @@ public class Safe
 }
 ```
 
-
 ##### **Câu 3: Sự khác biệt giữa .NET Framework và .NET Core là gì? Tại sao .NET Core thường được ưu tiên trong các dự án hiện đại?**
 -  **.NET Framework**: Là nền tảng cũ hơn, chỉ chạy trên Windows, phù hợp với các ứng dụng desktop hoặc web truyền thống (như ASP.NET Web Forms). Hỗ trợ nhiều thư viện nhưng ít được cập nhật.
 - **.NET Core** (nay là .NET): Đa nền tảng (Windows, macOS, Linux), tối ưu cho hiệu suất cao, ứng dụng cloud, microservices. Hỗ trợ phát triển hiện đại (ASP.NET Core) và có cộng đồng phát triển mạnh mẽ.
@@ -53,7 +52,7 @@ public class Safe
     - Dùng `List<T>` khi số lượng phần tử thay đổi động (ví dụ: danh sách người dùng từ API).
 
 ##### **Câu 5: Entity Framework là gì? Hãy giải thích ngắn gọn về Code First và Database First trong Entity Framework.**
-- - **Entity Framework**: Là một ORM giúp ánh xạ dữ liệu từ database sang các đối tượng C# (models). Nó giảm thiểu việc viết SQL thủ công và tăng tốc phát triển.
+-  **Entity Framework**: Là một ORM giúp ánh xạ dữ liệu từ database sang các đối tượng C# (models). Nó giảm thiểu việc viết SQL thủ công và tăng tốc phát triển.
 - **Code First**: Lập trình viên định nghĩa các class C# trước, sau đó sử dụng lệnh migration (như Add-Migration và Update-Database) để tạo database.
 - **Database First**: Tạo database trước, sau đó dùng công cụ (như EF Designer) để sinh ra các class C# từ database.
 

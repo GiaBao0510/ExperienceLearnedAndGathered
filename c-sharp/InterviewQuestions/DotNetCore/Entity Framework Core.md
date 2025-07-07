@@ -2,6 +2,8 @@
 
 Entity Framework Core (EF Core) là phiên bản mới, hiện đại và nhẹ hơn của **Entity Framework (EF)**, được phát triển bởi Microsoft. EF Core là một **ORM (Object-Relational Mapping)** hỗ trợ các nhà phát triển .NET làm việc với cơ sở dữ liệu bằng cách sử dụng đối tượng lớp thay vì SQL thuần.
 
+Thay vì phải viết chuỗi lệnh SQL thuần túy để thực hiện các thao tác CRUD, thì bây giờ làm việc trực tiếp với các đối tượng trong C#. **EF Core** sẽ chịu trách nhiệm dịch các thao tác trên đối tượng thành các câu lệnh SQL tương ứng và thực thi chúng trên Database.
+
 EF Core được thiết kế để hỗ trợ:
 - **Đa nền tảng:** window, macOS, linux.
 - **Đa hệ quản trị CSDL:** mySQL, SQL server, SQLite, v.v.
@@ -18,14 +20,19 @@ Sau đây sẽ nêu các đặc điểm về  EF Core đã có mà EF chưa có.
 **Nhẹ và hiệu năng tốt hơn:**
 - ít tài nguyên hơn so với EF truyền thống.
 - Tốc độ nhanh hơn(performance).
-**Đa nền tảng:**
-- Có thể chạy trên **.NET Core** (hỗ trợ Windows, Linux, macOS) và **.NET Framework**.
+
+**Tăng tốc độ phát triển:** Giảm đáng kể lượng mã boilerplate (mã lặp đi lặp lại) cần tương tác với database.
+
+**Giảm sự khác biệt giữa object và relational worlds:** giúp lập trình viên tập trung vào logic nghiệp vụ bằng cash làm việc với các đối tượng quen thuộc.
+
+**Đa nền tảng:** Có thể chạy trên **.NET Core** (hỗ trợ Windows, Linux, macOS) và **.NET Framework**.
+
 **Hỗ trợ cả Code-First, Database-First, Model-First**.
+
 **Open source.**
-**Khả năng mở rộng:**
-- Có thể tùy chỉnh và mở rộng dễ dàng thông qua các tính năng như ==Interceptors, Custom Conventions==.
-**Hỗ trợ cơ chế Loading:**
-- Eager Loading, Lazy Loading và Explicit Loading.
+
+**Khả năng mở rộng:** Có thể tùy chỉnh và mở rộng dễ dàng thông qua các tính năng như ==Interceptors, Custom Conventions==.
+**Hỗ trợ cơ chế Loading:** Eager Loading, Lazy Loading và Explicit Loading.
 ## **3. DBContext là gì?**
 
 DbContext là một lớp trung tâm trong Entity Framework Core, được sử dụng để:

@@ -13,7 +13,7 @@ Khi làm việc với Entity Framework (EF) trong **ASP.NET Core**, có hai các
 
 ***Ví dụ tạo model từ DB (EF Core - DB First):***
 
-```
+```powershell
 dotnet ef dbcontext scaffold "Server=.;Database=MyDb;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models
 ```
 
@@ -31,29 +31,114 @@ dotnet ef dbcontext scaffold "Server=.;Database=MyDb;Trusted_Connection=True;" M
 ***Ví dụ database từ model (EF Core - CodeFirst):***
 
 ```csharp
-public class Product{
+public class Product
+{
+	[Key]
 	public int Id {set; get;}
+
+	[Required]
 	public string Name {set; get;}
+
+	[Required]
 	public decimal Price {set; get;}
 }
 ```
+Tại ví dụ này:
+- class `Product`  sẽ ánh xạ tới một bảng có tên mặc định là `Product`.
+- Thuộc tính `Id` sẽ là khóa chính của bảng (EF Core nhận diện theo quy ước đặt tên `Id` hoặc `[TênEntity]Id`). Attribute `[Key]` giúp làm rõ điều này.
+- Thuộc tính `Name` sẽ là một cột kiểu chuỗi trong bảng. Attribute `[Required]` sẽ làm cho cột này không được phép NULL ở cấp độ database.
+- Thuộc tính `Price` sẽ là một cột kiểu decimal.
+
+#### **Tạo DbContext - Cửa ngõ tới Database:**
+
+`DbContext` là class quan trong trong EF Core. Nó ==đại diện cho một phiên làm việc với database== và là ==nơi cấu hình model, thực hiện việc truy vấn và lưu thay đổi==. Cần tạo một lớp kế thừ từ thư viện `Microsoft.EntityFrameworkCore.DbContext`.
 
 ```csharp
 public class MyDbContext: DbContext{
 
+	//Một tập hợp các product cần quản lý và nó ánh xạ đến database
 	public DbSet<Product> Product{get; set;}
 
+	// Phương thực này được dùng để cấu hinh DbContext, bao gồm chuỗi kết nối
 	protected override void OnConfiguring(DbContextOptionsBuilder opt){
+		//Lưu ý chuỗi kết nối nên đặt trong file appsetting.json hoặc trong biến môi trường
 		opt.UseSqlServicer("Server=.;Database=MyDb;Trusted_Connection=True;");
 	}
 }
 ```
 
-- Tạo `DB` bằng `Migration`:
-```
+#### **Áp dụng Migrations: Tạo Database Schema**
+
+Sau khi đã định nghĩa `model` và `DbContext` xong thì cần thông báo cho **EF Core** biết về `model` này và yêu cầu nó tạo ra script để tạo **schema database** tương ứng. Quá trình này được thực hiện thông qua **Migrations**.
+
+**Migrations** giúp quản lý các thay đổi về **schema database** theo thời gian. Mỗi khi thay đổi model C# ( thêm/xóa class, thêm/xóa thuộc tính, thay đổi kiểu dữ liệu, thêm quan hệ,...), thì sẽ tạo ra **migration** mới, **Migration** này chứa đựng các đoạn mã C# mô tả thao tác database cần thiết để chuyển đổi từ schema cũ sang schema mới.
+
+Sử dụng công cụ dòng lệnh *"dotnet ef"* để cài đặt và chạy tại thư mục gốc:
+```bash
 dotnet ef migrations add InitialCreate
+```
+- **dotnet ef migrations**: yêu cầu EF Core tạo một migration mới.
+- **InitialCreate**: tên của Migration (nên đặt tên có nghĩa).
+
+Sau khi chạy lệnh này, EF Core sẽ:
+1. Scan project để tìm DbContext.
+2. Phân tích model được định nghĩa trong **DbContext** (class `product`).
+3. So sánh với model hiện tại với trạng thái cuối cùng được ghi nhận trong folder **Migrations** (Nếu chưa có **migration** nào, nó sẽ so sánh với trạng thái database trống).
+4. Tạo một folder `Migrations` trong project.
+5. Tạo **2 file .cs** bên trong folder `Migrations`: một file chứa các thao tác `Up` (áp dụng migration) và `Down` (rollback migration), và một file snapshot của model hiện tại.
+
+Kiểm tra folder `Migrations`,sẽ thấy các file được tạo ra. File migration (ví dụ: `20231027100000_InitialCreate.cs` – phần số là timestamp)
+
+```csharp
+using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace EFCoreGettingStarted.Migrations
+{
+    /// <inheritdoc />
+    public partial class InitialCreate : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"), // Cột tự tăng
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false), // NOT NULL do [Required]
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.Id); // Khóa chính
+                });
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "Products");
+        }
+    }
+}
+```
+File này mô tả việc tạo bảng “Products” trong phương thức `Up` và xóa bảng đó trong phương thức `Down`. EF Core đã dịch các thuộc tính trong class `Product` thành các cột với kiểu dữ liệu và ràng buộc tương ứng.
+
+Bước kế tiếp là áp dụng migration này vào database. Qua câu lệnh sau:
+```bash
 dotnet ef database update
 ```
+
+Lệnh này sẽ:
+1. Tìm **DbContext**.
+2. Đọc chuỗi kết nối từ **DbContext**.
+3. Kết nối tới Database (nếu database chưa tồn tại, EF Core sẽ cố gắng tạo mới nó),
+4. Kiểm tra bảng lịch sử migrations trong database (`__EFMigrationsHistory`).
+5. Thực thi các **migration** chưa được áp dụng. Trong trường hợp này, nó sẽ chạy phương thức `Up` của migration `InitialCreate`, tạo bảng `Products`.
 
 ---
 ## **3️⃣ So sánh chi tiết giữa Database First và Code First**
