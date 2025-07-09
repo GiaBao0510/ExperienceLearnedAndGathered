@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Power_BI/1.Introduction_to_PowerBI/1.2 How is it used in Business.md",
+                "file": "Tools/Power_BI/1.Introduction_to_PowerBI/1.4 Introduction to Connecting to Data Sources.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1.2 How is it used in Business"
+              "title": "1.4 Introduction to Connecting to Data Sources"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Experience/Asynchronou/Async_await.md",
+                "file": "c-sharp/InterviewQuestions/DotNetCore/DataBaseFirst_vs_CodeFirst.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Async_await"
+              "title": "DataBaseFirst_vs_CodeFirst"
             }
           },
           {
@@ -49,8 +49,7 @@
               "title": "RoadMap"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -191,25 +190,42 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d1d1770a575d01a3",
+  "active": "fa584096c2552d34",
   "lastOpenFiles": [
-    "Database/LINQ/1_Introducing_LINQ.md",
-    "Database/SQL/PostgreSQL/5. Index.md",
+    "Tools/Power_BI/ThucHanh1.pbix",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/Image/exColumnChart.png",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/Image/LoadData.png",
+    "Pasted image 20250709155723.png",
+    "Pasted image 20250709155650.png",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/Image/PowerQueryEditor.png",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/Image/TaiDuLieuSieuThi.png",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/Image/GetData_info.png",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/Image/GetData.png",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/1.3 Power Bi Introduced desktop.md",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/1.4 Introduction to Connecting to Data Sources.md",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/Image",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/Image/Visualizations.png",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/Image/Filters.png",
+    "Tools/Power_BI/1.Introduction_to_PowerBI/1.2 How is it used in Business.md",
+    "c-sharp/InterviewQuestions/DotNetCore/DataBaseFirst_vs_CodeFirst.md",
+    "c-sharp/InterviewQuestions/DotNet/EntityFramework.md",
     "Database/SQL/PostgreSQL/4. Function_Store procedure.md",
+    "General_interview/Fundamental/GraphQL",
+    "Database/SQL/PostgreSQL/6. Trigger.md",
+    "Database/SQL/PostgreSQL/5. Index.md",
     "Database/SQL/PostgreSQL/3. Advance query.md",
-    "Database/SQL/PostgreSQL/Aggregation.md",
-    "Database/SQL/PostgreSQL/Operators.md",
     "Database/SQL/PostgreSQL/2. Join between Tables.md",
     "Database/SQL/PostgreSQL/1. Basic syntax.md",
-    "Experience/Asynchronou/Async_await.md",
-    "Database/SQL/PostgreSQL/DataType.md",
-    "Tools/Power_BI/1.Introduction_to_PowerBI/1.2 How is it used in Business.md",
     "Database/SQL/PostgreSQL/0. Beginer.md",
+    "Experience/Asynchronou/Async_await.md",
+    "Database/LINQ/RoadMap.md",
+    "Database/LINQ/1_Introducing_LINQ.md",
+    "Database/SQL/PostgreSQL/Aggregation.md",
+    "Database/SQL/PostgreSQL/Operators.md",
+    "Database/SQL/PostgreSQL/DataType.md",
     "Database/SQL/PostgreSQL/demo/Untitled.md",
     "c-sharp/InterviewQuestions/DotNetCore/Entity Framework Core.md",
     "c-sharp/InterviewQuestions/DotNetCore/Compare_.NetFramework_vs_.NetCore_Mono.md",
-    "c-sharp/InterviewQuestions/DotNetCore/DataBaseFirst_vs_CodeFirst.md",
-    "DesignPattern/DesignPatterns.jpg",
     "DesignPattern/README.md",
     "ProgrammingParadigm/FP_Functional Programming/1. Getting started FP.md",
     "Database/SQL/PostgreSQL/demo/PG_17_202406281",
@@ -217,27 +233,10 @@
     "Database/SQL/PostgreSQL/New folder",
     "ProgrammingParadigm/FP_Functional Programming/8. Referential transparency.md",
     "ProgrammingParadigm/FP_Functional Programming/7. Declarative code.md",
-    "ProgrammingParadigm/FP_Functional Programming/6. Recursion.md",
-    "ProgrammingParadigm/FP_Functional Programming/5. Function composition.md",
-    "ProgrammingParadigm/FP_Functional Programming/4. First-class and Higher-order Funtions.md",
-    "ProgrammingParadigm/FP_Functional Programming/3. Immutability.md",
-    "ProgrammingParadigm/FP_Functional Programming/2. Pure Functions.md",
-    "Database/SQL/SQL_Database_Overview.md",
     "ProgrammingParadigm/EDP_Event-Driven Programming",
     "ProgrammingParadigm/DP_Declarative Programming",
     "ProgrammingParadigm/PP_Procedural Programming",
     "ProgrammingParadigm/FP_Functional Programming",
-    "ProgrammingParadigm/IP_Imperative Programming",
-    "ProgrammingParadigm",
-    "Tools/Power_BI/5.Visualization/Untitled",
-    "Pasted image 20250627151124.png",
-    "Pasted image 20250604160646.png",
-    "Pasted image 20250514101706.png",
-    "Pasted image 20250514101655.png",
-    "Pasted image 20250418161303.png",
-    "Pasted image 20241215203911.jpg",
-    "Pasted image 20241214211708.jpg",
-    "Pasted image 20241214205939.jpg",
-    "Pasted image 20241213102959.png"
+    "ProgrammingParadigm/IP_Imperative Programming"
   ]
 }
