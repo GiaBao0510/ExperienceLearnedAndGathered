@@ -1,3 +1,10 @@
+
+Hiển thị Version Docker hiện tại:
+
+```shell
+docker --version
+```
+
 _Kiểm tra các Images:_
 ```shell
 docker images -a

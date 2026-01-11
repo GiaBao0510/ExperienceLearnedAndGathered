@@ -91,8 +91,8 @@ Nói các khác ==tính đóng gói cho phép kiểm soát quyền truy cập== 
 ==Một lớp được đóng gói đầy đủ có các hàm getter và setter== được sử dụng để đọc và ghi dữ liệu. Lớp này không cho phép truy cập dữ liệu trực tiếp.
 
 Một thuộc tính định nghĩa 2 phương thức truy cập (acccessor methods):
-- Một phương thức `get()`, định nghĩa cá mà các trường liên quan có thể được truy cập.
-- Một phương thức `set()`, định nghĩa cá mà cùng một trường có để được sửa đổi.
+- Một phương thức `get()`, định nghĩa các mà các trường liên quan có thể được truy cập.
+- Một phương thức `set()`, định nghĩa các mà cùng một trường có để được sửa đổi.
 Phương thức truy cập mặc định sẽ là `public` Khi không có bộ điều chỉnh truy cập nào được chỉ định.
 
 ***Ví dụ:***

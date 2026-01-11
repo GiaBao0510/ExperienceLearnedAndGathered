@@ -4,7 +4,7 @@ Kế thừa là một trong 4 tính chất của lập trình hướng đối t�
 
 ![](http://www.btechsmartclass.com/java/java_images/OOP-Concept-Inheritance.png)
 
-**Tính kế thừa** trong OOP cho phép chúng ta tạo mới các class sử dụng một class có sẳn và có thể mở rộng chúng ra. Các `class con` có hể kế thừa lại các thuộc tính (**properties**) và phương thức (**methods**) của class cha, có thể không cần định nghĩa lại các phương thức hoặc tái định nghĩa (**override**) hoặc thêm các phương thức sử dụng riêng ở lớp con.
+**Tính kế thừa** trong OOP cho phép chúng ta tạo mới các class sử dụng một class có sẳn và có thể mở rộng chúng ra. Các `class con` có thể kế thừa lại các thuộc tính (**properties**) và phương thức (**methods**) của class cha, có thể không cần định nghĩa lại các phương thức hoặc tái định nghĩa (**override**) hoặc thêm các phương thức sử dụng riêng ở lớp con.
 
 **Ưu điểm của kế thừa**
 - Cho phép xây dựng 1 lớp mới từ lớp đã có.
@@ -163,13 +163,13 @@ class B : A{     //Xuất hiện lỗi vì kế thừa lớp niêm phong
 
 Nếu như lớp cha có **phương thức khởi tạo có tham số** thì sẽ đòi hỏi lớp con phải có phương thức khởi tạo tương ứng và hiện gọi phương thức khởi tạo của lớp cha thông qua từ khóa `base`.
 
-Khi đối tượng lớp con bị hủy thì phương thức hủy bỏ của nớ sẽ được gọi trước sau đó mới gọi phương thức hủy bỏ của lớp cha để hủy những gì lớp con không hủy được.
+Khi đối tượng lớp con bị hủy thì phương thức hủy bỏ của nó sẽ được gọi trước sau đó mới gọi phương thức hủy bỏ của lớp cha để hủy những gì lớp con không hủy được.
 
 ##### **Vấn đề hàm trùng tên và cách gọi phương thức của lớp cha**
 
 Ví dụ giải sử ta có `class User` có chứa phương thức `Info()`, nhưng bên trong `class staff` kế thừa từ `class User` nhưng  lại được thiết kế thêm phương thức `Info()` trùng tên với phương thức từ lớp `class User`. Nếu biên dịch thì sẽ nhận một cảnh báo.
 
-Để khắc phục vấn đề thày thì dùng từ khóa `new` vào trước khai báo hàm `Info()` trong lớp `class staff`. Từ khóa `new` nhằm để đánh dấu đây là 1 hàm mới và hàm kế thừa từ lớp cha sẽ bị che khuất đi khiên **bên ngoài** sẽ không gọi được.
+Để khắc phục vấn đề này thì dùng từ khóa `new` vào trước khai báo hàm `Info()` trong lớp `class staff`. Từ khóa `new` nhằm để đánh dấu đây là 1 hàm mới và hàm kế thừa từ lớp cha sẽ bị che khuất đi khiên **bên ngoài** sẽ không gọi được.
 
 ```csharp
 public new void Info(){

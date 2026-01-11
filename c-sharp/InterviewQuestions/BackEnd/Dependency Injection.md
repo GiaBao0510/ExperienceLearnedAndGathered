@@ -24,7 +24,7 @@ public class Engine{
 	public void Start(){
 		Console.WriteLine("Engine started");
 	}
-}
+}r
 
 public class Car{
 	public Engine _engnine = new Engine(); //Phụ thuộc vào 1 lớp cụ thể
@@ -70,7 +70,7 @@ public class car{
 - IoC là một **mẫu thiết kế (design patten)**, trong đó **việc điều kiển (control)** luồng của chương trình hoặc việc khởi tạo và quản lý các phụ thuộc (dependency) không được thực hiện bởi chính lớp đó, mà được **bên thứ 3 quản lý nó.**
 
 **Mục tiêu chính:**
-- Dịch chuyển trách nhiệm khởi tạo đối tượng va quản lý vòng đời của chúng sang một **IoC container hoặc framework.**
+- Dịch chuyển trách nhiệm khởi tạo đối tượng và quản lý vòng đời của chúng sang một **IoC container hoặc framework.**
 
 **Các phương pháp IoC phổ biến:**
 1. **Dependency Injection (phổ biến nhất).**
@@ -202,7 +202,7 @@ Sử dụng Dependency Injection thông qua các bước sau:
 - Đăng ký phần phụ thuộc trong service container. [ASP.NET Core](http://asp.net/) cho phép chúng ta có thể đăng ký các dịch vụ ứng dụng của mình với IoC container, trương phương thức ConfigureServices của lớp Startup. Phương thức  ConfigureServices bao gồm một tham số kiểu IServiceCollection. Được sử dụng để đăng ký các dịch vụ ứng dụng.
 	*Ví dụ:*
 	**Phương thức AddScope đăng ký service với scoped lifetime, lifetime của một singleton request**
-	```
+	```csharp
 	using DependencyInjectionSample.Interfaces;
 	using DependencyInjectionSmaple.Services;
 
@@ -215,7 +215,7 @@ Sử dụng Dependency Injection thông qua các bước sau:
 - Đưa service vào phương thức khởi tạo của lớp mà nó được sử dụng. Framework sẽ tạo thể hiện của sự phụ thuộc và loại bỏ khi nó không cần thiết nữa
 	*Ví dụ:*
 	**IMyDependency service được request và sử dụng để gọi phuong thức Write**
-	```
+	```csharp
 	public class Index2Model: PageModel{
 		private readonly IMyDependency _myDependency;
 		public Index2Model(IMyDependency myDependency){

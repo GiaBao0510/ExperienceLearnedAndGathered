@@ -63,7 +63,6 @@ package main
 */
 import "fmt"
 
-
 /*
 	- "func main" là đặt biệt.
 	- Go cho biết nơi bắt đầu

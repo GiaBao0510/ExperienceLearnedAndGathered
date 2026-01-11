@@ -37,7 +37,7 @@ Tùy thuộc vào server mà chọn loại Authorization với mức độ phù 
 - Resources mainpulation through representations (*Thao tác tài nguyên thông qua các biểu diễn*).
 - Self-descriptive messages (**tin nhắn tự mô tả**)
 - Hypermedia as the engin of application state (HATEOAS).
-###### 5. **Layered System:** Kiến trúc phân lớp co phép các thành phần truy gian (intermediary) như proxy, load balancer, API gateway.
+###### 5. **Layered System:** Kiến trúc phân lớp cho phép các thành phần trung gian (intermediary) như proxy, load balancer, API gateway.
 ###### 6. **Code on Demand (optional):** Server có thể tạm thời mở rộng chức năng client bằng cách chuyển mã thực thi.
 
 ---

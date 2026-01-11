@@ -90,6 +90,10 @@ Nhập họ tên của bạn: Pham Gia Bao
 Họ tên của bạn là: Pham Gia Bao
 ```
 
+*Lưu ý:*
+- `os`: là hệ điều hành
+- `stdin`: là cho phép nhập vô
+
 ---
 ## 3. Nhập các kiểu dữ liệu khác
 

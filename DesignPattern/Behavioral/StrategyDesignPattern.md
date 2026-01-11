@@ -16,7 +16,7 @@
 
 Ban đầu, app này chỉ hỗ trợ cho người đi bộ, nếu bạn đã viết thuận toán tìm đường đi cho người đi bộ và sử dụng nó trực tiếp ở những nơi cần thiết trong mã nguồn. Tuy nhiên, khi yêu cầu phát triển, ứng dụng cần hỗ trợ thêm tìm đường đi cho các phương tiện như: Xe hơi, xe đạp,...
 
-Nếu tiếp tục chèn thêm thuật toán mới vào nơi đã có sẳn cho thuật toán cũ, bạn sẽ phải sửa đổi nhiều đoạn mã. Việc này khiến cho chương trình khó  bảo trì và mở rộng. Đặc biệt là những phần đang hoạt động vốn đã ổn định.
+Nếu tiếp tục chèn thêm thuật toán mới vào nơi đã có sẳn cho thuật toán cũ, bạn sẽ phải sửa đổi nhiều đoạn mã. Việc này khiến cho chương trình khó bảo trì và mở rộng. Đặc biệt là những phần đang hoạt động vốn đã ổn định.
 
 Để giải quyết vấn đề này, đó là áp dụng **Strategy Pattern**:
 $\to$ Thay vì viết "cứng" thuật toán trong mã, ta nên tách mỗi thuật toán ra thành một lớp riêng gọi là **strategy**.

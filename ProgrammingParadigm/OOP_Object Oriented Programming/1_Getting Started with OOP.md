@@ -24,8 +24,11 @@ Lập trình hướng đối tượng(Object-Oriented Programming - OOP) là m�
 
 Trong OOP sẽ bao gồm có 4 tính chất, gồm: 
 - **Tính đóng gói (Encapsulation):** Đóng gói là tính chất cho phép bảo vệ dữ liệu của đối tượng bằng cách giới hạn quyền truy cập. Dữ  liệu và các phương thức thao tác với cơ sở dữ liệu được gộp lại trong một lớp, và chỉ có những phương thức công khai (public) được phép truy cập hoặc sửa đổi dữ liệu đó.
+
 - **Tính trừu tượng (Abstraction):** Cho phép bạn tạo ra các lớp hoặc giao diện mà chỉ định các phương thức mà không cần cung cấp thông tin chi tiết cụ thể về phương thức. Điều này giúp người dùng chỉ cần biết cách sử dụng mà không cần hiểu sâu.  
+
 - **Tính đa hình (Polymorphism):** Cho phép các đối tượng thuộc các lớp khác nhau, có thể được xử lý thông qua cùng một giao diện. Điều này giúp cho mã linh hoạt hơn
+
 - **Tính kế thừa (Inheritance):** Cho phép tạo ra một lớp mới dựa một lớp đã có sẳn, giúp tái sử dụng mã và mở rông chức năng của lớp cha mà không cần viết lại mã.
 
 ---

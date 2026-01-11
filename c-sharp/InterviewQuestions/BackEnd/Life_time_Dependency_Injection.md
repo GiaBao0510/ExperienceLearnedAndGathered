@@ -117,12 +117,12 @@ public class CacheService : ICacheService
 
 Khi xây dựng hệ thống lớn, **chọn dúng Lifetime giúp tối ưu hiệu suất và tài nguyên**. Dưới đây là hướng dẫn:
 
-|**Loại Service**|**Nên dùng Lifetime nào?**|
-|---|---|
-|**Service stateless (Không lưu trạng thái)**|Transient|
-|**Repository / Unit of Work (Giao tiếp với DB)**|Scoped|
-|**Cache / Logger / Configuration**|Singleton|
-|**Background tasks**|Singleton hoặc Scoped (cẩn thận)|
+| **Loại Service**                                 | **Nên dùng Lifetime nào?**       |
+| ------------------------------------------------ | -------------------------------- |
+| **Service stateless (Không lưu trạng thái)**     | Transient                        |
+| **Repository / Unit of Work (Giao tiếp với DB)** | Scoped                           |
+| **Cache / Logger / Configuration**               | Singleton                        |
+| **Background tasks**                             | Singleton hoặc Scoped (cẩn thận) |
 #### 1. **Ứng dụng trong Microserrvices:**
 
 - **Request xử lý dữ liệu:** Scoped (Tránh xung đột dữ liệu)
