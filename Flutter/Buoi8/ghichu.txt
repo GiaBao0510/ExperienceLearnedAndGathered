@@ -1,3 +1,0 @@
---------- Widget trong Flutter: RichText ------------
-
-- Dùng để định dạng một số chữ cái trong văn bản

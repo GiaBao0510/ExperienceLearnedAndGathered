@@ -1,3 +1,0 @@
-    ----- Container -------
-- Tự như kiểu khung Chứa các đối tượng bên trong nó.
-- Khi bên trong Container có child thì nó chỉ bao quanh nội dung bên trong child thôi. Ngược lại thì bao quanh toàn màn hình
