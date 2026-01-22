@@ -1,50 +1,52 @@
 package main
 
 import (
+	//"encoding/json"
 	"fmt"
+	//"hello/template2"
+	"hello/services"
+	// "hello/template1"
+	// "hello/template2"
+	//"os"
 )
 
-func test(n int) int {
-	if n <= 2 {
-		return n
-	}
+// func test(num1 string, num2 string) string {
 
-	idx1, idx2 := 1, 2
+// }
 
-	for i := 3; i <= n; i++ {
-		temp := idx1 + idx2
-
-		fmt.Printf("- temp: %d, idx1: %d, idx2: %d\n", temp, idx1, idx2)
-		idx1 = idx2
-		idx2 = temp
-		fmt.Printf("--- temp: %d, idx1: %d, idx2: %d\n", temp, idx1, idx2)
-	}
-
-	return idx2
+// Tạo hàm áp dụng thực tế của các hình
+func PracticalApplication(x services.Shape) {
+	fmt.Printf("%s\n", x.GetInfo())
+	fmt.Printf("%s\n", x.Apply())
 }
 
-func UpdateName(name string) {
-	name = "Nguyen Van B"
-	fmt.Printf("Data type: %T\n", name)
-	fmt.Printf("Value: %v\n", name)
-	fmt.Printf("Address: %v\n", &name)
+// Tạo hàm áp dụng thực tế của các hình
+func PracticalApplicationPlus(x services.ShapePlus) {
+	fmt.Printf("%s\n", x.GetInfo())
+	fmt.Printf("%s\n", x.Apply())
+	fmt.Printf("perimeter caculation formula: %s\n", x.PerimeterCalculationFormula())
+}
+
+func PrintInfo(v interface{}) {
+	fmt.Println(v)
 }
 
 func main() {
 
-	fmt.Printf("Fibonacci of 10 is: %d\n", test(5))
+	var i interface{} = "Hello, world!"
 
-	// P_name := &name
+	s, ok := i.(string)
+	if ok {
+		fmt.Println("Giá trị là kiểu String: ", s)
+	} else{
+		fmt.Println("Giá trị không phải kiểu String")
+	}
 
-	// fmt.Printf("\nData type P_name: %T\n", P_name)
-	// fmt.Printf("Value P_name: %v\n", P_name)
-	// fmt.Printf("Dereference P_name: %v\n", &P_name)
-	// fmt.Printf("Value at Dereference P_name: %v\n", *P_name)
+	f, ok := i.(float32)
+	if ok {
+		fmt.Println("Giá trị là kiểu Float32: ", f)
+	} else{
+		fmt.Println("Giá trị không phải kiểu Float32")
+	}
 
-	// P_name2 := &P_name
-	// fmt.Printf("\nData type P_name2: %T\n", P_name2)
-	// fmt.Printf("Value P_name2: %v\n", P_name2)
-	// fmt.Printf("Dereference P_name2: %v\n", &P_name2)
-	// fmt.Printf("Value at Dereference P_name2: %v\n", *P_name2)
-	// fmt.Printf("Value at Dereference Dereference P_name2: %v\n", **P_name2)
 }
