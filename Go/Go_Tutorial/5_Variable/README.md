@@ -5,7 +5,9 @@
 
 - Biến là một vùng bộ nhớ dùng để lưu trữ dữ liệu.
 - Giá trị của biến có thể được thay đổi (ghi đè) trong quá trình chạy chương trình.
-- Cú pháp cơ bản: `[Tên biến] = [Giá trị]`.
+- Cú pháp cơ bản: 
+	- `[var] [Tên biến] [Kiểu dữ liệu] = [Giá trị]`.
+	- `[Tên biến] := [Giá trị]`
 
 ## Kiểu dữ liệu trong Golang
 
@@ -185,3 +187,23 @@ Max Retries: 3
 Global: I'm global
 Zero values: 0 "" false
 ```
+
+---
+### **Gán nhiều biến cùng một lúc trong Golang**
+
+
+Ví dụ:
+```go
+func main() {
+	var a = 10
+	var b = 15
+
+	a, b = b, a
+
+	fmt.Println("a:", a)
+	fmt.Println("b:", b)
+}
+```
+
+
+

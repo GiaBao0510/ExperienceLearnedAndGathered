@@ -3,50 +3,49 @@ package main
 import (
 	//"encoding/json"
 	"fmt"
+	//"golang.org/x/exp/constraints"
+
+	//"go/types"
 	//"hello/template2"
-	"hello/services"
+	//"hello/services"
+	//"golang.org/x/text/message"
 	// "hello/template1"
 	// "hello/template2"
 	//"os"
 )
 
-// func test(num1 string, num2 string) string {
-
-// }
-
-// Tạo hàm áp dụng thực tế của các hình
-func PracticalApplication(x services.Shape) {
-	fmt.Printf("%s\n", x.GetInfo())
-	fmt.Printf("%s\n", x.Apply())
+func SumList(list []int) int{
+	return SumHelper(list, 0)
 }
 
-// Tạo hàm áp dụng thực tế của các hình
-func PracticalApplicationPlus(x services.ShapePlus) {
-	fmt.Printf("%s\n", x.GetInfo())
-	fmt.Printf("%s\n", x.Apply())
-	fmt.Printf("perimeter caculation formula: %s\n", x.PerimeterCalculationFormula())
+func SumHelper(list []int, idx int) int{
+	if idx >= len(list){
+		return 0
+	}
+
+	return list[idx] + SumHelper(list, idx + 1)
 }
 
-func PrintInfo(v interface{}) {
-	fmt.Println(v)
+func sumRange(start, end, acc int) int {
+	if(start > end){
+		return acc
+	}
+
+	return sumRange(start +1, end, start + acc)
 }
 
 func main() {
 
-	var i interface{} = "Hello, world!"
+	// Tạo mảng và gán giá trị cho từng phần tử
+	nums := [...]int{20,40,60,80,100} 		
+	fmt.Println(nums)
+	fmt.Println("---------------")
 
-	s, ok := i.(string)
-	if ok {
-		fmt.Println("Giá trị là kiểu String: ", s)
-	} else{
-		fmt.Println("Giá trị không phải kiểu String")
-	}
+	//Mảng chuỗi chua có giá trị
+	var chars [10]string
+	chars[5] = "Hu"
+	fmt.Println(chars)
+	fmt.Println("---------------")
 
-	f, ok := i.(float32)
-	if ok {
-		fmt.Println("Giá trị là kiểu Float32: ", f)
-	} else{
-		fmt.Println("Giá trị không phải kiểu Float32")
-	}
-
+	//
 }
