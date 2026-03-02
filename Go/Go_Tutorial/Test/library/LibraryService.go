@@ -17,7 +17,7 @@ func AddBook(lib *Library) error {
 		return err
 	}
 
-	fmt.Printf("✅ Sách '%s' của tác giả '%s' đã được thêm với ID: %s\n", lib.book[id].Title, lib.book[id].Author, lib.book[id].ID)
+	fmt.Printf("✅ Sách '%s' của tác giả '%s' đã được thêm với ID: %s\n", lib.books[id].Title, lib.books[id].Author, lib.books[id].ID)
 	return nil
 }
 
@@ -34,13 +34,13 @@ func DeleteBook() {
 // Danh sách sách
 func ListBooks(lib *Library) error {
 	//Kiểm tra độ dài của map sách
-	if len(lib.book) == 0 {
+	if len(lib.books) == 0 {
 		fmt.Printf("📚 Thư viện hiện đang trống. Hãy thêm sách để bắt đầu quản lý!")
 		return nil
 	}
 
 	//Thống kê thông tin sách
-	for id, book := range lib.book {
+	for id, book := range lib.books {
 		trangThaiMuon := "Có sẵn"
 		if !book.Status {
 			trangThaiMuon = "Đã mượn"
@@ -54,7 +54,7 @@ func ListBooks(lib *Library) error {
 // Tìm kiếm sách
 func SearchBook(lib *Library) error {
 	//Kiểm tra độ dài của map sách
-	if len(lib.book) == 0 {
+	if len(lib.books) == 0 {
 		fmt.Printf("📚 Thư viện hiện đang trống. Hãy thêm sách để bắt đầu quản lý!")
 		return nil
 	}
@@ -63,7 +63,7 @@ func SearchBook(lib *Library) error {
 	search := utils.ReadNonEmptyInput("Nhập tiêu đề sách cần tìm: ")
 
 	//Duyệt map để tìm
-	for _, book := range lib.book {
+	for _, book := range lib.books {
 		if book.Title == search {
 			fmt.Printf("✅ Tìm thấy sách: ID: %s, title: %s, author: %s\n", book.ID, book.Title, book.Author)
 			return nil
@@ -111,34 +111,108 @@ func BorrowBook(lib *Library) error{
 	bookID := utils.ReadNonEmptyInput("Nhập ID sách cần mượn: ")
 	ID := utils.GenerateID()
 
-	//Kiểm tra ID của người dùng đã tồn tại chưa
-	if _, exist := lib.borrowers[borrowerID]; !exist{
-		return fmt.Errorf("Lỗi vì ID người mượn sách không tồn tại: %s\n", borrowerID)
-	}
-
-	//Kiểm tra ID sách đã tồn tại chưa
-	if _, exist := lib.book[bookID]; !exist{
-		return fmt.Errorf("Lỗi vì ID sách không tồn tại: %s\n", bookID)
-	}
-
-	//Kiểm tra xem sách này đã có sẵn chưa
-	if !lib.book[bookID].Status{
-		return fmt.Errorf("Lỗi vì sách đã được mượn: %s\n", bookID)
-	}
-
 	// Cập nhập mượn sách
-	lib.AddTransactionStore(ID, borrowerID, bookID)
+	if err := lib.AddTransactionStore(ID, borrowerID, bookID); err != nil {	
+		return err
+	}
+
+	fmt.Println("Mượn sách thành công!")
 
 	return nil
 }
 
 // trả sách
-func ReturnBook() {
+func ReturnBook(lib *Library) error {
+	
+	transID := utils.ReadNonEmptyInput("Nhập ID giao dịch mượn sách: ")
 
+	if err := lib.ReturnBook_store(transID); err != nil {
+		return err
+	}
+
+	fmt.Println("Trả sách thành công!")
+
+	return nil
 }
 
 // Lịch sử mượn sách
-func HistoryOfBorrowingBooks() {}
+func HistoryOfBorrowingBooks(lib *Library) error{
+	//Kiểm tra độ dài của giao dịch mượn sách
+	if len(lib.transactions) == 0{
+		fmt.Println("Giao dịch mượn sách trống !!!")
+		return nil
+	}
+
+	//Thống kê
+	for id, trans := range lib.transactions{
+		
+		//Kiểm tra xem thông tin đã trả sách chưa
+		traSach := "Chưa trả sách"
+
+		if lib.books[trans.BookID].Status {
+			traSach = "Đã trả sách"
+		}
+		
+		fmt.Printf("ID: %s, BorrowerID: %s, BookID: %s, BorrowDate: %s, Trạng thái trả sách: %s\n", id, trans.BorrowerID, trans.BookID, trans.BorrowDate, traSach)
+	}
+
+	return nil
+}
 
 // Xem chi tiết lịch sử mượn sách của một người
-func DetailHistoryOfBorrowingBooks() {}
+func DetailHistoryOfBorrowingBooks(lib *Library) error{
+
+	//Kiểm tra độ dài của giao dịch mượn sách
+	if len(lib.transactions) == 0{
+		return fmt.Errorf("Giao dịch mượn sách trống !!!")
+	}
+
+	borrowerID := utils.ReadNonEmptyInput("Nhập ID người mượn sách: ")
+
+	list := lib.DetailHistoryOfBorrowingBooks_Store(borrowerID)
+
+	if list == nil{
+		return fmt.Errorf("Không tìm thấy thông tin người mượn sách với ID: %s", borrowerID)
+	
+	}else{
+
+		for _, element := range list{
+			
+			//Kiểm tra xem thông tin sách đã trả chưa
+			traSach := "Chưa trả sách"
+			if !lib.books[element.BookID].Status{
+				traSach = element.ReturnDate.Format("01-01-2026")
+			}
+
+			fmt.Printf("ID giao dịch: %s, ID người mượn: %s, ID sách: %s, Ngày mượn: %s, Ngày trả sách: %s\n", element.ID, element.BorrowerID, element.BookID, element.BorrowDate.Format("01-01-2026"), traSach)
+		}
+	}	
+
+	return nil
+}
+
+
+//Tìm kiếm sách dựa trên tiêu đề sách hoặc tên tác giả
+func SearchBookByTitleOrAuthor(lib *Library) error{
+
+	query := utils.ReadNonEmptyInput("Nhập tên sách hoặc tên tác giả để tìm kiếm sách: ")
+
+	//Kiểm tra, nếu không nhập thông tin nào thì thông báo lỗi
+	if query == ""{
+		return fmt.Errorf("Lỗi vì bạn chưa nhập thông tin nào để tìm kiếm sách !!!")
+	}
+
+	result := lib.SearchBookByTitleOrAuthor_Store(query)
+
+	for _, book := range result{
+
+		trangThaiSach := "Có sẵn"
+		if book.Status == false{
+			trangThaiSach = "Đã mượn"
+		}
+
+		fmt.Printf("ID: %s, title: %s, author: %s, trạng thái: %s\n", book.ID, book.Title, book.Author, trangThaiSach)
+	}
+	
+	return nil
+}
