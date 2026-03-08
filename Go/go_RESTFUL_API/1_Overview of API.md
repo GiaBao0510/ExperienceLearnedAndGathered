@@ -5,7 +5,6 @@
 API (Application Programming Interface - Giao diện Lập trình Ứng dụng) là cầu nối cho phép các chương trình, ứng dụng khác nhau giao tiếp và trao đổi dữ liệu với nhau.
 
 **Ví dụ thực tế:**
-
 - Khi bạn đăng nhập Facebook bằng tài khoản Google → đó là API của Google đang làm việc
 - Khi xem bản đồ Google Maps trên trang web đặt đồ ăn → đó là API của Google Maps
 - Khi thanh toán online qua VNPay, Momo → đó là API thanh toán
@@ -13,13 +12,11 @@ API (Application Programming Interface - Giao diện Lập trình Ứng dụng) 
 ![](https://cole.edu.vn/wp-content/uploads/2024/05/1-2.png)
 
 **Phạm vi sử dụng:**
-
 - API nội bộ: giao tiếp giữa các module trong cùng một hệ thống
 - API công khai: cho phép bên thứ ba sử dụng (ví dụ: Facebook API, Google Maps API)
 - API có thể áp dụng cho: web, mobile app, game, IoT, AI,...
 
 ---
-
 ## **Phân loại API**
 
 Có nhiều loại API khác nhau, mỗi loại phù hợp với từng mục đích sử dụng:
@@ -77,7 +74,6 @@ REST (Representational State Transfer) là một kiến trúc thiết kế API p
 ### **Ví dụ thực tế:**
 
 Bạn muốn xem danh sách sản phẩm trên website:
-
 1. Trình duyệt gửi request: `GET /api/products`
 2. REST API nhận request, truy vấn database
 3. Database trả về danh sách sản phẩm
@@ -86,15 +82,15 @@ Bạn muốn xem danh sách sản phẩm trên website:
 
 ### **Các HTTP Methods thường dùng:**
 
-|Method|Ý nghĩa|Ví dụ|
-|---|---|---|
-|**GET**|Lấy dữ liệu|Xem danh sách sản phẩm|
-|**POST**|Tạo mới dữ liệu|Đăng ký tài khoản|
-|**PUT**|Cập nhật toàn bộ|Sửa thông tin profile|
-|**PATCH**|Cập nhật một phần|Đổi mật khẩu|
-|**DELETE**|Xóa dữ liệu|Xóa bài viết|
-|**HEAD**|Lấy metadata (không lấy body)|Kiểm tra file có tồn tại|
-|**OPTIONS**|Kiểm tra methods được hỗ trợ|CORS preflight|
+| Method      | Ý nghĩa                       | Ví dụ                    |
+| ----------- | ----------------------------- | ------------------------ |
+| **GET**     | Lấy dữ liệu                   | Xem danh sách sản phẩm   |
+| **POST**    | Tạo mới dữ liệu               | Đăng ký tài khoản        |
+| **PUT**     | Cập nhật toàn bộ              | Sửa thông tin profile    |
+| **PATCH**   | Cập nhật một phần             | Đổi mật khẩu             |
+| **DELETE**  | Xóa dữ liệu                   | Xóa bài viết             |
+| **HEAD**    | Lấy metadata (không lấy body) | Kiểm tra file có tồn tại |
+| **OPTIONS** | Kiểm tra methods được hỗ trợ  | CORS preflight           |
 ![](https://images.viblo.asia/f94a70b4-94f3-4640-a903-ad1d4eed4cbc.png)
 ### **Các định dạng Response:**
 
@@ -102,7 +98,6 @@ Bạn muốn xem danh sách sản phẩm trên website:
 - **XML**: cấu trúc rõ ràng nhưng nặng hơn
 
 ---
-
 ## **Giao thức HTTP**
 
 HTTP (HyperText Transfer Protocol) là giao thức truyền tải dữ liệu trên web - giống như "ngôn ngữ" để client và server giao tiếp với nhau.
@@ -111,13 +106,12 @@ HTTP (HyperText Transfer Protocol) là giao thức truyền tải dữ liệu tr
 ### **Cơ chế hoạt động:**
 
 1. **Client gửi Request** đến Server, bao gồm:
-    
     - URL (địa chỉ tài nguyên)
     - Method (GET, POST,...)
     - Headers (thông tin bổ sung)
     - Body (dữ liệu gửi đi, nếu có)
-2. **Server xử lý Request** và gửi **Response** về, bao gồm:
     
+2. **Server xử lý Request** và gửi **Response** về, bao gồm:
     - Status Code (mã trạng thái)
     - Headers (thông tin về response)
     - Body (dữ liệu trả về)
@@ -136,7 +130,6 @@ Content-Type: application/json
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-
 {
   "id": 123,
   "name": "Nguyễn Văn A",
@@ -162,18 +155,18 @@ HTTP Status Code là những con số máy chủ (server) trả về để cho b
 
 ### **Các mã trạng thái phổ biến:**
 
-|Mã|Tên|Ý nghĩa|Ví dụ|
-|---|---|---|---|
-|**200**|OK|Yêu cầu thành công|Lấy dữ liệu thành công|
-|**201**|Created|Tạo mới thành công|Đăng ký tài khoản thành công|
-|**204**|No Content|Thành công nhưng không có dữ liệu trả về|Xóa dữ liệu thành công|
-|**400**|Bad Request|Request sai cú pháp hoặc thiếu dữ liệu|Gửi form thiếu trường bắt buộc|
-|**401**|Unauthorized|Chưa đăng nhập hoặc token hết hạn|Truy cập trang yêu cầu đăng nhập|
-|**403**|Forbidden|Không có quyền truy cập|User thường truy cập trang Admin|
-|**404**|Not Found|Không tìm thấy tài nguyên|Truy cập URL không tồn tại|
-|**405**|Method Not Allowed|Method không được hỗ trợ|Gửi POST đến endpoint chỉ hỗ trợ GET|
-|**500**|Internal Server Error|Lỗi server (lỗi code, database,...)|Server bị crash, lỗi logic|
-|**503**|Service Unavailable|Server tạm thời không khả dụng|Server đang bảo trì|
+| Mã      | Tên                   | Ý nghĩa                                  | Ví dụ                                |
+| ------- | --------------------- | ---------------------------------------- | ------------------------------------ |
+| **200** | OK                    | Yêu cầu thành công                       | Lấy dữ liệu thành công               |
+| **201** | Created               | Tạo mới thành công                       | Đăng ký tài khoản thành công         |
+| **204** | No Content            | Thành công nhưng không có dữ liệu trả về | Xóa dữ liệu thành công               |
+| **400** | Bad Request           | Request sai cú pháp hoặc thiếu dữ liệu   | Gửi form thiếu trường bắt buộc       |
+| **401** | Unauthorized          | Chưa đăng nhập hoặc token hết hạn        | Truy cập trang yêu cầu đăng nhập     |
+| **403** | Forbidden             | Không có quyền truy cập                  | User thường truy cập trang Admin     |
+| **404** | Not Found             | Không tìm thấy tài nguyên                | Truy cập URL không tồn tại           |
+| **405** | Method Not Allowed    | Method không được hỗ trợ                 | Gửi POST đến endpoint chỉ hỗ trợ GET |
+| **500** | Internal Server Error | Lỗi server (lỗi code, database,...)      | Server bị crash, lỗi logic           |
+| **503** | Service Unavailable   | Server tạm thời không khả dụng           | Server đang bảo trì                  |
 
 ### **Cách nhớ nhanh:**
 

@@ -1,0 +1,12 @@
+redis:
+  default:
+    address: 127.0.0.1:6379
+    password: "redispass"
+    db: 0
+    idleTimeout: "60s"
+    maxConnLifetime: "90s"
+    waitTimeout: "60s"
+    dialTimeout: "30s"
+    readTimeout: "30s"
+    writeTimeout: "30s"
+    maxActive: 10000

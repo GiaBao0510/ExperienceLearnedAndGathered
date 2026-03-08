@@ -1,3 +1,8 @@
+Mặc định Goroutine sẽ tự động chạy Parrallelism kết hợp với Concurrent nếu ứng dụng chúng ta có nhiều Concurrent, cũng như sẽ tự động phân phối lượng CPU cho phù hợp để đạt được hiệu năng tốt nhất cho ứng dụng. Tuy nhiên, trong một số trường hợp điều này làm chiếm dụng hết toàn bộ CPU trên hệ thống khiến các chương trình khác bị treo. Vì thế chúng ta cần quản lý số lượng CPU phù hợp cho ứng dụng.
+
+Ví dụ:
+
+```go
 package main
 
 import (
@@ -6,8 +11,6 @@ import (
 	"sync"
 	"time"
 )
-
-
 
 func main() {
 	start := time.Now()
@@ -41,3 +44,4 @@ func heavyTask(wg *sync.WaitGroup){
 		sum += i
 	}
 }
+```
