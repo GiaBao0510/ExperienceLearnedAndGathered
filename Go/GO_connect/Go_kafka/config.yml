@@ -1,0 +1,82 @@
+services:                # Khai báo các service (container) sẽ chạy trong hệ thống
+  zookeeper_gokafka:      # Tên service Zookeeper
+    image: confluentinc/cp-zookeeper:7.8.0
+    hostname: zookeeper_gokafka         # hostname bên trong docker network
+    container_name: zookeeper_gokafka   # tên container khi chạy docker
+    ports:
+      - "2181:2181"     # map port: máy thật:container
+                        # port 2181 là port mặc định của Zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181    # port client dùng để kết nối tới Zookeeper
+      ZOOKEEPER_SERVER_ID: 1        # ID của server Zookeeper, cần thiết khi chạy nhiều instance Zookeeper
+      ZOOKEEPER_SERVERS: zookeeper_gokafka:2888:3888
+      # Khai báo danh sách server Zookeeper
+      # format: hostname:port_leader:port_election
+      # 2888: port giao tiếp giữa các Zookeeper
+      # 3888: port dùng để bầu leader
+
+
+
+  kafka_gokafka:                          # service Kafka broker
+    image: confluentinc/cp-kafka:7.8.0
+    hostname: kafka_gokafka
+    container_name: kafka_gokafka
+    ports:
+      - "9092:9092"     # port để client bên ngoài kết nối Kafka
+      - "29092:29092"   # port dùng cho docker client (host.docker.internal)
+      - "9999:9999"      # port dùng cho JMX monitoring
+    
+    environment:
+
+      # Khai báo các listener (địa chỉ Kafka sẽ lắng nghe kết nối)
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka_gokafka:19092,EXTERNAL://${DOCKER_HOST_IP:-127.0.0.1}:9092,DOCKER://host.docker.internal:29092
+      
+      # INTERNAL://kafka1:19092
+      # -> dùng cho communication giữa các broker trong cluster
+
+      # EXTERNAL://127.0.0.1:9092
+      # -> client bên ngoài docker (app trên máy) kết nối Kafka
+
+      # DOCKER://host.docker.internal:29092
+      # -> container khác trong docker connect tới Kafka
+
+
+      # mapping listener với protocol
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,DOCKER:PLAINTEXT
+      
+      # chọn listener nào để broker giao tiếp với broker khác
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+
+      # Kafka kết nối tới Zookeeper
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper_gokafka:2181"
+      
+      # ID của Kafka broker
+      # mỗi broker trong cluster phải có ID khác nhau
+      KAFKA_BROKER_ID: 1
+
+      # cấu hình logging
+      KAFKA_LOG4J_LOGGERS: "kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO"
+      
+      # replication factor cho topic __consumer_offsets
+      # vì chỉ có 1 broker nên phải đặt =1
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+      # replication cho transaction log
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      
+      # số broker tối thiểu phải synch trước khi commit transaction
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      
+      # cấu hình JMX để monitoring Kafka
+      KAFKA_JMX_PORT: 9999
+      KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP:-127.0.0.1}
+      
+      # bật ACL authorization
+      KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+      
+      # nếu không có ACL thì cho phép truy cập
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
+    
+    
+    depends_on:
+      - zookeeper_gokafka     # Kafka chỉ start sau khi Zookeeper start

@@ -2,42 +2,27 @@ package main
 
 import (
 	"fmt"
-	"runtime"
 	"sync"
-	"time"
+	"sync/atomic"
 )
 
+var counter int64
 
-
-func main() {
-	start := time.Now()
-	numCPU := runtime.NumCPU() // Lấy số lượng CPU có sẵn
-	fmt.Printf("Số lượng CPU: %d\n", numCPU)
-
-	// Thiết lập số lượng tối đa CPU sử dụng cho chương trình
-	runtime.GOMAXPROCS(numCPU)
-
-	//Tạo wait group để chờ các goroutine hoàn thành
-	var wg sync.WaitGroup
-
-	for i := 0; i < 10; i++{
-		wg.Add(1)
-		go heavyTask(&wg)
-	}
-
-
-	wg.Wait()	// Chờ goroutine hoàn thành
-
-	fmt.Println("Tổng thời gian:  ", time.Since(start))
-
+func increment() {
+	atomic.AddInt64(&counter, 1)
 }
 
-// Hàm nyaf thực hiện một tác vụ tính tổng nặng
-func heavyTask(wg *sync.WaitGroup){
-	defer wg.Done()
+func main() {
+	var wg sync.WaitGroup
 
-	sum := 0
-	for i := 0; i < 100e8; i++{
-		sum += i
+	for i := 0; i < 1000; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			increment()
+		}()
 	}
+
+	wg.Wait()
+	fmt.Println("Counter:", counter)
 }

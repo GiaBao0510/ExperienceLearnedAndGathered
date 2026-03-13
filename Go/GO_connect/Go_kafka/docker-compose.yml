@@ -1,0 +1,154 @@
+version: '2'  # phiên bản docker-compose (cú pháp file compose)
+
+services:   # khai báo các container (services) sẽ chạy
+
+  # =============================
+  # 1. ZOOKEEPER
+  # =============================
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.7.0   # image Zookeeper từ Confluent Platform
+    hostname: zookeeper                      # hostname trong docker network
+    container_name: zookeeper                # tên container khi chạy docker
+
+    ports:
+      - "2181:2181"   # map port từ máy host -> container
+                      # 2181 là port client dùng để kết nối Zookeeper
+
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181  # port mà Zookeeper lắng nghe client
+      ZOOKEEPER_TICK_TIME: 2000    # đơn vị thời gian cơ bản của Zookeeper (ms)
+                                   # dùng cho heartbeat và timeout
+
+
+  # =============================
+  # 2. KAFKA BROKER
+  # =============================
+  broker:
+    image: confluentinc/cp-server:7.7.0   # Kafka server (phiên bản enterprise của Confluent)
+    hostname: broker
+    container_name: broker
+
+    depends_on:
+      - zookeeper  # Kafka chỉ khởi động sau khi Zookeeper đã chạy
+
+    ports:
+      - "9092:9092"   # port cho client bên ngoài (app trên máy)
+      - "9101:9101"   # port cho JMX monitoring (theo dõi metric Kafka)
+
+    environment:
+
+      # ID của Kafka broker
+      # nếu có nhiều broker thì mỗi broker phải có ID khác nhau
+      KAFKA_BROKER_ID: 1
+
+      # địa chỉ kết nối tới Zookeeper
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+
+      # mapping listener với security protocol
+      # PLAINTEXT nghĩa là không mã hóa
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+
+
+      # địa chỉ Kafka sẽ quảng bá cho client kết nối
+      # format: protocol://host:port
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker:29092,PLAINTEXT_HOST://localhost:9092
+
+      # PLAINTEXT://broker:29092
+      # dùng cho container khác trong docker network
+
+      # PLAINTEXT_HOST://localhost:9092
+      # dùng cho application chạy trên máy host
+
+
+      # bật hệ thống metric của Confluent
+      KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
+
+
+      # replication factor cho topic __consumer_offsets
+      # vì chỉ có 1 broker nên phải đặt =1
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+
+      # thời gian delay trước khi consumer group rebalance
+      # đặt 0 giúp consumer join group nhanh hơn (phù hợp môi trường dev)
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+
+
+      # replication factor cho topic license của Confluent
+      KAFKA_CONFLUENT_LICENSE_TOPIC_REPLICATION_FACTOR: 1
+
+
+      # replication factor cho topic load balancer
+      KAFKA_CONFLUENT_BALANCER_TOPIC_REPLICATION_FACTOR: 1
+
+
+      # số broker tối thiểu phải sync transaction log
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+
+
+      # replication factor cho transaction state log
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+
+      # port cho JMX monitoring
+      KAFKA_JMX_PORT: 9101
+
+
+      # hostname cho JMX
+      KAFKA_JMX_HOSTNAME: localhost
+
+
+      # Kafka broker để gửi metric
+      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: broker:29092
+
+
+      # replication factor cho metric topic
+      CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
+
+
+      # bật hệ thống metrics
+      CONFLUENT_METRICS_ENABLE: 'true'
+
+
+      # ID khách hàng (ở đây để anonymous)
+      CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
+
+
+  # =============================
+  # 3. CONTROL CENTER (Kafka UI)
+  # =============================
+  control-center:
+    image: confluentinc/cp-enterprise-control-center:7.7.0  # UI quản lý Kafka
+    hostname: control-center
+    container_name: control-center
+
+    depends_on:
+      - broker  # Control Center chỉ chạy sau khi Kafka broker chạy
+
+    ports:
+      - "9021:9021"  # port truy cập web UI
+
+    environment:
+
+      # Kafka cluster để Control Center kết nối
+      CONTROL_CENTER_BOOTSTRAP_SERVERS: 'broker:29092'
+
+
+      # replication factor cho topic nội bộ
+      CONTROL_CENTER_REPLICATION_FACTOR: 1
+
+
+      # số partition cho topic nội bộ
+      CONTROL_CENTER_INTERNAL_TOPICS_PARTITIONS: 1
+
+
+      # partition cho monitoring topic
+      CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_PARTITIONS: 1
+
+
+      # replication factor cho metrics topic
+      CONFLUENT_METRICS_TOPIC_REPLICATION: 1
+
+
+      # port chạy web UI
+      PORT: 9021

@@ -145,13 +145,13 @@ HTTP Status Code là những con số máy chủ (server) trả về để cho b
 
 ### **Phân loại theo nhóm:**
 
-|Nhóm|Ý nghĩa|
-|---|---|
-|**1xx**|Thông tin (Informational)|
-|**2xx**|Thành công (Success)|
-|**3xx**|Chuyển hướng (Redirection)|
-|**4xx**|Lỗi Client (Client Error)|
-|**5xx**|Lỗi Server (Server Error)|
+| Nhóm    | Ý nghĩa                    |
+| ------- | -------------------------- |
+| **1xx** | Thông tin (Informational)  |
+| **2xx** | Thành công (Success)       |
+| **3xx** | Chuyển hướng (Redirection) |
+| **4xx** | Lỗi Client (Client Error)  |
+| **5xx** | Lỗi Server (Server Error)  |
 
 ### **Các mã trạng thái phổ biến:**
 
