@@ -3,8 +3,11 @@ package handler
 import (
 	"fmt"
 	"net/http"
+	"regexp"
+	"router-group/utils"
+	"strings"
 
-	"github.com/gin-gonic/gin" 
+	"github.com/gin-gonic/gin"
 )
 
 // ---- Tạo group quản lý Product v1  -----
@@ -15,6 +18,15 @@ type Product struct{
 	ProductName string `json:"name"`
 	Price float64 `json:"price"`
 }
+ 
+/*
+	Tạo biểu thức chính quy cho Slug
+		- Cho bắt đầu bằng từ a-z hoặc 0-9 và cho phép lặp nhiều lần: ^[a-z0-9]+
+		- Tạo một group phân chia, có thê là dấu "-" hoặc ".": (?:[.-])
+		- Và thêm phía sao có thể các ký tự a-z hoặc 0-9 được lặp nhiều: [a-z0-9]+
+		- $: kết thúc chuỗi
+*/
+var slugRegex = regexp.MustCompile(`^[a-z0-9]+(?:[.-][a-z0-9]+)*$`)
 
 //Constructor để tạo instance của struct Product
 func NewProduct() *Product{
@@ -29,6 +41,7 @@ var Products []Product = []Product{
 	{ID: 4, ProductName: "Oppo Find X5 Pro", Price: 22000000},
 	{ID: 5, ProductName: "Vivo X80 Pro", Price: 21000000},
 	{ID: 6, ProductName: "Realme GT 2 Pro", Price: 18000000},
+	{ID: 7, ProductName: "Iphone 15 Pro Max", Price: 30000000},
 }
 
 //Lấy danh sách Product
@@ -40,12 +53,21 @@ func (obj *Product) GetProducts(c *gin.Context){
 	})
 }
 
-//Lấy thông tin sản phẩm dựa trên ID
-func (obj *Product) GetProductByID(c *gin.Context){
+//Lấy thông tin sản phẩm dựa trên Slug
+func (obj *Product) GetProductBySlug(c *gin.Context){
 	
-	id := c.Param("id")
+	slug := c.Param("slug")
+
+	//Kiểm tra định dạng Slug
+	if err := utils.ValidationRegex("slug", slug, slugRegex); err != nil{
+		c.JSON(http.StatusBadRequest, gin.H{
+			"message": err.Error(),
+		})
+		return
+	}
+
 	for _,Product := range Products{
-		if fmt.Sprintf("%v", Product.ID) == id{
+		if fmt.Sprintf("%v", Product.ID) == slug{
 			c.JSON(http.StatusOK, gin.H{
 				"message": "Product found",
 				"data": Product,
@@ -57,6 +79,48 @@ func (obj *Product) GetProductByID(c *gin.Context){
 		"message": "Product not found",
 		"data": nil,
 	})
+}
+
+//Tìm kiếm sản phẩm dựa trên tên sản phẩm
+func (obj *Product) SearchProducts(c *gin.Context){
+	search := c.Query("search")
+
+	if err := utils.ValidationRequired("search",search); err != nil{
+		c.JSON(http.StatusBadRequest, gin.H{ "message": err.Error(), "data": nil,})
+		return
+	
+	}else if err := utils.ValidationLength("search", search, 3, 50); err != nil{
+		c.JSON(http.StatusBadRequest, gin.H{
+			"message": err.Error(),
+			"data": nil,
+		})
+		return
+
+	}else{
+		var searchResults []Product
+
+		for _, product := range Products{
+			if strings.Contains( strings.ToLower(product.ProductName), strings.ToLower(search)) {
+				searchResults = append(searchResults, product)
+			}
+		}
+
+		//Nếu không tìm thấy thì thông báo sản phẩm khong tồn tại
+		if len(searchResults) == 0{
+			c.JSON(http.StatusNotFound, gin.H{
+				"message": "The product doesn't exist.",
+				"data": nil,
+			})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{
+			"message": "Search results",
+			"data": searchResults,
+		})
+		return
+	}
+
 }
 
 //Thêm sản phẩm mới

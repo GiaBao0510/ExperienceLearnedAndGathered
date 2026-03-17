@@ -37,6 +37,28 @@ Array:   [1] [2] [3] [4] [5] [_] [_] [_]
               capacity=8
 ```
 
+![](https://zalopay-oss.github.io/go-advanced/images/1-3-golang-slices-length-capacity.png)
+
+`Slices` thì phức tạp hơn, cấu trúc của chúng cũng như `string`, tuy nhiên việc giới hạn chỉ-đọc như string được lược bỏ.
+
+Cấu trúc của slice là `reflect.SliceHeader`
+```go
+type  SliceHeader  struct {
+    Data  uintptr 
+    Len   int 
+    Cap   int 
+}
+```
+
+Slice được xem là fat pointer *(mọi người có thể đọc thêm ở bài viết sau để hiểu hơn về fat pointer trong [Go](https://nullprogram.com/blog/2019/06/30/))* Cấu trúc slice bao gồm:
+
+- `Data`: chứa đỉa chỉ trong bộ nhớ của con trỏ trỏ tới underlying array của slice.
+- `Len`: độ dài của slice.
+- `Cap`: kích thước tối đa mà vùng nhớ trỏ tới slice được cấp phát.
+
+Hình bên dưới sẽ miêu tả slice `x := []int{2,3,5,7,11}` và slice `y := x[1:3]`:
+![](https://zalopay-oss.github.io/go-advanced/images/ch1-10-slice-1.ditaa.png)
+
 ---
 
 ## 2. So sánh Array vs Slice
@@ -60,9 +82,12 @@ import (
 )
 
 func main() {
-	// Khai báo Slice (không có số trong [])
+	// Khai báo Slice (không có số trong [] || nil slice)
 	var list []int
 	fmt.Println("Slice rỗng:", list) // Output: []
+	
+	// empty slice, khác với nil
+    b = []int{}
 
 	// Khởi tạo Slice với giá trị
 	list = []int{1, 2, 3, 4, 5} // Kích thước linh hoạt
@@ -227,6 +252,18 @@ fmt.Println(slices) // [1 2 3]
 slices = append(slices, 4)
 fmt.Println(slices) // [1 2 3 4]
 ```
+
+Bên cạnh thêm phần tử vào cuối slice, chúng ta cũng có thể thêm phần tử vào đầu slice như sau
+
+```go
+var a = []int{1,2,3}
+// thêm phần tử 0 vào đầu slice a
+a = append([]int{0}, a...)
+// thêm các phần tử -3, -2, -1 vào đầu slice a
+a = append([]int{-3,-2,-1}, a...)
+```
+
+Thêm phần tử vào đầu slice sẽ gây ra việc cấp phát lại vùng nhớ và làm những phần tử đang tồn tại trong slice sẽ được sao chép một lần nữa. Do đó, hiệu suất của việc thêm phần tử vào đầu slice sẽ thấp hơn thêm phần tử vào cuối slice.
 
 ### 4.3. Slice lồng nhau (2D Slice)
 
@@ -418,8 +455,75 @@ fmt.Printf("len=%d cap=%d %v\n", len(s2), cap(s2), s2)
 // Capacity = 5 vì từ index 5 đến cuối có 5 phần tử
 ```
 
----
+Trong trường hợp slice ban đầu không đủ sức chứa khi thêm vào phần tử, hàm append sẽ hiện thực cấp phát lại vùng nhớ có kích thước:
 
+- Nếu kích thước cũ (cap) < 1024: cấp phát gấp đôi (x2) vùng nhớ cũ.
+- Nếu kích thước cũ >= 1024: cấp phát 1.25x vùng nhớ cũ.
+
+Sau đó, dữ liệu cũ sẽ được sao chép sang.Mọi người có thể xem đoạn mã nguồn về việc cấp pháp lại vùng nhớ cho slice [ở đây](https://golang.org/src/runtime/slice.go?fbclid=IwAR0xgVnf7SFJu_Kai8zo_5PZXolsuEL3JgfKejj7Ww0CpO1G82rbXbcWosQ#L66).
+
+![](https://zalopay-oss.github.io/go-advanced/images/recapacity-slice.png)
+
+Ví dụ bên dưới cho thấy giá trị **cap tăng gấp 2** khi thực thi hàm append vượt quá kích thước ban đầu (< 1024)
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func MyAppend(slice []int, value int) []int{
+	slice = append(slice, value)
+	PrintSlice(slice)
+	return slice
+}
+
+func PrintSlice(slice []int){
+	fmt.Printf("Slice: %v\n", slice)
+	fmt.Printf("length: %v, cap: %v\n", len(slice), cap(slice))
+}
+
+func main() {
+	slices := make([]int, 1)
+
+	PrintSlice(slices)
+
+	for i := 1; i <= 10; i++ {
+		fmt.Println("\n---------------------")
+		slices = MyAppend(slices, i)
+	}
+}
+```
+
+kết quả:
+```bash
+Go\Go_Tutorial\Test> go run .
+Slice: [0]
+length: 1, cap: 1
+
+---------------------
+Slice: [0 1]
+length: 2, cap: 2
+
+---------------------
+Slice: [0 1 2]
+length: 3, cap: 4
+
+---------------------
+Slice: [0 1 2 3]
+length: 4, cap: 4
+
+---------------------
+Slice: [0 1 2 3 4]
+length: 5, cap: 8
+
+---------------------
+Slice: [0 1 2 3 4 5]
+length: 6, cap: 8
+```
+
+---
 ## 7. Các hàm xử lý Slice
 
 **⚠️ Yêu cầu:** Package `slices` chỉ có từ **Go 1.21** trở lên.
@@ -602,10 +706,88 @@ func main() {
 |`Max(s)`|Giá trị lớn nhất|`slices.Max(s)`|
 
 ---
+## 8.  **Tránh gây ra memory leak trên slice:**
 
-## 8. Lưu ý quan trọng
+#### 8.1. Vấn đề "Mảng ẩn" (The Hidden Giant)
 
-### ✅ Best Practices
+**Hiện tượng:** Khi bạn tạo một slice nhỏ từ một slice/mảng rất lớn, slice nhỏ này vẫn giữ tham chiếu đến **toàn bộ** mảng lớn ban đầu thông qua trường `Cap`. Chừng nào slice nhỏ còn tồn tại, Garbage Collector (Bộ thu gom rác - GC) sẽ không thể giải phóng mảng lớn, dù bạn chỉ dùng 1% diện tích của nó.
+
+#### Ví dụ chưa tối ưu:
+
+```go
+func FindPhoneNumber(filename string) []byte {
+    // Đọc toàn bộ file vào bộ nhớ (ví dụ file nặng 100MB)
+    b, _ := os.ReadFile(filename) 
+    
+    // Tìm số điện thoại (chỉ chiếm khoảng vài chục byte)
+    // Kết quả trả về thực chất vẫn trỏ vào mảng 100MB ban đầu
+    return regexp.MustCompile("[0-9]+").Find(b)
+}
+```
+
+**Hệ quả:** Bạn trả về 20 byte kết quả, nhưng thực tế bạn đang "găm" 100MB trong RAM cho đến khi kết quả đó không còn được sử dụng nữa.
+
+#### Cách khắc phục: Sao chép sang vùng nhớ mới
+
+Hãy tạo một slice mới hoàn toàn và copy dữ liệu cần thiết sang đó. Điều này giúp ngắt kết nối với mảng khổng lồ ban đầu.
+
+```Go
+func FindPhoneNumber(filename string) []byte {
+    b, _ := os.ReadFile(filename)
+    res := regexp.MustCompile("[0-9]+").Find(b)
+    
+    if res == nil {
+        return nil
+    }
+
+    // Cách 1: Sử dụng append (ngắn gọn)
+    // return append([]byte{}, res...)
+
+    // Cách 2: Sử dụng copy (rõ ràng, khuyến khích cho sinh viên)
+    newRes := make([]byte, len(res))
+    copy(newRes, res)
+    return newRes
+}
+```
+
+#### 8.2. Vấn đề "Phần tử bóng ma" (The Lingering Ghost)
+
+**Hiện tượng:** Khi làm việc với một **slice chứa con trỏ** (hoặc struct chứa con trỏ), việc bạn cắt ngắn slice (`a = a[:len(a)-1]`) chỉ đơn giản là giảm chỉ số `Len`. Phần tử vừa bị loại bỏ vẫn còn nằm trong mảng bên dưới và vẫn trỏ đến vùng nhớ của đối tượng.
+
+Vì GC thấy vẫn còn một tham chiếu (ẩn) nằm trong mảng, nó sẽ không giải phóng đối tượng đó.
+
+#### Ví dụ gây lãng phí bộ nhớ:
+
+```Go
+var a []*Student // Giả sử slice chứa 1000 sinh viên
+// ... thêm dữ liệu ...
+
+// Xóa phần tử cuối bằng cách cắt slice
+a = a[:len(a)-1] 
+
+// LÚC NÀY: Phần tử cuối vẫn nằm trong mảng ẩn bên dưới và trỏ tới Student.
+// Student đó sẽ không bao giờ được giải phóng cho đến khi toàn bộ slice 'a' bị hủy.
+```
+
+#### Cách khắc phục: Gán Nil trước khi cắt
+
+Để GC biết rằng đối tượng đó không còn được dùng nữa, ta cần "ngắt kết nối" thủ công.
+```Go
+var a []*Student
+// ...
+
+// 1. Gán nil cho phần tử cần xóa để xóa tham chiếu
+a[len(a)-1] = nil
+
+// 2. Sau đó mới cắt slice
+a = a[:len(a)-1]
+```
+
+
+---
+## 9. Lưu ý quan trọng
+
+### ✅ Best Practice
 
 1. **Luôn gán lại kết quả của `append()`**
     

@@ -13,6 +13,8 @@ func main() {
 	//Tạo instance của struct Handler_v1 để gọi các phương thức
 	userHandler_v1 := v1Handler.NewUser()
 	productHandler_v1 := v1Handler.NewProduct()
+	categoryHandler_v1 := v1Handler.NewCategoryHandler()
+	newsHandler_v1 := v1Handler.NewsHandlerConstructor()
 
 	userHandler_v2 := v2Handler.NewUser()
 
@@ -23,22 +25,33 @@ func main() {
 		user := v1.Group("/users")
 		{
 			user.GET("/", userHandler_v1.GetUsers)
-			user.GET("/:id", userHandler_v1.GetUserByID)
 			user.GET("/:uuid", userHandler_v1.GetUserByUUID)
 			user.POST("/", userHandler_v1.CreateUser)
-			user.PUT("/:id", userHandler_v1.UpdateUser)
-			user.DELETE("/:id", userHandler_v1.DeleteUser)
+			user.PUT("/:uuid", userHandler_v1.UpdateUser)
+			user.DELETE("/:uuid", userHandler_v1.DeleteUser)
 		}
 
 		product := v1.Group("/products")
 		{
 			product.GET("/", productHandler_v1.GetProducts)
-			product.GET("/:id", productHandler_v1.GetProductByID)
+			product.GET("/:slug", productHandler_v1.GetProductBySlug)
+			product.GET("", productHandler_v1.SearchProducts)
 			product.POST("/", productHandler_v1.CreateProduct)
 			product.PUT("/:id", productHandler_v1.UpdateProduct)
 			product.DELETE("/:id", productHandler_v1.DeleteProduct)
 		}
 		
+		category := v1.Group("/categories")
+		{
+			category.GET("/:category", categoryHandler_v1.GetCategoryByCategories)
+		}
+
+		news := v1.Group("/news")
+		{
+			news.GET("/", newsHandler_v1.GetNews)
+			news.GET("/:slug", newsHandler_v1.GetNews)
+		}
+
 	}
 
 	v2 := r.Group("/api/v2")

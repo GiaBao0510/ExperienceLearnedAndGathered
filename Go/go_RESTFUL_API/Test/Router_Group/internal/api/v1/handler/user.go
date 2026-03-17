@@ -3,6 +3,7 @@ package handler
 import (
 	"fmt"
 	"net/http"
+	"router-group/utils"
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
@@ -12,25 +13,31 @@ import (
 
 //Tạo list user
 type User struct{
-	ID int `json:"id"`
+	ID uuid.UUID `json:"id"`
 	Name string `json:"name"`
 	Email string `json:"email"`
 }
 
+//Tạo slice để lưu trữ user
+var users []User = []User{}
+
 //Constructor để tạo instance của struct User
 func NewUser() *User{
+
+	names := []string{"John Doe", "Jane Smith", "Bob Johnson", "Alice Williams", "Charlie Brown", "Nguyen Van A"}
+	emails := []string{"JDoe@gmail.com", "JSmith@gmail.com", "BJohnson@gmail.com", "AWilliams@gmail.com", "CBrown@gmail.com", "NVAn@gmail.com"}
+
+	//Khởi tạo slice user với dữ liệu mẫu
+	for i := 0; i < len(names); i++{
+		users = append(users, User{
+			ID: uuid.New(),		//Tạo ID ngẫu nhiên cho mỗi user
+			Name: names[i],
+			Email: emails[i],
+		})
+	}
+
 	return  &User{}
 } 
-
-//Tạo slice để lưu trữ user
-var users []User = []User{
-	{ID: uuid., Name: "John Doe", Email: "JDoe@gmail.com"},
-	{ID: 2, Name: "Jane Smith", Email: "JSmith@gmail.com"},
-	{ID: 3, Name: "Bob Johnson", Email: "BJohnson@gmail.com"},
-	{ID: 4, Name: "Alice Williams", Email: "AWilliams@gmail.com"},
-	{ID: 5, Name: "Charlie Brown", Email: "CBrown@gmail.com"},
-	{ID: 6, Name: "Nguyen Van A", Email: "NVAn@gmail.com"},
-}
 
 //Lấy danh sách user
 func (obj *User) GetUsers(c *gin.Context){
@@ -39,43 +46,23 @@ func (obj *User) GetUsers(c *gin.Context){
 		"message": "list user",
 		"data": users,
 	})
-}
 
-//Lấy thông tin người dùng dựa trên ID
-func (obj *User) GetUserByID(c *gin.Context){
-	
-	id := c.Param("id")
-	for _,user := range users{
-		if fmt.Sprintf("%v", user.ID) == id{
-			c.JSON(http.StatusOK, gin.H{
-				"message": "user found",
-				"data": user,
-			})
-			return
-		}
-	}
-
-	c.JSON(http.StatusNotFound, gin.H{
-		"message": "user not found",
-		"data": nil,
-	})
-	return
 }
 
 //Lấy thông tin người dùng dựa trên UUID
 func (obj *User) GetUserByUUID(c *gin.Context){
 	
-	id := c.Param("id")
+	id := c.Param("uuid")
+	_, err := utils.ValidationUUID("UUID", id)
 
 	//Kiểm tra định dạng UUID
-	if _, err := uuid.Parse(id); err != nil{
+	if  err != nil{
 		c.JSON(http.StatusBadRequest, gin.H{
-			"message": "invalid uuid format",
+			"message": err.Error(),
 			"error": err.Error(),
 		})
 		return
 	}
-
 
 	for _,user := range users{
 		if fmt.Sprintf("%v", user.ID) == id{
@@ -106,7 +93,7 @@ func (obj *User) CreateUser(c *gin.Context) {
 	}
 
 	//Tạo ID mới cho user
-	newUser.ID = len(users) + 1
+	newUser.ID = uuid.New()
 
 	//Thêm user mới vào slice
 	users = append(users, newUser)
@@ -116,11 +103,10 @@ func (obj *User) CreateUser(c *gin.Context) {
 	})
 }
 
-
 //Cập nhật thông tin người dùng
 func (obj *User) UpdateUser(c *gin.Context){
 
-	id := c.Param("id")
+	id := c.Param("uuid")
 
 	//Đọc dữ liệu từ request body
 	var updateUser User
@@ -156,7 +142,7 @@ func (obj *User) UpdateUser(c *gin.Context){
 //Xóa người dùng
 func (obj *User) DeleteUser(c *gin.Context){
 
-	id := c.Param("id")
+	id := c.Param("uuid")
 
 	for index, user := range users{
 		if fmt.Sprintf("%v", user.ID) == id{

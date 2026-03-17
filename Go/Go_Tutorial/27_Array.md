@@ -21,7 +21,9 @@ _Hướng dẫn toàn diện về mảng và cách sử dụng hiệu quả_
 
 ## 1. Giới thiệu về Array
 
-**Array (Mảng)** là một cấu trúc dữ liệu cơ bản trong lập trình, cho phép lưu trữ một tập hợp các phần tử có cùng kiểu dữ liệu. Trong Golang, Array có những đặc điểm riêng biệt mà bạn cần nắm vững.
+**Array (Mảng)** là một cấu trúc dữ liệu cơ bản trong lập trình, cho phép lưu trữ một tập hợp các phần tử có cùng kiểu dữ liệu. Trong Golang, `Array` có những đặc điểm riêng biệt mà bạn cần nắm vững.
+
+![](https://zalopay-oss.github.io/go-advanced/images/ch1-1-array-and-array-index-representation.png)
 
 ### Tại sao cần học về Array?
 
@@ -40,13 +42,13 @@ _Hướng dẫn toàn diện về mảng và cách sử dụng hiệu quả_
 
 ### Đặc điểm quan trọng
 
-|Đặc điểm|Mô tả|
-|---|---|
-|**Kích thước cố định**|Sau khi khai báo, không thể thay đổi số lượng phần tử|
-|**Kiểu dữ liệu đồng nhất**|Tất cả phần tử phải cùng kiểu (int, string, float64...)|
-|**Chỉ số bắt đầu từ 0**|Phần tử đầu tiên có index = 0|
-|**Vùng nhớ liên tục**|Các phần tử được lưu liền kề nhau trong bộ nhớ|
-|**Giá trị mặc định**|Phần tử chưa gán có giá trị zero value (0 cho số, "" cho chuỗi, false cho bool)|
+| Đặc điểm                   | Mô tả                                                                           |
+| -------------------------- | ------------------------------------------------------------------------------- |
+| **Kích thước cố định**     | Sau khi khai báo, không thể thay đổi số lượng phần tử                           |
+| **Kiểu dữ liệu đồng nhất** | Tất cả phần tử phải cùng kiểu (int, string, float64...)                         |
+| **Chỉ số bắt đầu từ 0**    | Phần tử đầu tiên có index = 0                                                   |
+| **Vùng nhớ liên tục**      | Các phần tử được lưu liền kề nhau trong bộ nhớ                                  |
+| **Giá trị mặc định**       | Phần tử chưa gán có giá trị zero value (0 cho số, "" cho chuỗi, false cho bool) |
 
 ### Cú pháp khai báo
 

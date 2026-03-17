@@ -2,27 +2,26 @@ package main
 
 import (
 	"fmt"
-	"sync"
-	"sync/atomic"
 )
 
-var counter int64
+func MyAppend(slice []int, value int) []int{
+	slice = append(slice, value)
+	PrintSlice(slice)
+	return slice
+}
 
-func increment() {
-	atomic.AddInt64(&counter, 1)
+func PrintSlice(slice []int){
+	fmt.Printf("Slice: %v\n", slice)
+	fmt.Printf("length: %v, cap: %v\n", len(slice), cap(slice))
 }
 
 func main() {
-	var wg sync.WaitGroup
+	slices := make([]int, 1)
 
-	for i := 0; i < 1000; i++ {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			increment()
-		}()
+	PrintSlice(slices)
+
+	for i := 1; i <= 5; i++ {
+		fmt.Println("\n---------------------")
+		slices = MyAppend(slices, i)
 	}
-
-	wg.Wait()
-	fmt.Println("Counter:", counter)
 }

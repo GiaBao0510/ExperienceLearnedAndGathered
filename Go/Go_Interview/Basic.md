@@ -46,13 +46,12 @@ Cuối cùng, hệ thống quản lý thư viện bên ngoài (module) của Go 
 
 
 ---
-### 4. **Làm thế nào phát hiện `Data race` trong Go? và cách giải quyết chúng như thế nào?** [trả lời.](obsidian://open?vault=CuuAmChanKinh&file=Go%2FGo_Interview%2FData-Race_golang)
+### 4. **Làm thế nào phát hiện `Data race` trong Go? và cách giải quyết chúng như thế nào?** [trả lời.](Go/Go_Interview/Data-Race_golang)
+---
+#### 5. **Concurrency trong golang [Trả lời](Go/Go_Tutorial/32.1_Goroutine_channel)**
 
 ---
-#### 5. **Concurrency trong golang [Trả lời](obsidian://open?vault=CuuAmChanKinh&file=Go%2FGo_Tutorial%2F32_Goroutine_Channel)**
-
----
-#### 6. **Channel là gì?  Sự khác nhau giữa channel buffer và unbuffer [Trả lời](obsidian://open?vault=CuuAmChanKinh&file=Go%2FGo_Tutorial%2F32.1%20Goroutine_channel)**
+#### 6. **Channel là gì?  Sự khác nhau giữa channel buffer và unbuffer [Trả lời](Go/Go_Tutorial/32.1_Goroutine_channel)**
 
 ---
 ### 7.  **Giải thích method & interface**
@@ -122,10 +121,10 @@ Cách thiết kế này giúp Go đạt được sự linh hoạt tuyệt vời:
 3. **Hạn chế phụ thuộc:** Bạn có thể định nghĩa interface ở nơi sử dụng, thay vì nơi tạo ra đối tượng.
 
 ---
-#### **8. Slice là gì?** [Trả lời](obsidian://open?vault=CuuAmChanKinh&file=Go%2FGo_Tutorial%2F28_Slice)
+#### **8. Slice là gì?** [Trả lời](Go/Go_Tutorial/28_Slice)
 
 ---
-#### 9.  **Pointer trong go** [Trả lời](obsidian://open?vault=CuuAmChanKinh&file=Go%2FGo_Tutorial%2F21_Pointer)
+#### **9.  Pointer trong go [Trả lời](Go/Go_Tutorial/21_Pointer)
 
 ---
 
