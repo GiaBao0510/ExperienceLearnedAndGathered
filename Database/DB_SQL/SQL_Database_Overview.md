@@ -1,0 +1,101 @@
+## **1. Database là gì?**
+
+**Database** (Cơ sở dữ liệu) là một hệ thống được tổ chức để lưu trữ, quản lý và truy xuất dữ liệu từ các ứng dụng. Dữ liệu trong database được sắp xếp theo cách có cấu trúc, giúp dễ dàng truy cập và xử lý. Database thường được thiết kế để hỗ trợ các ứng dụng trong việc lưu trữ thông tin một cách an toàn, hiệu quả và có tổ chức.
+
+Database được sử dụng rộng rãi trong các ứng dụng như:
+
+- **Ứng dụng doanh nghiệp**: Quản lý thông tin khách hàng, đơn hàng, sản phẩm.
+- **Website và ứng dụng di động**: Lưu trữ thông tin người dùng, bài đăng, giao dịch.
+- **Hệ thống tài chính**: Theo dõi giao dịch, số dư tài khoản.
+
+Database thường tuân thủ các mô hình xử lý dữ liệu cụ thể, phổ biến nhất là **OLTP (Online Transaction Processing)** cho các ứng dụng thời gian thực.
+
+---
+## **2. Mô hình OLTP (Online Transaction Processing) là gì?**
+
+**OLTP** là một mô hình xử lý giao dịch trực tuyến, được thiết kế để hỗ trợ các hoạt động đọc/ghi dữ liệu với tốc độ cao, thường ở chế độ thời gian thực (real-time). Các hệ thống OLTP được tối ưu hóa để xử lý khối lượng lớn các giao dịch nhỏ, chẳng hạn như thêm, xóa, sửa dữ liệu.
+
+### **Đặc điểm của OLTP**:
+
+- **Tốc độ cao**: Hỗ trợ xử lý nhanh các giao dịch như đặt hàng, thanh toán, hoặc cập nhật thông tin người dùng.
+- **Tính toàn vẹn dữ liệu**: Đảm bảo dữ liệu chính xác và nhất quán thông qua các cơ chế như khóa (locking) và giao dịch (transaction).
+- **Dữ liệu hiện tại**: OLTP tập trung vào dữ liệu mới nhất, không phù hợp cho việc phân tích lịch sử dài hạn.
+
+### **Hạn chế của OLTP**:
+
+- Không được tối ưu hóa cho các truy vấn phân tích phức tạp (ví dụ: báo cáo, phân tích xu hướng).
+- Để giải quyết hạn chế này, các doanh nghiệp thường sử dụng **Data Warehouse** theo mô hình **OLAP (Online Analytical Processing)** để lưu trữ và phân tích dữ liệu lịch sử. Data Warehouse được thiết kế để xử lý các truy vấn phân tích lớn và phức tạp, hỗ trợ ra quyết định kinh doanh.
+
+### **Quy trình tích hợp dữ liệu**:
+
+Dữ liệu từ hệ thống OLTP thường được sao lưu (backup) và chuyển đến **Data Warehouse** thông qua các **ETL pipelines** (Extract, Transform, Load) để phân tích dài hạn.
+
+---
+
+## **3. SQL Database là gì?**
+
+**SQL Database** là một loại cơ sở dữ liệu quan hệ (Relational Database) sử dụng **SQL (Structured Query Language)** để quản lý và truy vấn dữ liệu. Dữ liệu trong SQL Database được tổ chức theo dạng bảng (table), với các đặc điểm sau:
+
+- **Cấu trúc bảng**:
+    - Mỗi bảng đại diện cho một thực thể (ví dụ: khách hàng, sản phẩm).
+    - Mỗi cột (column) trong bảng là một trường dữ liệu (field), ví dụ: tên, tuổi, địa chỉ.
+    - Mỗi dòng (row) là một bản ghi (record) chứa thông tin của một đối tượng cụ thể.
+
+- **Mối quan hệ giữa các bảng**:
+    - Các bảng được liên kết với nhau thông qua **khóa chính (Primary Key)** và **khóa ngoại (Foreign Key)**, đảm bảo tính toàn vẹn và liên kết dữ liệu.
+    - Ví dụ: Trong một hệ thống bán hàng, bảng "Đơn hàng" có thể liên kết với bảng "Khách hàng" thông qua khóa ngoại là ID khách hàng.
+
+- **Ưu điểm của SQL Database**:
+    - **Tính cấu trúc**: Dữ liệu được tổ chức rõ ràng, dễ hiểu.
+    - **Khả năng truy vấn mạnh mẽ**: SQL cho phép viết các truy vấn phức tạp để lấy dữ liệu theo nhu cầu.
+    - **Tính toàn vẹn**: Hỗ trợ các ràng buộc (constraints) như duy nhất (unique), không null (not null), và khóa ngoại.
+    - **Hỗ trợ chuẩn hóa (Normalization)**: Giảm dư thừa dữ liệu và tăng tính nhất quán.
+
+- **Nhược điểm của SQL Database**:
+    - Khó mở rộng (scale) theo chiều ngang (horizontal scaling) so với các cơ sở dữ liệu NoSQL.
+    - Có thể chậm hơn khi xử lý khối lượng dữ liệu cực lớn hoặc không có cấu trúc (unstructured data).
+
+---
+## **4. Các nền tảng quản trị cơ sở dữ liệu SQL phổ biến**
+
+Dưới đây là một số hệ quản trị cơ sở dữ liệu (DBMS - Database Management System) phổ biến sử dụng SQL:
+
+- **MySQL**: Miễn phí, mã nguồn mở, phổ biến cho các ứng dụng web và doanh nghiệp nhỏ.
+- **PostgreSQL**: Mã nguồn mở, mạnh mẽ, hỗ trợ nhiều tính năng nâng cao như JSON, full-text search.
+- **Microsoft SQL Server (MSSQL)**: Phù hợp cho các doanh nghiệp lớn, tích hợp tốt với hệ sinh thái Microsoft.
+- **MariaDB**: Một nhánh của MySQL, mã nguồn mở, hiệu năng cao.
+- **Oracle Database**: Mạnh mẽ, phù hợp cho các ứng dụng doanh nghiệp quy mô lớn.
+- **SQLite**: Nhẹ, không cần server, phù hợp cho các ứng dụng nhỏ hoặc nhúng (embedded).
+
+---
+## **5. So sánh SQL Database với NoSQL Database**
+
+Để cung cấp bối cảnh tổng quan đầy đủ hơn, dưới đây là sự so sánh giữa SQL Database và NoSQL Database:
+
+| **Tiêu chí**          | **SQL Database**                         | **NoSQL Database**                         |
+| --------------------- | ---------------------------------------- | ------------------------------------------ |
+| **Cấu trúc dữ liệu**  | Bảng có cấu trúc cố định                 | Linh hoạt (key-value, document, graph,...) |
+| **Ngôn ngữ truy vấn** | SQL (Structured Query Language)          | Tùy thuộc vào hệ thống (MongoDB Query,...) |
+| **Mở rộng**           | Khó mở rộng ngang (scale-out)            | Dễ mở rộng ngang                           |
+| **Ứng dụng**          | Hệ thống giao dịch, quản lý doanh nghiệp | Big Data, ứng dụng thời gian thực          |
+| **Ví dụ**             | MySQL, PostgreSQL, Oracle                | MongoDB, Cassandra, Redis                  |
+
+---
+## **6. Ứng dụng thực tế của SQL Database**
+
+SQL Database được sử dụng rộng rãi trong các lĩnh vực:
+
+- **Quản lý doanh nghiệp**: Lưu trữ thông tin khách hàng, sản phẩm, đơn hàng.
+- **Thương mại điện tử**: Quản lý giỏ hàng, thanh toán, lịch sử giao dịch.
+- **Tài chính**: Theo dõi giao dịch ngân hàng, quản lý tài khoản.
+- **Y tế**: Lưu trữ hồ sơ bệnh nhân, lịch sử khám chữa bệnh.
+- **Giáo dục**: Quản lý điểm số, thông tin sinh viên.
+
+---
+
+## **7. Lưu ý khi làm việc với SQL Database**
+
+- **Hiệu năng**: Tối ưu hóa truy vấn SQL và thiết kế bảng để tránh truy vấn chậm.
+- **Bảo mật**: Sử dụng các biện pháp bảo mật như mã hóa dữ liệu, quản lý quyền truy cập.
+- **Sao lưu và khôi phục**: Thường xuyên sao lưu dữ liệu để tránh mất mát.
+- **Chuẩn hóa (Normalization)**: Thiết kế bảng theo các dạng chuẩn (normal forms) để giảm dư thừa dữ liệu.

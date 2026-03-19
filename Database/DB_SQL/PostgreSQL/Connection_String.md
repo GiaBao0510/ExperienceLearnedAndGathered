@@ -1,0 +1,1 @@
+host=localhost port=5432 dbname=postgres user=postgres password=xxxxxxx connect_timeout=10 sslmode=prefer

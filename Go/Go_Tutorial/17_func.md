@@ -90,3 +90,62 @@ func main() {
     chaoTen("")       // Xin chào, Bạn
 }
 ```
+
+---
+Hàm (function) là thành phần cơ bản của chương trình. Các hàm trong ngôn ngữ Go có thể có tên hoặc ẩn danh (anonymous function):
+
+```go
+// hàm được đặt tên
+func Add(a, b int) int {
+    return a+b
+}
+
+// hàm ẩn danh
+var Add = func(a, b int) int {
+    return a+b
+}
+```
+
+Một hàm trong ngôn ngữ Go có thể có nhiều tham số và nhiều giá trị trả về. Cả tham số và giá trị trả về trao đổi dữ liệu với hàm theo cách truyền vào giá trị (pass by value). Về mặt cú pháp, hàm cũng hỗ trợ số lượng tham số thay đổi, biến số lượng tham số phải là tham số cuối cùng và biến này phải là kiểu slice.
+```go
+// Nhiều tham số và nhiều giá trị trả về
+func Swap(a, b int) (int, int) {
+    return b, a
+}
+
+// Biến số lượng tham số 'more'
+// Tương ứng với kiểu [] int, là một slice
+func Sum(a int, more ...int) int {
+    for _, v := range more {
+        a += v
+    }
+    return a
+}
+```
+
+Khi đối số có thể thay đổi là một kiểu interface null, việc người gọi có phân giải (unpack) đối số đó hay không sẽ dẫn đến những kết quả khác nhau:
+
+```go
+func main() {
+    var a = []interface{}{123, "abc"}
+
+    // tương đương với lời gọi trực tiếp `Print(123, "abc")`
+    Print(a...) // 123 abc
+
+    // tương đương với lời gọi `Print([]interface{}{123, "abc"})`
+    Print(a)    // [123 abc]
+}
+
+func Print(a ...interface{}) {
+    fmt.Println(a...)
+}
+```
+
+Cả tham số truyền vào và các giá trị trả về đều có thể được đặt tên:
+
+```go
+func Find(m map[int]int, key int) (value int, ok bool) {
+    value, ok = m[key]
+    return
+}
+```
