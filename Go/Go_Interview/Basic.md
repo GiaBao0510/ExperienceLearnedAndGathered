@@ -48,10 +48,10 @@ Cuối cùng, hệ thống quản lý thư viện bên ngoài (module) của Go 
 ---
 ### 4. **Làm thế nào phát hiện `Data race` trong Go? và cách giải quyết chúng như thế nào?** [trả lời.](Go/Go_Interview/Data-Race_golang)
 ---
-#### 5. **Concurrency trong golang [Trả lời](Go/Go_Tutorial/32.1_Goroutine_channel)**
+#### 5. **Concurrency trong golang [Trả lời](33.1_Goroutine_channel.md)**
 
 ---
-#### 6. **Channel là gì?  Sự khác nhau giữa channel buffer và unbuffer [Trả lời](Go/Go_Tutorial/32.1_Goroutine_channel)**
+#### 6. **Channel là gì?  Sự khác nhau giữa channel buffer và unbuffer [Trả lời](33.1_Goroutine_channel.md)**
 
 ---
 ### 7.  **Giải thích method & interface**

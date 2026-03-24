@@ -47,11 +47,11 @@ GET /api/v1/news?slug=cong-nghe-ai-2024&page=2
 
 Đây là điểm cốt lõi của bài này:
 
-||Path Param|Query Param|
+|                      |Path Param|Query Param|
 |---|---|---|
-|Hàm lấy giá trị|`c.Param("key")`|`c.Query("key")`|
-|Giá trị mặc định|❌ Không hỗ trợ|✅ `c.DefaultQuery("key", "default")`|
-|Khi tham số vắng mặt|Route không khớp (404)|Trả về `""` hoặc giá trị mặc định|
+| Hàm lấy giá trị      |`c.Param("key")`|`c.Query("key")`|
+| Giá trị mặc định     |❌ Không hỗ trợ|✅ `c.DefaultQuery("key", "default")`|
+| Khi tham số vắng mặt |Route không khớp (404)|Trả về `""` hoặc giá trị mặc định|
 
 ### `c.DefaultQuery()` hoạt động như thế nào?
 
@@ -75,18 +75,17 @@ GET /api/v1/news
 ```
 
 > 💡 **`c.DefaultQuery` tương đương viết tắt của:**
-> 
-> ```go
-> slug := c.Query("slug")
-> if slug == "" {
->     slug = "thong-tin-moi-cap-nhat"
-> }
-> ```
-> 
-> Dùng `c.DefaultQuery` ngắn gọn và rõ ý định hơn.
+
+```go
+ slug := c.Query("slug")
+ if slug == "" {
+     slug = "thong-tin-moi-cap-nhat"
+ }
+```
+ 
+ Dùng `c.DefaultQuery` ngắn gọn và rõ ý định hơn.
 
 ---
-
 ## Tình huống thực tế: API tin tức
 
 Chúng ta muốn xây dựng API tin tức hỗ trợ **hai cách truy cập**:
@@ -109,7 +108,6 @@ news.GET("/:slug", newsHandler_v1.GetNews)  // Route 2: có slug trong path
 ```
 
 ---
-
 ## Vấn đề khi dùng cùng một hàm cho hai route
 
 Khi một hàm xử lý cả hai route, cần hiểu rõ Gin sẽ điều hướng như thế nào:
@@ -125,7 +123,6 @@ Khi `c.Param("slug")` trả về `""`, ta biết client đang truy cập route k
 > ⚠️ **Lưu ý:** Không thể đặt cả `GET "/"` và `GET "/:slug"` trong cùng một group nếu Gin không thể phân biệt được. Thực tế Gin xử lý tốt trường hợp này vì `"/"` và `"/:slug"` là hai pattern rõ ràng khác nhau.
 
 ---
-
 ## Cài đặt handler `news.go`
 
 Tạo file `Router_Group/internal/api/v1/handler/news.go`:
@@ -313,12 +310,12 @@ Kết quả mong đợi:
 
 Bài này tập trung vào sự khác biệt quan trọng giữa Path Param và Query Param khi xử lý tham số tùy chọn:
 
-||`c.Param()`|`c.Query()`|`c.DefaultQuery()`|
-|---|---|---|---|
-|**Nguồn**|URL path|Query string|Query string|
-|**Bắt buộc**|Có|Không|Không|
-|**Khi vắng mặt**|Route không khớp|Trả về `""`|Trả về giá trị mặc định|
-|**Dùng khi nào**|ID tài nguyên bắt buộc|Tham số lọc/tìm kiếm|Tham số có giá trị mặc định hợp lý|
+|                  | `c.Param()`            | `c.Query()`          | `c.DefaultQuery()`                 |
+| ---------------- | ---------------------- | -------------------- | ---------------------------------- |
+| **Nguồn**        | URL path               | Query string         | Query string                       |
+| **Bắt buộc**     | Có                     | Không                | Không                              |
+| **Khi vắng mặt** | Route không khớp       | Trả về `""`          | Trả về giá trị mặc định            |
+| **Dùng khi nào** | ID tài nguyên bắt buộc | Tham số lọc/tìm kiếm | Tham số có giá trị mặc định hợp lý |
 
 ### Khi nào nên dùng cái nào?
 

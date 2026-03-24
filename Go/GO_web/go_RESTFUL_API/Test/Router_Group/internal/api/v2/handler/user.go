@@ -3,6 +3,7 @@ package handler
 import (
 	"fmt"
 	"net/http"
+	"router-group/utils"
 
 	"github.com/gin-gonic/gin"
 )
@@ -40,43 +41,50 @@ func (obj *User) GetUsers(c *gin.Context) {
 	})
 }
 
-// Lấy thông tin người dùng dựa trên ID
-func (obj *User) GetUserByID(c *gin.Context) {
+// Tạo struct để kiểm tra đầu vào của GetUserByID
+// Điều kiện ID > 0, và nó phải là kiểu int mới sử dụng được. Ngược lại thì không
+type GetUserByID_Param struct {
+	ID int `uri:"id" binding:"gt=0"`
+}
 
-	id := c.Param("id")
-	for _, user := range users {
-		if fmt.Sprintf("%v", user.ID) == id {
-			c.JSON(http.StatusOK, gin.H{
-				"message": "user found",
-				"data":    user,
-			})
-		}
+// Lấy thông tin người dùng dựa trên ID
+func (obj *User) GetUserByID(ctx *gin.Context) {
+
+	var params GetUserByID_Param
+	if err := ctx.ShouldBindUri(&params); err != nil {
+		ctx.JSON(http.StatusBadRequest, utils.HandleValidationErrors(err))
+		return
 	}
 
-	c.JSON(http.StatusNotFound, gin.H{
-		"message": "user not found",
-		"data":    nil,
+	ctx.JSON(http.StatusOK, gin.H{
+		"message": "Get user by ID successfully",
+		"user_id": params.ID,
+	})
+}
+
+// Tạo struct để kiểm tra đầu vào của GetUserByID
+// Điều kiện ID > 0, và nó phải là kiểu int mới sử dụng được. Ngược lại thì không
+type GetUserByUUID_Param struct {
+	UUID string `uri:"uuid" binding:"uuid"`
+}
+
+// Lấy thông tin người dùng dựa trên UUID
+func (obj *User) GetUserBy_UUID(ctx *gin.Context) {
+
+	var params GetUserByUUID_Param
+	if err := ctx.ShouldBindUri(&params); err != nil {
+		ctx.JSON(http.StatusBadRequest, utils.HandleValidationErrors(err))
+		return
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"message": "Get user by UUID successfully",
+		"UUID":    params.UUID,
 	})
 }
 
 // Thêm người dùng mới
 func (obj *User) CreateUser(c *gin.Context) {
-	fmt.Println("Nhập thông tin người dùng")
-
-	//Đọc dữ liệu từ request body
-	var newUser User
-	if err := c.ShouldBindJSON(&newUser); err != nil { //Nếu có lỗi khi đọc dữ liệu, trả về lỗi
-		c.JSON(http.StatusBadRequest, gin.H{
-			"message": "invalid request body",
-		})
-		return
-	}
-
-	//Tạo ID mới cho user
-	newUser.ID = len(users) + 1
-
-	//Thêm user mới vào slice
-	users = append(users, newUser)
 
 	c.JSON(http.StatusOK, gin.H{
 		"message": "create user successfully",
@@ -86,34 +94,6 @@ func (obj *User) CreateUser(c *gin.Context) {
 // Cập nhật thông tin người dùng
 func (obj *User) UpdateUser(c *gin.Context) {
 
-	id := c.Param("id")
-
-	//Đọc dữ liệu từ request body
-	var updateUser User
-	if err := c.ShouldBindJSON(&updateUser); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"message": "invalid request body",
-			"error":   err.Error(),
-		})
-		return
-	}
-
-	//Tìm ID của User rồi cập nhật thông tin
-	for idx, user := range users {
-		if fmt.Sprintf("%v", user.ID) == id {
-
-			//Cập nhật thông tin user
-			users[idx].Name = updateUser.Name
-			users[idx].Email = updateUser.Email
-
-			//Trả về thông báo cập nhật thành công
-			c.JSON(http.StatusOK, gin.H{
-				"message": "update user successfully",
-			})
-			return
-		}
-	}
-
 	c.JSON(http.StatusNotFound, gin.H{
 		"message": "user not found",
 	})
@@ -121,18 +101,6 @@ func (obj *User) UpdateUser(c *gin.Context) {
 
 // Xóa người dùng
 func (obj *User) DeleteUser(c *gin.Context) {
-
-	id := c.Param("id")
-
-	for index, user := range users {
-		if fmt.Sprintf("%v", user.ID) == id {
-			users = append(users[:index], users[index+1:]...)
-			c.JSON(http.StatusOK, gin.H{
-				"message": "delete user successfully",
-			})
-			return
-		}
-	}
 
 	c.JSON(http.StatusNotFound, gin.H{
 		"message": "user not found",
