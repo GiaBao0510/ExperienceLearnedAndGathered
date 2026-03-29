@@ -3,6 +3,7 @@ package utils
 import (
 	"fmt"
 	"log"
+	"path/filepath"
 	"regexp"
 	"strconv"
 	"strings"
@@ -90,6 +91,10 @@ func HandleValidationErrors(Err error) gin.H {
 			switch e.Tag() {
 			case "gt":
 				errors[e.Field()] = e.Field() + " phải lớn hơn giá trị tối thiểu."
+			case "gte":
+				errors[e.Field()] = e.Field() + " phải lớn hơn hoặc bằng giá trị tối thiểu."
+			case "lte":
+				errors[e.Field()] = e.Field() + " phải nhỏ hơn hoặc bằng giá trị tối thiểu."
 			case "uuid":
 				errors[e.Field()] = e.Field() + " phải là một UUID hợp lệ."
 			case "slug":
@@ -101,6 +106,20 @@ func HandleValidationErrors(Err error) gin.H {
 			case "oneof":
 				allowedValues := strings.Join(strings.Split(e.Param(), " "), ",")
 				errors[e.Field()] = e.Field() + " phải là một trong các giá trị sau: " + allowedValues + "."
+			case "required":
+				errors[e.Field()] = e.Field() + " là bắt buộc."
+			case "search":
+				errors[e.Field()] = e.Field() + " thông tin tìm kiếm chỉ được phép chứa chữ cái, số và khoảng trắng."
+			case "email":
+				errors[e.Field()] = e.Field() + " phải là một địa chỉ email hợp lệ."
+			case "datetime":
+				errors[e.Field()] = e.Field() + " phải có định dạng ngày tháng hợp lệ (YYYY-MM-DD)."
+			case "min_int":
+				errors[e.Field()] = e.Field() + " phải lớn hơn hoặc bằng " + e.Param() + "."
+			case "max_int":
+				errors[e.Field()] = e.Field() + " phải nhỏ hơn hoặc bằng " + e.Param() + "."
+			case "file_extension":
+				errors[e.Field()] = e.Field() + " phải có phần mở rộng hợp lệ " + strings.Join(allowedExtensions, ", ") + "."
 			}
 			log.Printf("Validation error on field '%s': %s, Tag: %+v", e.Field(), e.Error(), e.Tag())
 		}
@@ -112,6 +131,8 @@ func HandleValidationErrors(Err error) gin.H {
 }
 
 // Tự tạo một hàm để kiểm tra lỗi và trả về lỗi nếu có
+var allowedExtensions = []string{".jpg", ".jpeg", ".png", ".gif"}
+
 func RegisterValidationError() error {
 
 	//Kiểm tra xem kiểu đầu vào có thuộc kiểu validator không
@@ -126,6 +147,75 @@ func RegisterValidationError() error {
 	//Đăng ký hàm kiểm tra regex cho tag "slug", và kiểm tra field có phải là string hay không, nếu không thì trả về lỗi
 	v.RegisterValidation("slug", func(fl validator.FieldLevel) bool {
 		return slugRegex.MatchString(fl.Field().String()) // Kiểm tra xem field này có khớp với regex hay không
+	})
+
+	var searchRegex = regexp.MustCompile(`^[a-zA-Z0-9\s]+$`)
+
+	//Đăng ký hàm kiểm tra regex cho tag "slug", và kiểm tra field có phải là string hay không, nếu không thì trả về lỗi
+	v.RegisterValidation("search", func(fl validator.FieldLevel) bool {
+		return searchRegex.MatchString(fl.Field().String()) // Kiểm tra xem field này có khớp với regex hay không
+	})
+
+	//Đăng ký hàm kiểm tra giá trị số nguyên dương cho tag "min_int", và kiểm tra field có phải là string hay không, nếu không thì trả về lỗi
+	v.RegisterValidation("min_int", func(fl validator.FieldLevel) bool {
+		minStr := fl.Param()
+		minVal, err := strconv.ParseInt(
+			minStr, 
+			10,        // 10: hệ thập phân; 16: hệ thập lục phân; 8: hệ bát phân; 0: tự động nhận diện
+			64, 		// 0: int, 8: int8, 16: int16, 32: int32, 64: int64
+		)
+		if err != nil {
+			return false
+		}
+
+		return fl.Field().Int() >= minVal	// Kiểm tra xem field này có lớn hoặc bằng giá trị tối thiểu hay không
+	})
+
+	v.RegisterValidation("max_int", func(fl validator.FieldLevel) bool {
+		maxStr := fl.Param()
+		maxVal, err := strconv.ParseInt(
+			maxStr, 
+			10,        // 10: hệ thập phân; 16: hệ thập lục phân; 8: hệ bát phân; 0: tự động nhận diện
+			64, 		// 0: int, 8: int8, 16: int16, 32: int32, 64: int64
+		)
+		if err != nil {
+			return false
+		}
+
+		return fl.Field().Int() <= maxVal
+	})
+
+	// File extension validation: .jpg, .jpeg, .png, .gif
+	v.RegisterValidation("file_extension", func(fl validator.FieldLevel) bool {
+		fileName := fl.Field().String()
+		allowStr := fl.Param()
+
+		// ✅ Nếu fileName rỗng, skip validation
+		if fileName == "" {
+			return true
+		}
+
+		ext := strings.TrimPrefix(strings.ToLower(filepath.Ext(fileName)), ".")
+
+		// ✅ Nếu allowStr có param, phân tách và dùng, nếu không dùng default
+		if allowStr != "" {
+			allowedExts := strings.Split(allowStr, " ")
+			for _, allow := range allowedExts {
+				if ext == strings.ToLower(allow) {
+					return true
+				}
+			}
+			return false
+		}
+
+		// ✅ Dùng default allowedExtensions
+		for _, allowExists := range allowedExtensions {
+			if ext == strings.TrimPrefix(strings.ToLower(allowExists), ".") {
+				return true
+			}
+		}
+
+		return false
 	})
 
 	return nil

@@ -42,7 +42,7 @@ func main() {
 		{
 			product.GET("/", productHandler_v1.GetProducts)
 			product.GET("/:slug", productHandler_v1.GetProductBySlug)
-			product.GET("", productHandler_v1.SearchProducts)
+			product.GET("/search", productHandler_v1.SearchProducts)
 			product.POST("/", productHandler_v1.CreateProduct)
 			product.PUT("/:id", productHandler_v1.UpdateProduct)
 			product.DELETE("/:id", productHandler_v1.DeleteProduct)
@@ -67,7 +67,7 @@ func main() {
 		{
 			user.GET("/", userHandler_v2.GetUsers)
 			user.GET("/:id", userHandler_v2.GetUserByID)
-			user.GET("/uuid/:uuid", userHandler_v2.GetUserBy_UUID)	// Add
+			user.GET("/uuid/:uuid", userHandler_v2.GetUserBy_UUID) // Add
 			user.POST("/", userHandler_v2.CreateUser)
 			user.PUT("/:id", userHandler_v2.UpdateUser)
 			user.DELETE("/:id", userHandler_v2.DeleteUser)
@@ -80,6 +80,7 @@ func main() {
 			product.POST("/", productHandler_v2.CreateProduct)
 			product.PUT("/:id", productHandler_v2.UpdateProduct)
 			product.DELETE("/:id", productHandler_v2.DeleteProduct)
+			product.GET("", productHandler_v2.SearchProducts)
 		}
 
 		category := v2.Group("/categories")

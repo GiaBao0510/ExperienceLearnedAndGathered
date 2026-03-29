@@ -1,0 +1,19 @@
+//phiển bản bản của protobuf
+syntax = "proto3";
+
+//Tên package của protobuf
+package main;
+
+option go_package = "./";
+
+//message là một đơn vị dữ liệu trong protobuf
+message String {
+    //Chuỗi strind được truyền vào message
+    string str = 1;
+}
+
+//Đinh nghĩa một service trong protobuf
+service HelloService {
+    // định nghĩa lời gọi hàm RPC
+    rpc SayHello (String) return (String);
+}
