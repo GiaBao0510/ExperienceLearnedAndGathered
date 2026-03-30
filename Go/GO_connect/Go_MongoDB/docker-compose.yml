@@ -1,0 +1,27 @@
+version: '3.8'  # Phiên bản của docker-compose
+
+services:
+  mongodb:
+    image: mongo:latest  # Sử dụng image MongoDB mới nhất
+    container_name: mongodb  # Đặt tên container là mongodb
+    restart: always  # Tự động restart khi container bị dừng
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin  # Tài khoản root của MongoDB
+      - MONGO_INITDB_ROOT_PASSWORD=admin123  # Mật khẩu root
+    ports:
+      - "27017:27017"  # Map cổng 27017 từ máy host vào container
+    volumes:
+      - mongo_data:/data/db  # Lưu dữ liệu MongoDB ra volume để không bị mất khi container xóa
+  
+  mongo-express:
+    image: mongo-express  # Image giao diện web quản lý MongoDB
+    container_name: mongo-express  # Tên container
+    restart: always  # Tự động restart
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin  # Username để đăng nhập MongoDB
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=admin123  # Password tương ứng
+    ports:
+      - "8081:8081"  # Truy cập giao diện web tại localhost:8081
+
+volumes:
+  mongo_data:  # Khai báo volume để lưu trữ dữ liệu MongoDB

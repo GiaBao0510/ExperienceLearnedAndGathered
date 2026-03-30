@@ -88,13 +88,15 @@ func HandleValidationErrors(Err error) gin.H {
 
 		for _, e := range validationErr {
 
+			log.Printf("%s\n", e.Namespace())
+
 			switch e.Tag() {
 			case "gt":
-				errors[e.Field()] = e.Field() + " phải lớn hơn giá trị tối thiểu."
+				errors[e.Field()] = e.Field() + " phải lớn hơn giá trị là "+ e.Param()
 			case "gte":
-				errors[e.Field()] = e.Field() + " phải lớn hơn hoặc bằng giá trị tối thiểu."
+				errors[e.Field()] = e.Field() + " phải lớn hơn hoặc bằng giá trị là " + e.Param() + "."
 			case "lte":
-				errors[e.Field()] = e.Field() + " phải nhỏ hơn hoặc bằng giá trị tối thiểu."
+				errors[e.Field()] = e.Field() + " phải nhỏ hơn hoặc bằng giá trị là " + e.Param() + "."
 			case "uuid":
 				errors[e.Field()] = e.Field() + " phải là một UUID hợp lệ."
 			case "slug":
