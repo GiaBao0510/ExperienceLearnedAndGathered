@@ -1,0 +1,116 @@
+version: '3.8'
+
+# ============================================================
+# STACK: Elasticsearch + Kibana
+# Mục đích: Chạy cụm tìm kiếm đơn node kết hợp giao diện Kibana
+# Yêu cầu: Tạo file .env với biến ELASTIC_PASSWORD trước khi chạy
+# Khởi động: docker compose up -d
+# ============================================================
+services:
+  elasticsearch:
+    container_name: elasticsearch-container
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.0
+    
+    environment:
+      # Cấu hình node & cluster
+      - node.name=elasticsearch-node-1  # Tên node trong cluster
+      - cluster.name=golang-ES-cluster  # Tên cluster (Kibana sẽ kết nối theo cluster này)
+      - discovery.type=single-node      # Chạy đơn node, không cần bầu chọn master
+
+      # Cấu hình bảo mật (tắt SSL để đơn giản hóa, không khuyến khích trong môi trường production)
+      - xpack.security.http.ssl.enabled=false # Tắt SSL trên HTTP API
+      - xpack.security.enabled=false          # Tắt xác thực (chỉ dùng cho dev/local)
+      
+      #Bộ nhớ Java (đảm bảo đủ cho Elasticsearch hoạt động ổn định)
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"      # Cấp phát 512MB heap cho JVM
+
+      #mật khẩu xác thưc cho user elastic (bắt buộc khi xpack.security.enabled=true)
+      - ELASTIC_PASSWORD=$ELASTIC_PASSWORD
+
+    restart: unless-stopped # Tự động khởi tạo
+
+    # Giới hạn log: Tự xoay vòng, xóa file cũ nhất khi đầy
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"   # max-size: kích thước tối đa 1 file log trước khi tạo file mới
+        max-file: "5"     # max-file: số lượng file log tối đa được giữ lại (file cũ nhất bị xóa)
+
+    mem_limit: 1g # Giới hạn bộ nhớ cho container (đảm bảo không vượt quá heap JVM)
+
+    networks:
+      - es-net
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    
+    #Healthcheck: Đảm bảo Elasticsearch đã sẵn sàng trước khi Kibana cố gắng kết nối
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200/_cluster/health | grep -q '\"status\":\"green\"\\|\"status\":\"yellow\"'"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  # ----------------------------------------------------------
+  # SERVICE: Kibana
+  # Vai trò: Giao diện web để visualize và quản lý Elasticsearch
+  # ----------------------------------------------------------
+  kibana:
+    container_name: kibana-container
+    image: docker.elastic.co/kibana/kibana:8.13.0
+
+    environment:
+      # Trỏ đến container ES theo tên service
+      -  ELASTICSEARCH_HOSTS=http://elasticsearch-container:9200
+
+      # Giới hạn bộ nhớ cho Kibana (tương tự ES)
+      - NODE_OPTIONS=--max-old-space-size=1024
+
+      # Do kibana tự sinh key ngẫu nhiên sau mỗi lần khởi động là nó sẽ bị mất session, mất alerting rule. Nên sẽ cố định key bên .env
+      - XPACK_SECURITY_ENCRYPTIONKEY=${KIBANA_SECURITY_KEY}
+      - XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY=${KIBANA_SAVEDOBJECTS_KEY}
+      - XPACK_REPORTING_ENCRYPTIONKEY=${KIBANA_REPORTING_KEY}
+    
+    restart: unless-stopped
+
+    #Giới hạn log tương tự ES
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+ 
+    mem_limit: 1536m
+
+    networks:
+      - es-net
+    
+    # depend on + condition: đảm bảo Kibana chỉ khởi động khi Elasticsearch đã sẵn sàng
+    depends_on:
+      elasticsearch:
+          condition: service_healthy
+    ports:
+      - "5601:5601"
+
+    # Kiểm tra Kibana sẵn sàng phục vụ chưa
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:5601/api/status | grep -q '\"level\":\"available\"'"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+# ============================================================
+# VOLUMES
+# Khai báo named volume để dữ liệu ES không bị mất khi restart
+# ============================================================
+volumes:
+  es_data:
+    driver: local
+
+# Phải chạy trên cùng một network để có thể cho 2 service kết nối với nhau
+networks:
+  es-net:
+    driver: bridge
