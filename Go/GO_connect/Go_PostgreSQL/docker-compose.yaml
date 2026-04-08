@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15 
+    container_name: postgres_container
+
+    # Set environment variables for PostgreSQL
+    environment: 
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    
+    # Ánh xạ cổng: host:container
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    
+    # Tự động khởi động lại container nếu bị crash hoặc máy host reboot
+    # "unless-stopped": khởi động lại trừ khi người dùng tự tay dừng
+    restart: unless-stopped
+
+    # Giới hạn dung lượng log để tránh chiếm quá nhiều ổ đĩa
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+    # Kiểm tra định kỳ xem PostgreSQL đã sẵn sàng nhận kết nối chưa
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB} -h localhost -p 5432"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+# Dữ liệu sẽ không bị mất khi container bị xóa hoặc rebuild
+volumes:
+  postgres_data: # Lưu trữ trên ổ đĩa local của máy host

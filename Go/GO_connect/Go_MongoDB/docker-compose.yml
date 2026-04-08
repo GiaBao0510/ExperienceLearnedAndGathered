@@ -1,5 +1,16 @@
 version: '3.8'  # Phiên bản của docker-compose
 
+# Định nghĩa cấu hình Logging dùng chung cho tất cả các service
+# Giải thích:
+#   driver: "json-file"  → Docker lưu log dạng JSON (mặc định)
+#   max-size: "10m"      → Mỗi file log tối đa 10MB
+#   max-file: "3"        → Giữ tối đa 3 file xoay vòng → tổng tối đa 30MB/service
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
 services:
   mongodb:
     image: mongo:latest  # Sử dụng image MongoDB mới nhất
@@ -12,6 +23,7 @@ services:
       - "27017:27017"  # Map cổng 27017 từ máy host vào container
     volumes:
       - mongo_data:/data/db  # Lưu dữ liệu MongoDB ra volume để không bị mất khi container xóa
+    logging: *default-logging
 
   mongo-express:
     image: mongo-express  # Image giao diện web quản lý MongoDB
@@ -28,6 +40,7 @@ services:
       - ME_CONFIG_BASICAUTH_PASSWORD=admin123        # Password đăng nhập giao diện web
     ports:
       - "8081:8081"  # Truy cập giao diện web tại localhost:8081
+    logging: *default-logging
 
 volumes:
   mongo_data:  # Khai báo volume để lưu trữ dữ liệu MongoDB

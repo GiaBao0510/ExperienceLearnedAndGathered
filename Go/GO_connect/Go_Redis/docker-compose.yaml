@@ -1,0 +1,54 @@
+version: '3.8'
+
+# Định nghĩa cấu hình Logging dùng chung cho tất cả các service
+# Giải thích:
+#   driver: "json-file"  → Docker lưu log dạng JSON (mặc định)
+#   max-size: "10m"      → Mỗi file log tối đa 10MB
+#   max-file: "3"        → Giữ tối đa 3 file xoay vòng → tổng tối đa 30MB/service
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  redis:
+    image: redis:7
+    container_name: redis-server
+    restart: always
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--requirepass", "admin123","--appendonly", "yes"]
+    
+    # Giúp lưu trữ dữ liệu Redis một cách bền vững, ngay cả khi container bị xóa hoặc khởi động lại
+    volumes:
+      - redis_data:/data
+
+    # Healthcheck giúp đảm bảo rằng Redis đã sẵn sàng trước khi các dịch vụ khác cố gắng kết nối
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "admin123", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    
+    # Logging configuration để giới hạn kích thước log và số lượng file log được giữ lại
+    logging: *default-logging
+      
+  
+  # RedisInsight là công cụ dạng UI giúp quản lý và giám sát Redis một cách trực quan
+  redisinsight:
+    image: redis/redisinsight:latest
+    container_name: redisinsight_container
+    ports:
+      - "5540:5540"
+    restart: always
+    depends_on:
+      - redis
+    volumes:
+      - redisinsight_data:/data
+    logging: *default-logging
+    
+    
+volumes:
+  redis_data:
+  redisinsight_data:

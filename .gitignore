@@ -259,6 +259,11 @@ output.binlog
 *_REMOTE_*
 *.orig
 
+# Environment files
+.env
+**/.env
+*.env
+
 AkavacheSqliteLinkerOverride.cs
 NuGetBuild
 WiX.Toolset.DummyFile.txt

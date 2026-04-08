@@ -1,7 +1,7 @@
 redis:
   default:
     address: 127.0.0.1:6379
-    password: "redispass"
+    password: "admin123"
     db: 0
     idleTimeout: "60s"
     maxConnLifetime: "90s"
