@@ -1,154 +1,101 @@
-version: '2'  # phiên bản docker-compose (cú pháp file compose)
+version: '3'      # Phiên bản cú pháp của Docker Compose
 
-services:   # khai báo các container (services) sẽ chạy
+# ==============================================================================
+# YAML ANCHOR — Cấu hình dùng chung (tái sử dụng để tránh lặp code)
+# Cú pháp: &tên_anchor để khai báo, *tên_anchor để tham chiếu lại ở chỗ khác
+# ==============================================================================
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "50m"     # Giới hạn kích thước file log tối đa là 50MB
+    max-file: "3"       # Giữ tối đa 3 file log (xoay vòng), tức tối đa 30MB mỗi service
 
-  # =============================
-  # 1. ZOOKEEPER
-  # =============================
-  zookeeper:
-    image: confluentinc/cp-zookeeper:7.7.0   # image Zookeeper từ Confluent Platform
-    hostname: zookeeper                      # hostname trong docker network
-    container_name: zookeeper                # tên container khi chạy docker
+services:         # Danh sách các dịch vụ (container) cần chạy
+  kafka:          # Tên dịch vụ trong Docker Compose
+    image: apache/kafka:3.8.1   # Tải image Kafka bản 3.8.1 từ Docker Hub
+    container_name: my-kafka    # Đặt tên cố định cho container để dễ quản lý
+    restart: unless-stopped  # Tự động khởi động lại container nếu nó dừng bất ngờ, trừ khi bạn dừng thủ công
 
     ports:
-      - "2181:2181"   # map port từ máy host -> container
-                      # 2181 là port client dùng để kết nối Zookeeper
+      - "9092:9092"   # Ánh xạ cổng: <cổng máy host>:<cổng trong container>
+                      # Client bên ngoài sẽ kết nối vào cổng 9092 của máy bạn
 
     environment:
-      ZOOKEEPER_CLIENT_PORT: 2181  # port mà Zookeeper lắng nghe client
-      ZOOKEEPER_TICK_TIME: 2000    # đơn vị thời gian cơ bản của Zookeeper (ms)
-                                   # dùng cho heartbeat và timeout
+      # --- CẤU HÌNH ĐỊNH DANH NODE ---
+      KAFKA_NODE_ID: 1                        # ID duy nhất của node Kafka này trong cụm (Cluster)
+      KAFKA_PROCESS_ROLES: broker,controller  # Node này vừa làm Broker (chứa dữ liệu)
+                                              # vừa làm Controller (điều phối cụm)
 
+      # --- CẤU HÌNH KRAFT (THAY THẾ ZOOKEEPER) ---
+      # Danh sách các node tham gia bầu cử Controller, theo định dạng: <node_id>@<hostname>:<port>
+      # Hostname "kafka" ở đây chính là tên dịch vụ trong Docker Compose (tự resolve được)
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
 
-  # =============================
-  # 2. KAFKA BROKER
-  # =============================
-  broker:
-    image: confluentinc/cp-server:7.7.0   # Kafka server (phiên bản enterprise của Confluent)
-    hostname: broker
-    container_name: broker
+      # --- CẤU HÌNH KẾT NỐI (NETWORKING) ---
+      # Các địa chỉ và cổng mà Kafka sẽ lắng nghe kết nối từ bên trong container
+      KAFKA_LISTENERS: PLAINTEXT://:9092,PLAINTEXT_INTERNAL://:19092,CONTROLLER://:9093
 
+      # Địa chỉ Kafka quảng bá ra ngoài để Client biết cách kết nối đến
+      # Dùng "localhost" vì Client chạy trên cùng máy host
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:19092
+
+      # Chỉ định tên listener nào được dùng cho giao tiếp nội bộ giữa các Controller
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT_INTERNAL   # Broker để giao tiếp nội bộ với nhau
+
+      # Ánh xạ tên listener với kiểu bảo mật tương ứng
+      # PLAINTEXT = không mã hóa, phù hợp cho môi trường học tập
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+
+      # --- THÔNG SỐ CỤM (CLUSTER) ---
+      CLUSTER_ID: "my-kafka-cluster-1"              # ID định danh cho toàn bộ cụm Kafka
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1     # Số bản sao dữ liệu cho topic nội bộ
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1  # Đặt là 1 vì chỉ có 1 node
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1        # Số replica tối thiểu phải đồng bộ
+
+    volumes:
+      - kafka_data:/var/lib/kafka/data  # Gắn volume để dữ liệu không bị mất khi container khởi động lại
+
+    healthcheck:
+      # Lệnh kiểm tra xem Kafka đã thực sự "sống" và sẵn sàng phục vụ chưa
+      test:
+        [
+          "CMD-SHELL",
+          "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 || exit 1",
+        ]
+      interval: 10s  # Cứ 10 giây kiểm tra một lần
+      timeout: 5s    # Quá 5 giây không phản hồi thì coi như lần đó thất bại
+      retries: 10    # Thử lại tối đa 10 lần trước khi báo trạng thái "Unhealthy"
+
+    logging: *default-logging  # Tái sử dụng cấu hình log đã khai báo ở trên
+
+# ============================================================================
+# SERVICE 2: REDPANDA CONSOLE (GIAO DIỆN QUẢN LÝ KAFKA)
+# Cung cấp dashboard web để xem Topics, Messages, Consumer Groups...
+# mà không cần gõ lệnh trong terminal
+# Truy cập tại: http://localhost:9091
+# ============================================================================
+  redpanda-console:
+    image: redpandadata/console:latest
+    container_name: redpanda-console
+    ports:
+      - "9091:8080"
+    environment:
+      KAFKA_BROKERS: kafka:19092
     depends_on:
-      - zookeeper  # Kafka chỉ khởi động sau khi Zookeeper đã chạy
+      kafka:
+        condition: service_healthy
 
-    ports:
-      - "9092:9092"   # port cho client bên ngoài (app trên máy)
-      - "9101:9101"   # port cho JMX monitoring (theo dõi metric Kafka)
+    healthcheck:
+      # Kiểm tra endpoint sức khỏe của Redpanda Console
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/api/status || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
 
-    environment:
+    logging: *default-logging
 
-      # ID của Kafka broker
-      # nếu có nhiều broker thì mỗi broker phải có ID khác nhau
-      KAFKA_BROKER_ID: 1
-
-      # địa chỉ kết nối tới Zookeeper
-      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
-
-      # mapping listener với security protocol
-      # PLAINTEXT nghĩa là không mã hóa
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-
-
-      # địa chỉ Kafka sẽ quảng bá cho client kết nối
-      # format: protocol://host:port
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker:29092,PLAINTEXT_HOST://localhost:9092
-
-      # PLAINTEXT://broker:29092
-      # dùng cho container khác trong docker network
-
-      # PLAINTEXT_HOST://localhost:9092
-      # dùng cho application chạy trên máy host
-
-
-      # bật hệ thống metric của Confluent
-      KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
-
-
-      # replication factor cho topic __consumer_offsets
-      # vì chỉ có 1 broker nên phải đặt =1
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-
-
-      # thời gian delay trước khi consumer group rebalance
-      # đặt 0 giúp consumer join group nhanh hơn (phù hợp môi trường dev)
-      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
-
-
-      # replication factor cho topic license của Confluent
-      KAFKA_CONFLUENT_LICENSE_TOPIC_REPLICATION_FACTOR: 1
-
-
-      # replication factor cho topic load balancer
-      KAFKA_CONFLUENT_BALANCER_TOPIC_REPLICATION_FACTOR: 1
-
-
-      # số broker tối thiểu phải sync transaction log
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-
-
-      # replication factor cho transaction state log
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-
-
-      # port cho JMX monitoring
-      KAFKA_JMX_PORT: 9101
-
-
-      # hostname cho JMX
-      KAFKA_JMX_HOSTNAME: localhost
-
-
-      # Kafka broker để gửi metric
-      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: broker:29092
-
-
-      # replication factor cho metric topic
-      CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
-
-
-      # bật hệ thống metrics
-      CONFLUENT_METRICS_ENABLE: 'true'
-
-
-      # ID khách hàng (ở đây để anonymous)
-      CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
-
-
-  # =============================
-  # 3. CONTROL CENTER (Kafka UI)
-  # =============================
-  control-center:
-    image: confluentinc/cp-enterprise-control-center:7.7.0  # UI quản lý Kafka
-    hostname: control-center
-    container_name: control-center
-
-    depends_on:
-      - broker  # Control Center chỉ chạy sau khi Kafka broker chạy
-
-    ports:
-      - "9021:9021"  # port truy cập web UI
-
-    environment:
-
-      # Kafka cluster để Control Center kết nối
-      CONTROL_CENTER_BOOTSTRAP_SERVERS: 'broker:29092'
-
-
-      # replication factor cho topic nội bộ
-      CONTROL_CENTER_REPLICATION_FACTOR: 1
-
-
-      # số partition cho topic nội bộ
-      CONTROL_CENTER_INTERNAL_TOPICS_PARTITIONS: 1
-
-
-      # partition cho monitoring topic
-      CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_PARTITIONS: 1
-
-
-      # replication factor cho metrics topic
-      CONFLUENT_METRICS_TOPIC_REPLICATION: 1
-
-
-      # port chạy web UI
-      PORT: 9021
+# Khai báo volume ở cấp cao nhất để Docker quản lý vùng lưu trữ dữ liệu
+volumes:
+  kafka_data:
+    driver: local
