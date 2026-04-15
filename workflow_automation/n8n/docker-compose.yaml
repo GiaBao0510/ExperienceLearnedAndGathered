@@ -1,0 +1,25 @@
+# docker-compose.yml
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    container_name: n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - GENERIC_TIMEZONE=Asia/Ho_Chi_Minh
+      - TZ=Asia/Ho_Chi_Minh
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+      - N8N_RUNNERS_ENABLED=true
+      - N8N_LOG_LEVEL=warn        # chỉ ghi warn trở lên
+    volumes:
+      - n8n_data:/home/node/.n8n
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"           # mỗi file tối đa 10MB
+        max-file: "3"             # giữ tối đa 3 file (~30MB)
+
+volumes:
+  n8n_data:
+    external: true
