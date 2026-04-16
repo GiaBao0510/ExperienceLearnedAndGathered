@@ -268,3 +268,10 @@ AkavacheSqliteLinkerOverride.cs
 NuGetBuild
 WiX.Toolset.DummyFile.txt
 GitHubVS.sln.DotSettings
+
+# unimportant folder
+**/bin/
+**/obj/
+**/Debug/
+**/.vs/
+**/.obsidian/

@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\web2.props" />
-</Project>
