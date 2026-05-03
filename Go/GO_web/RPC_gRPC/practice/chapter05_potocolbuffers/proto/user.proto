@@ -1,0 +1,63 @@
+// Khai báo phiên bản của Protocol Buffers
+syntax = "proto3";
+
+// Định nghĩa tên package cho protobuf
+package user;
+
+// Tùy chọn gói Go để chỉ định nơi lưu trữ mã Go được tạo từ file .proto
+option  go_package = "./";
+
+// Enum định nghĩa tập hợp
+enum Role {
+    ROLE_UNSPECIFIED = 0; // Giá trị mặc định
+    ROLE_ADMIN = 1; // Vai trò quản trị viên
+    ROLE_USER = 2; // Vai trò người dùng
+    ROLE_GUEST = 3; // Vai trò khách
+}
+
+// Định nghĩa một message User với các trường id, name và email
+message User {
+    int32 id = 1; // ID của người dùng
+    string name = 2; // Tên của người dùng
+    string email = 3; // Email của người dùng
+    Role role = 4; // Vai trò của người dùng
+    repeated string hobbies = 5; // Danh sách sở thích của người dùng
+}
+
+// Repeated field để định nghĩa một danh sách các User
+message UserList {
+    repeated User users = 1; // Danh sách người dùng
+    repeated string tang2 = 2; // Danh sách các chuỗi tang2
+}
+
+// oneof = chỉ một field được set tại một thời điểm
+// Tương đương union trong C hoặc sealed class trong Kotlin
+message Notification{
+    string title = 1; // Tiêu đề thông báo
+    oneof content {
+        string message = 2; // Nội dung thông báo dưới dạng chuỗi
+        bytes image = 3; // Nội dung thông báo dưới dạng hình ảnh (dữ liệu nhị phân)
+        string video = 4; // Nội dung thông báo dưới dạng video (đường dẫn hoặc dữ liệu nhị phân)
+    }
+}
+
+// Service định nghĩa các hàm RPC mà server cung cấp
+service UserService {
+    // Unary RPC: 1 request → 1 response
+    rpc GetUser (GetUserRequest) returns (User);
+
+    // Server streaming: 1 request → nhiều response
+    rpc ListUser (ListUserRequest) returns (stream User );
+
+    // Client streaming: nhiều request → 1 response
+    rpc CreateUser ( stream CreateUserRequest) returns (CreateUserResponse);
+
+    // Bidirectional streaming: nhiều request ↔ nhiều response
+    rpc Chat(stream ChatMessage) returns (stream ChatMessage);
+}
+
+message GetUserRequest{ int32 id = 1; } // Request để lấy thông tin người dùng theo ID
+message ListUserRequest{ int32 page = 1; int32 page_size = 2; } // Request để lấy danh sách người dùng theo trang và kích thước trang
+message CreateUserRequest{ string name = 1; string email = 2; } // Request để tạo người dùng mới với tên và email
+message CreateUserResponse{ int32 id = 1; } // Response trả về ID của người dùng mới được tạo
+message ChatMessage {string from = 1; string message = 2;} // Message để gửi trong cuộc trò chuyện, bao gồm người gửi và nội dung tin nhắn

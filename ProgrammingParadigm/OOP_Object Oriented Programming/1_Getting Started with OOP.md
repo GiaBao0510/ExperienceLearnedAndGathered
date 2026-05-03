@@ -91,3 +91,14 @@ Các lập trình viên, kỹ sư phần mềm,...
 
 **How: Lập trình hướng đối tượng áp dụng bằng cách nào?** 
 Bằng cách chia chương trình thành các lớp (class), sau đó tạo ra các đối tượng (object) từ lớp để xử lý nghiệp vụ. Mỗi lớp định nghĩa thuộc tính và hành vi để mô tả logic chương trình
+
+---
+Dưới đây là tóm tắt về cách các [nguyên tắc OOP trong Go](https://viblo.asia/p/undefined-07LKXA7kZV4).
+
+> ### Encapsulation --> _Packages_
+> 
+> ### Inheritance --> _Composition_
+> 
+> ### Polymorphism --> _Interfaces_
+> 
+> ### Abstraction ---> _Embedding_

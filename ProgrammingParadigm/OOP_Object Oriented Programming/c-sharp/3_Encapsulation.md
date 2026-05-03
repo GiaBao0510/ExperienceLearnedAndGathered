@@ -4,7 +4,7 @@
 **Tính đóng gói** là quy trình giữ và che giấu một hoặc nhiều thành phần thành với một gói vật lý hoặc logic. Trong phương pháp lập trình hướng đối tượng, nó ngăn việc truy cập vào chi tiết triển khai bên trong đối tượng hay thư viện.
 
 Đóng gói không chỉ ẩn dữ liệu mà còn:
-- Đảm bảo dữ liệu ở trạng thái hợp lệ thông qua kiểm tra trong getter/setter.
+- Đảm bảo dữ liệu ở trạng thái hợp lệ thông qua kiểm tra trong **getter/setter** (c#).
 - Cung cấp giao diện an toàn để tương tác với lớp.
 - Giảm sự phụ thuộc giữa các thành phần trong hệ thống (loose coupling).
 
