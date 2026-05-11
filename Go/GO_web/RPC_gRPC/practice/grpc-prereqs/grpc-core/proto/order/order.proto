@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+// Package của gRPC để tránh xung đột khi nhiều .proto được sử dụng cùng nhau
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = "grpc-prereqs/grpc-core/gen/order";
+
+// Message định nghĩa Order
+message Order {
+    int32 id = 1; // ID của đơn hàng
+    int32 user_id = 2; // ID của người dùng đặt hàng
+    Status status = 3; // Trạng thái đơn hàng
+    float total = 4; // Tổng giá trị đơn hàng
+    google.protobuf.Timestamp created_at = 5; // Thời gian tạo đơn hàng
+}
+
+// Enum định nghĩa trạng thái của đơn hàng
+enum Status {
+    STATUS_UNKNOWN = 0; // Trạng thái không xác định
+    STATUS_PENDING = 1; // Đang chờ xử lý
+    STATUS_COMPLETED = 2; // Đã hoàn thành
+    STATUS_CANCELLED = 3; // Đã hủy
+}
+
+// Service định nghĩa các phương thức gRPC
+service OrderService {
+    // Unary: 1 request - 1 response
+    rpc GetOrder(GetOrderRequest) returns (Order);
+    rpc CreateOrder(CreateOrderRequest) returns (Order);
+    rpc UpdateOrder(UpdateOrderRequest) returns (Order);
+    rpc DeleteOrder(DeleteOrderRequest) returns (google.protobuf.Empty);
+    rpc ListOrders(ListOrdersRequest) returns (stream Order);
+}
+
+// Request để lấy thông tin đơn hàng
+message GetOrderRequest { int32 id = 1; } // ID của đơn hàng cần lấy thông tin
+message CreateOrderRequest {
+    int32 user_id = 1; // ID của người dùng đặt hàng
+    float total = 2; // Tổng giá trị đơn hàng
+    Status status = 3; // Trạng thái đơn hàng
+}
+message UpdateOrderRequest {
+    int32 id = 1; // ID của đơn hàng cần cập nhật
+    int32 user_id = 2; // ID của người dùng đặt hàng
+    float total = 3; // Tổng giá trị đơn hàng
+    Status status = 4; // Trạng thái đơn hàng
+}
+message DeleteOrderRequest { int32 id = 1; } // ID của đơn hàng cần xóa
+message ListOrdersRequest { int32 user_id = 1; } // ID của người dùng

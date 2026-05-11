@@ -1,0 +1,65 @@
+// Phiên bản của Protobuf
+syntax = "proto3";
+
+// Package của gRPC để tránh xung đột khi nhiều .proto được sử dụng cùng nhau
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+// Định nghĩa package path - phải khớp với module path trong go.mod
+option go_package = "grpc-prereqs/grpc-core/gen/user";
+
+// Message định nghĩa User
+message User {
+    int32 id = 1; // ID của người dùng
+    string name = 2; // Tên của người dùng
+    string email = 3; // Email của người dùng
+    Role role = 4;
+    google.protobuf.Timestamp created_at = 5; // Thời gian tạo tài khoản
+}
+
+// Enum định nghĩa vai trò của người dùng
+enum Role {
+    ROLE_UNKNOWN = 0; // Vai trò không xác định
+    ROLE_ADMIN = 1; // Quản trị viên
+    ROLE_USER = 2; // Người dùng thông thường
+}
+
+// Service định nghĩa các phương thức gRPC
+service UserService {
+    // Unary: 1 request - 1 response
+    rpc GetUser(GetUserRequest) returns (User);
+    rpc CreateUser(CreateUserRequest) returns (User);
+    rpc UpdateUser(UpdateUserRequest) returns (User);
+    rpc DeleteUser(DeleteUserRequest) returns (google.protobuf.Empty);
+
+    // Server streaming: 1 request - nhiều response
+    rpc ListUsers(ListUsersRequest) returns (stream User);
+
+    // Client streaming: nhiều request - 1 response
+    rpc BatchCreate (stream CreateUserRequest) returns (User);
+
+    // Bidirectional streaming: nhiều request - nhiều response
+    rpc Chat(stream ChatMessage) returns (stream ChatMessage);
+}
+
+// Request để lấy thông tin người dùng
+message ChatMessage {
+    int32 from_user_id = 1; // ID người gửi
+    int32 to_user_id = 2; // ID người nhận
+    string message = 3; // Nội dung tin nhắn
+    google.protobuf.Timestamp timestamp = 4; // Thời gian gửi tin nhắn
+}
+message GetUserRequest { int32 id = 1; } // ID của người dùng cần lấy thông tin
+message CreateUserRequest {
+    string name = 1; // Tên của người dùng mới
+    string email = 2; // Email của người dùng mới
+    Role role = 3; // Vai trò của người dùng mới
+}
+message UpdateUserRequest {
+    int32 id = 1; // ID của người dùng cần cập nhật
+    string name = 2; // Tên mới của người dùng
+    string email = 3; // Email mới của người dùng
+    Role role = 4; // Vai trò mới của người dùng
+}
+message DeleteUserRequest { int32 id = 1; } // ID của người dùng cần xóa
+message ListUsersRequest {} // Không có trường nào, chỉ đơn giản là yêu cầu danh sách người dùng
