@@ -85,7 +85,7 @@ Trong mô hình này, các module hoạt động một cách **liên kết chặ
 ```
 User → UI → Business Logic → Data Access → Database
   ↑                                            │
-  └────────────── Response ───────────────────┘
+  └────────────── Response ────────────────────┘
 ```
 
 ### **Chi tiết từng tầng:**

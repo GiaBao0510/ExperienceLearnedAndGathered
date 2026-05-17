@@ -1,1 +1,0 @@
-Khi người dùng thực hiện việc đăng xuất. Thì sẽ gửi RefreshToken và AccessToken thông qua API với phương thức post về server. Server sẽ dò các Token này trên whitelist thuộc kiểu SortedList trong redis nếu tìm thấy token trùng khớp thì sẽ xóa đi token này.

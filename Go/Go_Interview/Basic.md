@@ -121,10 +121,10 @@ Cách thiết kế này giúp Go đạt được sự linh hoạt tuyệt vời:
 3. **Hạn chế phụ thuộc:** Bạn có thể định nghĩa interface ở nơi sử dụng, thay vì nơi tạo ra đối tượng.
 
 ---
-#### **8. Slice là gì?** [Trả lời](Go/Go_Tutorial/28_Slice)
+#### **8. Slice là gì?** [Trả lời](28_Slice.md)
 
 ---
-#### **9.  Pointer trong go [Trả lời](Go/Go_Tutorial/21_Pointer)
+#### **9.  Pointer trong go [Trả lời](21_Pointer.md)
 
 ---
 

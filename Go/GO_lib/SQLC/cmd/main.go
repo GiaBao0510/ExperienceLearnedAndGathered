@@ -29,7 +29,7 @@ func main() {
 		Uuid:        "1212",
 		UserName:    "John",
 		Email:       "john@example.com",
-		PhoneNumber: "1234567890",
+		PhoneNumber: sql.NullString{String: "123456789", Valid: true},
 		Password:    "123456",
 	})
 	if err != nil {

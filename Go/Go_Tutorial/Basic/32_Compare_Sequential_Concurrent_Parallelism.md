@@ -71,14 +71,14 @@ Trong thực tế, trên mỗi nhân CPU vẫn xảy ra xử lý đồng thời 
 
 ### 2.5. Bảng So Sánh Tổng Hợp
 
-||Sequential|Concurrent|Parallel|Concurrent + Parallel|
-|---|---|---|---|---|
-|**Số nhân CPU**|1|1+|2+|2+|
-|**Cùng lúc thật sự?**|❌|❌|✅|✅|
-|**Nhiều tác vụ?**|❌|✅|✅|✅|
-|**Độ phức tạp**|Thấp|Trung bình|Cao|Rất cao|
-|**Ví dụ**|Script đơn giản|Web server 1 nhân|Render video|Web server hiện đại|
-
+|                       | Sequential      | Concurrent        | Parallel     | Concurrent + Parallel |
+| --------------------- | --------------- | ----------------- | ------------ | --------------------- |
+| **Số nhân CPU**       | 1               | 1+                | 2+           | 2+                    |
+| **Cùng lúc thật sự?** | ❌               | ❌                 | ✅            | ✅                     |
+| **Nhiều tác vụ?**     | ❌               | ✅                 | ✅            | ✅                     |
+| **Độ phức tạp**       | Thấp            | Trung bình        | Cao          | Rất cao               |
+| **Ví dụ**             | Script đơn giản | Web server 1 nhân | Render video | Web server hiện đại   |
+-
 > Bạn có thể xem thêm bài diễn thuyết của Rob Pike phân biệt hai mô hình tại [đây](https://blog.golang.org/concurrency-is-not-parallelism).
 
 ---
@@ -180,6 +180,12 @@ func main() {
 }
 ```
 
+_Output:_
+```shell
+> go run .
+Xin chào main goroutine
+```
+
 **Vấn đề:** Chương trình trên có thể chỉ in ra một dòng, hoặc in cả hai nhưng không theo thứ tự nhất định. Nguyên nhân: khi `main()` kết thúc, **toàn bộ chương trình dừng lại** — kể cả các goroutine đang chạy dở.
 
 **Giải pháp tạm thời** — dùng `time.Sleep`:
@@ -199,6 +205,13 @@ func main() {
     // Chờ 1 giây để goroutine kia có thời gian chạy
     time.Sleep(time.Second)
 }
+```
+
+_Output:_
+```shell
+> go run .
+Xin chào main goroutine
+Xin chào goroutine
 ```
 
 > **Lưu ý:** Dùng `time.Sleep` để đồng bộ goroutine là cách **không tốt** trong thực tế vì không đảm bảo chắc chắn. Cách đúng là dùng `sync.WaitGroup` hoặc **channel** (sẽ được trình bày ở bài sau).
@@ -249,7 +262,6 @@ Chương trình kết thúc
 - `time.Sleep(3 * time.Second)` ở `main()` để chờ các goroutine hoàn thành.
 
 ---
-
 ### Ví dụ 3: Goroutine Với `sync.WaitGroup` (Cách Đúng)
 
 ```go
@@ -266,7 +278,7 @@ func main() {
     for i := 0; i < 5; i++ {
         wg.Add(1) // Báo WaitGroup có thêm 1 goroutine cần chờ
         go func(id int) {
-            defer wg.Done() // Báo goroutine này hoàn thành
+            defer wg.Done() // Báo goroutine này hoàn thành (Giải phóng goutine đã hoàn thành)
             fmt.Println("Goroutine:", id)
         }(i)
     }

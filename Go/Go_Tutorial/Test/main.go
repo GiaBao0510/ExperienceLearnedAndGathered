@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 // func Test(s string) string{
-	
+
 // }
 
 func reverse(s string) string{
@@ -53,6 +54,7 @@ func Test(s string, k int) string{
 }
 
 func main() {
-	s := "abcdefghkij"
-	fmt.Println(s[6:8])
+    go fmt.Println("Xin chào goroutine")
+    fmt.Println("Xin chào main goroutine")
+	time.Sleep(1 * time.Second) // Đợi goroutine hoàn thành
 }
