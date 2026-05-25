@@ -22,7 +22,7 @@
 - Ổn định (stable), không thay đổi thứ tự các phần tử bằng nhau.
 
 **Nhược điểm:**
-- Độ phức tạp thời gina ***O(n^2)*** kém hiệu quả với dữ liệu lớn.
+- Độ phức tạp thời gian ***O(n^2)*** kém hiệu quả với dữ liệu lớn.
 
 ---
 #### **Hình minh họa:**
@@ -31,7 +31,7 @@
 
 ---
 #### **Code:**
-```
+```c
 public static void InsertionSort(int[] arr){
 
 	int n = arr.Length;
@@ -48,6 +48,22 @@ public static void InsertionSort(int[] arr){
 
 		//Chèn key vào vị trí đã đúng
 		arr[j+1] = key;        
+	}
+}
+```
+
+```go
+// Hàm sắp xếp mảng sử dụng thuật toán Insertion Sort
+func InsertionSort(arr []int) {
+	for i := 0; i < len(arr); i++{
+		key := arr[i]
+
+		j := i - 1
+		for j >= 0 && arr[j] > key {
+			arr[j+1] = arr[j]
+			j--
+		}
+		arr[j+1] = key
 	}
 }
 ```

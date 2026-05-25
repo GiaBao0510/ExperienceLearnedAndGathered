@@ -14,11 +14,34 @@
 - Độ phức tạp không gian O(n) do cần bộ nhớ để lưu trữ mảng tạm.
 
 ---
-#### **3. Các bước thực hiện Meger Sort:**
+### **Ý tưởng thuật toán:**
+1. Nếu độ dài mảng không lớn hơn 1 phần tử thì coi như xong, không thực hiện gì thêm
+2. Nếu độ dài mảng nhiều hơn 1 phần tử, thì chia đôi mảng ra thành hai thành phần bằng nhau hoặc gần bằng nhau
+3. Sắp xếp 2 dãy con này
+4. Gộp 2 dãy có thứ tự này thành dãy có kích thước ban đầu
 
-1. Chia mảng: thực hiện chia mảng thành 2 nửa.
-2. Gọi đệ quy: Gọi Meger Sort cho từng nửa.
-3. Trộn 2 nửa: Trộn 2 nữa đã sắp xếp lại với nhau
+---
+### **3. Các bước thực hiện Meger Sort:**
+
+#### 1. Chia mảng: thực hiện chia mảng thành 2 nửa.
+
+Việc này coi như dễ, cho rằng
+- Dãy thứ nhất bắt đầu từ `left` đến `mid`
+- Dãy thứ 2 bắt đầu từ `mid + 1` đến `right`
+Ở đây thì `mid` và vị trí ngay giữa mảng: `mid = (left + right) / 2`
+
+#### 2. Sắp xếp 2 dãy con này.
+ Chỉ cần gọi đệ quy là được
+ Thì biết rằng, nguyên tắt để có thể dùng đệ quy thì ta cần tuân thủ theo một số điều kiện như sau:
+ - Có tồn tại trường hợp thoát đệ quy
+ - Có cách tổng hợp lại kết quả từ bài toán lớn, từ các bài toán con đệ quy
+Thì ở đây, điều kiện thứ (1) đã có "độ dài mảng không lớn hơn 1 phần tử"
+Còn điều kiện thứ 2 dẽ nói ở bước tiếp theo
+#### 3. Trộn 2 nửa: Trộn 2 nữa đã sắp xếp lại với nhau
+
+Bài toán cho 2 dãy đã được sắp xếp tăng dần, hẫy gộp chúng lại thành một dãy mới. Dãy mới phải đảm bảo cũng được sắp xếp tăng dần
+
+Cách giải quyết đơn giản là ta chỉ chần giải thuật O (M + N) là có thể giải quyết được (với N và M lần lượt là kích thước của 2 dãy con).
 
 ---
 #### **4. Ưu, nhược điểm:**
@@ -28,7 +51,6 @@
 **Nhược điểm:**
 - Cần thêm bộ nhớ phụ ***O ( n )*** để lưu trữ mảng tạm.
 - Không phải là thuật toán tại chỗ (in-place).
-
 
 ---
 #### **5. Hình minh họa:**
@@ -95,10 +117,84 @@ public static void Sort(int[] arr, int left, int right){
 		Sort(arr, left, mid);
 		Sort(arr, mid+1, right);
 
-
-
 		//Trộn 2 mảng đã sắp xếp lại với nhau
 		Merge(arr, left, mid, right);
 	}
 }
 ```
+
+```go
+// Hàm gộp hai phần đã sắp xếp
+func Sort(arr []int, left, right int) {
+	if left < right {
+		mid := left + (right-left)/2
+
+		// Gọi đệ quy để thực hiện phân tách và sắp xếp
+		Sort(arr, left, mid)
+		Sort(arr, mid+1, right)
+
+		// Gộp hai phần đã sắp xếp
+		Merge(arr, left, mid, right)
+
+	}
+}
+
+// Hàm gộp hai phần đã sắp xếp
+func Merge(arr []int, left, mid, right int) {
+
+	// Tính kích thước của hai phần đã sắp xếp
+	n1 := mid - left + 1 // Lấy độ dài của phần bên trái
+	n2 := right - mid    // Lấy độ dài của phần bên phải
+
+	// Tạo mảng tạm để lưu trữ phần đã sắp xếp
+	L := make([]int, n1)
+	R := make([]int, n2)
+
+	// Sao chép dữ liệu vào mảng tạm
+	for i := 0; i < n1; i++ {
+		L[i] = arr[left+i]
+	}
+	for j := 0; j < n2; j++ {
+		R[j] = arr[mid+1+j]
+	}
+
+	// Trộn 2 mảng con lại thành một mảng đã sắp xếp
+	k := left
+	x, y := 0, 0
+	for x < n1 && y < n2 {
+		if L[x] <= R[y] {
+			arr[k] = L[x]
+			x++
+		} else{
+			arr[k] = R[y]
+			y++
+		}
+		k++
+	}
+
+	// Sao chép phần còn lại của mảng L nếu có
+	for x < n1 {
+		arr[k] = L[x]
+		x++
+		k++
+	}
+
+	// Sao chép phần còn lại của mảng R nếu có
+	for y < n2 {
+		arr[k] = R[y]
+		y++
+		k++
+	}
+
+}
+```
+
+----
+### **So sánh thuật Quick sort:**
+
+1. Tính ổn định: Ổn định hơn Quick Sort
+2. Không gian lưu trữ: Tốn bộ nhớ gấp đôi Quick Sort (do phải lưu mảng tạm)
+3. Cài đặt: Ý tưởng đơn giản, nhưng cài đặt dài dòng hơn Quick Sort.
+
+---
+### Kết luận:

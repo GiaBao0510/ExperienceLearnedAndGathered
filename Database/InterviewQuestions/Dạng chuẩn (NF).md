@@ -7,6 +7,8 @@ Trong một quan hệ, nếu giá trị của bộ thuộc tính A có thể suy
 ***Ví dụ:*** HocSinh(MaHS, TenHS, NgaySinh)
 TenHS và NgaySinh điều là thuộc tính phụ thuộc hàm vào MaHS
 
+![](https://i.sstatic.net/uvaNW.png)
+
 #### **Phụ thuộc hàm đầy đủ, phụ thuộc bộ phận:**
 Trong một quan hệ, bộ thuộc tính A phụ thuộc hàm vào bộ thuộc tính B. Nếu loại bỏ một thuộc tính bất kỳ trong bộ thuộc tính B mà A vẫn phụ thuộc hàm vào B thì A được gọi là phụ thuộc hàm đầy đủ vào B. Ngược lại, A được gọi là phụ thuộc bộ phận vào B.
 
