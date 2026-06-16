@@ -274,7 +274,6 @@ Thư mục chứa toàn bộ mã nguồn cốt lõi của ứng dụng. Trong Go
 - `po/`: Struct ánh xạ trực tiếp với bảng database (1-to-1 với schema). Tách `po/` khỏi `model/` giúp tránh coupling giữa database schema và business logic.
 
 ---
-
 ## `manifest/` (hoặc `deploy/`)
 
 Chứa các file khai báo và cấu hình phục vụ cho việc triển khai và vận hành hệ thống. Các thư mục con thường gặp:
@@ -289,7 +288,6 @@ Chứa các file khai báo và cấu hình phục vụ cho việc triển khai v
 
 
 ---
-
 ## `resource/` (hoặc `static/`)
 
 Chứa tài nguyên tĩnh phục vụ ứng dụng. Các thư mục con thường gặp:
@@ -300,13 +298,11 @@ Chứa tài nguyên tĩnh phục vụ ứng dụng. Các thư mục con thườn
 | `template/` | File template HTML hoặc template email dùng để render nội dung động |
 
 ---
-
 ## `deployments/` (hoặc `deploy/`)
 
 Chứa toàn bộ cấu hình và script liên quan đến việc triển khai ứng dụng lên các môi trường khác nhau (CI/CD pipeline, infrastructure-as-code, environment config).
 
 ---
-
 ## Thông tin bổ sung
 
 ### 1. Phân biệt `dao/` và `repo/`
@@ -333,4 +329,60 @@ Trong thực tế, nhiều dự án dùng lẫn lộn hai khái niệm. Nguyên 
 | Clean Architecture / DDD | `domain/`, `application/`, `infrastructure/`, `interfaces/` |
 | Go standard layout       | `cmd/`, `internal/`, `pkg/`, `api/`, `configs/`, `scripts/` |
 
-Tham khảo thêm: [golang-standards/project-layout](https://github.com/golang-standards/project-layout) để hiểu quy ước chuẩn cho dự án Go.
+---
+#### `domain` vs `models` vs `entity` trong Backend
+
+Ba thư mục này **không hoàn toàn giống nhau**, nhưng ranh giới giữa chúng thường bị mờ tuỳ theo kiến trúc và convention của từng team. Hãy phân tích rõ:
+
+#### Ý nghĩa gốc của từng khái niệm
+
+| Thư mục  | Xuất phát từ               | Ý nghĩa cốt lõi                                               |
+| -------- | -------------------------- | ------------------------------------------------------------- |
+| `entity` | DDD, Clean Architecture    | Object ánh xạ trực tiếp với **database table**                |
+| `domain` | DDD (Domain-Driven Design) | **Business logic + rules** của bài toán                       |
+| `models` | MVC pattern                | Tầng dữ liệu chung, thường dùng để **transfer hoặc map** data |
+#### Phân tích chi tiết
+
+**`entity`** — _Database layer_
+
+```go
+// entity/user.go
+// Ánh xạ 1-1 với table "users" trong DB
+type User struct {
+    ID        int64     `gorm:"primaryKey"`
+    Email     string    `gorm:"uniqueIndex"`
+    Password  string
+    CreatedAt time.Time
+}
+```
+
+**`domain`** — _Business layer_
+
+```go
+// domain/user.go
+// Chứa business rules, không quan tâm DB lưu thế nào
+type User struct {
+    ID    int64
+    Email Email  // Value Object, có validation riêng
+    Role  Role
+}
+
+func (u *User) CanAccessResource(r Resource) bool { ... } // business logic
+func (u *User) ChangeEmail(newEmail string) error  { ... } // business rule
+```
+
+**`models`** — _Thường là DTO / shared struct_
+
+```go
+// models/user.go
+// Dùng để transfer data giữa các layer, hoặc bind request/response
+type CreateUserRequest struct {
+    Email    string `json:"email" validate:"required,email"`
+    Password string `json:"password" validate:"min=8"`
+}
+
+type UserResponse struct {
+    ID    int64  `json:"id"`
+    Email string `json:"email"`
+}
+```

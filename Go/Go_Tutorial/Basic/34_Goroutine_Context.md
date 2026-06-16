@@ -1,10 +1,9 @@
 # Goroutine và Context
 
 ![](https://www.digitalocean.com/api/static-content/v1/images?src=https%3A%2F%2Fcommunity-cdn-digitalocean-com.global.ssl.fastly.net%2Frdy4YmqgHCKE2BTGp6VR96rk&width=828)
-
 ## 1. Context Là Gì?
 
-**Context** là một cơ chế trong Go giúp quản lý vòng đời của các tác vụ đang chạy, đặc biệt khi làm việc với goroutine. Context cho phép:
+**Context** là một cơ chế trong Go giúp ==quản lý vòng đời của các tác vụ đang chạy, đặc biệt khi làm việc với goroutine==. Context cho phép:
 
 - **Hủy (cancel)** một goroutine từ bên ngoài khi không còn cần thiết
 - **Đặt thời hạn (timeout/deadline)** để tự động dừng tác vụ nếu chạy quá lâu
@@ -15,7 +14,6 @@ Hình dung đơn giản: context giống như một **hợp đồng công việc
 Điểm quan trọng cần nắm ngay từ đầu: **context không tự dừng goroutine**. Nó chỉ phát tín hiệu. Goroutine phải chủ động lắng nghe tín hiệu đó qua `ctx.Done()` và tự dừng lại.
 
 ---
-
 ## 2. Các Loại Context
 
 Package `context` cung cấp bốn hàm tạo context chính. Hiểu rõ từng loại giúp chọn đúng công cụ cho từng tình huống.
@@ -80,7 +78,6 @@ priority := ctx.Value(priorityKey).(string) // đọc lại giá trị
 Lý do không dùng string thô làm key: nếu hai package khác nhau đều dùng `"priority"` làm key, chúng sẽ ghi đè lên nhau. Dùng kiểu tự định nghĩa đảm bảo key là duy nhất theo namespace của package.
 
 ---
-
 ## 3. Tại Sao Luôn Phải `defer cancel()`?
 
 Mỗi context `WithCancel`, `WithTimeout`, `WithDeadline` đều giữ một số tài nguyên nội bộ (goroutine theo dõi timer, entry trong cây context cha-con). Nếu không gọi `cancel()`, các tài nguyên này tồn tại cho đến khi context cha bị hủy — gây **context leak**.
@@ -311,14 +308,7 @@ Hết thời gian: context deadline exceeded
 Hủy nướng pizza: context deadline exceeded
 ```
 
-Hai điểm cải thiện quan trọng so với code gốc:
-
-**Dùng buffered channel (`make(chan string, 1)`):** Nếu dùng unbuffered channel và goroutine gửi kết quả vào channel nhưng không có ai nhận (vì main đã thoát do timeout), goroutine sẽ bị block mãi — goroutine leak. Buffer size 1 cho phép goroutine gửi và thoát ngay cả khi main không nhận.
-
-**Vòng lặp theo `completed < total` thay vì `i < 3`:** Cách cũ dùng `for i := 0; i < 3; i++` cứng nhắc — nếu context hết hạn ở vòng đầu tiên, vòng lặp vẫn tiếp tục 2 lần nữa. Cách mới thoát ngay khi context hết hạn.
-
 ---
-
 ## 7. Context Propagation — Truyền Context Qua Chuỗi Hàm
 
 Trong thực tế, một request thường đi qua nhiều lớp hàm. Context cần được truyền xuyên suốt để tín hiệu hủy lan xuống đến tận cùng.
