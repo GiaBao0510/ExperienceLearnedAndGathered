@@ -163,8 +163,6 @@ SELECT * FROM users WHERE username = '' OR '1'='1' --' AND password = '...'
 
 > **Ví dụ thực tế:** Năm 2015, hai thiếu niên sử dụng SQL injection để xâm nhập cơ sở dữ liệu của **TalkTalk** (nhà cung cấp viễn thông Anh Quốc), đánh cắp thông tin cá nhân và tài chính của khoảng 157.000 khách hàng. Vụ việc dẫn đến phạt tiền 400.000 GBP từ cơ quan quản lý và thiệt hại ước tính 60 triệu GBP — phần lớn do TalkTalk không áp dụng các biện pháp bảo mật cơ bản như parameterized query.
 
-
-
 ---
 
 ## Ứng dụng AI trong Tấn công Mạng
