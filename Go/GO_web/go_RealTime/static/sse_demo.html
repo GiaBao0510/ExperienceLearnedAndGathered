@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>SSE Demo — Live Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    h1 { color: #38bdf8; margin-bottom: 0.25rem; }
+    .subtitle { color: #64748b; margin-bottom: 2rem; font-size: 0.9rem; }
+
+    .status-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.875rem;
+    }
+    .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #64748b;
+      transition: background 0.3s;
+    }
+    .dot.connected { background: #22c55e; animation: pulse 1.5s infinite; }
+    .dot.error { background: #ef4444; }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: border-color 0.3s;
+    }
+    .card.updated { border-color: #38bdf8; }
+    .card-label { font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 1px; }
+    .card-value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #f1f5f9;
+      margin: 0.25rem 0;
+    }
+    .card-unit { font-size: 0.8rem; color: #94a3b8; }
+
+    .bar-container {
+      height: 6px;
+      background: #334155;
+      border-radius: 3px;
+      margin-top: 0.75rem;
+      overflow: hidden;
+    }
+    .bar {
+      height: 100%;
+      border-radius: 3px;
+      background: #38bdf8;
+      transition: width 0.5s ease;
+    }
+    .bar.cpu { background: #f59e0b; }
+    .bar.mem { background: #8b5cf6; }
+
+    .log-box {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 1rem;
+    }
+    .log-box h3 { color: #94a3b8; font-size: 0.85rem; margin-bottom: 0.75rem; }
+    #log {
+      height: 200px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 0.8rem;
+    }
+    .log-entry { padding: 2px 0; border-bottom: 1px solid #0f172a; color: #64748b; }
+    .log-entry .ts { color: #38bdf8; }
+    .log-entry .ev { color: #22c55e; }
+
+    .controls { margin: 1rem 0; display: flex; gap: 0.75rem; }
+    button {
+      padding: 0.5rem 1.25rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    button:hover { opacity: 0.85; }
+    #btn-connect { background: #22c55e; color: #fff; }
+    #btn-disconnect { background: #ef4444; color: #fff; }
+  </style>
+</head>
+<body>
+  <h1>📡 SSE Live Dashboard</h1>
+  <p class="subtitle">Demo giao tiếp 1 chiều: Server → Client qua Server-Sent Events</p>
+
+  <div class="status-bar">
+    <div class="dot" id="dot"></div>
+    <span id="status-text">Chưa kết nối</span>
+    <span style="color:#475569; margin-left:auto">Event nhận được: <strong id="event-count">0</strong></span>
+  </div>
+
+  <div class="grid">
+    <div class="card" id="card-online">
+      <div class="card-label">👥 Người dùng online</div>
+      <div class="card-value" id="val-online">—</div>
+      <div class="card-unit">người đang hoạt động</div>
+      <div class="bar-container"><div class="bar" id="bar-online" style="width:0%"></div></div>
+    </div>
+
+    <div class="card" id="card-cpu">
+      <div class="card-label">⚙️ CPU Load</div>
+      <div class="card-value" id="val-cpu">—</div>
+      <div class="card-unit">% sử dụng</div>
+      <div class="bar-container"><div class="bar cpu" id="bar-cpu" style="width:0%"></div></div>
+    </div>
+
+    <div class="card" id="card-mem">
+      <div class="card-label">🧠 Memory Usage</div>
+      <div class="card-value" id="val-mem">—</div>
+      <div class="card-unit">% sử dụng</div>
+      <div class="bar-container"><div class="bar mem" id="bar-mem" style="width:0%"></div></div>
+    </div>
+
+    <div class="card" id="card-time">
+      <div class="card-label">🕐 Server Time</div>
+      <div class="card-value" id="val-time" style="font-size:1.5rem">—</div>
+      <div class="card-unit">giờ máy chủ</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button id="btn-connect" onclick="connect()">🔌 Kết nối SSE</button>
+    <button id="btn-disconnect" onclick="disconnect()" disabled>⛔ Ngắt kết nối</button>
+  </div>
+
+  <div class="log-box">
+    <h3>📋 Event Log (raw data từ server)</h3>
+    <div id="log"></div>
+  </div>
+
+  <script>
+    let eventSource = null;
+    let eventCount = 0;
+
+    function connect() {
+      if (eventSource) return;
+
+      // Tạo kết nối SSE — browser tự giữ kết nối và tự reconnect
+      eventSource = new EventSource('/sse');
+
+      // Lắng nghe event "connected" (event đầu tiên server gửi)
+      eventSource.addEventListener('connected', (e) => {
+        setStatus('connected', '✅ Đã kết nối — đang nhận dữ liệu...');
+        addLog('connected', e.data);
+      });
+
+      // Lắng nghe event "stats-update" (server push mỗi 2 giây)
+      eventSource.addEventListener('stats-update', (e) => {
+        const data = JSON.parse(e.data);
+        updateCards(data);
+        addLog('stats-update', e.data);
+        document.getElementById('event-count').textContent = ++eventCount;
+      });
+
+      // Xử lý lỗi kết nối (mất mạng, server tắt...)
+      eventSource.onerror = () => {
+        setStatus('error', '❌ Lỗi kết nối — đang thử lại...');
+      };
+
+      document.getElementById('btn-connect').disabled = true;
+      document.getElementById('btn-disconnect').disabled = false;
+    }
+
+    function disconnect() {
+      if (eventSource) {
+        eventSource.close();  // Đóng kết nối, browser KHÔNG tự reconnect nữa
+        eventSource = null;
+      }
+      setStatus('', '⚫ Đã ngắt kết nối');
+      document.getElementById('btn-connect').disabled = false;
+      document.getElementById('btn-disconnect').disabled = true;
+    }
+
+    function updateCards(data) {
+      // Cập nhật giá trị
+      document.getElementById('val-online').textContent = data.online_users;
+      document.getElementById('val-cpu').textContent = data.cpu_load;
+      document.getElementById('val-mem').textContent = data.memory_usage;
+      document.getElementById('val-time').textContent = data.server_time;
+
+      // Cập nhật progress bar
+      document.getElementById('bar-online').style.width = Math.min(data.online_users / 2, 100) + '%';
+      document.getElementById('bar-cpu').style.width = data.cpu_load + '%';
+      document.getElementById('bar-mem').style.width = data.memory_usage + '%';
+
+      // Hiệu ứng flash khi nhận data mới
+      ['card-online','card-cpu','card-mem','card-time'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('updated');
+        setTimeout(() => el.classList.remove('updated'), 400);
+      });
+    }
+
+    function setStatus(state, text) {
+      const dot = document.getElementById('dot');
+      dot.className = 'dot ' + state;
+      document.getElementById('status-text').textContent = text;
+    }
+
+    function addLog(event, data) {
+      const log = document.getElementById('log');
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+      const now = new Date().toLocaleTimeString('vi-VN');
+      entry.innerHTML = `<span class="ts">[${now}]</span> <span class="ev">${event}</span> → ${data}`;
+      log.prepend(entry);
+      // Giữ tối đa 50 log entries
+      while (log.children.length > 50) log.removeChild(log.lastChild);
+    }
+  </script>
+</body>
+</html>
