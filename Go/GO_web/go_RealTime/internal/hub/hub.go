@@ -148,7 +148,7 @@ func WritePump(ctx context.Context, client *Client, cancel context.CancelFunc) {
 		case msg, ok := <-client.Send:
 			if !ok {
 				// Channel đã bị đóng (Hub kick hoặc unregister)
-				_ = client.Conn.Close(websocket.StatusNornamClosure, "Hub đã ngắt kết nối")
+				_ = client.Conn.Close(websocket.StatusNormalClosure, "Hub đã ngắt kết nối")
 				return
 			}
 
@@ -165,7 +165,6 @@ func WritePump(ctx context.Context, client *Client, cancel context.CancelFunc) {
 
 		case <-ctx.Done():
 			// Context bị hủy (có thể do server shutdown hoặc client disconnect)
-			_ = client.Conn.Close(websocket.StatusNornamClosure, "Context bị hủy")
 			return
 		}
 	}
