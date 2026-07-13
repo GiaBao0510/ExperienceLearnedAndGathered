@@ -1,0 +1,14 @@
+# Biến môi trường — KHÔNG BAO GIỜ COMMIT
+.env
+
+# Binary
+go_RealTime
+*.exe
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

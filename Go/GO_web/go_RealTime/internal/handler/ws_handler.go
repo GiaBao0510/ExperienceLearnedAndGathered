@@ -27,11 +27,11 @@ type incomingMessage struct {
 }
 
 // broadcastSystemMsg gửi thông báo lên hệ thống (join/leave) đến tất cả client
-func(h *WSHandler) broadcastSystemMsg(content string) {
+func (h *WSHandler) broadcastSystemMsg(content string) {
 	msg := model.Message{
-		Type: model.TypeSystem,
-		Content: content,
-		Sender: "system",
+		Type:      model.TypeSystem,
+		Content:   content,
+		Sender:    "system",
 		Timestamp: time.Now(),
 	}
 	msgBytes, _ := json.Marshal(msg)
@@ -51,7 +51,7 @@ func (h *WSHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	// - websocket.Accept() sẽ thực hiện handshake và trả về *websocket.Conn
 	conn, err := websocket.Accept(w, r, &websocket.AcceptOptions{
 		// InsecureSkipVerify: Bỏ qua việc kiểm tra chứng chỉ TLS (chỉ nên dùng trong môi trường dev)
-		InsecureSkipVerify: true, 
+		InsecureSkipVerify: true,
 	})
 	if err != nil {
 		log.Println("[WS] WebSocket Accept error:", err)
@@ -73,9 +73,9 @@ func (h *WSHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	// Bước 3: Tạo Client object và đăng ký vào Hub
 	client := &hub.Client{
-		ID: clientID,
+		ID:   clientID,
 		Conn: conn,
-		Send: make(chan []byte,256),
+		Send: make(chan []byte, 256),
 	}
 	h.hub.Register(client)
 
@@ -125,9 +125,9 @@ func (h *WSHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 		// Tạo message chuẩn để broadcast
 		msg := model.Message{
-			Type: model.TypeChat,
-			Content: incoming.Content,
-			Sender: userName,
+			Type:      model.TypeChat,
+			Content:   incoming.Content,
+			Sender:    userName,
 			Timestamp: time.Now(),
 		}
 
@@ -139,8 +139,4 @@ func (h *WSHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 		h.hub.Broadcast(msgBytes)
 	}
-
-
-
-
 }

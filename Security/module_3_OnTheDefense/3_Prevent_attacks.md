@@ -28,8 +28,6 @@ Với mục tiêu đó, hãy cùng xem xét một số chiến lược mà các 
 
 • **Sử dụng phòng thủ nhiều lớp**
 
-
-
 ---
 
 ## **Reduce the attack surface (Giảm thiểu bề mặt tấn công)**

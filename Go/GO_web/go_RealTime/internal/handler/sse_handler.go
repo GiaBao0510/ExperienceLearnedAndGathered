@@ -84,11 +84,11 @@ func (h *SSEHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			}
 
 			// Ghi SSE event với đầy đủ các field
-			fmt.Fprintf(w, "id: %d\n", eventID)     // ID để reconnect từ đúng chỗ
-			fmt.Fprintf(w, "event: status-update\n") // tên event (client lọc theo tại đây)
-			fmt.Fprintf(w, "data: %s\n", data)      // nội dung event (dạng JSON)
-			fmt.Fprintf(w, "\n")                    // kết thúc event
-			flusher.Flush()                         // Đẩy dữ liệu xuống client ngay lập tức
+			fmt.Fprintf(w, "id: %d\n", eventID)                         // ID để reconnect từ đúng chỗ
+			fmt.Fprintf(w, "event: %s\n", model.SSE_Event_Stats_Update) // tên event (client lọc theo tại đây)
+			fmt.Fprintf(w, "data: %s\n", data)                          // nội dung event (dạng JSON)
+			fmt.Fprintf(w, "\n")                                        // kết thúc event
+			flusher.Flush()                                             // Đẩy dữ liệu xuống client ngay lập tức
 
 			log.Printf("[SSE] đã push event #%d đến %s\n", eventID, clientIP)
 			eventID++
