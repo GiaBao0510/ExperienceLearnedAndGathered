@@ -1,0 +1,155 @@
+## **5.1. Mô hình dữ liệu quan hệ (Relational Model) là gì?**
+
+**Định nghĩa:** Là mô hình biểu diễn dữ liệu dưới dạng các **bảng hai chiều (relation)**, do E.F. Codd đề xuất năm 1970. Mỗi bảng gồm các dòng (bản ghi) và cột (thuộc tính), và dữ liệu giữa các bảng liên kết với nhau qua khóa (key) chứ không phải qua con trỏ vật lý.
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20250111112649494919/relational_model.webp)
+
+**Thuật ngữ quan trọng cần phân biệt** (cùng 1 khái niệm nhưng có 2 bộ tên gọi — lý thuyết dùng tên hàn lâm, thực hành dùng tên thông dụng):
+
+|**Tên lý thuyết (Relational Model)**|**Tên thực hành (SQL)**|**Ý nghĩa**|
+|---|---|---|
+|**Relation**|Table|Một bảng dữ liệu|
+|**Tuple**|Row / Record|Một dòng dữ liệu|
+|**Attribute**|Column / Field|Một cột dữ liệu|
+|**Domain**|Data type|Tập giá trị hợp lệ của 1 cột (VD: domain của cột tuổi là số nguyên dương)|
+|**Degree**|Số cột|Số lượng attribute trong 1 relation|
+|**Cardinality**|Số dòng|Số lượng tuple trong 1 relation|
+
+> Lưu ý: từ "Cardinality" ở đây (số dòng trong bảng) **khác** với "Cardinality" trong ERD (Phần 1 bạn đã học — biểu thị quan hệ 1-1, 1-N, M-N). Đây là 2 nghĩa khác nhau của cùng 1 từ, dễ gây nhầm lẫn khi phỏng vấn.
+
+**Tính chất của một Relation (quan trọng, hay hỏi):**
+
+1.  Mỗi ô chỉ chứa **1 giá trị đơn** (atomic value) — không chứa danh sách hay bảng con bên trong. Đây chính là yêu cầu của **1NF** (bạn sẽ học kỹ ở Phần 6).
+2.  Không có 2 dòng nào giống hệt nhau hoàn toàn (nhờ Primary Key đảm bảo).
+3.  Thứ tự các dòng và các cột **không có ý nghĩa** — về mặt lý thuyết, bảng là 1 tập hợp (set), không phải danh sách có thứ tự. (Trong thực hành SQL, `ORDER BY` là cách ta áp thứ tự lên khi hiển thị, chứ bản thân bảng không có thứ tự cố định.)
+
+---
+## 5.2. Đại số quan hệ (Relational Algebra)
+
+**Định nghĩa:** Là tập hợp các phép toán hình thức (formal operations) dùng để thao tác trên các relation, tạo ra relation mới. Đây chính là **nền tảng lý thuyết** mà SQL được xây dựng dựa trên — mỗi câu lệnh SQL bạn viết, về bản chất là được bộ tối ưu hóa (query optimizer) của DB dịch thành 1 chuỗi các phép toán đại số quan hệ để thực thi.
+
+![](https://www.gatevidyalay.com/wp-content/uploads/2018/08/Relational-Algebra-Operators.png)
+
+Các phép toán cơ bản, ánh xạ trực tiếp sang SQL bạn đã học:
+
+|**Phép toán đại số**|**Ký hiệu**|**Tương đương SQL**|
+|--|--|--|
+|**Selection** (chọn dòng)|σ (sigma)|`where`|
+|**Projection** (chọn cột)|π (pi)|`SELECT column_list`|
+|**Union** (hợp)|∪|`UNION`|
+|**Difference** (hiệu)|-|`EXCEPT` (Postgres) / `MINUS` (Oracle)|
+|**Intersection** (giao)|∩|`INTERSECT`|
+|**Cartesian Product** (tích)|x|`CROSS JOIN`|
+|**Join** (kết nối có điều kiện)|⋈||`JOIN ... ON`
+|**Rename** (đổi tên)|ρ (rho)|`AS`|
+
+Ví dụ minh họa để bạn thấy sự tương ứng:
+```
+Đại số: π(name, price) (σ(price > 100) (products))
+```
+
+Đọc là: "lấy cột name, price" (Projection) của "các dòng có price > 100" (Selection) từ bảng products.
+
+sql
+
+```sql
+-- Chính là câu SQL này:
+SELECT name, price FROM products WHERE price > 100;
+```
+
+> **Vì sao cần biết cái này?** Khi phỏng vấn senior hoặc vị trí liên quan tối ưu hiệu năng, người ta hay hỏi "Query optimizer làm gì" — hiểu đại số quan hệ giúp bạn hiểu vì sao optimizer có thể **đổi thứ tự** các phép toán (VD: đẩy `Selection` xuống thực hiện sớm trước `Join` để giảm số dòng cần join — filter pushdown), từ đó bạn viết được query dễ tối ưu hơn.
+
+**Selection vs Projection — phân biệt dễ nhầm:**
+-   **Selection (σ)**: chọn **dòng** nào thỏa điều kiện → tương ứng `WHERE`.
+-   **Projection (π)**: chọn **cột** nào muốn giữ lại → tương ứng danh sách cột trong `SELECT`.
+
+Nhiều bạn mới học hay nhầm 2 từ này vì tên tiếng Anh khá giống nhau về ngữ cảnh "lựa chọn", nhưng bản chất khác hẳn (dòng vs cột).
+
+#### 5.3. Ràng buộc dữ liệu (Data Constraints/Integrity Constraints)
+
+**Định nghĩa:** Là các quy tắc được định nghĩa trên schema để đảm bảo dữ liệu luôn **hợp lệ và nhất quán** — DB sẽ tự động từ chối (reject) bất kỳ thao tác nào vi phạm ràng buộc.
+
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEZC0jPkISNfvU-ITfkaFB1vAegrx3H3IFLpa-9zUqkknFLxo8PaddgOpO&s=10)
+
+Có 3 loại ràng buộc toàn vẹn (integrity constraint) kinh điển trong lý thuyết, bạn cần phân biệt rõ:
+
+**a) Entity Integrity (Toàn vẹn thực thể)**
+
+Quy tắc: **Primary Key không được NULL và không được trùng lặp.** Đảm bảo mỗi dòng dữ liệu định danh được duy nhất.
+
+```sql
+CREATE TABLE customers (
+    id SERIAL PRIMARY KEY,   -- tự động NOT NULL + UNIQUE
+    name VARCHAR(100)
+);
+
+**b) Referential Integrity (Toàn vẹn tham chiếu)**
+
+Quy tắc: giá trị **Foreign Key** ở bảng con phải hoặc là NULL, hoặc phải **tồn tại** trong bảng cha (bảng được tham chiếu). Không được phép có bản ghi "mồ côi" (orphan record) trỏ đến 1 dòng không tồn tại.
+
+```sql
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    customer_id INT REFERENCES customers(id)  -- FK: phải tồn tại trong customers.id hoặc NULL
+);
+
+-- DB sẽ từ chối nếu customer_id = 999 mà không tồn tại trong customers
+INSERT INTO orders (customer_id, total) VALUES (999, 100000);
+-- ❌ ERROR: insert or update violates foreign key constraint
+```
+
+**Điều gì xảy ra khi xóa dòng cha có con tham chiếu?** Đây là lúc `ON DELETE` phát huy tác dụng:
+```sql
+customer_id INT REFERENCES customers(id) ON DELETE CASCADE   -- xóa customer thì xóa luôn orders liên quan
+customer_id INT REFERENCES customers(id) ON DELETE SET NULL  -- xóa customer thì orders.customer_id thành NULL
+customer_id INT REFERENCES customers(id) ON DELETE RESTRICT  -- không cho xóa customer nếu còn orders liên quan (mặc định)
+```
+
+**c) Domain Integrity (Toàn vẹn miền giá trị)**
+
+Quy tắc: giá trị của 1 cột phải nằm trong **domain** (tập giá trị) hợp lệ đã định nghĩa — đúng kiểu dữ liệu, đúng ràng buộc `CHECK`, `NOT NULL`, `DEFAULT`.
+```sql
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    price NUMERIC(10,2) CHECK (price > 0),      -- domain: phải là số dương
+    stock_qty INT NOT NULL DEFAULT 0,             -- domain: không được NULL
+    status VARCHAR(20) CHECK (status IN ('active', 'inactive'))  -- domain: chỉ 1 trong 2 giá trị
+);
+```
+
+**d) Ràng buộc do người dùng định nghĩa (User-defined / Business rule constraint)**
+
+Ngoài 3 loại chuẩn trên, còn có ràng buộc theo **nghiệp vụ riêng** của hệ thống, không thuộc chuẩn lý thuyết nhưng vẫn implement bằng `CHECK`, `TRIGGER`:
+
+```sql
+-- Nghiệp vụ: ngày giao hàng phải sau ngày đặt hàng
+ALTER TABLE orders ADD CONSTRAINT check_delivery_date
+    CHECK (delivery_date > order_date);
+```
+
+---
+### **Q&A**
+
+**1. Phân biệt Relation, Tuple, Attribute trong lý thuyết vs Table, Row, Column trong thực hành?**
+Đây là 2 bộ thuật ngữ chỉ cùng 1 khái niệm: Relation = Table (bảng), Tuple = Row (dòng dữ liệu), Attribute = Column (cột dữ liệu). Bộ đầu dùng trong sách vở/lý thuyết hàn lâm về CSDL, bộ sau dùng trong thực hành SQL hàng ngày.
+
+**2. Selection và Projection trong đại số quan hệ khác nhau thế nào? Tương ứng câu lệnh SQL nào?**
+Selection (σ) chọn **các dòng** thỏa điều kiện, tương ứng mệnh đề `WHERE`. Projection (π) chọn **các cột** muốn giữ lại, tương ứng danh sách cột sau `SELECT`. Một câu SQL thường kết hợp cả 2: chọn cột nào (Projection) từ các dòng nào (Selection).
+
+**3. Vì sao hiểu đại số quan hệ lại giúp ích khi tối ưu query?**
+Vì query optimizer của DB thực chất chuyển câu SQL thành 1 cây các phép toán đại số quan hệ, sau đó tìm cách **sắp xếp lại thứ tự** các phép toán này sao cho tổng chi phí thực thi thấp nhất (VD: lọc dữ liệu — Selection — càng sớm càng tốt để giảm số dòng cần Join). Hiểu nguyên lý này giúp lập trình viên viết query mà optimizer dễ tối ưu, và hiểu được vì sao thứ tự viết JOIN/WHERE trong câu SQL không nhất thiết là thứ tự DB thực thi thật.
+
+**4. Entity Integrity là gì?**
+Là ràng buộc yêu cầu Primary Key của mỗi bảng phải **duy nhất và không NULL**, đảm bảo mỗi dòng dữ liệu có thể được định danh chính xác, không nhầm lẫn với dòng khác.
+
+**5. Referential Integrity là gì? Điều gì xảy ra nếu vi phạm?**
+Là ràng buộc yêu cầu giá trị Foreign Key ở bảng con phải khớp với 1 giá trị tồn tại ở bảng cha (hoặc NULL nếu FK cho phép). Nếu cố insert/update 1 FK trỏ đến giá trị không tồn tại ở bảng cha, DB sẽ từ chối thao tác và trả lỗi vi phạm ràng buộc khóa ngoại.
+
+**6. `ON DELETE CASCADE`, `SET NULL`, `RESTRICT` khác nhau thế nào? Khi nào dùng loại nào?**
+`CASCADE`: xóa dòng cha thì tự động xóa luôn các dòng con liên quan — dùng khi dữ liệu con **không có ý nghĩa tồn tại độc lập** (VD: xóa 1 đơn hàng thì xóa luôn các order_item của nó). `SET NULL`: xóa dòng cha thì FK ở con chuyển thành NULL — dùng khi dữ liệu con **vẫn có giá trị** dù mất liên kết (VD: xóa nhân viên quản lý thì nhân viên cấp dưới vẫn giữ nguyên, chỉ mất thông tin quản lý). `RESTRICT` (mặc định): không cho xóa dòng cha nếu còn dòng con tham chiếu — dùng khi cần **bắt buộc xử lý thủ công** trước khi xóa, tránh mất dữ liệu ngoài ý muốn.
+
+**7. Domain Integrity là gì? Cho ví dụ khác với constraint kiểu dữ liệu cơ bản.**
+Là ràng buộc yêu cầu giá trị của 1 cột phải nằm trong tập giá trị hợp lệ đã định nghĩa (domain), không chỉ đúng kiểu dữ liệu mà còn đúng logic nghiệp vụ. Ví dụ ngoài đúng kiểu `INT`: dùng `CHECK (age >= 18)` để đảm bảo tuổi hợp lệ theo nghiệp vụ, hoặc `CHECK (status IN ('pending', 'completed', 'cancelled'))` để giới hạn giá trị enum-like mà kiểu dữ liệu thô (VARCHAR) không tự ràng buộc được.
+
+**8. Vì sao "mỗi ô chỉ chứa 1 giá trị đơn (atomic value)" lại là 1 tính chất bắt buộc của Relation? Nó liên quan gì đến chuẩn hóa dữ liệu?**
+Đây là yêu cầu nền tảng của mô hình quan hệ — nếu 1 ô chứa nhiều giá trị (VD: cột `phone_numbers` chứa `"0901,0902,0903"`), việc truy vấn, lọc, join theo từng giá trị riêng lẻ sẽ cực kỳ khó khăn và kém hiệu quả. Chính yêu cầu này là định nghĩa của **First Normal Form (1NF)** — bước đầu tiên và bắt buộc của quá trình chuẩn hóa dữ liệu (Normalization), mà bạn sẽ học chi tiết ở Phần 6 tiếp theo.
