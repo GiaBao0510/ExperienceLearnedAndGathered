@@ -7,5 +7,5 @@ Bạn có thể tham khảo, đánh dấu và ghi nhớ các nguồn tài liệu
 
 **Cơ hội học tập miễn phí để nâng cao kỹ năng**
 
-Dưới đây là một số trang web được đề xuất để tham khảo nếu bạn quan tâm đến việc tìm hiểu thêm về những kiến ​​thức cơ bản về an ninh mạng. Tại đây
+Dưới đây là một số trang web được đề xuất để tham khảo nếu bạn quan tâm đến việc tìm hiểu thêm về những kiến ​​thức cơ bản về an ninh mạng. [Tại đây](Security/module_4_YourFutureInCybersecurity/Your Future in Cybersecurity_Resources to Explore_EN.pdf)
 
