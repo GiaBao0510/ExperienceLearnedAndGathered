@@ -26,3 +26,14 @@ type LiveStats struct {
 	CPULoad     int    `json:"cpu_load"`     // Tải CPU hiện tại của server
 	MemoryUsage int    `json:"memory_usage"` // Sử dụng bộ nhớ hiện tại của server
 }
+
+// DBMessage — entity tương ứng với bảng `message` trong DB
+type DBMessage struct {
+	MessageID      int64       `json:"message_id"`      // ID của tin nhắn trong cơ sở dữ liệu
+	ConversationID int         `json:"conversation_id"` // ID của cuộc trò chuyện
+	SenderUID      *string     `json:"sender"`          // UID của người gửi
+	Content        string      `json:"content"`         // Nội dung tin nhắn
+	MessageType    MessageType `json:"message_type"`    // Loại tin nhắn
+	IsEdited       bool        `json:"is_edited"`       // Trạng thái chỉnh sửa của tin nhắn
+	CreatedAt      time.Time   `json:"created_at"`      // Thời gian tạo tin nhắn
+}

@@ -1,45 +1,59 @@
 package initialize
 
 import (
+	"context"
+	"database/sql"
 	"fmt"
-	"strconv"
+	"log"
+	"time"
 
-	"github.com/GiaBao0510/Go-Realtime/internal/config"
-	"github.com/GiaBao0510/Go-Realtime/internal/utils"
+	"github.com/GiaBao0510/Go-Realtime/global"
+	_ "github.com/jackc/pgx/v5/stdlib"
 )
 
-// Kiểm tra xem Config DB đã điền đủ chưa
-func Check_ConfigDB(config *config.Config) error { 
-
-	switch {
-		case config.DB.Host == "":
-			return fmt.Errorf("DB_HOST chưa được điền")
-		case config.DB.Port == 0:
-			return fmt.Errorf("DB_PORT chưa được điền")
-		case config.DB.User == "":
-			return fmt.Errorf("DB_USER chưa được điền")
-		case config.DB.Password == "":
-			return fmt.Errorf("DB_PASSWORD chưa được điền")
-		case config.DB.DBName == "":
-			return fmt.Errorf("DB_NAME chưa được điền")
+// hàm kiểm tra lỗi
+func CheckErrorPanic(err error, message string) {
+	if err != nil {
+		panic(fmt.Sprintf("%s: %v", message, err))
 	}
-	return nil
+}
+
+// Kiểm tra kết nối
+func CheckConnection(db *sql.DB) {
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+
+	if err := db.PingContext(ctx); err != nil {
+		CheckErrorPanic(err, "không thể ping DB: %w")
+	}
 }
 
 // hàm khởi tạo Postgre
-func InitPostgresql() (*config.Config, error) {
-	port, err := strconv.Atoi(utils.GetEnv("DB_PORT","5432"))
-	if err != nil {
-		return nil, fmt.Errorf("DB_PORT không hợp lệ")
-	}
+func InitPostgresql() {
 
-	config := &config.Config{
-		DB: config.DBConfig{
-			Host: utils.GetEnv("DB_HOST","localhost"),
-			Po
-		},
-	}
+	m := global.Config.DB
 
-	return
+	// Chuỗi kết nối PostgreSQL
+	var stringConn = fmt.Sprintf(
+		"host=%s port=%d user=%s password=%s dbname=%s sslmode=%s",
+		m.DB_Host, m.DB_Port, m.DB_User, m.DB_Password, m.DB_Name, m.DB_SSLMode,
+	)
 
+	fmt.Println("Chuỗi kết nối PostgreSQL:", stringConn)
+
+	db, err := sql.Open("pgx", stringConn)
+	CheckErrorPanic(err, "Khởi tạo kết nối Postgresql: Kết nối thất bại")
+	CheckConnection(db)
+
+	// Kết nối thành công, gán giá trị cho biến toàn cục PostgreSQL
+	global.PostgreSQL = db
+	log.Println("Kết nối PostgreSQL thành công")
+
+	setPool(db) // Cấu hình pool kết nối
+}
+
+func setPool(db *sql.DB) {
+	db.SetMaxOpenConns(25)                 // Số lượng kết nối tối đa mở
+	db.SetMaxIdleConns(10)                 // Số lượng kết nối tối đa nhàn rỗi
+	db.SetConnMaxIdleTime(5 * time.Minute) // Thời gian tối đa một kết nối có thể nhàn rỗi
 }

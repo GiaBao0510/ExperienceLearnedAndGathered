@@ -1,5 +1,6 @@
 # Biến môi trường — KHÔNG BAO GIỜ COMMIT
 .env
+.yaml
 
 # Binary
 go_RealTime
