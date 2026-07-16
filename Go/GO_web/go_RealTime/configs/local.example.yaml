@@ -1,0 +1,12 @@
+Database:
+  DB_Host: "Your_Database_Host"
+  DB_Port: 5432
+  DB_User: "Your_Database_User"
+  DB_Password: "Your_Database_Password"
+  DB_NAME: "Your_Database_Name"
+  DB_SSLMODE: "require"
+  DB_URL: "postgresql://Your_Database_User:Your_Database_Password@Your_Database_Host:5432/postgres?sslmode=require"
+
+Server:
+  Server_Host: "Your_Server_Host"
+  Server_Port: 8080

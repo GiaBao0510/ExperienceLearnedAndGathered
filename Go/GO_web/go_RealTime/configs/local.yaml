@@ -1,0 +1,12 @@
+Database:
+  DB_Host: "db.auuceyrifwxwmsbchxge.supabase.co"
+  DB_Port: 5432
+  DB_User: "postgres"
+  DB_Password: "Ch@tRealTime123"
+  DB_NAME: "postgres"
+  DB_SSLMODE: "require"
+  DB_URL: "postgresql://postgres:Ch@tRealTime123@db.auuceyrifwxwmsbchxge.supabase.co:5432/postgres?sslmode=require"
+
+Server:
+  Server_Host: "localhost"
+  Server_Port: 8080

@@ -1,0 +1,4 @@
+
+var {
+	Config setting.Config
+}
