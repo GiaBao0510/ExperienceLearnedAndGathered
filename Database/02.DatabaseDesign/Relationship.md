@@ -18,7 +18,7 @@ CREATE TABLE user_profiles (
 );
 ```
 
-> Chốt kỹ thuật: đặt `user_id` vừa là `PRIMARY KEY` vừa là `FOREIGN KE`Y — đây chính là cách hiện thực hóa quan hệ 1-1 chuẩn trong SQL, vì PK đảm bảo mỗi user_id chỉ xuất hiện tối đa 1 lần ở bảng user_profiles.
+> Chốt kỹ thuật: đặt `user_id` vừa là `PRIMARY KEY` vừa là `FOREIGN KEY` — đây chính là cách hiện thực hóa quan hệ 1-1 chuẩn trong SQL, vì PK đảm bảo mỗi user_id chỉ xuất hiện tối đa 1 lần ở bảng user_profiles.
 
 ### **One-to-Many (1-N)**
 
@@ -49,4 +49,5 @@ CREATE TABLE product_tags (
     PRIMARY KEY (product_id, tag_id)  -- composite PK, đồng thời là bảng trung gian
 );
 ```
+
 Đây chính là kỹ thuật bạn đã áp dụng ở order_items (Weak Entity, Phần 6.3) — về bản chất, bảng trung gian M-N và Weak Entity thường trùng nhau trong thực hành, dù khái niệm lý thuyết xuất phát khác nhau.
