@@ -1,12 +1,5 @@
 # 📘 HƯỚNG DẪN TÍCH HỢP DATABASE VÀO DỰ ÁN GO-REALTIME
 
-> **Tác giả**: Senior Developer Guide
-> **Ngày tạo**: 2026-07-09
-> **Phiên bản**: 1.0
-> **Mục tiêu**: Hướng dẫn cách lưu trữ dữ liệu vào PostgreSQL (Supabase) một cách có hệ thống, dễ bảo trì và mở rộng.
-
----
-
 ## 📑 MỤC LỤC
 
 1. [Phân tích kiến trúc hiện tại](#1-phân-tích-kiến-trúc-hiện-tại)

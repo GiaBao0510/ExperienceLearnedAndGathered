@@ -11,3 +11,4 @@ type IMessageRepository interface {
 	GetByConversation(ctx context.Context, conversationID int, limit, offset int) ([]model.DBMessage, error)
 	GetLatestByConversation(ctx context.Context, conversationID int) (*model.DBMessage, error)
 }
+ 
