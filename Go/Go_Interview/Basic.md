@@ -128,4 +128,13 @@ Cách thiết kế này giúp Go đạt được sự linh hoạt tuyệt vời:
 
 ---
 
-10. 
+#### **10. Golang package là gì?**
+
+Go Package (hay `pkg`) đây là một đường dẫn đến workspace của Go bao gồm file gồm file nguồn hoặc các package khác. Tất cả các thành phần (Biến, hàm) trong file nguồn sẽ được lưu trong package liên kết. Tất cả file nguồn nên nằm trong một package.
+Như ảnh bên dưới, ta có thể thấy Go Package được biểu diễn như một các hộp nơi chứa tất cả file nguồn Go hoặc mở rộng .go. Ta cũng có thể lưu package Go trong một package khác.
+
+![](https://www.thanhnamnguyen.dev/assets/images/Golang_packages-8330532545c93b47954b1948e87e18d4.png)
+
+Package được khai báo ở đầu file với cú pháp
+`package <package_name>` và được import theo cú pháp `import <package_name>`
+

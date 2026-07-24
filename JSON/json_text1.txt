@@ -1,9 +1,0 @@
-{
-    "name":"Gia Bao",
-    "age":22,
-    "pets":[
-        {"animal":"dog", "name":"No"},
-        {"animal":"fish", "name":"Ca to"},
-        {"animal":"bird", "name":"Chim nho"}
-    ]
-}
