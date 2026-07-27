@@ -1,8 +1,10 @@
 package impl
 
 import (
-	"database/sql"
 	"context"
+	"database/sql"
+
+	"github.com/GiaBao0510/Go-Realtime/internal/model"
 	"github.com/GiaBao0510/Go-Realtime/internal/repositories"
 )
 
@@ -21,7 +23,7 @@ func(r *messageRepo) Create(ctx context.Context, msg *model.DBMessage) error {
 		Returning message_id, create_at;
 	`
 
-	return r.db.QueryRowCotext(ctx, query, 
+	return r.db.QueryRowContext(ctx, query, 
 		msg.ConversationID,
 		msg.SenderUID,
 		msg.Content,

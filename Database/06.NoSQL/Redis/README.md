@@ -26,7 +26,7 @@
 ## **3. Các tính năng chính**
 
 **a. Caching:**
-- Redis thường được sử dụng làm **cache layer** để làm giảm tải cho database chính.
+- Redis thường được sử dụng làm **cache layer** đểm làm giảm tải cho database chính.
 - Ví dụ: Cache kết quả truy vấn database, session data, hoặc HTML fragments.
 **b. Persistence:**
 - **RDB (Redis Database Backup):** lưu snapshot của dữ liệu vào đĩa tại các thời điểm định kỳ.
