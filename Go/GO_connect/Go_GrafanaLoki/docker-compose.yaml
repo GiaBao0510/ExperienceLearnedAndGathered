@@ -1,0 +1,46 @@
+services:
+
+  # Grafana: nền tảng giám sát và trực quan hóa dữ liệu
+  grafana:
+    image: grafana/grafana:11.0.0
+    container_name: go-grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin      # thiết lập user admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin  # thiết lập password admin
+    
+    # depend_on: đảm bảo rằng Loki đã sẵn sàng trước khi Grafana khởi động 
+    depends_on:
+      - loki
+    volumes:
+      - grafana-data:/var/lib/grafana  # Lưu trữ dữ liệu Grafana trên ổ đĩa local của máy host
+  
+  # Loki: lưu trữ log từ các container và ứng dụng
+  loki:
+    image: grafana/loki:2.9.0
+    container_name: go-loki
+    restart: unless-stopped
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yml
+    volumes:
+      - loki-data:/loki  # Lưu trữ dữ liệu Loki trên ổ đĩa local của máy host
+  
+  # Promtail: thu thập log từ các container và gửi đến Loki
+  promtail:
+    image: grafana/promtail:2.9.0
+    container_name: go-promtail
+    restart: unless-stopped
+    volumes:
+      - ./internal/logs:/var/log  # Thu thập log từ host
+      - ./system/promtail/promtail.config.yml:/etc/promtail/config.yml  # Cấu hình Promtail
+    command: -config.file=/etc/promtail/config.yml
+    depends_on:
+      - loki
+
+# Dữ liệu sẽ không bị mất khi container bị xóa hoặc rebuild
+volumes:
+  grafana-data: # Lưu trữ trên ổ đĩa local của máy host
+  loki-data:     # Lưu trữ trên ổ đĩa local của máy host

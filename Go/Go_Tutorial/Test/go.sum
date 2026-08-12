@@ -1,2 +1,4 @@
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
 github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/mailjet/mailjet-apiv3-go/v4 v4.0.8 h1:13GKWoXoKtYzgNFbRmdnq7fhTORg5tDkK7fSjVJinbk=
+github.com/mailjet/mailjet-apiv3-go/v4 v4.0.8/go.mod h1:2SU3t6eh/uK6BSeBmdhpIUau99L4iPlIfbx4o4pAUQs=

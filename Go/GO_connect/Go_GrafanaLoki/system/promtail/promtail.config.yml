@@ -1,0 +1,20 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+# sau khi prommtail đọc xong thì nó sẽ gửi đến loki
+clients:
+  # Promtail chạy trong container riêng, nên phải gọi Loki bằng tên service trong Docker network.
+  - url: http://loki:3100/loki/api/v1/push
+
+# Đọc file 
+scrape_configs:
+  - job_name: golang-logs
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: golang-logs
+          __path__: /var/log/*.log  # Đường dẫn đến file log cần đọc

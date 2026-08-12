@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	b "github.com/GiaBao0510/Go-password-encryption/GO-bcrypt"
+	b "github.com/GiaBao0510/Go-password-encryption/Go-bcrypt"
 	argon "github.com/GiaBao0510/Go-password-encryption/Go-argon2id"
 )
 
