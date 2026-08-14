@@ -24,7 +24,7 @@ services:
     restart: unless-stopped
     ports:
       - "3100:3100"
-    command: -config.file=/etc/loki/local-config.yml
+    command: -config.file=/etc/loki/local-config.yaml
     volumes:
       - loki-data:/loki  # Lưu trữ dữ liệu Loki trên ổ đĩa local của máy host
   
