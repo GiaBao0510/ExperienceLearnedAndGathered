@@ -468,3 +468,6 @@ Các điểm cần thay đổi khi chuyển từ lab lên production:
 - **Ring store:** Thay `inmemory` bằng `memberlist` (cho cluster Loki nhiều node) hoặc `consul`.
 - **Retention:** Cấu hình thời gian lưu log để kiểm soát dung lượng storage.
 - **High Availability:** Triển khai Loki theo microservice mode với nhiều component (ingester, querier, distributor) riêng biệt.
+
+---
+#### **Nội dung thực hành truy cập [tại đây](https://github.com/GiaBao0510/ExperienceLearnedAndGathered/tree/main/Go/GO_connect/Go_GrafanaLoki)** 
