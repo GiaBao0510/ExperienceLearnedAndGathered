@@ -1,0 +1,52 @@
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+
+common:
+  path_prefix: /loki
+  storage:
+    # CẤU HÌNH S3 (MINIO)
+    s3:
+      endpoint: minio:9000          # Trỏ tới container minio
+      insecure: true                # Dùng HTTP thường (trong lab), production phải dùng HTTPS
+      bucketnames: loki-data        # Tên Bucket trên MinIO (Em phải tự tạo bucket này ở Bước 3)
+      access_key_id: minioadmin     # User của MinIO
+      secret_access_key: minioadmin # Pass của MinIO
+      s3forcepathstyle: true
+  replication_factor: 1
+  ring:
+    kvstore:
+      store: inmemory
+
+# Cấu hình Schema cho Index
+schema_config:
+  configs:
+    - from: 2020-10-24
+      store: tsdb                   # Dùng TSDB cho index (nhẹ và nhanh)
+      object_store: s3              # Báo cho Loki biết dữ liệu thật (chunks) nằm trên S3
+      schema: v13
+      index:
+        prefix: index_
+        period: 24h
+
+# Cấu hình shipper để đồng bộ index lên S3
+storage_config:
+  tsdb_shipper:
+    active_index_directory: /loki/tsdb-shipper-active
+    cache_location: /loki/tsdb-shipper-cache
+    cache_ttl: 24h
+
+# CẤU HÌNH COMPACTOR (Máy nén rác) & RETENTION (Thời gian lưu trữ)
+compactor:
+  working_directory: /loki/compactor
+  retention_enabled: true           # Bật tính năng tự động xóa log cũ
+  compactor_ring:
+    kvstore:
+      store: inmemory
+
+# Giới hạn hệ thống
+limits_config:
+  retention_period: 168h            # Chỉ giữ lại log trong 168 giờ (7 ngày). Cũ hơn sẽ bị Compactor xóa!
+  reject_old_samples: true
+  reject_old_samples_max_age: 168h

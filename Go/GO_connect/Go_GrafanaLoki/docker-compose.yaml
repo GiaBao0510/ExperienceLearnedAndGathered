@@ -1,6 +1,6 @@
-services:
+version: '3.8'
 
-  # Grafana: nền tảng giám sát và trực quan hóa dữ liệu
+services:
   grafana:
     image: grafana/grafana:11.0.0
     container_name: go-grafana
@@ -8,39 +8,54 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - GF_SECURITY_ADMIN_USER=admin      # thiết lập user admin
-      - GF_SECURITY_ADMIN_PASSWORD=admin  # thiết lập password admin
-    
-    # depend_on: đảm bảo rằng Loki đã sẵn sàng trước khi Grafana khởi động 
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
     depends_on:
       - loki
     volumes:
-      - grafana-data:/var/lib/grafana  # Lưu trữ dữ liệu Grafana trên ổ đĩa local của máy host
-  
-  # Loki: lưu trữ log từ các container và ứng dụng
+      - grafana-data:/var/lib/grafana
+
   loki:
     image: grafana/loki:2.9.0
     container_name: go-loki
     restart: unless-stopped
     ports:
       - "3100:3100"
-    command: -config.file=/etc/loki/local-config.yaml
     volumes:
-      - loki-data:/loki  # Lưu trữ dữ liệu Loki trên ổ đĩa local của máy host
-  
-  # Promtail: thu thập log từ các container và gửi đến Loki
+      # Mount file config mới
+      - ./system/loki/loki-config.yaml:/etc/loki/local-config.yaml
+      - loki-data:/loki # Vẫn cần local để lưu index tạm thời (cache)
+    command: -config.file=/etc/loki/local-config.yaml
+    depends_on:
+      - minio
+
   promtail:
     image: grafana/promtail:2.9.0
     container_name: go-promtail
     restart: unless-stopped
     volumes:
-      - ./internal/logs:/var/log  # Thu thập log từ host
-      - ./system/promtail/promtail.config.yml:/etc/promtail/config.yml  # Cấu hình Promtail
+      - ./internal/logs:/var/log
+      - ./system/promtail/promtail.config.yml:/etc/promtail/config.yml
     command: -config.file=/etc/promtail/config.yml
     depends_on:
       - loki
 
-# Dữ liệu sẽ không bị mất khi container bị xóa hoặc rebuild
+  # Service MinIO (Giả lập AWS S3)
+  minio:
+    image: minio/minio:latest
+    container_name: go-minio
+    restart: unless-stopped
+    ports:
+      - "9000:9000"  # API Port (Loki sẽ đẩy log vào đây)
+      - "9001:9001"  # Console Port (Giao diện web để em quản lý bucket)
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+    volumes:
+      - minio-data:/data
+    command: server /data --console-address ":9001"
+
 volumes:
-  grafana-data: # Lưu trữ trên ổ đĩa local của máy host
-  loki-data:     # Lưu trữ trên ổ đĩa local của máy host
+  grafana-data:
+  loki-data:
+  minio-data:
