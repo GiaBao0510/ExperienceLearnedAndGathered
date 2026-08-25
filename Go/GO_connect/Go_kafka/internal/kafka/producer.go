@@ -18,12 +18,12 @@ type Producer struct {
 func NewProducer(brokers []string, topic string) *Producer {
 	writer := &kafka.Writer{
 		Addr:                   kafka.TCP(brokers...), // Addr là địa chỉ của Kafka broker, có thể là một hoặc nhiều broker
-		Topic:                  topic,                // Topic là tên topic mà producer sẽ gửi dữ liệu lên
-		Balancer:               &kafka.LeastBytes{},  // Balancer là chiến lược phân phối message đến các partition, ở đây dùng LeastBytes để gửi đến partition có ít dữ liệu nhất
-		WriteTimeout:           10 * time.Second,     // WriteTimeout: nếu không ghi trong 10s thì sẽ gặp lỗi
-		ReadTimeout:            10 * time.Second,     // ReadTimeout: nếu không đọc trong 10s thì sẽ gặp lỗi
-		RequiredAcks:           kafka.RequireAll,     // RequiredAcks: chờ tất cả replica xác nhận. Đảm bảo messahe không bị mất nếu broker crash
-		AllowAutoTopicCreation: true,                 // AllowAutoTopicCreation: nếu topic chưa tồn tại thì tự động tạo
+		Topic:                  topic,                 // Topic là tên topic mà producer sẽ gửi dữ liệu lên
+		Balancer:               &kafka.LeastBytes{},   // Balancer là chiến lược phân phối message đến các partition, ở đây dùng LeastBytes để gửi đến partition có ít dữ liệu nhất
+		WriteTimeout:           10 * time.Second,      // WriteTimeout: nếu không ghi trong 10s thì sẽ gặp lỗi
+		ReadTimeout:            10 * time.Second,      // ReadTimeout: nếu không đọc trong 10s thì sẽ gặp lỗi
+		RequiredAcks:           kafka.RequireAll,      // RequiredAcks: chờ tất cả replica xác nhận. Đảm bảo messahe không bị mất nếu broker crash
+		AllowAutoTopicCreation: true,                  // AllowAutoTopicCreation: nếu topic chưa tồn tại thì tự động tạo
 	}
 
 	return &Producer{writer: writer}
@@ -39,7 +39,7 @@ func (p *Producer) SendMessage(ctx context.Context, key string, value any) error
 
 	// Tạo message Kafka với key và value đã được marshal
 	msg := kafka.Message{
-		Key: []byte(key),
+		Key:   []byte(key),
 		Value: jsonBytes,
 	}
 
