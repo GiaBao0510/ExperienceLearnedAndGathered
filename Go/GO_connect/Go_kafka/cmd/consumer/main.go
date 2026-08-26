@@ -22,6 +22,7 @@ func main() {
 	// Tạo consumer thuộc group "nhom-xu-ly-don-hang"
 	consumer := kafkaClient.NewConsumer(cfg.Brokers, cfg.Topic, cfg.GroupID)
 	defer func() {
+		
 		if err := consumer.Close(); err != nil {
 			log.Printf("Lỗi khi đóng consumer: %v", err)
 		}

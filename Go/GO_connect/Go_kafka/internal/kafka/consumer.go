@@ -29,10 +29,9 @@ func NewConsumer(brokers []string, topic, groupID string) *Consumer {
 		Topic:   topic,
 		GroupID: groupID, // Định nghĩa groud ID để Kafka  dùng GroupID để theo dõi offset đã commit
 
-		// MinBytes và MaxBytes kiểm soát kích thước fetch.
-		// 10KB - 10MB là giá trị hợp lý cho hầu hết trường hợp.
-		MinBytes: 10e3,
-		MaxBytes: 10e3,
+		// MinBytes và MaxBytes kiểm soát kích thước fetch (fetch.min.bytes / fetch.max.bytes).
+		MinBytes: 1,		// Trả dữ liệu ngay khi có >=1 byte sẵn sàng, tránh delay chờ gom đủ 10KB
+		MaxBytes: 10e6,		// 0MB - chỉ là trần bảo vệ RAM, không bắt buộc phải đạt tới mới trả dữ liệu
 
 		// CommitInterval: tự động commit offset mỗi 1 giây.
 		CommitInterval: time.Second,

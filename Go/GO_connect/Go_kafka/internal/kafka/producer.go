@@ -19,7 +19,7 @@ func NewProducer(brokers []string, topic string) *Producer {
 	writer := &kafka.Writer{
 		Addr:                   kafka.TCP(brokers...), // Addr là địa chỉ của Kafka broker, có thể là một hoặc nhiều broker
 		Topic:                  topic,                 // Topic là tên topic mà producer sẽ gửi dữ liệu lên
-		Balancer:               &kafka.LeastBytes{},   // Balancer là chiến lược phân phối message đến các partition, ở đây dùng LeastBytes để gửi đến partition có ít dữ liệu nhất
+		Balancer:               &kafka.Hash{},         // Hash theo Key (FNV-1a): đảm bảo message cùng Key (vd cùng CustomerID/OrderID) luôn vào cùng 1 partition, giữ đúng thứ tự xử lý
 		WriteTimeout:           10 * time.Second,      // WriteTimeout: nếu không ghi trong 10s thì sẽ gặp lỗi
 		ReadTimeout:            10 * time.Second,      // ReadTimeout: nếu không đọc trong 10s thì sẽ gặp lỗi
 		RequiredAcks:           kafka.RequireAll,      // RequiredAcks: chờ tất cả replica xác nhận. Đảm bảo messahe không bị mất nếu broker crash
