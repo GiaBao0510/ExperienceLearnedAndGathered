@@ -177,7 +177,8 @@ endpoint2:                           endpoint3: chỉ có businessLogic()
 ### Định nghĩa
 
 Trong Gin, mọi middleware đều là một hàm kiểu `gin.HandlerFunc`:
-Middleware trong Golang nhận `gin.Context` và có thể quyết định tiếp tục bời `c.Next()` hoặc dừng xử lý bởi `c.Abort()`
+- **Middleware** trong Golang nhận `gin.Context` và có thể quyết định tiếp tục bời `c.Next()` hoặc dừng xử lý bởi `c.Abort()`
+- **Middlerware** luôn luôn phải đặt trước `Handler()`
 
 ```go
 type HandlerFunc func(*Context)
