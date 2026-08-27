@@ -128,14 +128,14 @@ User user = proxy.getById(id)  // Kế thừa interface UserService
 ---
 
 > 💡 **Tóm tắt để dễ nhớ:**
-> 
-> |Loại|Từ khóa|Ví dụ thực tế|
-> |---|---|---|
-> |Transactional|"Tất cả hoặc không có gì"|Ngân hàng, thanh toán|
-> |Message|"Hàng đợi, bất đồng bộ"|Kafka, RabbitMQ|
-> |Procedural|"Gọi hàm từ xa như cục bộ"|gRPC, REST|
-> |Object-oriented|"Procedural + OOP"|EJB, CORBA|
-> 
+
+| Loại            | Từ khóa                    | Ví dụ thực tế         |
+| --------------- | -------------------------- | --------------------- |
+| Transactional   | "Tất cả hoặc không có gì"  | Ngân hàng, thanh toán |
+| Message         | "Hàng đợi, bất đồng bộ"    | Kafka, RabbitMQ       |
+| Procedural      | "Gọi hàm từ xa như cục bộ" | gRPC, REST            |
+| Object-oriented | "Procedural + OOP"         | EJB, CORBA            |
+
 > Trong lập trình web/API hàng ngày, khi nói "middleware" ta thường chỉ loại **Procedural** — các hàm xử lý nằm trong pipeline request/response của web framework như Gin, Express, Laravel.
 
 ---
@@ -177,6 +177,7 @@ endpoint2:                           endpoint3: chỉ có businessLogic()
 ### Định nghĩa
 
 Trong Gin, mọi middleware đều là một hàm kiểu `gin.HandlerFunc`:
+Middleware trong Golang nhận `gin.Context` và có thể quyết định tiếp tục bời `c.Next()` hoặc dừng xử lý bởi `c.Abort()`
 
 ```go
 type HandlerFunc func(*Context)
