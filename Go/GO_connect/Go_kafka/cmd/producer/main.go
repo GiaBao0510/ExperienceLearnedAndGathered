@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"time"
 
@@ -51,39 +52,25 @@ func main() {
 
 // Tạo dữ liệu mẫu gửi lên
 func createSampleOrders() []models.Order {
-	return []models.Order{
-		{
-            ID:         "ORD-001",
-            CustomerID: "KH-42",
-            Status:     "pending",
-            CreatedAt:  time.Now(),
-            TotalAmount: 350000,
-            Items: []models.OrderItem{
-                {ProductID: "SP-001", Name: "Cà phê phin", Quantity: 2, Price: 45000},
-                {ProductID: "SP-002", Name: "Bánh mì thịt", Quantity: 3, Price: 25000},
-                {ProductID: "SP-003", Name: "Nước cam", Quantity: 1, Price: 35000},
-            },
-        },
-        {
-            ID:         "ORD-002",
-            CustomerID: "KH-15",
-            Status:     "pending",
-            CreatedAt:  time.Now(),
-            TotalAmount: 199000,
-            Items: []models.OrderItem{
-                {ProductID: "SP-004", Name: "Trà sữa trân châu", Quantity: 2, Price: 55000},
-                {ProductID: "SP-005", Name: "Bánh flan", Quantity: 1, Price: 25000},
-            },
-        },
-        {
-            ID:         "ORD-003",
-            CustomerID: "KH-08",
-            Status:     "pending",
-            CreatedAt:  time.Now(),
-            TotalAmount: 520000,
-            Items: []models.OrderItem{
-                {ProductID: "SP-006", Name: "Bún bò Huế", Quantity: 4, Price: 65000},
-            },
-        },
+
+	customerIDs := []string{"KH-42", "KH-15", "KH-08", "KH-23", "KH-37"} // Nhóm khách hàng cố định
+	var orders []models.Order
+	
+	for i := 1; i <= 10; i++ {
+
+		// Dùng customerID theo vòng lặp để tạo các đơn hàng khác nhau
+		customerID := customerIDs[(i-1)%len(customerIDs)]
+
+		orders = append(orders, models.Order{
+			ID:          fmt.Sprintf("ORD-%03d", i),
+			CustomerID:  customerID,
+			Status:      "pending",
+			CreatedAt:   time.Now(),
+			TotalAmount: float64(100000 + i*10000),
+			Items: []models.OrderItem{
+				{ProductID: "SP-001", Name: "Cà phê phin", Quantity: 1, Price: 45000},
+			},
+		})
 	}
+	return orders
 }
