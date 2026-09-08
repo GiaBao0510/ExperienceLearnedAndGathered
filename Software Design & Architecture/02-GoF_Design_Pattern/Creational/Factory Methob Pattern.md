@@ -11,6 +11,18 @@ Trong **Factory Design Pattern**, chúng ta tạo Object mà không để lộ r
 - Simple factory  
 - Factory Method
 - Abstract factory
+---
+## Problem
+
+Hãy tưởng tượng bạn đang xây dựng một ứng dụng quản lý logistics. Phiên bản đầu tiên của ứng dụng chỉ hỗ trợ vận tải bằng xe tải, vì vậy phần lớn mã nguồn nằm bên trong lớp `Truck` (Xe tải).
+
+Sau một thời gian, ứng dụng trở nên khá phổ biến. Mỗi ngày, bạn nhận được hàng chục yêu cầu từ các công ty vận tải biển về việc tích hợp dịch vụ logistics đường biển vào ứng dụng.
+
+![](https://refactoring.guru/images/patterns/diagrams/factory-method/problem1-en-1.5x.png)
+
+Tin tuyệt vời phải không? Nhưng còn phần mã nguồn thì sao? Hiện tại, phần lớn mã nguồn của bạn đang bị ràng buộc chặt chẽ với lớp `Truck`. Việc thêm `Ship` vào ứng dụng sẽ đòi hỏi phải thay đổi toàn bộ hệ thống mã nguồn. Hơn nữa, nếu sau này bạn quyết định thêm một loại hình vận chuyển khác vào ứng dụng, có lẽ bạn sẽ lại phải thực hiện tất cả những thay đổi đó một lần nữa.
+
+Kết quả là bạn sẽ có một đoạn mã rất tệ, chằng chịt các câu lệnh điều kiện để thay đổi hành vi của ứng dụng tùy thuộc vào kiểu của các đối tượng vận chuyển.
 
 ---
 ## **Factory Method Pattern là gì?**
@@ -28,6 +40,13 @@ Trong **Factory Design Pattern**, chúng ta tạo Object mà không để lộ r
 - Giảm khả năng gây lỗi compile.
 
 ![](https://images.viblo.asia/6ed7d8a5-7e91-4666-8156-1a0676b2c912.png)
+
+For example, both `Truck` and `Ship` classes should implement the `Transport` interface, which declares a method called `deliver`. Each class implements this method differently: trucks deliver cargo by land, ships deliver cargo by sea. The factory method in the `RoadLogistics` class returns truck objects, whereas the factory method in the `SeaLogistics` class returns ships.
+
+![](https://refactoring.guru/images/patterns/diagrams/factory-method/solution3-en-1.5x.png)
+
+Đoạn mã sử dụng phương thức factory (thường được gọi là mã khách - client code) không nhận thấy sự khác biệt giữa các sản phẩm thực tế do các lớp con khác nhau trả về. Mã khách coi tất cả các sản phẩm này đều là kiểu trừu tượng `Transport`. Mã khách biết rằng mọi đối tượng vận chuyển đều có phương thức `deliver`, nhưng cơ chế hoạt động cụ thể của phương thức đó không quan trọng đối với mã khách.
+
 
 ---
 ## **Mục đích ra đời?**
@@ -82,12 +101,16 @@ public class AnimalFactory{
 ![](https://images.viblo.asia/87b847da-a31e-47ba-83c5-3b4090d80893.png)
 
 Các thành phần trong mô hình:
-- **Product:** Định nghĩa một khuôn mẫu (interface) của các đối tượng mà factory method tạo ra.
-- **ConcreteProduct:** Các lớp được cài đặt khuôn mẫu product.
-- **Creator:** 
-	- Khai báo factory method, trả về kiểu đối tượng thuộc kiểu product. Creator cũng có thể định nghĩa một cài đặt mặc định của factory method mà giá trị trả về là một đối tượng **ConcreteProduct** mặc định.
-	- Gọi factory method để tạo đối tượng kiểu product.
-- **ConcreteCreator:** Ghi đè factory method để trả về một instace của **ConcreteProduct**.
+
+1. Product (Sản phẩm) định nghĩa giao diện chung cho tất cả các đối tượng có thể được tạo ra bởi Creator (Người tạo) và các lớp con của nó.
+
+2. Concrete Products (Các sản phẩm cụ thể) là những cách triển khai khác nhau của giao diện sản phẩm này.
+
+3. Lớp Creator khai báo phương thức factory (factory method) trả về các đối tượng sản phẩm mới. Điều quan trọng là kiểu dữ liệu trả về của phương thức này phải khớp với giao diện sản phẩm.
+
+4. Bạn có thể khai báo phương thức factory dưới dạng trừu tượng (abstract) để buộc tất cả các lớp con phải tự triển khai phiên bản riêng của phương thức đó. Một cách khác là để phương thức factory cơ sở trả về một loại sản phẩm mặc định.
+
+5. Cần lưu ý rằng, bất chấp tên gọi của nó, việc tạo ra sản phẩm không phải là trách nhiệm chính của Creator. Thông thường, lớp Creator đã chứa sẵn một số logic nghiệp vụ cốt lõi liên quan đến sản phẩm. Phương thức factory giúp tách biệt logic này khỏi các lớp sản phẩm cụ thể. Hãy hình dung ví dụ sau: một công ty phát triển phần mềm lớn có thể có bộ phận đào tạo lập trình viên. Tuy nhiên, chức năng chính của toàn bộ công ty vẫn là viết mã nguồn chứ không phải là sản xuất ra các lập trình viên.
 
 ---
 ## **Ưu & nhược điểm**
