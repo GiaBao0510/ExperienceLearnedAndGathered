@@ -1,319 +1,348 @@
-## **Factory Pattern là gì?**
+# Factory Method Pattern
 
-**Factory Pattern** là một trong 9 mẫu thiết kế của lập trình hướng đối tượng (OOP). Nó giúp cho chúng ta có thể định nghĩa nhiều đối tượng và cho phép các lớp con tự quyết định là cái nào sẽ được khởi tạo.
+> Tài liệu này giải thích mẫu thiết kế **Factory Method** — thuộc nhóm **Creational Pattern** (nhóm mẫu khởi tạo) — dành cho lập trình viên mới học, có liên hệ thực tế với **Golang/Backend**.
 
-**Factory Pattern** là một các thiết kế để tạo ra một thực thể (Object) để tạo ra nhiều thực thể khác. Có thể nói Factory là một lớp (Class) có nhiều phương thức, mỗi phương thức như vậy sẽ tạo ra các thực thể khác nhau dựa trên giá trị mà chúng ta truyền vào.
+## Mục lục
 
-Trong **Factory Design Pattern**, chúng ta tạo Object mà không để lộ ra cách mà nó tạo ra như thế nào đến phía người dùng. Theo nguyên lý này thì người dùng chỉ cần gọi và nhận được Object mà họ mong muốn, mà không cần quan tâm đến cách nó tạo ra như thế nào.
-
-**Factory Pattern** cung cấp cách tốt nhất để tạo ra các đối tượng. Và quan trọng là nó chia ra 3 loại mô hình đó là:
-
-- Simple factory  
-- Factory Method
-- Abstract factory
----
-## Problem
-
-Hãy tưởng tượng bạn đang xây dựng một ứng dụng quản lý logistics. Phiên bản đầu tiên của ứng dụng chỉ hỗ trợ vận tải bằng xe tải, vì vậy phần lớn mã nguồn nằm bên trong lớp `Truck` (Xe tải).
-
-Sau một thời gian, ứng dụng trở nên khá phổ biến. Mỗi ngày, bạn nhận được hàng chục yêu cầu từ các công ty vận tải biển về việc tích hợp dịch vụ logistics đường biển vào ứng dụng.
-
-![](https://refactoring.guru/images/patterns/diagrams/factory-method/problem1-en-1.5x.png)
-
-Tin tuyệt vời phải không? Nhưng còn phần mã nguồn thì sao? Hiện tại, phần lớn mã nguồn của bạn đang bị ràng buộc chặt chẽ với lớp `Truck`. Việc thêm `Ship` vào ứng dụng sẽ đòi hỏi phải thay đổi toàn bộ hệ thống mã nguồn. Hơn nữa, nếu sau này bạn quyết định thêm một loại hình vận chuyển khác vào ứng dụng, có lẽ bạn sẽ lại phải thực hiện tất cả những thay đổi đó một lần nữa.
-
-Kết quả là bạn sẽ có một đoạn mã rất tệ, chằng chịt các câu lệnh điều kiện để thay đổi hành vi của ứng dụng tùy thuộc vào kiểu của các đối tượng vận chuyển.
+1. [Factory Pattern là gì?](https://claude.ai/chat/de82c3b1-20af-49cd-a508-785244f774d4#1-factory-pattern-l%C3%A0-g%C3%AC)
+2. [Vấn đề cần giải quyết](https://claude.ai/chat/de82c3b1-20af-49cd-a508-785244f774d4#2-v%E1%BA%A5n-%C4%91%E1%BB%81-c%E1%BA%A7n-gi%E1%BA%A3i-quy%E1%BA%BFt)
+3. [Simple Factory — bước đệm trước Factory Method](https://claude.ai/chat/de82c3b1-20af-49cd-a508-785244f774d4#3-simple-factory--b%C6%B0%E1%BB%9Bc-%C4%91%E1%BB%87m-tr%C6%B0%E1%BB%9Bc-factory-method)
+4. [Factory Method Pattern là gì?](https://claude.ai/chat/de82c3b1-20af-49cd-a508-785244f774d4#4-factory-method-pattern-l%C3%A0-g%C3%AC)
+5. [Kiến trúc](https://claude.ai/chat/de82c3b1-20af-49cd-a508-785244f774d4#5-ki%E1%BA%BFn-tr%C3%BAc)
+6. [Khi nào nên sử dụng](https://claude.ai/chat/de82c3b1-20af-49cd-a508-785244f774d4#6-khi-n%C3%A0o-n%C3%AAn-s%E1%BB%AD-d%E1%BB%A5ng)
+7. [Ưu & nhược điểm](https://claude.ai/chat/de82c3b1-20af-49cd-a508-785244f774d4#7-%C6%B0u--nh%C6%B0%E1%BB%A3c-%C4%91i%E1%BB%83m)
+8. [Ví dụ minh họa bằng Go](https://claude.ai/chat/de82c3b1-20af-49cd-a508-785244f774d4#8-v%C3%AD-d%E1%BB%A5-minh-h%E1%BB%8Da-b%E1%BA%B1ng-go)
 
 ---
-## **Factory Method Pattern là gì?**
 
-![](https://images.viblo.asia/fa6170a7-ffd8-44a4-940f-2ccc47849fcd.png)
+## 1. Factory Pattern là gì?
 
-**Factory Method** là một pattern thuộc nhóm Creational Patterns - và mẫu này nằm trong nhóm Polymorphic Factory (đa hình). Và vì tính trừu tượng của nó, Factory Method còn được gọi là **Virtual Constructor**. **Factory Method** giải quyết vấn đề khởi tạo đối tượng mà không chỉ ra chính xác lớp nào sẽ khởi tạo, ủy quyền cho lớp con.
+"Factory Pattern" là cách gọi chung cho một nhóm giải pháp giúp **tách logic khởi tạo đối tượng ra khỏi nơi sử dụng đối tượng đó**. Thay vì rải rác các lệnh `new Xxx()` khắp nơi trong chương trình, ta gom việc quyết định "tạo cái gì, tạo như thế nào" vào một chỗ — thường gọi là "factory" (nhà máy/xưởng sản xuất).
 
-**Factory Method** cung cấp một interface, phương thức trong việc tạo nên một đối tượng (Object) trong class. Nhưng để cho class con kế thừa nó có thể ghi đè để chỉ rõ đối tượng (Object) nào được tạo. **Factory Method** giao việc khởi tạo đối tượng cụ thể cho lớp con.
+Trong thực tế, người ta thường chia thành 3 cách tiếp cận:
 
-**Mục đích:** 
-- Tạo ra một cách khởi tạo object mới thông qua một interface chung.
-- Che giấu quá trình xử lý logic của phương thức khởi tạo.
-- Giảm sự phụ thuộc, dễ dàng mở rộng.
-- Giảm khả năng gây lỗi compile.
+- **Simple Factory:** một hàm/lớp duy nhất, nhận tham số rồi quyết định trả về đối tượng nào (thường dùng `if/switch`). Đây là cách đơn giản, dễ hiểu nhất, **không phải** một trong 23 mẫu thiết kế kinh điển của GoF (Gang of Four) nhưng lại là idiom rất phổ biến trong thực tế và thường được dùng làm bước đệm trước khi học Factory Method.
+- **Factory Method:** một mẫu thiết kế chính thức thuộc bộ 23 mẫu GoF, dùng **tính đa hình (polymorphism)** — mỗi lớp con tự quyết định loại đối tượng nó tạo ra, thay vì dùng `switch/case`. Đây là trọng tâm của tài liệu này.
+- **Abstract Factory:** cũng là một mẫu GoF chính thức, mở rộng ý tưởng của Factory Method để tạo ra **cả một họ đối tượng liên quan với nhau** (ví dụ: bộ UI theo từng theme — button, checkbox, scrollbar cùng phong cách). Đây là một mẫu khác, không được trình bày chi tiết trong tài liệu này.
 
-![](https://images.viblo.asia/6ed7d8a5-7e91-4666-8156-1a0676b2c912.png)
-
-For example, both `Truck` and `Ship` classes should implement the `Transport` interface, which declares a method called `deliver`. Each class implements this method differently: trucks deliver cargo by land, ships deliver cargo by sea. The factory method in the `RoadLogistics` class returns truck objects, whereas the factory method in the `SeaLogistics` class returns ships.
-
-![](https://refactoring.guru/images/patterns/diagrams/factory-method/solution3-en-1.5x.png)
-
-Đoạn mã sử dụng phương thức factory (thường được gọi là mã khách - client code) không nhận thấy sự khác biệt giữa các sản phẩm thực tế do các lớp con khác nhau trả về. Mã khách coi tất cả các sản phẩm này đều là kiểu trừu tượng `Transport`. Mã khách biết rằng mọi đối tượng vận chuyển đều có phương thức `deliver`, nhưng cơ chế hoạt động cụ thể của phương thức đó không quan trọng đối với mã khách.
-
+Trong Factory Method Pattern, việc tạo đối tượng được thực hiện mà **không để lộ chi tiết cách tạo ra nó** cho phía người dùng (client). Người dùng chỉ cần gọi và nhận được đối tượng mong muốn, không cần quan tâm nó được khởi tạo như thế nào bên trong.
 
 ---
-## **Mục đích ra đời?**
 
-Giả sử ta có 3 class `Dog`, `Cat`, `Duck` cùng implement interface `IAnimal`.
-Khi cần tạo đối tượng `IAnimal` mà chưa biết trước sẽ là con gì (tùy thuộc vào điều kiện cụ thể), thì code thường như sau:
-![](https://images.viblo.asia/1ea931d6-4432-4990-ab2a-94ea05b47913.png)
+## 2. Vấn đề cần giải quyết
+
+Hãy tưởng tượng bạn đang xây dựng một ứng dụng quản lý logistics. Phiên bản đầu tiên chỉ hỗ trợ vận tải bằng xe tải, nên phần lớn mã nguồn nằm trong lớp `Truck` (Xe tải).
+
+Sau một thời gian, ứng dụng trở nên phổ biến. Mỗi ngày bạn nhận được nhiều yêu cầu tích hợp dịch vụ logistics đường biển vào ứng dụng.
+
+![Factory Method problem](https://refactoring.guru/images/patterns/diagrams/factory-method/problem1-en-1.5x.png)
+
+Đó là tin tốt về mặt kinh doanh, nhưng phần mã nguồn hiện tại đang bị ràng buộc chặt chẽ với lớp `Truck`. Thêm `Ship` (Tàu) vào ứng dụng đòi hỏi phải chỉnh sửa nhiều nơi trong hệ thống. Về sau, nếu có thêm một loại hình vận chuyển khác, bạn sẽ lại phải lặp lại toàn bộ những thay đổi đó.
+
+Kết quả là mã nguồn dần chằng chịt các câu lệnh điều kiện (`if/switch`) để quyết định hành vi tùy theo loại đối tượng vận chuyển — càng thêm loại mới, đoạn điều kiện càng phình to và khó bảo trì.
+
+---
+
+## 3. Simple Factory — bước đệm trước Factory Method
+
+Trước khi đến với Factory Method, hãy xem một cách tiếp cận đơn giản hơn — **Simple Factory** — để thấy rõ vấn đề mà Factory Method thực sự giải quyết.
+
+Giả sử có 3 kiểu `Dog`, `Cat`, `Duck` cùng hiện thực một interface `Animal`. Khi cần tạo một `Animal` mà chưa biết trước là loại nào (tùy điều kiện cụ thể), cách viết trực quan nhất là:
+
+![Simple factory conditional example](https://images.viblo.asia/1ea931d6-4432-4990-ab2a-94ea05b47913.png)
 
 ```csharp
 IAnimal animal;
 
-if(...){
-	animal = new Dog();
-}
-else if(...){
-	animal = new Cat();
-}
-else if(...){
-	animal = new Duck();
+if (...) {
+    animal = new Dog();
+} else if (...) {
+    animal = new Cat();
+} else if (...) {
+    animal = new Duck();
 }
 ```
 
-Cách này gây ra: 
-- **Trùng lặp logic khởi tạo** nếu cần áp dụng ở nhiều nơi.
-- **Khó bảo trì** khi muốn sửa đổi hoặc mở rộng.
+Cách này gây ra:
+- **Trùng lặp logic khởi tạo** nếu cần dùng lại ở nhiều nơi trong chương trình.
+- **Khó bảo trì** khi cần sửa đổi hoặc mở rộng thêm loại `Animal` mới.
 
-![](https://images.viblo.asia/02bc95d1-e578-4cd3-9853-1a35e0dd25e9.png)
-##### **$\to$ Giải pháp: Factory Method**
+![Simple factory solution](https://images.viblo.asia/02bc95d1-e578-4cd3-9853-1a35e0dd25e9.png)
 
-**Factory Method**  gom toàn bộ logic khởi tạo vào một nơi duy nhất -- Giúp mã ngắn gọn, dễ quản lý và hỗ trợ mở rộng tốt hơn.
+**Giải pháp bước đầu — Simple Factory:** gom toàn bộ logic khởi tạo vào một hàm/lớp duy nhất, giúp mã ngắn gọn, dễ quản lý hơn:
 
 ```csharp
-public class AnimalFactory{
-	public static IAnimal CreateAnimal(AnimalType type){
-		switch(type){
-			case AnimalType.Cat: return new Cat();
-			case AnimalType.Dog: return new Dog();
-			case AnimalType.Duck: return new Duck();
-			default: return null;
-		}
-	}
+public class AnimalFactory {
+    public static IAnimal CreateAnimal(AnimalType type) {
+        switch (type) {
+            case AnimalType.Cat: return new Cat();
+            case AnimalType.Dog: return new Dog();
+            case AnimalType.Duck: return new Duck();
+            default: return null;
+        }
+    }
 }
 ```
 
-*Lợi ích:*
-- giảm lặp code.
-- Dễ thay đổi/ tùy biến logic khởi tạo.
-- Tăng tính đa hình, linh hoạt theo ngữ cảnh sử dụng.
----
-## **Kiến trúc**
+Lợi ích: giảm lặp code, dễ thay đổi logic khởi tạo, tập trung logic vào một nơi.
 
-![](https://images.viblo.asia/87b847da-a31e-47ba-83c5-3b4090d80893.png)
+> **Lưu ý quan trọng:** đây **chưa phải** là Factory Method Pattern theo đúng định nghĩa GoF, dù trông có vẻ tương tự. `AnimalFactory.CreateAnimal` vẫn dùng `switch/case` để quyết định loại đối tượng — nghĩa là logic rẽ nhánh vẫn nằm nguyên trong factory, chỉ là được gom vào một chỗ thay vì rải rác. Factory Method Pattern (ở mục tiếp theo) đi xa hơn: nó **loại bỏ hoàn toàn `switch/case`**, thay bằng tính đa hình — mỗi lớp con tự quyết định loại đối tượng nó tạo ra.
+
+---
+## 4. Factory Method Pattern là gì?
+
+![Factory Method overview](https://images.viblo.asia/fa6170a7-ffd8-44a4-940f-2ccc47849fcd.png)
+
+**Factory Method** là một mẫu thiết kế thuộc nhóm **Creational Pattern**. Vì dựa trên tính đa hình (polymorphism), nó còn được gọi là **Virtual Constructor** (hàm khởi tạo ảo). Factory Method giải quyết bài toán khởi tạo đối tượng mà **không chỉ định trước chính xác lớp cụ thể nào sẽ được tạo** — quyết định đó được **ủy quyền cho lớp con**.
+
+Cụ thể: Factory Method định nghĩa một phương thức (gọi là _factory method_) trong một lớp cha để tạo đối tượng, nhưng để cho **lớp con ghi đè (override)** phương thức đó nhằm chỉ rõ đối tượng cụ thể nào được tạo ra.
+
+**Mục đích:**
+
+- Cung cấp một cách khởi tạo object thông qua một interface/phương thức chung.
+- Che giấu chi tiết xử lý logic của việc khởi tạo khỏi phía client.
+- Giảm sự phụ thuộc giữa client và các lớp cụ thể, giúp dễ mở rộng.
+- Tránh phải sửa đổi hàng loạt câu lệnh điều kiện mỗi khi thêm loại sản phẩm mới.
+
+![Factory Method purpose](https://images.viblo.asia/6ed7d8a5-7e91-4666-8156-1a0676b2c912.png)
+
+Quay lại ví dụ logistics: cả `Truck` và `Ship` đều hiện thực interface `Transport`, với một phương thức chung là `Deliver` (giao hàng) — nhưng mỗi lớp cài đặt phương thức này theo cách riêng: xe tải giao hàng đường bộ, tàu giao hàng đường biển. Lớp `RoadLogistics` có factory method trả về đối tượng `Truck`, trong khi lớp `SeaLogistics` có factory method trả về đối tượng `Ship`.
+
+![Factory Method solution](https://refactoring.guru/images/patterns/diagrams/factory-method/solution3-en-1.5x.png)
+
+Điểm mấu chốt: đoạn mã sử dụng factory method (gọi là **mã khách - client code**) **không cần biết** sự khác biệt giữa các sản phẩm cụ thể do các lớp con trả về. Client chỉ làm việc với kiểu trừu tượng `Transport`, biết rằng mọi đối tượng vận chuyển đều có phương thức `Deliver`, nhưng không quan tâm cơ chế bên trong của từng loại.
+
+---
+
+## 5. Kiến trúc
+
+![Factory Method structure](https://images.viblo.asia/87b847da-a31e-47ba-83c5-3b4090d80893.png)
 
 Các thành phần trong mô hình:
 
-1. Product (Sản phẩm) định nghĩa giao diện chung cho tất cả các đối tượng có thể được tạo ra bởi Creator (Người tạo) và các lớp con của nó.
+1. **Product (Sản phẩm):** định nghĩa giao diện chung cho tất cả các đối tượng có thể được tạo ra bởi Creator (người tạo) và các lớp con của nó.
+2. **ConcreteProduct (Sản phẩm cụ thể):** các cách hiện thực hóa khác nhau của giao diện Product.
+3. **Creator (Người tạo):** khai báo **factory method**, trả về một đối tượng thuộc kiểu Product. Kiểu trả về của phương thức này phải khớp với giao diện Product. Creator có thể tự định nghĩa một cài đặt mặc định cho factory method, trả về một ConcreteProduct mặc định nào đó. Creator cũng thường chứa sẵn logic nghiệp vụ cốt lõi, và gọi đến factory method bên trong logic đó để lấy đối tượng Product cần dùng.
+4. **ConcreteCreator (Người tạo cụ thể):** ghi đè factory method để trả về một instance của một ConcreteProduct cụ thể.
 
-2. Concrete Products (Các sản phẩm cụ thể) là những cách triển khai khác nhau của giao diện sản phẩm này.
-
-3. Lớp Creator khai báo phương thức factory (factory method) trả về các đối tượng sản phẩm mới. Điều quan trọng là kiểu dữ liệu trả về của phương thức này phải khớp với giao diện sản phẩm.
-
-4. Bạn có thể khai báo phương thức factory dưới dạng trừu tượng (abstract) để buộc tất cả các lớp con phải tự triển khai phiên bản riêng của phương thức đó. Một cách khác là để phương thức factory cơ sở trả về một loại sản phẩm mặc định.
-
-5. Cần lưu ý rằng, bất chấp tên gọi của nó, việc tạo ra sản phẩm không phải là trách nhiệm chính của Creator. Thông thường, lớp Creator đã chứa sẵn một số logic nghiệp vụ cốt lõi liên quan đến sản phẩm. Phương thức factory giúp tách biệt logic này khỏi các lớp sản phẩm cụ thể. Hãy hình dung ví dụ sau: một công ty phát triển phần mềm lớn có thể có bộ phận đào tạo lập trình viên. Tuy nhiên, chức năng chính của toàn bộ công ty vẫn là viết mã nguồn chứ không phải là sản xuất ra các lập trình viên.
+Một điểm cần lưu ý: mặc dù tên gọi là "Creator" (người tạo), việc **tạo ra sản phẩm không phải là trách nhiệm chính** của lớp này. Thông thường, Creator đã chứa sẵn logic nghiệp vụ cốt lõi liên quan đến sản phẩm; factory method chỉ giúp tách phần "tạo đối tượng nào" ra khỏi phần "làm gì với đối tượng đó". Ví dụ dễ hình dung: một công ty phần mềm lớn có thể có bộ phận đào tạo lập trình viên mới, nhưng chức năng chính của công ty vẫn là viết mã nguồn, chứ không phải "sản xuất" lập trình viên.
 
 ---
-## **Ưu & nhược điểm**
 
-##### **Ưu điểm:**
-- Che giấu quá trình xử lý logic của phương thức khởi tạo
-- Hạn chế sự phụ thuộc giữa creator và concrete products.
-- Dễ dàng mở rộng, thêm những đoạn code mới vào chương trình mà không cần phá vỡ các đối tượng ban đầu.
-- Giúp gom các đoạn code tạo ra product vào một nơi trong chương trình, nhờ đó giúp dễ theo dõi và thao tác.
-- Giảm khả năng gây lỗi compile, trong trường hợp chúng ta cần tạo một đối tượng mà quên khai báo lớp, chúng ta cũng có thể xử lý lỗi trong Factory và khai báo lớp cho chúng sau.
+## 6. Khi nào nên sử dụng
 
-=> Vì những ưu điểm trên nên **Factory method pattern** thường được sử dụng trong các thư viện (người dùng đạt được mục đích là tạo ra đối tượng mà không cần quan tâm đến các nó được tạo ra như thế nào)
+Nên cân nhắc Factory Method khi:
 
-##### **Nhược điểm:**
-- Sorce code có thể trở nên phức tạp hơn mức bình thường vì phải đòi hỏi phải sử dụng nhiều class mới có thể cài đặt được pattern này.
-- Việc refactoring (tái cấu trúc) một class bình thường có sẵn thành một class có Factory Method có thể dẫn đến nhiều lỗi trong hệ thống, phá vỡ sự tồn tại của client.
-- Factory method pattern lệ thuộc vào việc sử dụng private constructor nên các class không thể mở rộng và kế thừa
+- Bạn có một lớp cha (hoặc interface) với nhiều lớp con, và cần **quyết định lớp con nào sẽ được tạo dựa trên dữ liệu đầu vào hoặc ngữ cảnh**, mà không muốn client tự làm việc này. Việc chuyển trách nhiệm khởi tạo từ client sang Factory giúp client không phụ thuộc trực tiếp vào các lớp cụ thể.
+- Bạn **chưa biết trước** sau này sẽ cần thêm những loại sản phẩm (lớp con) nào. Khi cần mở rộng, chỉ cần tạo thêm một ConcreteProduct và một ConcreteCreator tương ứng — implement thêm factory method cho loại mới, mà không cần sửa code đã có (tuân theo nguyên lý Open/Closed — mở để mở rộng, đóng để sửa đổi).
 
 ---
-## **Khi nào thì sử dụng?**
+## 7. Ưu & nhược điểm
 
-Factory method được sử dụng khi:
-- Chúng ta có một super class với nhiều class con và dựa trên dữ liệu đầu vào để trả về một class con. Mô hình này chịu trách nhiệm cho việc khởi tạo một lớp tư phía người dùng (client) sang lớp Factory, giúp tiết kiệm tài nguyên hệ thống vì nhờ vào việc tái sử dụng các object đã có thay vì xây dựng lại mỗi phần có thêm product.
-- Do là không biết sau này sẽ cần những lớp con nào nữa. Khi cần mở rộng, hãy tạo ra sub class và implement thêm vào factory method cho việc khởi tạo sub class này.
+**Ưu điểm:**
+- Che giấu chi tiết xử lý logic của việc khởi tạo khỏi client.
+- Hạn chế sự phụ thuộc trực tiếp giữa Creator và các ConcreteProduct cụ thể.
+- Dễ dàng mở rộng: thêm loại sản phẩm mới mà không cần sửa đổi các đoạn code đã có (tuân theo nguyên lý Open/Closed).
+- Gom các đoạn code tạo ra sản phẩm vào một chỗ, giúp dễ theo dõi và bảo trì.
+
+Nhờ những ưu điểm trên, Factory Method thường được dùng trong các thư viện/framework, nơi người dùng thư viện chỉ cần lấy được đối tượng mong muốn, không cần quan tâm nó được tạo ra như thế nào bên trong.
+
+**Nhược điểm:**
+- Mã nguồn có thể trở nên phức tạp hơn vì cần thêm nhiều lớp/interface mới (Product, ConcreteProduct, Creator, ConcreteCreator) để triển khai đầy đủ mẫu này — với hệ thống đơn giản, việc này có thể là dư thừa.
+- Refactor một lớp có sẵn (chưa dùng Factory Method) sang dùng Factory Method có thể ảnh hưởng đến client hiện tại, do phải thay đổi cách client lấy đối tượng.
+
+> Factory Method Pattern không yêu cầu constructor phải là private, và bản thân mẫu này dựa trên kế thừa/interface (tức là _khuyến khích_ mở rộng thông qua các ConcreteCreator, không hề ngăn cản việc đó). 
 
 ---
-## **Code minh họa:**
 
-**Ví dụ: Với bài toán mua bánh Pizza:**
-```csharp
-//Interface
-public interface INotificationService{
-	void Send(string message, string recipient);
+## 8. Ví dụ minh họa bằng Go
+
+> Các ví dụ gốc dùng C#. Go không có khái niệm `class`/kế thừa, nên các ví dụ dưới đây dùng `struct` + `interface` — vốn là cách tiếp cận hướng đối tượng thông dụng của Go — để minh họa rõ sự khác biệt giữa Simple Factory và Factory Method thật sự.
+
+### Ví dụ 1: Simple Factory (tương ứng ví dụ `AnimalFactory` ở Mục 3)
+
+```go
+package main
+
+import "fmt"
+
+type Animal interface {
+	Sound() string
 }
 
-//Concrete implementation
-public class EmailService: INotificationService
-{
-	public void Send(string message, string recipient){
-		Console.WriteLine($"Email sent to: {recipient}: {message}");
+type Dog struct{}
+
+func (Dog) Sound() string { return "Gau gau" }
+
+type Cat struct{}
+
+func (Cat) Sound() string { return "Meo meo" }
+
+type Duck struct{}
+
+func (Duck) Sound() string { return "Cap cap" }
+
+// NewAnimal là một Simple Factory: logic rẽ nhánh vẫn nằm trong switch,
+// chỉ được gom vào một hàm duy nhất thay vì rải rác nhiều nơi.
+func NewAnimal(kind string) (Animal, error) {
+	switch kind {
+	case "dog":
+		return Dog{}, nil
+	case "cat":
+		return Cat{}, nil
+	case "duck":
+		return Duck{}, nil
+	default:
+		return nil, fmt.Errorf("unknown animal type: %s", kind)
 	}
 }
 
-public class SmsService: INotificationService
-{
-	public void Send(string message, string recipient){
-		Console.WriteLine($"SMS sent to: {recipient}: {message}");
+func main() {
+	a, err := NewAnimal("cat")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(a.Sound())
+}
+```
+
+### Ví dụ 2: Factory Method thật sự (tương ứng ví dụ Truck/Ship ở Mục 4 và 5)
+
+Ví dụ này thể hiện đúng bản chất Factory Method: **không có `switch/case`** nào quyết định loại `Transport` — quyết định đó nằm ở việc bạn chọn dùng `RoadLogistics{}` hay `SeaLogistics{}`, mỗi lớp tự "ghi đè" factory method của riêng mình.
+
+```go
+package main
+
+import "fmt"
+
+// ---- Product ----
+type Transport interface {
+	Deliver()
+}
+
+type Truck struct{}
+
+func (Truck) Deliver() { fmt.Println("Giao hang bang xe tai, tren duong bo") }
+
+type Ship struct{}
+
+func (Ship) Deliver() { fmt.Println("Giao hang bang tau, tren duong bien") }
+
+// ---- Creator ----
+// Logistics khai báo factory method CreateTransport. Logic nghiệp vụ dùng
+// chung (PlanDelivery) chỉ thao tác qua interface Transport, không biết
+// và không cần biết loại Transport cụ thể nào được tạo ra.
+type Logistics interface {
+	CreateTransport() Transport
+}
+
+func PlanDelivery(l Logistics) {
+	transport := l.CreateTransport() // factory method quyết định loại transport
+	fmt.Println("Len ke hoach giao hang...")
+	transport.Deliver()
+}
+
+// ---- ConcreteCreator ----
+type RoadLogistics struct{}
+
+func (RoadLogistics) CreateTransport() Transport { return Truck{} }
+
+type SeaLogistics struct{}
+
+func (SeaLogistics) CreateTransport() Transport { return Ship{} }
+
+func main() {
+	PlanDelivery(RoadLogistics{})
+	PlanDelivery(SeaLogistics{})
+}
+```
+
+**Kết quả:**
+
+```text
+Len ke hoach giao hang...
+Giao hang bang xe tai, tren duong bo
+Len ke hoach giao hang...
+Giao hang bang tau, tren duong bien
+```
+
+So sánh với Ví dụ 1: ở đây, việc thêm một loại vận chuyển mới (ví dụ `AirLogistics` giao hàng bằng máy bay) chỉ cần thêm một struct `Plane` và một `AirLogistics` mới — hoàn toàn không đụng đến `PlanDelivery` hay các ConcreteCreator đã có.
+
+### Ví dụ 3: Factory kết hợp với Dependency Injection (tương ứng ví dụ Notification ở tài liệu gốc)
+
+Bản C# gốc dùng `IServiceProvider` của ASP.NET Core (một DI container) để tra cứu instance theo tên chuỗi bên trong factory. Go không có DI container tiêu chuẩn đi kèm ngôn ngữ, nên cách idiomatic hơn là dùng một **registry các hàm khởi tạo (map[string]func() ...)**:
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+)
+
+type NotificationService interface {
+	Send(ctx context.Context, message, recipient string) error
+}
+
+type EmailService struct{}
+
+func (EmailService) Send(ctx context.Context, message, recipient string) error {
+	fmt.Printf("Email sent to %s: %s\n", recipient, message)
+	return nil
+}
+
+type SmsService struct{}
+
+func (SmsService) Send(ctx context.Context, message, recipient string) error {
+	fmt.Printf("SMS sent to %s: %s\n", recipient, message)
+	return nil
+}
+
+// NotificationFactory ánh xạ tên loại thông báo tới hàm khởi tạo tương ứng.
+type NotificationFactory struct {
+	creators map[string]func() NotificationService
+}
+
+func NewNotificationFactory() *NotificationFactory {
+	return &NotificationFactory{
+		creators: map[string]func() NotificationService{
+			"email": func() NotificationService { return EmailService{} },
+			"sms":   func() NotificationService { return SmsService{} },
+		},
 	}
 }
 
-//Factory
-public class NotificationFactory
-{
-	public static INotificationService CreateNotification(string type){
-		return type.ToLower() switch{
-			"email" => new EmailService(),
-			"sms" => new SmsService(),
-			_=> throw new ArgumentException($"Unknown type: {type}")
-		};
+func (f *NotificationFactory) Create(kind string) (NotificationService, error) {
+	ctor, ok := f.creators[kind]
+	if !ok {
+		return nil, fmt.Errorf("unknown notification type: %s", kind)
 	}
+	return ctor(), nil
 }
 
-class Program
-{
-	static void Main(string[])
-	{
-		//Phải gọi đến static method
-		var emailService = NotificationFactory.CreateNotification("email");
-		emailService.Send("Hello", "user123@gmail.com");
+func main() {
+	factory := NewNotificationFactory()
+	ctx := context.Background()
 
-		var smsService = NotificationFactory.CreateNotification("sms");
-		smsService.Send("Hello", "0123456987");
+	if svc, err := factory.Create("email"); err == nil {
+		svc.Send(ctx, "Hello", "user123@gmail.com")
+	}
+	if svc, err := factory.Create("sms"); err == nil {
+		svc.Send(ctx, "Hello", "0123456987")
 	}
 }
 ```
 
-Ví dụ bài toán thông báo (Factory method pattern + DI)
-```csharp
-public interface INotificationService
-{
-    Task Send(string message, string recipient);
-    string NotificationType { get; }
-}
-
-
-#region ==== Concrete implementation =====
-public class EmailService: INotificationService
-{
-    public string NotificationType => "Email";
-
-    public async Task Send(string message, string recipient)
-    {
-        await Task.Delay(500); // Simulate async operation
-        Console.WriteLine($"Email sent to: {recipient}: {message}");
-    }
-}
-
-public class SmsService : INotificationService
-{
-
-    public string NotificationType => "SMS";
-  
-    public async Task Send(string message, string recipient)
-    {
-        await Task.Delay(500); // Simulate async operation
-        Console.WriteLine($"SMS sent to: {recipient}: {message}");
-    }
-}
-#endregion
-
-#region  ===== Factory với DI =====
-public interface INotificationFactory
-{
-    INotificationService CreateNotification(string type);
-    IEnumerable<string> GetAvailableTypes();
-}
-
-public class NotificationFactory : INotificationFactory
-{
-
-    public readonly IServiceProvider _serviceProvider;
-    public NotificationFactory(IServiceProvider serviceProvider)
-    {
-        _serviceProvider = serviceProvider;
-    }
-
-    public IEnumerable<string> GetAvailableTypes()
-        => new List<string> { "email", "sms" };
-
-    public INotificationService CreateNotification(string type)
-    {
-        return type.ToLower() switch
-        {
-            "email" => _serviceProvider.GetRequiredService<EmailService>(),
-            "sms" => _serviceProvider.GetRequiredService<SmsService>(),
-            _ => throw new ArgumentException($"Unknown type: {type}")
-        };
-    }
-}
-#endregion
-
-  
-
-#region  ==== Service sử dụng Factory =====
-public interface INotificationManager
-{
-    Task SendNotificationAsync(string type, string message, string recipient);
-    Task SendToAllChannelsAsync(string message, string recipient);
-}
-
-public class NotificationManager : INotificationManager
-{
-    private readonly INotificationFactory _factory;
-    public NotificationManager(INotificationFactory factory)
-    {
-        _factory = factory;
-    }
-
-
-    public async Task SendNotificationAsync(string type, string message, string recipient)
-    {
-        try
-        {
-            var service = _factory.CreateNotification(type);
-            await service.Send(message, recipient);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error sending notification: {ex.Message}");
-        }
-    }
-
-    public async Task SendToAllChannelsAsync(string message, string recipient)
-    {
-        var availableTyoe = _factory.GetAvailableTypes();
-        var task = availableTyoe.Select(type =>
-            SendNotificationAsync(type, message, recipient)
-        );
-        await Task.WhenAll(task);
-    }
-}
-#endregion
-
-#region  ==== Dependency Injection Setup =====
-public static class NotificationServiceExtensions
-{
-    public static IServiceCollection AddNotificationService(this IServiceCollection services)
-    {
-
-        //Đăng ký Concrete services
-        services.AddTransient<EmailService>();
-        services.AddTransient<SmsService>();
-
-        //Đăng ký Factory
-        services.AddScoped<INotificationFactory, NotificationFactory>();
-
-        //Đăng ký Service sử dụng Factory
-        services.AddScoped<INotificationManager, NotificationManager>();
-
-        return services;
-    }
-}
-#endregion
-```
+> **Ghi chú:** trong bản C# gốc, factory gọi `_serviceProvider.GetRequiredService<T>()` để lấy service theo tên — đây là biểu hiện của **Service Locator**, một cách dùng DI container thường bị xem là anti-pattern khi kết hợp với factory, vì nó "giấu" các phụ thuộc thực sự của class bên trong một lệnh gọi runtime thay vì khai báo tường minh qua constructor. Cách dùng `map[string]func() ...` ở trên tránh được vấn đề này vì các hàm khởi tạo được khai báo tường minh ngay trong factory, không cần tra cứu qua container.
 
 ---
+
+### Đề xuất mở rộng
+
+Sau khi nắm vững Factory Method, có thể tìm hiểu thêm:
+
+- **Simple Factory vs Factory Method vs Abstract Factory:** so sánh kỹ hơn 3 cách tiếp cận đã nhắc ở Mục 1, đặc biệt là khi nào cần "nâng cấp" từ Simple Factory lên Factory Method hoặc Abstract Factory.
+- **Abstract Factory Pattern:** mẫu nâng cao hơn, dùng khi cần tạo cả một họ đối tượng liên quan với nhau, không chỉ một đối tượng đơn lẻ.
+- **Builder Pattern:** một Creational Pattern khác, phù hợp khi đối tượng cần khởi tạo có nhiều tham số tùy chọn phức tạp, thay vì chỉ chọn giữa vài loại cố định như Factory Method.
+- **Nguyên lý Open/Closed (trong SOLID):** hiểu rõ nguyên lý này giúp thấy rõ lý do Factory Method giúp mở rộng hệ thống mà không cần sửa code cũ.
+- **Dependency Injection và Service Locator anti-pattern:** tìm hiểu sâu hơn sự khác biệt giữa "constructor injection" (khai báo tường minh) và "service locator" (tra cứu ẩn qua container) đã nhắc ở Ví dụ 3.
