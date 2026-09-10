@@ -1,1 +1,1 @@
-Kong API gateway: tìm hiểu thêm [tại đây]
+Kong API gateway: tìm hiểu thêm [tại đây](https://github.com/GiaBao0510/ExperienceLearnedAndGathered/tree/main/Technologies/Kong%20API%20Gateway)
