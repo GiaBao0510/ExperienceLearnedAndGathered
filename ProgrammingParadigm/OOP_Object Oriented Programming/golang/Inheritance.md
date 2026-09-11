@@ -131,7 +131,6 @@ func main() {
 > **Lưu ý:** Phương thức của Animal không bị xóa — bạn vẫn có thể gọi tường minh qua `myCat.Animal.Speak()`.
 
 ---
-
 ## Composition với Interface
 
 Sức mạnh thực sự của composition trong Go đến từ việc kết hợp **struct embedding** với **interface**. Đây là cách Go đạt được tính đa hình mà không cần kế thừa:

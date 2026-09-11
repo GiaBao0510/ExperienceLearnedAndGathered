@@ -105,10 +105,10 @@ Trước khi tìm hiểu Goroutine, cần nắm vững hai khái niệm nền t�
 
 **Đặc điểm bộ nhớ của Thread:**
 
-|Vùng nhớ|Mô tả|Chia sẻ?|
-|---|---|---|
-|**Stack**|Lưu biến cục bộ, tham số hàm, địa chỉ trả về|❌ Riêng mỗi thread (~1–2 MB cố định)|
-|**Heap**|Lưu dữ liệu động (cấp phát bằng `new`, `malloc`)|✅ Chung toàn bộ process|
+| Vùng nhớ  | Mô tả                                            | Chia sẻ?                             |
+| --------- | ------------------------------------------------ | ------------------------------------ |
+| **Stack** | Lưu biến cục bộ, tham số hàm, địa chỉ trả về     | ❌ Riêng mỗi thread (~1–2 MB cố định) |
+| **Heap**  | Lưu dữ liệu động (cấp phát bằng `new`, `malloc`) | ✅ Chung toàn bộ process              |
 
 **Vấn đề khi dùng nhiều thread:**
 
@@ -132,14 +132,14 @@ go tenHam() // Chạy tenHam() trong một goroutine mới
 
 ### 4.2. So Sánh Goroutine và Thread
 
-|Tiêu chí|Thread (OS)|Goroutine (Go)|
-|---|---|---|
-|**Kích thước stack ban đầu**|~1–2 MB (cố định)|~2–4 KB (động, tăng theo nhu cầu)|
-|**Stack tối đa**|~8 MB|~1 GB|
-|**Quản lý bởi**|Hệ điều hành|Go Runtime|
-|**Chi phí khởi tạo**|Cao|Rất thấp|
-|**Số lượng khả thi**|Hàng nghìn|Hàng triệu|
-|**Context switch**|Kernel space (chậm)|User space (nhanh)|
+| Tiêu chí                     | Thread (OS)         | Goroutine (Go)                    |
+| ---------------------------- | ------------------- | --------------------------------- |
+| **Kích thước stack ban đầu** | ~1–2 MB (cố định)   | ~2–4 KB (động, tăng theo nhu cầu) |
+| **Stack tối đa**             | ~8 MB               | ~1 GB                             |
+| **Quản lý bởi**              | Hệ điều hành        | Go Runtime                        |
+| **Chi phí khởi tạo**         | Cao                 | Rất thấp                          |
+| **Số lượng khả thi**         | Hàng nghìn          | Hàng triệu                        |
+| **Context switch**           | Kernel space (chậm) | User space (nhanh)                |
 
 ![](https://zalopay-oss.github.io/go-advanced/images/ch1.6-compare-thread-goroutine.png)
 
