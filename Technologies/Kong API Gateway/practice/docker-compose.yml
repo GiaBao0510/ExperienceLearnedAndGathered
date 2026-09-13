@@ -1,0 +1,9 @@
+services:
+  kong: 
+    image: kong:latest
+    container_name: kong
+    user: "user-kong"
+    depends_on:
+      - db
+    environment:
+      KONG_ 

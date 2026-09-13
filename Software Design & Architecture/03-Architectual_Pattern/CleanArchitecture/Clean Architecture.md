@@ -1,10 +1,5 @@
-
-
-Clean architecture v2 · MD
 # Clean Architecture: Kiến trúc phần mềm hướng vào trong
- 
-> **Lưu ý nhỏ trước khi vào bài**: yêu cầu của bạn có kèm theo phần nhắc kiểm tra lại quy trình cấp Access Token từ Refresh Token - đây có vẻ là nội dung còn sót lại từ mẫu yêu cầu trước (tài liệu RefreshToken), không liên quan đến tài liệu Clean Architecture lần này, nên mình sẽ bỏ qua phần đó và tập trung rà soát đúng nội dung Clean Architecture bên dưới.
- 
+
 ## Mục lục
  
 1. [Clean Architecture là gì?](#clean-architecture-là-gì)
@@ -28,7 +23,7 @@ Kiến trúc này được xây dựng trên tư tưởng **"độc lập"**, k�
 ## Đứng trên vai những gã khổng lồ
  
 Clean Architecture không phải là ý tưởng hoàn toàn mới, mà kế thừa và tổng hợp từ nhiều kiến trúc trước đó đã cùng chia sẻ một mục tiêu: tách biệt rõ ràng giữa logic nghiệp vụ và các chi tiết kỹ thuật bên ngoài. Các kiến trúc có ảnh hưởng trực tiếp đến Clean Architecture bao gồm:
- 
+
 - **Hexagonal Architecture (Ports & Adapters)** của Alistair Cockburn.
 - **DCI (Data, Context, Interaction)** của James Coplien và Trygve Reenskaug.
 - **BCE (Boundary-Control-Entity)** của Ivar Jacobson.
@@ -45,20 +40,128 @@ Kiến trúc của Clean Architecture được chia thành 4 tầng (layer), tu�
 ![Sơ đồ các tầng trong Clean Architecture](https://images.viblo.asia/594d086c-73c2-4802-9266-55c7914f3f43.jpeg)
  
 Nguyên tắc này chính là Dependency Inversion Principle được áp dụng ở cấp độ kiến trúc, không chỉ ở cấp độ class. Vòng tròn bên trong hoàn toàn không biết gì về các vòng tròn bên ngoài. Khi dữ liệu được truyền qua một ranh giới (boundary) giữa các tầng, dữ liệu đó luôn được chuyển đổi sang dạng thuận tiện nhất cho tầng phía trong tiếp nhận, thay vì buộc tầng trong phải hiểu định dạng của tầng ngoài.
- 
+
+---
 ## Bốn tầng chính trong Clean Architecture
  
 ### 1. Entities (Domain Layer)
- 
+
 Đây là tầng trong cùng và quan trọng nhất - nơi chứa các thực thể (entity) đại diện cho đối tượng nghiệp vụ cùng các quy tắc nghiệp vụ cốt lõi (core business rules) gắn liền với đối tượng đó. Một entity có thể là một object hoặc một cụm object liên quan - ví dụ trong use case tạo người dùng, entity chính là đối tượng `User` cùng các business rule gắn với nó (định dạng email hợp lệ, độ dài mật khẩu tối thiểu...).
  
 Tầng này không phụ thuộc vào bất kỳ framework nào, có thể chạy và test độc lập mà không cần bất kỳ thành phần hạ tầng nào (web server, database). Đây là lý do vì sao Entities dễ test, dễ bảo trì và phát triển nhất trong bốn tầng.
- 
+
+#### *Giải thích về `core business rules`*:
+
+> **Core business rule là một quy tắc đúng về mặt nghiệp vụ của bản thân domain, không phụ thuộc vào việc hệ thống đang thực hiện use case nào.**
+
+Nó trả lời câu hỏi:
+> **“Đối tượng nghiệp vụ này được phép tồn tại/thay đổi như thế nào?”**
+
+Ví dụ:
+```go
+type User struct {
+    Email    string
+    Password string
+}
+
+func NewUser(email, password string) (*User, error) {
+    if !isValidEmail(email) {
+        return nil, errors.New("invalid email")
+    }
+
+    if len(password) < 8 {
+        return nil, errors.New("password too short")
+    }
+
+    return &User{
+        Email:    email,
+        Password: password,
+    }, nil
+}
+```
+
+Ở đây:
+- Email phải hợp lệ.
+- Password phải dài ít nhất 8 ký tự.
+
+Hai quy tắc này thuộc về **bản thân `User`**.
+
 ### 2. Use Cases (Application Layer)
- 
+
 Tầng này chứa logic nghiệp vụ ở cấp độ ứng dụng cụ thể (application-specific business rules), mô tả luồng xử lý của từng use case: tương tác với Entities như load, xử lý, lưu lại entity. Có thể hình dung Use Case như một **orchestrator** điều phối luồng xử lý của một request.
- 
+
+*Nói dễ hiểu:*
+> **Use Case không chủ yếu quyết định “User hợp lệ hay không”, mà quyết định “để thực hiện một nghiệp vụ cụ thể thì hệ thống phải làm những bước gì và theo thứ tự nào”.**
+
 Use Case không quan tâm dữ liệu đến từ đâu, được truyền qua giao thức nào, hay hiển thị ra sao ở tầng ngoài - đó là trách nhiệm của tầng Interface Adapters. Entities và Use Cases cùng nhau tạo thành phần được gọi là **core business logic** - phần lõi hoàn toàn độc lập với framework, UI hay database.
+
+Ví dụ hệ thống thương mại điện tử có:
+```
+Create Order
+```
+
+Để tạo đơn hàng, có thể phải:
+```
+1. Tìm Customer
+2. Kiểm tra Customer tồn tại
+3. Lấy Product
+4. Kiểm tra Product còn hàng
+5. Tạo Order
+6. Tính tổng tiền
+7. Trừ inventory
+8. Lưu Order
+9. Gửi event OrderCreated
+```
+
+Đây là **application business logic / use-case logic**.
+
+Ví dụ:
+```go
+func (uc *CreateOrderUseCase) Execute(
+    customerID string,
+    productID string,
+    quantity int,
+) error {
+
+    customer, err := uc.customerRepo.FindByID(customerID)
+    if err != nil {
+        return err
+    }
+
+    product, err := uc.productRepo.FindByID(productID)
+    if err != nil {
+        return err
+    }
+
+    if product.Stock < quantity {
+        return errors.New("not enough stock")
+    }
+
+    order, err := NewOrder(customer, product, quantity)
+    if err != nil {
+        return err
+    }
+
+    if err := uc.productRepo.DecreaseStock(productID, quantity); err != nil {
+        return err
+    }
+
+    return uc.orderRepo.Save(order)
+}
+```
+
+Ở đây Use Case đang **điều phối**:
+```
+Repository
+   ↓
+Entity
+   ↓
+Entity
+   ↓
+Repository
+```
+
+Nó quyết định **workflow của nghiệp vụ Create Order**.
  
 ### 3. Interface Adapters (Presentation Layer)
  
@@ -73,7 +176,8 @@ Ví dụ minh họa: thông tin người dùng có thể chứa nhiều trườn
 Trên thực tế, đây là nơi duy nhất "biết tất cả" - vì tầng này chịu trách nhiệm khởi tạo các đối tượng cụ thể (implementation) cho các tầng bên trong thông qua Interface, quá trình này thường được gọi là **Dependency Injection** hoặc **Setup Dependencies**.
  
 > **Quy tắc bắt buộc**: mã nguồn của một class thuộc tầng trong **không được phép** tham chiếu trực tiếp đến mã nguồn của một class thuộc tầng ngoài hơn nó.
- 
+
+---
 ## Dependency Rule - Quy tắc phụ thuộc
  
 Dependency Rule là khía cạnh quan trọng nhất, đóng vai trò then chốt để Clean Architecture đạt được tính linh hoạt, dễ bảo trì và mở rộng. Quy tắc này phát biểu cụ thể như sau:
@@ -163,11 +267,13 @@ func (r *PostgresProductRepository) Update(ctx context.Context, p *Product) erro
 ```
  
 Nhờ `ProductService` chỉ phụ thuộc vào interface `ProductRepository`, việc viết unit test cho logic nghiệp vụ trở nên đơn giản: chỉ cần tạo một mock implementation của `ProductRepository` (ví dụ bằng `uber-go/mock`), hoàn toàn không cần kết nối database thật.
- 
+
+---
 ## Kết luận
  
 Clean Architecture không phải là một công thức bắt buộc phải tuân thủ tuyệt đối, mà là một tập hợp nguyên tắc giúp tách biệt logic nghiệp vụ khỏi các chi tiết kỹ thuật dễ thay đổi. Ngay cả Uncle Bob cũng từng nhấn mạnh rằng: cuối cùng, "Clean Architecture" cũng chỉ là một cái tên - việc không tuân thủ triệt để kiến trúc này không hẳn là xấu, và việc tuân thủ máy móc cũng không hẳn là tốt nếu nó không phù hợp với quy mô và bối cảnh thực tế của dự án. Điều quan trọng nhất vẫn là hiểu đúng bản chất của Dependency Rule và áp dụng linh hoạt tùy theo nhu cầu.
- 
+
+---
 ### Mở rộng
  
 Một số hướng tìm hiểu thêm để nâng cao kiến thức về chủ đề này:
