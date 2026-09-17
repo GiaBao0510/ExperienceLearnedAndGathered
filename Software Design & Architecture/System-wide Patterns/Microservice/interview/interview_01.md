@@ -83,8 +83,6 @@ Danh sách câu hỏi bên dưới được sắp xếp theo mạch từ khái n
 
 ## Câu 4: Cohesion và Coupling là gì?
 
-> **Ghi chú sửa lỗi kiến thức**: Bản gốc của câu hỏi này gán nhầm định nghĩa: mô tả **Coupling** nhưng lại gắn nhãn là "Cohesion", và ngược lại. Nội dung dưới đây đã được sửa lại đúng theo định nghĩa chuẩn trong thiết kế phần mềm.
-
 **Coupling (Tính liên kết/phụ thuộc giữa các module)**: Là mức độ một module phụ thuộc vào hoặc phải biết chi tiết bên trong của module khác. Coupling thường được chia theo mức độ:
 
 - **Tightly coupled** (liên kết chặt): các module phụ thuộc nhiều vào nhau, thay đổi ở module này dễ kéo theo phải sửa module kia.
@@ -136,7 +134,6 @@ Bounded Context khuyến khích cách tiếp cận hướng đối tượng (obj
 
 ## Câu 6: Kiến trúc tham chiếu của một hệ thống Microservices thường gồm những thành phần nào?
 
-> **Ghi chú biên tập**: Câu hỏi này trong bản gốc bị thiếu tiêu đề (chỉ còn dấu "?"). Dựa trên nội dung liệt kê bên dưới (Clients, Identity Provider, API Gateway...), đây rõ ràng là câu hỏi về các thành phần trong một kiến trúc tham chiếu (reference architecture) của hệ thống microservices, nên tiêu đề đã được bổ sung cho phù hợp.
 
 ![Kiến trúc tham chiếu Microservices](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUUxoOdCRGrJZYceWAw_J9JVM9y_-mm2BS7M5fN3my1gUQTkNckvypLZg&s=10)
 
@@ -171,8 +168,6 @@ Bounded Context khuyến khích cách tiếp cận hướng đối tượng (obj
 - **API Gateway**: Điểm vào duy nhất, xử lý routing, authentication, rate limiting cho các request tới hệ thống (xem chi tiết ở Câu 6).
 - **Service Registry / Service Discovery**: Thành phần lưu và cập nhật danh sách địa chỉ các service instance đang hoạt động.
 
-> **Ghi chú kỹ thuật**: Bản gốc liệt kê **Enterprise Service Bus (ESB)** như một thành phần "thường dùng" của Microservices. Trên thực tế, ESB gắn liền với kiến trúc SOA truyền thống, còn microservices thường **chủ động tránh** dùng một ESB tập trung, theo đúng nguyên tắc "smart endpoints, dumb pipes" đã nêu ở Câu 3 — vì một ESB xử lý quá nhiều logic sẽ trở thành điểm phụ thuộc chung, đi ngược lại mục tiêu loose coupling của microservices. ESB có thể vẫn xuất hiện trong thực tế khi hệ thống microservices cần tích hợp với các hệ thống doanh nghiệp cũ (legacy) vốn đã dùng ESB, nhưng đây không phải là thành phần cốt lõi, khuyến nghị cho kiến trúc microservices thuần túy.
-
 ### Mở rộng
 
 - Message Broker (Kafka, RabbitMQ) như lựa chọn giao tiếp bất đồng bộ phổ biến hơn ESB trong microservices hiện đại.
@@ -190,7 +185,7 @@ Bounded Context khuyến khích cách tiếp cận hướng đối tượng (obj
 - **WireMock**: Công cụ giả lập (mock) API của các service khác trong lúc test, giúp kiểm thử một service độc lập mà không cần các service phụ thuộc thật sự chạy.
 - **Hystrix**: Thư viện của Netflix, dùng để triển khai circuit breaker — cô lập lỗi khi gọi tới một service khác, tránh lỗi lan rộng ra toàn hệ thống.
 
-> **Ghi chú cập nhật**: **Hystrix hiện đã ngừng phát triển tích cực và chuyển sang chế độ maintenance mode** (theo thông báo chính thức từ Netflix). Các dự án mới thường được khuyến nghị dùng **resilience4j** — thư viện circuit breaker/rate limiter/retry hiện đại hơn, được cộng đồng duy trì tích cực — thay vì Hystrix.
+> **Hystrix hiện đã ngừng phát triển tích cực và chuyển sang chế độ maintenance mode** (theo thông báo chính thức từ Netflix). Các dự án mới thường được khuyến nghị dùng **resilience4j** — thư viện circuit breaker/rate limiter/retry hiện đại hơn, được cộng đồng duy trì tích cực — thay vì Hystrix.
 
 **Ví dụ cấu hình circuit breaker bằng Go** (dùng thư viện `sony/gobreaker`, một lựa chọn phổ biến trong hệ sinh thái Go, tương đương ý tưởng của Hystrix/resilience4j):
 

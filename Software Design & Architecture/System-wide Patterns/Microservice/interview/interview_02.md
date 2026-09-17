@@ -78,6 +78,8 @@ Khi kết hợp DDD với kiến trúc Microservices, kết quả phân tích do
 
 **Client certificate** là một loại chứng chỉ số (digital certificate), thường được dùng để cho phép hệ thống client tự xác thực danh tính của mình với server từ xa. Đây là thành phần quan trọng trong các thiết kế **mutual TLS (mTLS)** — mô hình xác thực hai chiều, nơi cả client và server đều phải chứng minh danh tính với nhau bằng chứng chỉ, thay vì chỉ server xác thực với client như trong HTTPS thông thường.
 
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPacui_bMontJMTqtO9dWZtjUqSsTZM2dSZa-Bjyjc23sQR10BS3xcbu7Z&s=10)
+
 **Ví dụ**: Trong một hệ thống microservices nội bộ, `order-service` khi gọi tới `payment-service` phải đính kèm client certificate của mình. `payment-service` xác minh certificate này hợp lệ trước khi xử lý request — đảm bảo chỉ những service được cấp phép mới gọi được tới nó, ngay cả khi request đi trong cùng mạng nội bộ.
 
 ### Mở rộng
@@ -94,8 +96,6 @@ Khi kết hợp DDD với kiến trúc Microservices, kết quả phân tích do
 ## Câu 5: Giải thích về OAuth và OAuth 2.0?
 
 **OAuth** ("Open" + "Auth", viết tắt của **Open Authorization**) là một giao thức **ủy quyền (authorization)** — cho phép một ứng dụng bên thứ ba được người dùng ủy quyền để truy cập tài nguyên của họ trên một dịch vụ khác, mà **không cần** ứng dụng đó biết mật khẩu của người dùng.
-
-> **Ghi chú sửa lỗi kiến thức**: Bản gốc mô tả tên gọi OAuth gắn với cả "Authentication" (xác thực) lẫn "Authorization" (cấp quyền). Trên thực tế, **OAuth về bản chất là một giao thức Authorization, không phải Authentication** — nó chỉ trả lời câu hỏi "ứng dụng này có được phép truy cập tài nguyên X hay không", chứ không tự nó xác minh "người dùng này là ai". Việc xác thực danh tính người dùng (authentication) dựa trên nền OAuth 2.0 thuộc về một giao thức riêng gọi là **OpenID Connect (OIDC)**, xây dựng thêm một lớp trên OAuth 2.0.
 
 **OAuth 2.0** là phiên bản kế thừa OAuth 1.0, nhưng cần lưu ý: OAuth 2.0 là một **thiết kế lại gần như hoàn toàn**, không tương thích ngược với OAuth 1.0 (khác chữ ký request, khác luồng cấp quyền), chứ không đơn thuần là một bản "nâng cấp" nhỏ. OAuth 2.0 cho phép các ứng dụng chia sẻ một phần tài nguyên với nhau mà không cần người dùng phải nhập lại username/password ở từng nơi, giúp giảm phiền toái khi phải quản lý quá nhiều tài khoản.
 
@@ -121,8 +121,9 @@ Trong OAuth 2.0, có 4 vai trò chính:
 - Internet Engineering Task Force — [RFC 6749: The OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749)
 
 ---
-
 ## Câu 6: Giải thích về CDC (Consumer-Driven Contract)?
+
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRT2a80KU3NDBUw3OqEHbqZSjJIgvpAb3SLpt9C7QLIhgcqAXgbpiFYQME&s=10)
 
 **CDC (Consumer-Driven Contract)** là một mẫu kiểm thử (testing pattern), trong đó **bên tiêu thụ (consumer)** của một API định nghĩa trước những gì mình mong đợi ở API đó — bao gồm định dạng dữ liệu, các trường bắt buộc, mã trạng thái... Thỏa thuận này được gọi là **hợp đồng (contract)**. Bên cung cấp dịch vụ (provider) sau đó dùng chính hợp đồng này để kiểm tra xem thay đổi trong service của mình có làm hỏng những gì consumer đang mong đợi hay không, trước khi thay đổi đó được deploy.
 
@@ -143,7 +144,7 @@ Nói cách khác, CDC giúp phát hiện sớm các thay đổi API gây phá v�
 
 ## Câu 7: PACT là gì?
 
-![Cách PACT hoạt động](https://docs.pact.io/img/how-pact-works/summary.png)
+![Cách PACT hoạt động](https://pact.io/assets/img/pact-serverless.png)
 
 **PACT** là một công cụ mã nguồn mở, dùng để triển khai kiểm thử theo mô hình **Consumer-Driven Contract** (xem câu hỏi trước): cho phép bên cung cấp dịch vụ (provider) và bên tiêu thụ (consumer) kiểm tra các tương tác giữa họ một cách tách biệt, dựa trên hợp đồng (contract) đã thống nhất — qua đó tăng độ tin cậy khi tích hợp giữa các microservice mà không cần dựng toàn bộ hệ thống để test. PACT hỗ trợ nhiều ngôn ngữ, ví dụ Ruby, Java, Scala, .NET, JavaScript, Swift/Objective-C, và cả Go.
 
@@ -162,6 +163,8 @@ Nói cách khác, CDC giúp phát hiện sớm các thay đổi API gây phá v�
 
 ## Câu 8: Semantic Monitoring là gì?
 
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQztiqkqQ-4R3VW6uE3SYRVBnHQSk91dCzJmHaA6lRK5cHTSIIrpvuJ4sk&s=10)
+
 **Semantic monitoring** (còn gọi là giám sát tổng hợp — _synthetic monitoring_) sử dụng các bài kiểm tra tự động, chạy định kỳ, mô phỏng hành vi người dùng thật để phát hiện lỗi trong quy trình nghiệp vụ, thay vì chỉ xem các chỉ số hạ tầng đơn thuần (CPU, RAM...). Kỹ thuật này giúp có cái nhìn sâu hơn về hiệu suất giao dịch, tính khả dụng của dịch vụ, và hiệu suất tổng thể của ứng dụng — từ đó phát hiện sớm các vấn đề về hiệu suất của microservices, lỗi trong giao dịch, và duy trì mức hiệu suất tổng thể cao hơn.
 
 **Ví dụ**: Một bài kiểm tra semantic monitoring có thể tự động thực hiện toàn bộ luồng "đăng nhập → thêm sản phẩm vào giỏ → thanh toán" mỗi 5 phút trên môi trường production, để phát hiện ngay khi một bước trong luồng nghiệp vụ này bị lỗi — dù các chỉ số hạ tầng (CPU, RAM của từng service) vẫn hoàn toàn bình thường.
@@ -178,7 +181,7 @@ Nói cách khác, CDC giúp phát hiện sớm các thay đổi API gây phá v�
 
 ## Câu 9: Continuous Monitoring là gì?
 
-> **Ghi chú sửa lỗi kiến thức**: Bản gốc định nghĩa Continuous Monitoring theo nghĩa **giám sát tuân thủ tài chính/rủi ro doanh nghiệp** — đây là định nghĩa đúng trong lĩnh vực quản trị doanh nghiệp/audit, nhưng **không phải ý nghĩa được hỏi tới trong ngữ cảnh microservices**. Trong kỹ thuật phần mềm, Continuous Monitoring mang nghĩa khác, được trình bày lại dưới đây.
+![](https://www.researchgate.net/profile/Eli-Weintraub/publication/301771563/figure/fig1/AS:668938308448257@1536498729148/Continuous-Monitoring-System-architecture.png)
 
 **Continuous Monitoring (giám sát liên tục)**, trong ngữ cảnh microservices, là việc **liên tục thu thập và theo dõi** các chỉ số kỹ thuật của hệ thống đang chạy — như logs, metrics (CPU, RAM, latency, error rate), health check, và traces — nhằm phát hiện sớm sự cố, thay vì chỉ kiểm tra khi có báo lỗi từ người dùng. Đây là một phần quan trọng của **Observability** trong hệ thống microservices, vì với nhiều service chạy độc lập, việc phát hiện sớm dịch vụ nào đang gặp vấn đề là rất quan trọng để tránh ảnh hưởng dây chuyền.
 
@@ -198,8 +201,6 @@ Nói cách khác, CDC giúp phát hiện sớm các thay đổi API gây phá v�
 ## Câu 10: Distributed Transactions là gì?
 
 **Giao dịch phân tán (distributed transaction)** là một giao dịch mà các bước xử lý được thực hiện trải dài qua nhiều service/database khác nhau, cần hoàn thành theo trình tự để đảm bảo dữ liệu nhất quán trên toàn bộ các phần liên quan.
-
-> **Ghi chú làm rõ**: Bản gốc mô tả distributed transaction là "một cách tiếp cận lỗi thời". Để chính xác hơn: **bản thân nhu cầu xử lý giao dịch trải dài qua nhiều service vẫn tồn tại và rất phổ biến** trong microservices (ví dụ: đặt hàng cần trừ kho, tạo thanh toán, gửi thông báo — tất cả phải nhất quán). Điều thực sự "lỗi thời" và ít được khuyến khích trong microservices hiện đại là dùng kỹ thuật **2PC (Two-Phase Commit)** truyền thống của giao dịch ACID phân tán để giải quyết bài toán này — vì 2PC yêu cầu khóa tài nguyên trên nhiều service cùng lúc, gây nghẽn và làm giảm khả năng mở rộng (scalability), đồng thời không phù hợp khi các service dùng database khác nhau và cần deploy độc lập.
 
 Thay vì 2PC, microservices hiện đại thường giải quyết bài toán giao dịch trải dài qua nhiều service bằng **Saga Pattern** — chia giao dịch lớn thành một chuỗi các giao dịch cục bộ nhỏ hơn tại từng service, kèm theo bước "bù trừ" (compensating action) để hoàn tác nếu một bước ở giữa chuỗi thất bại, thay vì khóa toàn bộ tài nguyên chờ tất cả các bước hoàn tất.
 
