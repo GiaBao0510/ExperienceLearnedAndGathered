@@ -6,7 +6,7 @@ Cấu trúc thư mục
 │
 ├───0.HTTP_2
 │       HTTP2 Fundamentals.md          # gồm: Connection, Stream, Stream ID, Multiplexing
-│       Binary framing & Header compression.md   
+│       
 │
 ├───1.Protocol Buffers
 │       Protobuf Basics.md             # gồm: Introduction, Syntax, Scalar types, Enum
