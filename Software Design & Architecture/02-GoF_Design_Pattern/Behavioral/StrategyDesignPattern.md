@@ -31,7 +31,7 @@ Kết quả là:
 
 - Strategy Pattern cho phép thay đổi hành vi của một đối tượng tại thời gian chạy (**runtime**) bằng cách thay đổi thuật toán mà nó sử dụng
 - Điều này giống với mẫu Delegation, cả hai đều dựa trên **protocol** để tăng tính linh hoạt.
-- Tuy nhiên, khác với Delegation, Strategy Pattern sử dụng một họ các đối tượng, và các thuật toán (strategies) có thể dễ dang tay đổi thời gian chạy, trong khi delegate thường được sử dụng cố định trong thời gian chạy
+- Tuy nhiên, khác với Delegation, Strategy Pattern sử dụng một họ các đối tượng, và các thuật toán (strategies) có thể dễ dang thay đổi thời gian chạy, trong khi delegate thường được sử dụng cố định trong thời gian chạy
 
 ---
 ### **Kiến trúc:**
@@ -39,10 +39,10 @@ Kết quả là:
 ![](https://images.viblo.asia/9e6ad788-fd88-4935-a53c-c15d161e7331.png)
 
 **Các thành phần trong mô hình:**
-- *Context:* Class này sử dụng các strategy object và chỉ giao tiếp với các strategy object thông qua interface.
+- *Context:* Class này sử dụng các **strategy object** và chỉ giao tiếp với các s**trategy objec**t thông qua **interface**.
 - *Strategy:* Cung cấp một interface chung cho các *Context* giao tiếp với các strategy object.
 - *Concrete Strategy:* Implement các thuật toán khác nhau cho từng Context.
-- *Client:* Có trách nhiệm tạo ra các strategy object và truyền cho các Context sử dụng.
+- *Client:* Có trách nhiệm tạo ra các **strategy object** và truyền cho các Context sử dụng.
 
 ---
 ### **Khi nào sử dụng:**
@@ -301,4 +301,193 @@ public static class ServiceCollectionExtensions
     }
 }
 #endregion
+```
+
+---
+
+## Ví dụ minh họa bằng Go
+
+> Các ví dụ gốc dùng C#. Dưới đây là bản chuyển sang Go idiomatic: dùng `interface` cho Strategy, `struct` cho Context và Concrete Strategy.
+
+### Ví dụ 1: Chế độ chơi game (độ khó)
+
+```go
+package main
+
+import "fmt"
+
+// Strategy: interface chung cho các thuật toán xử lý level
+type GameLevel interface {
+	HandleLevel(level int)
+}
+
+// Context: sử dụng GameLevel strategy hiện tại, không quan tâm strategy cụ thể nào
+type GameContext struct {
+	level GameLevel
+}
+
+func NewGameContext(level GameLevel) *GameContext {
+	return &GameContext{level: level}
+}
+
+func (c *GameContext) SetStrategy(level GameLevel) {
+	c.level = level
+}
+
+func (c *GameContext) CurrentGameLevel(level int) {
+	c.level.HandleLevel(level)
+}
+
+// ---- Concrete Strategy ----
+
+type LevelEasy struct{}
+
+func (LevelEasy) HandleLevel(level int) {
+	fmt.Printf("Level Easy: %d\n", level)
+	// Cau hinh game: it enemy, toc do cham,...
+}
+
+type LevelNormal struct{}
+
+func (LevelNormal) HandleLevel(level int) {
+	fmt.Printf("Level Normal: %d\n", level)
+}
+
+type LevelDifficult struct{}
+
+func (LevelDifficult) HandleLevel(level int) {
+	fmt.Printf("Level Difficult: %d\n", level)
+}
+
+func main() {
+	ctx := NewGameContext(LevelEasy{})
+	ctx.CurrentGameLevel(1)
+
+	ctx.SetStrategy(LevelNormal{})
+	ctx.CurrentGameLevel(2)
+
+	ctx.SetStrategy(LevelDifficult{})
+	ctx.CurrentGameLevel(3)
+}
+```
+
+
+### Ví dụ 2: Xuất file theo nhiều định dạng (Strategy + Factory)
+
+> Bản C# dùng `IServiceCollection`/`ILogger` của ASP.NET Core để đăng ký và tiêm (inject) các strategy qua DI container. Go không có DI container tiêu chuẩn đi kèm ngôn ngữ, nên cách idiomatic hơn là **wiring thủ công, tường minh** qua các hàm khởi tạo (`NewXxx`) — đây là cách làm phổ biến và được khuyến khích trong cộng đồng Go, giúp thấy rõ mọi phụ thuộc ngay tại nơi khởi tạo.
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"strings"
+)
+
+// Strategy: interface chung cho các loại export
+type Exporter interface {
+	ExportType() string
+	ExportFile(fileName string)
+}
+
+// ---- Concrete Strategy ----
+
+type ExportJPG struct{ logger *log.Logger }
+
+func (e ExportJPG) ExportType() string { return "JPG" }
+func (e ExportJPG) ExportFile(fileName string) {
+	e.logger.Printf("Export file: %s.JPG", fileName)
+}
+
+type ExportPDF struct{ logger *log.Logger }
+
+func (e ExportPDF) ExportType() string { return "PDF" }
+func (e ExportPDF) ExportFile(fileName string) {
+	e.logger.Printf("Export file: %s.PDF", fileName)
+}
+
+type ExportPNG struct{ logger *log.Logger }
+
+func (e ExportPNG) ExportType() string { return "PNG" }
+func (e ExportPNG) ExportFile(fileName string) {
+	e.logger.Printf("Export file: %s.PNG", fileName)
+}
+
+// ---- Strategy Factory: quản lý và tra cứu strategy theo tên ----
+
+type ExportStrategyFactory struct {
+	strategies map[string]Exporter
+}
+
+func NewExportStrategyFactory(logger *log.Logger) *ExportStrategyFactory {
+	all := []Exporter{
+		ExportJPG{logger: logger},
+		ExportPDF{logger: logger},
+		ExportPNG{logger: logger},
+	}
+
+	m := make(map[string]Exporter, len(all))
+	for _, s := range all {
+		m[strings.ToUpper(s.ExportType())] = s
+	}
+	return &ExportStrategyFactory{strategies: m}
+}
+
+func (f *ExportStrategyFactory) Get(exportType string) (Exporter, error) {
+	s, ok := f.strategies[strings.ToUpper(exportType)]
+	if !ok {
+		return nil, fmt.Errorf("export type %q is not supported", exportType)
+	}
+	return s, nil
+}
+
+func (f *ExportStrategyFactory) AvailableTypes() []string {
+	types := make([]string, 0, len(f.strategies))
+	for t := range f.strategies {
+		types = append(types, t)
+	}
+	return types
+}
+
+// ---- Export Service (tương đương ExportService trong bản C# gốc) ----
+
+type ExportService struct {
+	factory *ExportStrategyFactory
+	logger  *log.Logger
+}
+
+func NewExportService(factory *ExportStrategyFactory, logger *log.Logger) *ExportService {
+	return &ExportService{factory: factory, logger: logger}
+}
+
+func (s *ExportService) ExportFile(fileName, exportType string) error {
+	strategy, err := s.factory.Get(exportType)
+	if err != nil {
+		s.logger.Printf("Error exporting file: %s with type: %s. %v", fileName, exportType, err)
+		return err
+	}
+	s.logger.Printf("Exporting file: %s with type: %s", fileName, exportType)
+	strategy.ExportFile(fileName)
+	s.logger.Printf("Successfully exported file: %s as %s", fileName, exportType)
+	return nil
+}
+
+func (s *ExportService) ExportMultipleFiles(fileName string, exportTypes ...string) []error {
+	var errs []error
+	for _, t := range exportTypes {
+		if err := s.ExportFile(fileName, t); err != nil {
+			errs = append(errs, err)
+		}
+	}
+	return errs
+}
+
+func main() {
+	logger := log.Default()
+	factory := NewExportStrategyFactory(logger)
+	service := NewExportService(factory, logger)
+
+	service.ExportMultipleFiles("report", "JPG", "PDF", "PNG")
+}
 ```
