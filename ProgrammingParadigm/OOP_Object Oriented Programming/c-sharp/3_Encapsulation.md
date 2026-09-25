@@ -76,11 +76,11 @@ public class Person
         get => _age;
         set
         {
-            if (value >= 0 && value <= 150)
+            if (value >= 1 && value <= 100)
                 _age = value;
             else
                 throw new 
-	                ArgumentException("Age must be between 0 and 150.");
+	                ArgumentException("Age must be between 1 and 100.");
         }
     }
 }

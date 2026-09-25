@@ -52,27 +52,21 @@ Kiến trúc phân tầng không quy định cố định số lượng tầng, 
 ![](https://images.viblo.asia/122e6427-8edd-4c01-ae50-1616c68cae9b.png)
 
 **Presentation**
-
 Xử lý tương tác với người dùng cuối: validate input, render UI dựa trên dữ liệu trả về từ tầng Application, và chuyển tiếp yêu cầu của người dùng xuống tầng Application để xử lý. Tầng này không chứa business logic.
 
 **Application (Business)**
-
 Một số tài liệu gọi là Business Layer. Chứa toàn bộ logic nghiệp vụ của hệ thống. Định nghĩa và cung cấp interface cho tầng Presentation gọi vào, đồng thời gọi xuống tầng Persistence để lấy hoặc cập nhật dữ liệu.
 
 **Persistence**
-
 Chịu trách nhiệm tương tác với nguồn lưu trữ dữ liệu. Không chỉ giới hạn ở database — mục đích chính của tầng này là duy trì trạng thái của các entity trong suốt vòng đời của ứng dụng. Entity có thể được lưu trên database quan hệ, NoSQL, file system, hoặc bất kỳ hệ thống lưu trữ nào khác. Tầng này quản lý connection pool và thực thi các câu truy vấn theo yêu cầu từ tầng trên.
 
 **Database**
-
 Là các hệ thống lưu trữ thực tế như MySQL, PostgreSQL, MongoDB, Redis... Tầng này không thuộc phần code của ứng dụng mà là hạ tầng bên ngoài. Tầng Persistence là thành phần duy nhất trong ứng dụng được phép tương tác trực tiếp với tầng này.
 
 ---
-
 # III. Open Layer và Closed Layer
 
 **Closed Layer**
-
 Bắt buộc mỗi request phải đi qua tất cả các tầng theo thứ tự từ trên xuống, không được bỏ qua tầng nào:
 
 ```
@@ -198,7 +192,6 @@ Ngưỡng thực tế để đánh giá: nếu hơn 80% request rơi vào tình 
 **Hệ thống nhỏ và cần triển khai nhanh**
 
 Layered Architecture là lựa chọn phù hợp cho các hệ thống nhỏ, chi phí thấp, hoặc có deadline ngắn vì:
-
 - Là kiến trúc monolithic — không mang sự phức tạp của kiến trúc phân tán (distributed systems).
 - Được sử dụng rộng rãi nên hầu hết developer đều quen thuộc, giúp onboard team mới nhanh hơn.
 - Phân chia team theo technical specialty (FE, BE, Database) rất tự nhiên: FE phụ trách Presentation, BE phụ trách Business và Persistence, DBA phụ trách Database layer.

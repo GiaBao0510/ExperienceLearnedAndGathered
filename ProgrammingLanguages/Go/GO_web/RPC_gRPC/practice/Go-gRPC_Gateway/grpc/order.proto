@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto;  // Này để định nghĩa package cho các message và service trong file proto. Nó giúp tránh xung đột tên khi sử dụng nhiều file proto khác nhau.
+
+
+// Để cho mã Go tạo ra 1 file nằm trong thư mục hiện tại và thuộc về package proto 
+option go_package = "./;proto";
+
+// Ở service này sẽ dùng để định nghĩa các phương thức RPC mà service sẽ cung cấp. Mỗi phương thức sẽ có một request message và một response message tương ứng.
+service OrderService{
+    // ĐỊnh nghĩa rpc service
+    rpc NewOrder(NewOrderRequest) returns (NewOrderResponse) {};
+}
+
+message NewOrderRequest{
+    string orderRequest = 1; // ID của đơn hàng
+}
+
+message NewOrderResponse{
+    string orderResponse = 2; // Thông báo phản hồi từ server
+    int32 id = 3; // ID của đơn hàng được tạo ra
+}
