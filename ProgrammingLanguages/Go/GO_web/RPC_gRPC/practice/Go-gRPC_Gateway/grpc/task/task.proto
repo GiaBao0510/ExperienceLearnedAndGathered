@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package task;
+
+option go_package = "./grpc/task";
+
+// tạo các mesaage request và response cho service
+message CreateTaskRequest {
+    string title = 1; // Tiêu đề của task
+    string description = 2; // Mô tả chi tiết của task
+}
+
+message CreateTaskResponse {
+    string id = 1; // ID của task được tạo ra
+    string title = 2; // Tiêu đề của task
+    string description = 3; // Mô tả chi tiết của task
+}
+
+// Message này rỗng vì nó sẽ chứa tất cả các task
+message ListTaskRequest {}
+
+// Message chứa thông tin của một task
+message Task {
+    string id = 1; // ID của task
+    string title = 2; // Tiêu đề của task
+    string description = 3; // Mô tả chi tiết của task
+}
+
+// Service này định nghĩa các RPC cho việc quản lý task
+service TaskService {
+    // RPC tạo ra một task mới
+    rpc CreateTask(CreateTaskRequest) returns (CreateTaskResponse);
+
+    // server streaming: trả về tất cả các task hiện có
+    rpc ListTasks(ListTaskRequest) returns (stream Task);
+}

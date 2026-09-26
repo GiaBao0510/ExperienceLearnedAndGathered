@@ -1,9 +1,8 @@
 package main
 
 import (
-	proto "Go-gRPC_Gateway/grpc"
+	proto "Go-gRPC_Gateway/grpc/task"
 	"context"
-	"fmt"
 	"log"
 	"time"
 
@@ -14,30 +13,37 @@ import (
 func main() {
 
 	//
-	address := "localhost:9000"
-	conn, err := grpc.Dial(address, grpc.WithTransportCredentials(insecure.NewCredentials()))	// Tạo kết nối đến server gRPC mà không sử dụng TLS (insecure)
-
+	address := "localhost:50051" // Địa chỉ của server gRPC mà client sẽ kết nối đến
+	conn, err := grpc.NewClient(address, 
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+	)	// Tạo kết nối đến server gRPC mà không sử dụng TLS (insecure)
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
-	defer conn.Close()
+	defer conn.Close() // Đảm bảo đóng kết nối khi hàm main kết thúc
 
-	c := proto.NewOrderServiceClient(conn)	// Tạo một client gRPC từ kết nối đã tạo, client này sẽ được sử dụng để gọi các phương thức của service OrderService
+	client := proto.NewTaskServiceClient(conn) // Tạo một client gRPC từ kết nối đã tạo
+	ctx, cancel := context.WithTimeout(context.Background(), 10 * time.Second)
+	defer cancel() // Đảm bảo hủy context khi hàm main kết thúc
 
-	ticker := time.NewTicker(2 * time.Second)	// Tạo một ticker để gửi yêu cầu mỗi 2 giây
-	defer ticker.Stop()
+	task := []struct{
+		title string
+		description string
+	}{
+		{"Task 1", "Description for Task 1"},
+		{"Task 2", "Description for Task 2"},
+		{"Task 3", "Description for Task 3"},
+	}
 
-	orderId := 1001
-	for range ticker.C { // Đây là cách tiện lợi để tạo vòng lặp vô hạn, mỗi 2 giây sẽ gửi một yêu cầu mới
-		 
-		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
-		r, err := c.NewOrder(ctx, &proto.NewOrderRequest{OrderRequest: fmt.Sprintf("%d", orderId)}) // Gửi yêu cầu NewOrder với orderId hiện tại
-		orderId++ // Tăng orderId lên 1 cho lần gửi tiếp theo
+	for _, t := range task {
+		resp, err := client.CreateTask(ctx, &proto.CreateTaskRequest{
+			Title: t.title,
+			Description: t.description,
+		})
 
 		if err != nil {
-			log.Fatalf("could not greet: %v", err)
+			log.Fatalf("could not create task: %v", err)
 		}
-		log.Printf("Order Response: %s", r.GetOrderResponse())
-		cancel() // Hủy context sau khi sử dụng xong để tránh rò rỉ bộ nhớ
+		log.Printf("Created task: %s - %s", resp.Id, resp.Title)
 	}
 }

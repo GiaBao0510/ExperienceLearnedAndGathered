@@ -17,6 +17,6 @@ message NewOrderRequest{
 }
 
 message NewOrderResponse{
-    string orderResponse = 2; // Thông báo phản hồi từ server
-    int32 id = 3; // ID của đơn hàng được tạo ra
+    string orderResponse = 1; // Thông báo phản hồi từ server
+    int32 id = 2; // ID của đơn hàng được tạo ra
 }
