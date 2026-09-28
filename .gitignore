@@ -279,3 +279,7 @@ GitHubVS.sln.DotSettings
 
 # custom ignore
 Go/GO_web/go_RealTime/vendor/
+
+# Private
+*.pem
+*.ppk
