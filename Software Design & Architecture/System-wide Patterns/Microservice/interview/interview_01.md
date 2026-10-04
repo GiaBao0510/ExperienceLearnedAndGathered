@@ -252,12 +252,10 @@ func main() {
 |Mỗi team phát triển có quy mô nhỏ hơn, dễ quản lý.|Vận hành và giám sát hệ thống mạng phức tạp hơn.|
 
 ### Mở rộng
-
 - Chi phí vận hành (operational overhead) của microservices so với monolith — nên cân nhắc khi hệ thống còn nhỏ.
 - Observability (logging, metrics, tracing) — công cụ giúp giảm bớt khó khăn khi giám sát hệ thống phân tán.
 
 ### Nguồn trích dẫn
-
 - Chris Richardson — [microservices.io — Pattern: Microservice architecture](https://microservices.io/patterns/microservices.html)
 
 ---

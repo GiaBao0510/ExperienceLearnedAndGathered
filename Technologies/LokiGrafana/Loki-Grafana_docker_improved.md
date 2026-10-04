@@ -224,10 +224,6 @@ volumes:
   grafana-data:
 ```
 
-> Bản gốc dùng `image: grafana/loki:latest` và `grafana/grafana:latest` — tag `latest` không ổn định cho môi trường thực và khó tái hiện lỗi khi debug. Đã đổi sang version cụ thể. Điều chỉnh sang version phù hợp với nhu cầu thực tế.
-
-> Bản gốc mount `./loki-config.yml` (đuôi `.yml`) nhưng file tạo ra là `loki-config.yaml` (đuôi `.yaml`) — mismatch tên file khiến Loki không đọc được config và báo lỗi. Đã thống nhất dùng `.yaml`.
-
 ---
 
 ### Bước 4: Khởi động Loki và Grafana
