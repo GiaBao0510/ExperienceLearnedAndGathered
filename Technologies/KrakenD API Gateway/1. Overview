@@ -1,0 +1,64 @@
+## Giới thiệu về KrakenD
+KrakenD là API gateway hiệu suất cao, mã nguồn mở, có thể khai báo và có thể mở rộng. Chức năng cốt lõi của KrakenD là tạo một API hoạt động như một aggregator của nhiều microservice thành các endpoint duy nhất, tự động thực hiện các công việc như aggregate, transform, filter, decode, throttle, auth…
+KrakenD không cần lập trình vì nó có cách khai báo để tạo các endpoint. Nó có cấu trúc và phân lớp tốt, đồng thời sẵn sàng mở rộng chức năng bằng cách sử dụng phần mềm trung gian plug-and-play do cộng đồng hoặc nội bộ phát triển.
+
+Khi consumer của API content (đặc biệt là trong microservice) truy vấn các backend service, việc triển khai gặp rất nhiều khó khăn và phức tạp với kích thước của các microservice response.
+
+KrakenD là một API Gateway nằm giữa client và tất cả các source server, thêm một layer mới giúp loại bỏ mọi sự phức tạp cho client, chỉ cung cấp cho chúng thông tin mà giao diện người dùng cần.
+
+KrakenD vượt xa các công cụ khác chỉ là proxy ngược và hoạt động như một công cụ tổng hợp nhiều nguồn, cho phép bạn sử dụng nhiều endpoint trong một lệnh gọi. Nó cho phép bạn thực hiện các thao tác như group, validate, wrap, transform & shrink requests và response. Ngoài ra, nó hỗ trợ vô số phần mềm trung gian và plugin cho phép bạn mở rộng chức năng, chẳng hạn như thêm OAuth2 authorization, security layer, circuit breaking, rate-limiting, kết nối, logging, metric, trace, v.v.
+
+Đặc trưng của KrakenD:
+
+Nhiều nguồn thông tin được tổng hợp thành một điểm trung tâm.
+Cho phép abstraction
+Rate limiting
+Cho phép các biện pháp bảo mật bao gồm circuit breakers, cross-site scripting(CORS)
+Hỗ trợ nhiều định dạng và giao thức mã hóa
+Xác thực bằng Oauth
+
+Một ví dụ thực tế
+Nhà phát triển mobile hoặc javascript cần xây dựng một trang chủ duy nhất yêu cầu dữ liệu từ một số lệnh gọi đến backend service của họ, ví dụ:
+
+- api.store.server/products
+- api.store.server/marketing-promos
+- api.users.server/users/{id_user}
+- api.users.server/shopping-cart/{id_user}
+Ứng dụng dành cho thiết bị di động cần truy xuất dữ liệu từ bốn source khác nhau này, ủy quyền cho từng service, đợi mỗi round trip và chỉ chọn một số trường (field) từ response (không cần response đầy đủ). Điều gì sẽ xảy ra nếu thay vì thực hiện các lệnh gọi này, mobile client có thể gọi một endpoint duy nhất tới KrakenD để nhận chính xác những gì nó cần?:
+
+`api.krakend.server/frontpage/{id_user} `
+
+Đây là những gì KrakenD có thể làm:
+
+![](https://techvccloud.mediacdn.vn/280518386289090560/2023/2/2/gioi-thieu-ve-krakend-1-1675330828279412770849.jpg)
+
+Với cách tiếp cận này, mobile client sẽ tự cô lập khỏi quá trình triển khai backend. Do đó, các backend không cần giải quyết một số mối quan tâm chung (authentication, rate-limiting, filtering malicious requests,...). Hơn nữa, bất cứ khi nào các backend thay đổi contract của chúng, API contract cho mobile client vẫn giữ nguyên và bạn có thể cập nhật gateway thông qua một thao tác thay đổi cấu hình đơn giản.
+
+Client trở nên nhanh hơn vì nó cần xử lý một HTTP connection duy nhất cho use case này và có sự khác biệt về kích thước giữa lượng dữ liệu do các backend tạo ra và dữ liệu cuối cùng được chuyển đến client.
+
+Vì KrakenD là khai báo và hướng GitOps, các nhà phát triển di động có thể cập nhật cấu hình. Không cần đợi nhóm phụ trợ/cơ sở hạ tầng thực hiện các thay đổi.
+
+Trong bối cảnh các microservice mọc lên như nấm ở khắp mọi nơi, nhu cầu thiết kế một API Gateway ổn định ngày một tăng cao. KrakenD tuyên bố là một API gateway mã nguồn mở hiệu suất cao và khả dụng cho tất cả các loại triển khai: on-premise, cloud và hybrid đã trở thành một nhân tố quan trọng trong cuộc chơi này. Hy vọng rằng trong tương lai KrakenD sẽ tiếp tục bổ sung thêm nhiều tính năng và hỗ trợ cộng đồng mạnh mẽ hơn nữa.
+
+---
+## KrakenD: API Gateway hiệu năng cực cao
+
+KrakenD là một Stateless API Gateway được viết bằng Go, nổi tiếng với khả năng xử lý hàng triệu yêu cầu mỗi giây với độ trễ cực thấp. Khác với các giải pháp khác, KrakenD không yêu cầu cơ sở dữ liệu để hoạt động, giúp giảm thiểu tối đa các điểm nghẽn hệ thống (SPOF). Nó đóng vai trò là 'người gác cổng', chịu trách nhiệm:
+
+- Hợp nhất dữ liệu từ nhiều backend (Aggregation).
+- Lọc và biến đổi dữ liệu (Transformation).
+- Áp dụng các chính sách bảo mật, giới hạn lưu lượng (Rate Limiting) và xác thực (Auth).
+
+---
+Binary krakend chính là CLI. Bạn xác thực cấu hình bằng lệnh check và chạy gateway bằng lệnh run. Vì nó là một binary Go duy nhất, việc cài đặt chỉ là một lần tải xuống.
+
+```
+# Xác thực và lint cấu hình của bạn trước khi triển khai
+krakend check -c krakend.json --lint
+
+# Chạy gateway với cấu hình đó
+krakend run -c krakend.json
+```
+
+Tính năng Cấu hình Linh hoạt (FC_ENABLE=1) cho phép bạn chia một cấu hình lớn thành các tệp mẫu với các biến, giúp bạn giữ môi trường "Khô ráo" (DRY). Tốt nhất cho: các gateway khai báo, không trạng thái, nơi tệp cấu hình là nguồn chân lý duy nhất. Giới hạn thực tế: không có tính năng lưu trữ cố định tích hợp hoặc giao diện người dùng quản trị trong CE; bạn tạo hành vi trong cấu hình thay vì nhấp vào các nút chuyển đổi, đây là một tính năng nếu bạn thích IaC và là một trở ngại nếu bạn không.
+
