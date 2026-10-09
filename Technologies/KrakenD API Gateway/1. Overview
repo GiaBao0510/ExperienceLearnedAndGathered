@@ -1,64 +1,206 @@
-## Giới thiệu về KrakenD
-KrakenD là API gateway hiệu suất cao, mã nguồn mở, có thể khai báo và có thể mở rộng. Chức năng cốt lõi của KrakenD là tạo một API hoạt động như một aggregator của nhiều microservice thành các endpoint duy nhất, tự động thực hiện các công việc như aggregate, transform, filter, decode, throttle, auth…
-KrakenD không cần lập trình vì nó có cách khai báo để tạo các endpoint. Nó có cấu trúc và phân lớp tốt, đồng thời sẵn sàng mở rộng chức năng bằng cách sử dụng phần mềm trung gian plug-and-play do cộng đồng hoặc nội bộ phát triển.
+# KrakenD API Gateway — Tổng Quan
 
-Khi consumer của API content (đặc biệt là trong microservice) truy vấn các backend service, việc triển khai gặp rất nhiều khó khăn và phức tạp với kích thước của các microservice response.
-
-KrakenD là một API Gateway nằm giữa client và tất cả các source server, thêm một layer mới giúp loại bỏ mọi sự phức tạp cho client, chỉ cung cấp cho chúng thông tin mà giao diện người dùng cần.
-
-KrakenD vượt xa các công cụ khác chỉ là proxy ngược và hoạt động như một công cụ tổng hợp nhiều nguồn, cho phép bạn sử dụng nhiều endpoint trong một lệnh gọi. Nó cho phép bạn thực hiện các thao tác như group, validate, wrap, transform & shrink requests và response. Ngoài ra, nó hỗ trợ vô số phần mềm trung gian và plugin cho phép bạn mở rộng chức năng, chẳng hạn như thêm OAuth2 authorization, security layer, circuit breaking, rate-limiting, kết nối, logging, metric, trace, v.v.
-
-Đặc trưng của KrakenD:
-
-Nhiều nguồn thông tin được tổng hợp thành một điểm trung tâm.
-Cho phép abstraction
-Rate limiting
-Cho phép các biện pháp bảo mật bao gồm circuit breakers, cross-site scripting(CORS)
-Hỗ trợ nhiều định dạng và giao thức mã hóa
-Xác thực bằng Oauth
-
-Một ví dụ thực tế
-Nhà phát triển mobile hoặc javascript cần xây dựng một trang chủ duy nhất yêu cầu dữ liệu từ một số lệnh gọi đến backend service của họ, ví dụ:
-
-- api.store.server/products
-- api.store.server/marketing-promos
-- api.users.server/users/{id_user}
-- api.users.server/shopping-cart/{id_user}
-Ứng dụng dành cho thiết bị di động cần truy xuất dữ liệu từ bốn source khác nhau này, ủy quyền cho từng service, đợi mỗi round trip và chỉ chọn một số trường (field) từ response (không cần response đầy đủ). Điều gì sẽ xảy ra nếu thay vì thực hiện các lệnh gọi này, mobile client có thể gọi một endpoint duy nhất tới KrakenD để nhận chính xác những gì nó cần?:
-
-`api.krakend.server/frontpage/{id_user} `
-
-Đây là những gì KrakenD có thể làm:
-
-![](https://techvccloud.mediacdn.vn/280518386289090560/2023/2/2/gioi-thieu-ve-krakend-1-1675330828279412770849.jpg)
-
-Với cách tiếp cận này, mobile client sẽ tự cô lập khỏi quá trình triển khai backend. Do đó, các backend không cần giải quyết một số mối quan tâm chung (authentication, rate-limiting, filtering malicious requests,...). Hơn nữa, bất cứ khi nào các backend thay đổi contract của chúng, API contract cho mobile client vẫn giữ nguyên và bạn có thể cập nhật gateway thông qua một thao tác thay đổi cấu hình đơn giản.
-
-Client trở nên nhanh hơn vì nó cần xử lý một HTTP connection duy nhất cho use case này và có sự khác biệt về kích thước giữa lượng dữ liệu do các backend tạo ra và dữ liệu cuối cùng được chuyển đến client.
-
-Vì KrakenD là khai báo và hướng GitOps, các nhà phát triển di động có thể cập nhật cấu hình. Không cần đợi nhóm phụ trợ/cơ sở hạ tầng thực hiện các thay đổi.
-
-Trong bối cảnh các microservice mọc lên như nấm ở khắp mọi nơi, nhu cầu thiết kế một API Gateway ổn định ngày một tăng cao. KrakenD tuyên bố là một API gateway mã nguồn mở hiệu suất cao và khả dụng cho tất cả các loại triển khai: on-premise, cloud và hybrid đã trở thành một nhân tố quan trọng trong cuộc chơi này. Hy vọng rằng trong tương lai KrakenD sẽ tiếp tục bổ sung thêm nhiều tính năng và hỗ trợ cộng đồng mạnh mẽ hơn nữa.
+## Mục lục
+- [KrakenD là gì?](#krakend-là-gì)
+- [Vấn đề KrakenD giải quyết](#vấn-đề-krakend-giải-quyết)
+- [Đặc trưng chính](#đặc-trưng-chính)
+- [Ví dụ thực tế: trang chủ ứng dụng mobile](#ví-dụ-thực-tế-trang-chủ-ứng-dụng-mobile)
+- [Cấu hình mẫu cho ví dụ trên](#cấu-hình-mẫu-cho-ví-dụ-trên)
+- [Hiệu năng và kiến trúc Stateless](#hiệu-năng-và-kiến-trúc-stateless)
+- [Sử dụng KrakenD qua CLI](#sử-dụng-krakend-qua-cli)
+- [Flexible Configuration](#flexible-configuration)
+- [Giới hạn cần biết](#giới-hạn-cần-biết)
+- [Mở rộng](#mở-rộng)
+- [Nguồn trích dẫn](#nguồn-trích-dẫn)
 
 ---
-## KrakenD: API Gateway hiệu năng cực cao
 
-KrakenD là một Stateless API Gateway được viết bằng Go, nổi tiếng với khả năng xử lý hàng triệu yêu cầu mỗi giây với độ trễ cực thấp. Khác với các giải pháp khác, KrakenD không yêu cầu cơ sở dữ liệu để hoạt động, giúp giảm thiểu tối đa các điểm nghẽn hệ thống (SPOF). Nó đóng vai trò là 'người gác cổng', chịu trách nhiệm:
+## KrakenD Là Gì?
 
-- Hợp nhất dữ liệu từ nhiều backend (Aggregation).
-- Lọc và biến đổi dữ liệu (Transformation).
-- Áp dụng các chính sách bảo mật, giới hạn lưu lượng (Rate Limiting) và xác thực (Auth).
+![](https://techvccloud.mediacdn.vn/280518386289090560/2023/2/2/tong-quan-ve-krakend-api-gateway-167533028210621958341-53-0-390-600-crop-1675330288583537698971.jpg)
+
+**KrakenD** là một **API Gateway** mã nguồn mở, hiệu năng cao, được viết bằng **Go**, hoạt động theo cách **khai báo (declarative)** và có thể mở rộng. Chức năng cốt lõi của KrakenD là biến nhiều microservice thành **các endpoint duy nhất** cho client, đồng thời tự động xử lý các việc như aggregate (tổng hợp), transform (biến đổi), filter (lọc), decode (giải mã), throttle (giới hạn tốc độ) và auth (xác thực).
+
+Bạn **không cần viết code** để tạo endpoint: mọi thứ được khai báo trong một file cấu hình. Kiến trúc của KrakenD được phân lớp rõ ràng và có thể mở rộng bằng các middleware/plugin kiểu "cắm là chạy" (plug-and-play), do cộng đồng hoặc chính đội của bạn phát triển.
 
 ---
-Binary krakend chính là CLI. Bạn xác thực cấu hình bằng lệnh check và chạy gateway bằng lệnh run. Vì nó là một binary Go duy nhất, việc cài đặt chỉ là một lần tải xuống.
 
+## Vấn Đề KrakenD Giải Quyết
+
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScqTzQm2OxEcWZsaBun0FttwtphgLg54GCBoFDRpqYXwSfWA6pNIFjA2z5&s=10)
+
+Trong kiến trúc microservices, khi client (đặc biệt là mobile hoặc JavaScript) cần dữ liệu, nó thường phải gọi **nhiều backend service**, và mỗi response lại chứa nhiều dữ liệu hơn mức giao diện cần. Việc client tự gọi từng service, tự chờ từng round trip và tự chọn lọc dữ liệu làm cho phía client trở nên phức tạp và chậm.
+
+KrakenD là một API Gateway đứng **giữa client và toàn bộ các backend**. Nó thêm một lớp mới để che giấu sự phức tạp đó khỏi client, và chỉ trả về đúng thông tin mà giao diện cần.
+
+KrakenD không chỉ là một **reverse proxy** (chỉ chuyển tiếp request tới backend). Nó còn là công cụ **tổng hợp nhiều nguồn**, cho phép gọi nhiều backend chỉ bằng một lệnh gọi từ client, đồng thời group, validate, wrap, transform và rút gọn (shrink) request/response. Ngoài ra, KrakenD hỗ trợ nhiều middleware và plugin để mở rộng, ví dụ: OAuth2, các lớp bảo mật, circuit breaking, rate limiting, kết nối, logging, metric, trace...
+
+---
+
+## Đặc Trưng Chính
+
+- **Aggregation**: tổng hợp dữ liệu từ nhiều nguồn thành một điểm truy cập duy nhất.
+- **Abstraction**: che giấu cấu trúc backend khỏi client. Client chỉ biết endpoint của gateway, nên backend đổi cấu trúc mà client không bị ảnh hưởng.
+- **Rate limiting**: giới hạn số request trong một khoảng thời gian.
+- **Bảo mật và khả năng chịu lỗi**: hỗ trợ **CORS** (*Cross-Origin Resource Sharing*, cơ chế kiểm soát việc trình duyệt cho phép trang web ở domain khác gọi API), **circuit breaker** (ngắt tạm thời lời gọi tới backend đang lỗi để tránh lỗi lan rộng), và xác thực.
+- **Nhiều định dạng dữ liệu và giao thức**: hỗ trợ các định dạng encoding khác nhau như JSON, XML...
+- **Xác thực OAuth2** và các cơ chế khác (JWT, API key, mTLS...).
+
+---
+
+## Ví Dụ Thực Tế: Trang Chủ Ứng Dụng Mobile
+
+Một lập trình viên mobile (hoặc JavaScript) cần xây dựng **một trang chủ duy nhất**, dữ liệu lấy từ bốn lệnh gọi tới các backend:
+
+- `api.store.server/products`
+- `api.store.server/marketing-promos`
+- `api.users.server/users/{id_user}`
+- `api.users.server/shopping-cart/{id_user}`
+
+Nếu không có gateway, ứng dụng mobile phải gọi **bốn nguồn khác nhau**, ủy quyền cho từng service, chờ từng round trip, rồi chỉ chọn lấy vài field cần thiết trong số các response đầy đủ.
+
+Nếu thay vào đó, mobile client chỉ cần gọi **một endpoint duy nhất** tới KrakenD để nhận đúng thứ nó cần:
+
+`api.krakend.server/frontpage/{id_user}`
+
+Đây là những gì KrakenD thực hiện:
+
+![Cách KrakenD tổng hợp nhiều backend](https://techvccloud.mediacdn.vn/280518386289090560/2023/2/2/gioi-thieu-ve-krakend-1-1675330828279412770849.jpg)
+
+Lợi ích của cách tiếp cận này:
+
+- **Client được cô lập khỏi backend**: các backend không cần tự xử lý những mối quan tâm chung (authentication, rate limiting, lọc request độc hại...), vì gateway làm thay.
+- **Contract ổn định**: khi backend đổi contract, API mà mobile client dùng vẫn giữ nguyên. Bạn chỉ cần cập nhật gateway bằng một thay đổi cấu hình.
+- **Client nhanh hơn**: chỉ cần xử lý **một kết nối HTTP** cho use case này, và dữ liệu cuối cùng gửi tới client nhỏ hơn nhiều so với tổng dữ liệu các backend tạo ra.
+- **Hợp với GitOps**: vì KrakenD dùng cấu hình khai báo, lập trình viên mobile có thể tự cập nhật cấu hình, không cần chờ đội backend/hạ tầng thực hiện thay đổi.
+
+---
+
+## Cấu Hình Mẫu Cho Ví Dụ Trên
+
+Dưới đây là cấu hình `krakend.json` rút gọn cho endpoint `/frontpage/{id_user}`. Mỗi `backend` là một lời gọi tới một service, và `group` gom kết quả của từng backend vào một khóa riêng trong response cuối.
+
+```json
+{
+  "$schema": "https://www.krakend.io/schema/krakend.json",
+  "version": 3,
+  "endpoints": [
+    {
+      "endpoint": "/frontpage/{id_user}",
+      "method": "GET",
+      "output_encoding": "json",
+      "extra_config": {
+        "qos/ratelimit/router": {
+          "max_rate": 100,
+          "client_max_rate": 10,
+          "strategy": "ip"
+        }
+      },
+      "backend": [
+        {
+          "host": ["http://api.store.server"],
+          "url_pattern": "/products",
+          "group": "products"
+        },
+        {
+          "host": ["http://api.store.server"],
+          "url_pattern": "/marketing-promos",
+          "group": "promos"
+        },
+        {
+          "host": ["http://api.users.server"],
+          "url_pattern": "/users/{id_user}",
+          "group": "user",
+          "allow": ["id", "name", "avatar"]
+        },
+        {
+          "host": ["http://api.users.server"],
+          "url_pattern": "/shopping-cart/{id_user}",
+          "group": "cart"
+        }
+      ]
+    }
+  ]
+}
 ```
-# Xác thực và lint cấu hình của bạn trước khi triển khai
+
+Giải thích các điểm chính (để hiểu *tại sao* cấu hình như vậy, không chỉ cách viết):
+
+- `{id_user}` ở `endpoint` được KrakenD truyền xuống `url_pattern` của các backend. Nhờ vậy client chỉ gửi **một** request mà gateway tự gọi đúng bốn backend.
+- `group` tránh việc các field của bốn response bị trộn lẫn hoặc ghi đè lên nhau.
+- `allow` là danh sách field được giữ lại (whitelist). Nhờ đó response gửi tới client nhỏ hơn: bạn chỉ lấy `id`, `name`, `avatar` của user thay vì toàn bộ hồ sơ.
+- `qos/ratelimit/router` giới hạn tối đa 100 request/giây cho toàn endpoint và 10 request/giây cho mỗi địa chỉ IP, để backend không phải tự xử lý việc này.
+
+> **Lưu ý**: đây là ví dụ rút gọn để minh họa khái niệm. Nếu một backend trả về **mảng JSON** (ví dụ `/products`) thay vì object, bạn cần khai báo thêm `"is_collection": true` cho backend đó. Hãy tham khảo tài liệu chính thức và chạy `krakend check` để kiểm tra cấu hình trước khi dùng thật.
+
+---
+
+## Hiệu Năng Và Kiến Trúc Stateless
+
+KrakenD là một **Stateless API Gateway**: nó đọc toàn bộ cấu hình từ một file khi khởi động và **không cần cơ sở dữ liệu** để hoạt động. Điều này mang lại hai lợi ích:
+
+- **Không có điểm lỗi duy nhất (SPOF — Single Point of Failure) ở tầng dữ liệu**: không có database hay cụm lưu trữ trung tâm mà nếu hỏng sẽ làm sập cả gateway.
+- **Mở rộng ngang dễ dàng**: các instance độc lập với nhau, nên thêm instance là tăng thêm năng lực xử lý, không cần đồng bộ trạng thái giữa chúng.
+
+KrakenD đóng vai trò "người gác cổng", chịu trách nhiệm:
+
+- **Aggregation**: hợp nhất dữ liệu từ nhiều backend.
+- **Transformation**: lọc và biến đổi dữ liệu.
+- **Chính sách bảo mật**: rate limiting và xác thực (auth).
+
+> **Về các con số hiệu năng**: KrakenD thường được quảng bá là có độ trễ rất thấp và thông lượng cao. Các số liệu chính thức mà nhà phát triển KrakenD công bố gồm khoảng **18.000 request/giây trên một chiếc laptop MacBook Pro đời 2015**, và con số khoảng **70.000 request/giây trên một instance** trên trang giới thiệu của họ. Tuy nhiên, đây là các benchmark do **chính nhà cung cấp** thực hiện, trên phần cứng và kịch bản cụ thể; một số benchmark so sánh với các gateway khác đã khá cũ (khoảng 10 năm trước). Kết quả thực tế của bạn sẽ phụ thuộc vào phần cứng, số backend được tổng hợp, plugin đang bật và độ trễ của chính các backend. Hãy tự đo trên hệ thống của mình trước khi ra quyết định.
+
+---
+
+## Sử Dụng KrakenD Qua CLI
+
+Binary `krakend` chính là công cụ dòng lệnh (CLI). Vì nó là **một file binary Go duy nhất**, việc cài đặt chỉ là tải về một lần. Hai lệnh bạn dùng thường xuyên nhất:
+
+```bash
+# Xác thực và lint cấu hình trước khi triển khai
 krakend check -c krakend.json --lint
 
 # Chạy gateway với cấu hình đó
 krakend run -c krakend.json
 ```
 
-Tính năng Cấu hình Linh hoạt (FC_ENABLE=1) cho phép bạn chia một cấu hình lớn thành các tệp mẫu với các biến, giúp bạn giữ môi trường "Khô ráo" (DRY). Tốt nhất cho: các gateway khai báo, không trạng thái, nơi tệp cấu hình là nguồn chân lý duy nhất. Giới hạn thực tế: không có tính năng lưu trữ cố định tích hợp hoặc giao diện người dùng quản trị trong CE; bạn tạo hành vi trong cấu hình thay vì nhấp vào các nút chuyển đổi, đây là một tính năng nếu bạn thích IaC và là một trở ngại nếu bạn không.
+Nên chạy `check` trước `run` (và đưa vào pipeline CI) để phát hiện lỗi cấu hình sớm, thay vì phát hiện khi gateway đã chạy.
 
+---
+
+## Flexible Configuration
+
+Khi cấu hình lớn dần, một file `krakend.json` duy nhất sẽ khó quản lý. **Flexible Configuration (FC)** cho phép bạn chia cấu hình thành các **file template** dùng biến, để không lặp lại nội dung giống nhau. Nguyên tắc này gọi là **DRY** (*Don't Repeat Yourself* — đừng lặp lại chính mình). Bạn bật tính năng này bằng biến môi trường `FC_ENABLE=1`.
+
+**Phù hợp nhất với**: các gateway khai báo, không trạng thái, nơi **file cấu hình là nguồn chân lý duy nhất** (single source of truth).
+
+---
+
+## Giới Hạn Cần Biết
+
+Bản **Community Edition (CE)** của KrakenD *không* có sẵn:
+
+- Cơ chế lưu trữ cố định (persistence) tích hợp.
+- Giao diện quản trị (admin UI).
+
+Hành vi của gateway được tạo ra bằng cấu hình chứ không phải bằng cách bấm nút chuyển đổi trên giao diện. Đây là **ưu điểm** nếu bạn ưa chuộng IaC (Infrastructure as Code — quản lý hạ tầng bằng code) và GitOps. Nó là **trở ngại** nếu đội của bạn quen thao tác qua giao diện hoặc cần người không rành kỹ thuật tự thay đổi cấu hình.
+
+---
+
+## Mở Rộng
+
+Sau khi nắm tổng quan về KrakenD, bạn có thể tìm hiểu thêm:
+
+- **Backend for Frontend (BFF)**: mẫu thiết kế mà KrakenD thường được dùng để hiện thực, tạo một API riêng cho từng loại client (mobile, web).
+- **So sánh KrakenD với Kong, Tyk, APISIX**: đặc biệt khác biệt giữa gateway không cần database (KrakenD) và gateway lưu cấu hình trong database (Kong Traditional Mode).
+- **Lura Project**: framework mã nguồn mở nằm bên dưới KrakenD, dùng để tự xây dựng gateway riêng bằng Go.
+- **Plugin và middleware tùy biến**: cách mở rộng KrakenD cho nhu cầu riêng.
+- **Circuit Breaker và Rate Limiting nâng cao**: tinh chỉnh khả năng chịu lỗi ở tầng gateway.
+- **GitOps cho API Gateway**: đưa cấu hình `krakend.json` vào Git và pipeline CI/CD.
+
+## Nguồn Trích Dẫn
+
+- KrakenD — [Trang chủ chính thức](https://www.krakend.io/)
+- KrakenD — [Benchmarks và hiệu năng](https://www.krakend.io/docs/benchmarks/)
+- KrakenD — [Benchmark trên máy local](https://www.krakend.io/docs/benchmarks/local/)
+- OneUptime — [How to Deploy KrakenD API Gateway for High-Performance API Aggregation](https://oneuptime.com/blog/post/2026-02-09-krakend-api-gateway-aggregation/view)
