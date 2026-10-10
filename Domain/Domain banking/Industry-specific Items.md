@@ -1,0 +1,9 @@
+- CIF/khách hàng
+- tài khoản (thanh toán, tiết kiệm)
+- giao dịch
+- sổ cái (GL)
+- bút toán kép
+-  hạch toán
+-  đối soát (reconciliation)
+-  tất toán
+-  lãi suất.
