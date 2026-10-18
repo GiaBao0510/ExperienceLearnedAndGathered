@@ -279,6 +279,7 @@ GitHubVS.sln.DotSettings
 
 # custom ignore
 Go/GO_web/go_RealTime/vendor/
+#./Cloud\AWS/SolutionArchitect-SAA-C03/aws-certified-solutions-architect-associate-saa-c03
 
 # Private
 *.pem
