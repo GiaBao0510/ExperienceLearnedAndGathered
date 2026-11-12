@@ -1,0 +1,203 @@
+# 6.1 Introduction
+
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa4Gd-cTvpBa9uUPGC4Ta6COxKh_8MUrMUQY0t76YERDHFTM7RE9SgPjw&s=10)
+
+Có hàng ngàn lệnh với vô số tùy chọn, biến dòng lệnh (command line) thành một công cụ đầy mạnh mẽ. Tuy nhiên, đi đôi với sức mạnh đó là sự phức tạp, và chính sự phức tạp này có thể gây ra bối rối. Vì vậy, biết cách tìm kiếm sự trợ giúp khi làm việc trong Linux là một kỹ năng thiết yếu đối với bất kỳ người dùng nào. Việc tham khảo các tài liệu trợ giúp không chỉ giúp nhắc lại nhanh cách thức hoạt động của một lệnh, mà còn đóng vai trò là nguồn thông tin hữu ích khi bạn học các lệnh mới.
+
+# 6.2 Man Pages
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-12-11-21-14-18.png)
+
+UNIX là hệ điều hành mà Linux được xây dựng dựa trên đó. Các nhà phát triển UNIX đã tạo ra những tài liệu trợ giúp được gọi là "man page" (viết tắt của "manual page" – trang hướng dẫn).
+
+Các "man page" được dùng để mô tả các tính năng của các lệnh. Chúng cung cấp thông tin cơ bản về mục đích của lệnh, cũng như các chi tiết liên quan đến những tùy chọn khả dụng.
+
+### 6.2.1 Viewing Man Pages
+
+Để xem trang hướng dẫn (man page) cho một lệnh, hãy sử dụng lệnh `man`:
+
+```
+man command
+```
+
+Ví dụ, lệnh dưới đây hiển thị trang hướng dẫn cho lệnh `ls`:
+
+```shell
+sysadmin@localhost:~$ man ls
+```
+
+Di chuyển trong tài liệu bằng các phím mũi tên:
+```
+LS(1)                            User Commands                           LS(1)  
+                                                                                
+NAME                                                                            
+       ls - list directory contents                                             
+                                                                                
+SYNOPSIS                                                                        
+       ls [OPTION]... [FILE]...                                                 
+                                                                                
+DESCRIPTION                                                                     
+       List  information  about  the FILEs (the current directory by default).  
+       Sort entries alphabetically if none of -cftuvSUX nor --sort  is  speci-  
+       fied.                                                                    
+                                                                                
+       Mandatory  arguments  to  long  options are mandatory for short options  
+       too.                                                                     
+                                                                                
+       -a, --all                                                                
+              do not ignore entries starting with .                             
+                                                                                
+       -A, --almost-all                                                         
+              do not list implied . and ..                                      
+                                                                                
+       --author     
+```
+
+Để thoát khỏi giao diện xem trang hướng dẫn (man page), hãy nhấn phím **Q**.
+
+> Lưu ý
+> 
+> Lệnh `man` sử dụng một chương trình hiển thị văn bản (pager) để trình bày tài liệu. Thông thường, chương trình này là `less`, nhưng trên một số bản phân phối, nó có thể là `more`. Cả hai chương trình này đều có cách thức hoạt động khá tương đồng.
+>
+> Để xem các lệnh điều hướng khả dụng, hãy nhấn phím H trong khi đang xem trang hướng dẫn. Thao tác này sẽ hiển thị một trang trợ giúp.
+
+### 6.2.2 Sections Within Man Pages
+
+Các trang hướng dẫn (man pages) được chia thành nhiều phần. Mỗi phần được thiết kế để cung cấp thông tin cụ thể về một lệnh. Mặc dù có những phần phổ biến xuất hiện trong hầu hết các trang hướng dẫn, một số nhà phát triển cũng tạo ra các phần chỉ có trong một số trang hướng dẫn nhất định.
+
+Dưới đây là mô tả về một số phần phổ biến thường thấy trong các trang hướng dẫn:
+
+**NAME - TÊN**
+
+Cung cấp tên của lệnh cùng với một mô tả rất ngắn gọn.
+
+```
+NAME                                                                            
+       ls - list directory contents  
+```
+
+**SYNOPSIS - TÓM TẮT**
+
+Cung cấp các ví dụ về cách thực thi lệnh.
+```
+SYNOPSIS                                                                        
+       ls [OPTION]... [FILE]...    
+```
+
+Phần SYNOPSIS (tóm tắt cú pháp) trong một trang hướng dẫn (man page) có thể gây khó hiểu, nhưng lại vô cùng quan trọng vì nó cung cấp ví dụ súc tích về cách sử dụng lệnh đó. Chẳng hạn, hãy xem phần SYNOPSIS trong trang hướng dẫn của lệnh `cal`:
+```
+SYNOPSIS 
+     cal [-31jy] [-A number] [-B number] [-d yyyy-mm] [[month] year] 
+```
+
+Các dấu ngoặc vuông [ ] được sử dụng để biểu thị rằng thành phần đó không bắt buộc phải có khi chạy lệnh. Ví dụ, [-31jy] có nghĩa là các tùy chọn -3, -1, -j hoặc -y có thể được sử dụng, nhưng không bắt buộc để lệnh `cal` hoạt động bình thường.
+
+Nhóm dấu ngoặc vuông cuối cùng [[month] year] thể hiện một đặc điểm khác; điều này có nghĩa là bạn có thể chỉ định riêng năm, nhưng nếu muốn chỉ định tháng thì bắt buộc phải chỉ định cả năm.
+
+Một thành phần khác trong phần TÓM TẮT CÚ PHÁP (SYNOPSIS) có thể gây nhầm lẫn xuất hiện trong trang hướng dẫn (man page) của lệnh `date`:
+```
+SYNOPSIS                                                              
+       date [OPTION]... [+FORMAT]                                      
+       date [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]
+```
+
+Trong phần TÓM TẮT (SYNOPSIS) này, lệnh `date` có hai cú pháp. Cú pháp thứ nhất được dùng để hiển thị ngày giờ trên hệ thống, trong khi cú pháp thứ hai được dùng để thiết lập ngày giờ.
+
+Dấu ba chấm (...) theo sau `[OPTION]` biểu thị rằng một hoặc nhiều mục đứng trước nó có thể được sử dụng.
+
+Ngoài ra, ký hiệu `[-u|--utc|--universal]` có nghĩa là bạn có thể chọn sử dụng một trong các tùy chọn: `-u`, `--utc` hoặc `--universal`. Thông thường, điều này cho thấy cả ba tùy chọn đều thực hiện cùng một chức năng; tuy nhiên, đôi khi ký tự `|` còn được dùng để chỉ ra rằng các tùy chọn này không thể kết hợp với nhau, tương tự như phép toán logic “hoặc” (OR).
+
+**DESCRIPTION - MÔ TẢ**
+
+Cung cấp thông tin chi tiết hơn về lệnh này.
+```
+DESCRIPTION  
+       List  information  about  the FILEs (the current directory by default).  
+       Sort entries alphabetically if none of -cftuvSUX nor --sort  is  speci-  
+       fied. 
+```
+
+**OPTIONS - CÁC TÙY CHỌN**
+
+Liệt kê các tùy chọn cho lệnh cùng với mô tả về cách sử dụng chúng. Thông tin này thường nằm trong phần MÔ TẢ (DESCRIPTION) thay vì một phần TÙY CHỌN (OPTIONS) riêng biệt.
+```
+-a, --all                                                                
+              do not ignore entries starting with .  
+ 
+       -A, --almost-all                                                         
+              do not list implied . and ..                                      
+                                                                                
+       --author                                                                 
+              with -l, print the author of each file                            
+                                                                                
+       -b, --escape                                                             
+              print C-style escapes for nongraphic characters                   
+                                                                                
+       --block-size=SIZE                                                        
+              scale sizes by SIZE before printing them; e.g., '--block-size=M'  
+              prints sizes in units of 1,048,576 bytes; see SIZE format below  
+```
+
+**FILES (Tệp tin)**
+
+Liệt kê các tệp tin liên quan đến lệnh, kèm theo mô tả về cách sử dụng chúng. Những tệp tin này có thể được dùng để cấu hình các tính năng nâng cao của lệnh. Thông thường, thông tin này nằm trong phần DESCRIPTION (Mô tả) thay vì một mục FILES riêng biệt.
+
+**AUTHOR (Tác giả)**
+
+Cung cấp tên của người đã tạo ra trang hướng dẫn (man page) và (đôi khi) thông tin liên hệ của người đó.
+```
+AUTHOR                                                                          
+       Written by Richard M. Stallman and David MacKenzie.
+```
+
+**REPORTING BUGS - BÁO CÁO LỖI**
+
+Cung cấp thông tin chi tiết về cách báo cáo các vấn đề liên quan đến lệnh này.
+
+**COPYRIGHT - BẢN QUYỀN**
+
+Cung cấp thông tin cơ bản về bản quyền.
+```
+COPYRIGHT                                                                       
+       Copyright (C) 2017 Free Software Foundation, Inc.  License GPLv3+:  GNU  
+       GPL version 3 or later <http://gnu.org/licenses/gpl.html>.               
+       This  is  free  software:  you  are free to change and redistribute it.  
+       There is NO WARRANTY, to the extent permitted by law.   
+```
+
+**SEE ALSO - XEM THÊM**
+
+Cung cấp cho bạn thông tin về nơi có thể tìm thấy các nội dung bổ sung. Phần này thường bao gồm các lệnh khác có liên quan đến lệnh hiện tại.
+```
+SEE ALSO                                                                        
+       Full documentation at: <http://www.gnu.org/software/coreutils/ls>        
+       or available locally via: info '(coreutils) ls invocation'  
+
+ Ubuntu PC
+```
+
+### 6.2.3 Searching Man Pages
+
+ Để tìm kiếm một thuật ngữ trong trang hướng dẫn (man page), hãy nhập ký tự `/` theo sau là thuật ngữ cần tìm, rồi nhấn phím **Enter**. Chương trình sẽ thực hiện tìm kiếm từ vị trí hiện tại xuống phía cuối trang để xác định và làm nổi bật thuật ngữ đó.
+
+Nếu tìm thấy kết quả khớp, thuật ngữ đó sẽ được làm nổi bật. Để di chuyển đến kết quả khớp tiếp theo, hãy nhấn phím `n`. Để quay lại kết quả khớp trước đó, hãy nhấn tổ hợp phím `Shift+N`. Nếu không tìm thấy thuật ngữ, hoặc khi đã duyệt qua tất cả các kết quả khớp, chương trình sẽ hiển thị thông báo "Pattern not found" (yêu cầu nhấn phím Return).
+
+![](https://ndg-content-dev.s3.amazonaws.com/media/images/linux-essentials-v2/LEv2_6_1.gif)
+
+### 6.2.4 Man Pages Categorized by Sections
+
+```shell
+```
+
+```shell
+```
+
+```shell
+```
+
+```shell
+```
+
+```shell
+```
+
